@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Primary Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog - Kept</title>
+<meta name="description" content="Guides, comparisons, and insights on managing AI conversations across ChatGPT, Claude, and Gemini. From the team building Kept.">
+<link rel="canonical" href="https://kept.sh/blog/">
+<meta name="robots" content="index, follow">
+<meta name="author" content="E-Group Labs">
+<meta name="theme-color" content="#09090b">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Blog - Kept">
+<meta property="og:description" content="Guides, comparisons, and insights on managing AI conversations across ChatGPT, Claude, and Gemini.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kept.sh/blog/">
+<meta property="og:image" content="https://kept.sh/og-image.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog - Kept">
+<meta name="twitter:description" content="Guides, comparisons, and insights on managing AI conversations across ChatGPT, Claude, and Gemini.">
+<meta name="twitter:image" content="https://kept.sh/og-image.png">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --c0: #09090b;
+  --c1: #18181b;
+  --c2: #3f3f46;
+  --c3: #71717a;
+  --c4: #a1a1aa;
+  --c5: #e4e4e7;
+  --c6: #f4f4f5;
+  --cw: #fafafa;
+  --white: #ffffff;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', 'SF Mono', monospace;
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 20px;
+  --s6: 24px; --s7: 32px; --s8: 40px; --s9: 48px; --s10: 64px;
+  --s11: 80px; --s12: 120px;
+  --r: 8px;
+  --max: 1060px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--sans); color: var(--c1); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+::selection { background: var(--c0); color: var(--white); }
+
+.w { max-width: var(--max); margin: 0 auto; padding: 0 var(--s9); }
+@media (max-width: 768px) { .w { padding: 0 var(--s6); } }
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 56px; display: flex; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--c5); }
+nav .w { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.nav-mark { font-family: var(--sans); font-weight: 600; font-size: 0.9rem; color: var(--c0); text-decoration: none; letter-spacing: -0.03em; }
+.nav-r { display: flex; align-items: center; gap: var(--s7); }
+.nav-r a { font-size: 0.82rem; color: var(--c3); text-decoration: none; transition: color 0.15s; }
+.nav-r a:hover { color: var(--c0); }
+
+.btn { display: inline-flex; align-items: center; gap: var(--s2); font-family: var(--sans); font-size: 0.82rem; font-weight: 500; padding: var(--s2) var(--s4); border-radius: var(--r); text-decoration: none; transition: all 0.15s; letter-spacing: -0.01em; cursor: pointer; border: none; }
+.btn-p { color: var(--white); background: var(--c0); }
+.btn-p:hover { background: var(--c2); }
+
+.label { font-family: var(--mono); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s5); }
+.line { height: 1px; background: var(--c5); }
+
+/* Blog header */
+.blog-header { padding: 140px 0 var(--s10); }
+.blog-header h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(2.2rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -0.03em; color: var(--c0); }
+.blog-header h1 em { font-style: italic; color: var(--c4); }
+.blog-header-sub { font-size: 1rem; font-weight: 300; line-height: 1.65; color: var(--c3); max-width: 480px; margin-top: var(--s5); }
+
+/* Post list */
+.post-list { padding: var(--s10) 0 var(--s12); }
+.post-item { display: grid; grid-template-columns: 1fr auto; gap: var(--s8); padding: var(--s7) 0; border-top: 1px solid var(--c5); align-items: baseline; }
+.post-item:last-child { border-bottom: 1px solid var(--c5); }
+.post-item:hover .post-title { color: var(--c2); }
+.post-link { text-decoration: none; display: contents; }
+.post-tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s2); }
+.post-title { font-family: var(--serif); font-size: 1.4rem; letter-spacing: -0.02em; color: var(--c0); line-height: 1.25; transition: color 0.15s; }
+.post-excerpt { font-size: 0.88rem; font-weight: 300; line-height: 1.6; color: var(--c3); max-width: 560px; margin-top: var(--s2); }
+.post-meta { font-family: var(--mono); font-size: 0.68rem; color: var(--c4); white-space: nowrap; letter-spacing: 0.02em; }
+
+/* CTA */
+.blog-cta { text-align: center; padding: var(--s12) 0; }
+.blog-cta h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 400; line-height: 1.15; letter-spacing: -0.02em; color: var(--c0); margin-bottom: var(--s4); }
+.blog-cta h2 em { font-style: italic; color: var(--c4); }
+.blog-cta-sub { font-size: 0.95rem; font-weight: 300; color: var(--c3); margin-bottom: var(--s7); }
+
+footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; justify-content: space-between; align-items: center; }
+.foot-l { font-family: var(--mono); font-size: 0.7rem; color: var(--c4); }
+.foot-r { display: flex; gap: var(--s6); }
+.foot-r a { font-size: 0.8rem; color: var(--c4); text-decoration: none; transition: color 0.15s; }
+.foot-r a:hover { color: var(--c0); }
+
+@keyframes up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+.rv { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.rv.v { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+  .blog-header { padding-top: 120px; }
+  .post-item { grid-template-columns: 1fr; gap: var(--s2); }
+  .nav-r a:not(.btn) { display: none; }
+  footer { flex-direction: column; gap: var(--s6); text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav><div class="w">
+  <a href="/" class="nav-mark">Kept</a>
+  <div class="nav-r">
+    <a href="/">Home</a>
+    <a href="/blog/" style="color:var(--c0);">Blog</a>
+    <a href="/#go" class="btn btn-p">Join waitlist</a>
+  </div>
+</div></nav>
+
+<section class="blog-header"><div class="w">
+  <p class="label">Blog</p>
+  <h1>Guides, comparisons, <em>and insights.</em></h1>
+  <p class="blog-header-sub">How to get more from your AI conversations. From the team building Kept.</p>
+</div></section>
+
+<div class="w"><div class="line"></div></div>
+
+<section class="post-list"><div class="w">
+
+  <a href="/blog/search-across-ai-conversations/" class="post-link">
+    <div class="post-item rv">
+      <div>
+        <p class="post-tag">Guide</p>
+        <h2 class="post-title">How to Search Across All Your AI Conversations</h2>
+        <p class="post-excerpt">You use ChatGPT, Claude, and Gemini daily. But you can't search across all of them. Here's why that gap exists, and how to solve it.</p>
+      </div>
+      <span class="post-meta">Week 1</span>
+    </div>
+  </a>
+
+  <a href="/blog/transfer-context-chatgpt-claude/" class="post-link">
+    <div class="post-item rv">
+      <div>
+        <p class="post-tag">Guide</p>
+        <h2 class="post-title">How to Transfer Context Between ChatGPT and Claude</h2>
+        <p class="post-excerpt">You built 30 messages of context in ChatGPT and now want Claude's take. Here are the current manual methods and an automatic alternative.</p>
+      </div>
+      <span class="post-meta">Week 2</span>
+    </div>
+  </a>
+
+  <a href="/blog/kept-vs-echoes-vs-chatgpt-exporter/" class="post-link">
+    <div class="post-item rv">
+      <div>
+        <p class="post-tag">Comparison</p>
+        <h2 class="post-title">Kept vs Echoes vs ChatGPT Exporter: Compared</h2>
+        <p class="post-excerpt">Export tools, conversation managers, and knowledge platforms. Three approaches to managing AI conversations. Which one fits your workflow?</p>
+      </div>
+      <span class="post-meta">Week 3</span>
+    </div>
+  </a>
+
+</div></section>
+
+<div class="w"><div class="line"></div></div>
+
+<section class="blog-cta"><div class="w rv">
+  <h2>Your conversations. <em>Kept.</em></h2>
+  <p class="blog-cta-sub">Join the beta for early access to the desktop app and Chrome extension.</p>
+  <a href="/#go" class="btn btn-p">Join the waitlist <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</div></section>
+
+<div class="w"><footer>
+  <span class="foot-l">Kept &mdash; An E-Group Labs product &mdash; 2026</span>
+  <div class="foot-r"><a href="#">GitHub</a><a href="#">Docs</a><a href="#">Privacy</a></div>
+</footer></div>
+
+<script>
+const o = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); o.unobserve(e.target); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -32px 0px' });
+document.querySelectorAll('.rv').forEach(el => o.observe(el));
+</script>
+</body>
+</html>
