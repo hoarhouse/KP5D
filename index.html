@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Primary Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kept - Search, share, and carry context across ChatGPT, Claude, and Gemini</title>
+<meta name="description" content="Open source desktop app that captures AI conversations from ChatGPT, Claude, and Gemini. Search across platforms, transfer context between LLMs, and extract a knowledge graph. Local-first, 5MB, MIT licensed.">
+<meta name="keywords" content="AI conversation manager, ChatGPT conversation search, export Claude conversations, transfer context between AI, cross-platform AI tool, knowledge graph, local-first, open source">
+<link rel="canonical" href="https://kept.sh/">
+<meta name="robots" content="index, follow">
+<meta name="author" content="E-Group Labs">
+<meta name="theme-color" content="#09090b">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<!-- Open Graph (Facebook, LinkedIn, Slack previews) -->
+<meta property="og:title" content="Kept - Your AI conversations, kept.">
+<meta property="og:description" content="Search across ChatGPT, Claude, and Gemini. Transfer context between platforms. Extract a knowledge graph. All local, all yours.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kept.sh/">
+<meta property="og:image" content="https://kept.sh/og-image.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kept - Your AI conversations, kept.">
+<meta name="twitter:description" content="Search across ChatGPT, Claude, and Gemini. Transfer context between LLMs. Knowledge graph extraction. Open source, local-first.">
+<meta name="twitter:image" content="https://kept.sh/og-image.png">
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Kept",
+  "url": "https://kept.sh",
+  "description": "Open source desktop app and Chrome extension that captures AI conversations from ChatGPT, Claude, and Gemini. Indexes locally, extracts knowledge graphs, and enables context transfer between platforms.",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Windows, Linux, macOS (planned)",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "E-Group Labs",
+    "url": "https://egroup.hu"
+  },
+  "license": "https://opensource.org/licenses/MIT",
+  "softwareVersion": "beta",
+  "datePublished": "2026-03",
+  "keywords": "AI conversation manager, ChatGPT search, Claude export, cross-platform AI, knowledge graph, context transfer"
+}
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --c0: #09090b;
+  --c1: #18181b;
+  --c2: #3f3f46;
+  --c3: #71717a;
+  --c4: #a1a1aa;
+  --c5: #e4e4e7;
+  --c6: #f4f4f5;
+  --cw: #fafafa;
+  --white: #ffffff;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', 'SF Mono', monospace;
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 20px;
+  --s6: 24px; --s7: 32px; --s8: 40px; --s9: 48px; --s10: 64px;
+  --s11: 80px; --s12: 120px;
+  --r: 8px;
+  --max: 1060px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--sans); color: var(--c1); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+::selection { background: var(--c0); color: var(--white); }
+
+.w { max-width: var(--max); margin: 0 auto; padding: 0 var(--s9); }
+@media (max-width: 768px) { .w { padding: 0 var(--s6); } }
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 56px; display: flex; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--c5); }
+nav .w { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.nav-mark { font-family: var(--sans); font-weight: 600; font-size: 0.9rem; color: var(--c0); text-decoration: none; letter-spacing: -0.03em; }
+.nav-r { display: flex; align-items: center; gap: var(--s7); }
+.nav-r a { font-size: 0.82rem; color: var(--c3); text-decoration: none; transition: color 0.15s; }
+.nav-r a:hover { color: var(--c0); }
+
+.btn { display: inline-flex; align-items: center; gap: var(--s2); font-family: var(--sans); font-size: 0.82rem; font-weight: 500; padding: var(--s2) var(--s4); border-radius: var(--r); text-decoration: none; transition: all 0.15s; letter-spacing: -0.01em; cursor: pointer; border: none; }
+.btn-p { color: var(--white); background: var(--c0); }
+.btn-p:hover { background: var(--c2); }
+.btn-s { color: var(--c2); background: transparent; border: 1px solid var(--c5); }
+.btn-s:hover { border-color: var(--c4); color: var(--c0); }
+.btn-l { font-size: 0.88rem; padding: var(--s3) var(--s6); }
+
+.hero { padding: 160px 0 var(--s12); }
+.hero-badge { display: inline-flex; align-items: center; gap: var(--s2); font-family: var(--mono); font-size: 0.7rem; color: var(--c4); letter-spacing: 0.03em; padding: var(--s1) var(--s3); border: 1px solid var(--c5); border-radius: var(--r); margin-bottom: var(--s8); opacity: 0; animation: up .7s .1s forwards; }
+.hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(2.8rem, 5.5vw, 4.2rem); line-height: 1.08; letter-spacing: -0.03em; color: var(--c0); max-width: 680px; opacity: 0; animation: up .7s .2s forwards; }
+.hero h1 em { font-style: italic; color: var(--c4); }
+.hero-sub { font-size: 1.05rem; font-weight: 300; line-height: 1.65; color: var(--c3); max-width: 480px; margin-top: var(--s6); opacity: 0; animation: up .7s .35s forwards; }
+.hero-actions { display: flex; gap: var(--s3); margin-top: var(--s8); opacity: 0; animation: up .7s .5s forwards; }
+.hero-meta { font-family: var(--mono); font-size: 0.7rem; color: var(--c4); letter-spacing: 0.02em; margin-top: var(--s6); opacity: 0; animation: up .7s .6s forwards; }
+
+.sec { padding: var(--s12) 0; }
+.sec-sm { padding: var(--s11) 0; }
+.label { font-family: var(--mono); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s5); }
+.heading { font-family: var(--serif); font-size: clamp(1.9rem, 3.2vw, 2.5rem); font-weight: 400; line-height: 1.15; letter-spacing: -0.025em; color: var(--c0); max-width: 540px; }
+.heading em { font-style: italic; color: var(--c4); }
+.desc { font-size: 1rem; font-weight: 300; line-height: 1.7; color: var(--c3); max-width: 500px; margin-top: var(--s5); }
+.line { height: 1px; background: var(--c5); }
+
+/* Product mockup */
+.mockup-section { padding: var(--s11) 0 var(--s10); }
+.mockup-container { margin-top: var(--s9); border: 1px solid var(--c5); border-radius: 12px; overflow: hidden; background: var(--c6); }
+.mockup-bar { display: flex; align-items: center; gap: var(--s2); padding: var(--s3) var(--s4); background: var(--white); border-bottom: 1px solid var(--c5); }
+.mockup-dot { width: 8px; height: 8px; border-radius: 50%; }
+.mockup-dot:nth-child(1) { background: #ff5f57; }
+.mockup-dot:nth-child(2) { background: #febc2e; }
+.mockup-dot:nth-child(3) { background: #28c840; }
+.mockup-bar-title { font-family: var(--mono); font-size: 0.65rem; color: var(--c4); margin-left: var(--s3); }
+.mockup-body { display: grid; grid-template-columns: 220px 1fr 280px; min-height: 380px; }
+.mock-sidebar { background: var(--white); border-right: 1px solid var(--c5); padding: var(--s4); }
+.mock-sidebar-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s3); padding: var(--s2) var(--s2); }
+.mock-convo { padding: var(--s2) var(--s3); border-radius: 6px; margin-bottom: 2px; cursor: default; transition: background 0.1s; }
+.mock-convo:hover { background: var(--c6); }
+.mock-convo.active { background: var(--c6); }
+.mock-convo-title { font-size: 0.72rem; font-weight: 500; color: var(--c1); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mock-convo-meta { font-family: var(--mono); font-size: 0.58rem; color: var(--c4); margin-top: 1px; display: flex; align-items: center; gap: var(--s2); }
+.mock-platform { display: inline-flex; align-items: center; justify-content: center; width: 14px; height: 14px; border-radius: 3px; font-size: 0.5rem; font-weight: 600; color: var(--white); flex-shrink: 0; }
+.mock-platform.gpt { background: #10a37f; }
+.mock-platform.claude { background: #d4a27f; }
+.mock-platform.gem { background: #4285f4; }
+
+.mock-main { padding: var(--s6); display: flex; flex-direction: column; gap: var(--s4); }
+.mock-search { display: flex; align-items: center; gap: var(--s2); padding: var(--s2) var(--s3); background: var(--white); border: 1px solid var(--c5); border-radius: 6px; font-family: var(--mono); font-size: 0.68rem; color: var(--c4); }
+.mock-search-icon { opacity: 0.4; }
+.mock-digest { background: var(--white); border: 1px solid var(--c5); border-radius: 8px; padding: var(--s4); flex: 1; }
+.mock-digest-title { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s3); }
+.mock-digest-item { display: flex; align-items: flex-start; gap: var(--s3); padding: var(--s2) 0; border-top: 1px solid var(--c6); }
+.mock-digest-item:first-of-type { border-top: none; }
+.mock-entity-tag { font-family: var(--mono); font-size: 0.58rem; padding: 2px 6px; border-radius: 4px; background: var(--c0); color: var(--white); white-space: nowrap; flex-shrink: 0; margin-top: 1px; }
+.mock-entity-tag.decision { background: #7c3aed; }
+.mock-entity-tag.tool { background: #0891b2; }
+.mock-entity-tag.person { background: #c2410c; }
+.mock-entity-tag.concept { background: #15803d; }
+.mock-digest-text { font-size: 0.7rem; font-weight: 300; color: var(--c2); line-height: 1.5; }
+.mock-digest-src { font-family: var(--mono); font-size: 0.55rem; color: var(--c4); margin-top: 2px; }
+
+.mock-graph { background: var(--white); border-left: 1px solid var(--c5); padding: var(--s4); position: relative; overflow: hidden; }
+.mock-graph-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s3); }
+.graph-canvas { position: relative; width: 100%; height: 300px; }
+.graph-node { position: absolute; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-family: var(--mono); font-size: 0.55rem; font-weight: 500; color: var(--white); z-index: 2; box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+.graph-node.large { width: 52px; height: 52px; }
+.graph-node.med { width: 40px; height: 40px; }
+.graph-node.sm { width: 30px; height: 30px; font-size: 0.48rem; }
+.graph-line { position: absolute; height: 1px; background: var(--c5); transform-origin: left center; z-index: 1; }
+
+/* Cross-platform section */
+.cross-section { background: var(--c6); }
+.cross-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s10); align-items: center; margin-top: var(--s9); }
+.cross-visual { display: flex; flex-direction: column; gap: var(--s4); }
+.cross-platform-row { display: flex; align-items: center; gap: var(--s4); }
+.cross-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 600; font-size: 0.9rem; color: var(--white); flex-shrink: 0; }
+.cross-icon.gpt { background: #10a37f; }
+.cross-icon.claude { background: #d4a27f; }
+.cross-icon.gem { background: #4285f4; }
+.cross-icon.deep { background: #0ea5e9; }
+.cross-icon.grok { background: var(--c1); }
+.cross-bar { flex: 1; height: 3px; background: var(--c5); border-radius: 2px; position: relative; overflow: hidden; }
+.cross-bar-fill { position: absolute; left: 0; top: 0; height: 100%; border-radius: 2px; animation: fillBar 1.5s ease forwards; width: 0; }
+.cross-bar-fill.gpt { background: #10a37f; }
+.cross-bar-fill.claude { background: #d4a27f; }
+.cross-bar-fill.gem { background: #4285f4; }
+.cross-bar-fill.deep { background: #0ea5e9; }
+.cross-bar-fill.grok { background: var(--c1); }
+.cross-converge { width: 40px; height: 40px; border-radius: 10px; background: var(--c0); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.cross-converge svg { width: 18px; height: 18px; }
+.cross-text { }
+.cross-insight { font-family: var(--serif); font-size: 1.2rem; color: var(--c0); line-height: 1.4; letter-spacing: -0.01em; margin-top: var(--s5); padding: var(--s4); border-left: 2px solid var(--c0); }
+
+@keyframes fillBar { to { width: 100%; } }
+.v .cross-bar-fill.gpt { animation-delay: 0.1s; }
+.v .cross-bar-fill.claude { animation-delay: 0.25s; }
+.v .cross-bar-fill.gem { animation-delay: 0.4s; }
+.v .cross-bar-fill.deep { animation-delay: 0.55s; }
+.v .cross-bar-fill.grok { animation-delay: 0.7s; }
+
+.steps { margin-top: var(--s10); }
+.step { display: grid; grid-template-columns: 48px 1fr; gap: var(--s5); padding: var(--s7) 0; border-top: 1px solid var(--c5); align-items: baseline; }
+.step:last-child { border-bottom: 1px solid var(--c5); }
+.step-n { font-family: var(--mono); font-size: 0.75rem; color: var(--c4); }
+.step-t { font-size: 0.95rem; font-weight: 500; letter-spacing: -0.01em; color: var(--c0); margin-bottom: var(--s1); }
+.step-d { font-size: 0.9rem; font-weight: 300; line-height: 1.6; color: var(--c3); max-width: 520px; }
+
+.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--c5); border: 1px solid var(--c5); border-radius: var(--r); overflow: hidden; margin-top: var(--s10); }
+.pill { background: var(--white); padding: var(--s8) var(--s7); }
+.pill-n { font-family: var(--mono); font-size: 0.68rem; color: var(--c4); letter-spacing: 0.06em; margin-bottom: var(--s5); }
+.pill-t { font-family: var(--serif); font-size: 1.35rem; letter-spacing: -0.02em; color: var(--c0); margin-bottom: var(--s3); }
+.pill-d { font-size: 0.85rem; font-weight: 300; line-height: 1.6; color: var(--c3); }
+
+.dark { background: var(--c0); color: var(--white); }
+.dark .label { color: var(--c2); }
+.dark .heading { color: var(--white); }
+.dark .heading em { color: var(--c3); }
+.dark .desc { color: var(--c3); }
+.feat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--c2); border: 1px solid var(--c2); border-radius: var(--r); overflow: hidden; margin-top: var(--s10); }
+.feat { background: var(--c0); padding: var(--s7); }
+.feat-t { font-size: 0.9rem; font-weight: 500; color: var(--white); margin-bottom: var(--s2); }
+.feat-d { font-size: 0.82rem; font-weight: 300; line-height: 1.6; color: var(--c3); }
+
+.tags { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s9); }
+.tag { font-family: var(--mono); font-size: 0.7rem; color: var(--c3); padding: var(--s2) var(--s3); border: 1px solid var(--c5); border-radius: var(--r); letter-spacing: 0.01em; }
+
+/* Who it's for */
+.persona-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--c5); border: 1px solid var(--c5); border-radius: var(--r); overflow: hidden; margin-top: var(--s10); }
+.persona { background: var(--white); padding: var(--s7); }
+.persona-icon { font-size: 1.4rem; margin-bottom: var(--s4); }
+.persona-t { font-size: 0.9rem; font-weight: 500; color: var(--c0); margin-bottom: var(--s2); }
+.persona-d { font-size: 0.82rem; font-weight: 300; line-height: 1.6; color: var(--c3); }
+
+/* Beta section (replaces pricing) */
+.beta-section { padding: var(--s12) 0; }
+.beta-box { margin-top: var(--s9); display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--c5); border: 1px solid var(--c5); border-radius: var(--r); overflow: hidden; }
+.beta-card { background: var(--white); padding: var(--s8) var(--s7); }
+.beta-card.featured { background: var(--c6); }
+.beta-card-label { font-family: var(--mono); font-size: 0.68rem; color: var(--c4); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: var(--s3); }
+.beta-card-title { font-family: var(--serif); font-size: 1.8rem; color: var(--c0); letter-spacing: -0.02em; margin-bottom: var(--s2); }
+.beta-card-note { font-size: 0.85rem; font-weight: 300; color: var(--c3); line-height: 1.6; margin-bottom: var(--s6); }
+.beta-items { list-style: none; }
+.beta-items li { font-size: 0.82rem; font-weight: 300; color: var(--c2); padding: var(--s2) 0; border-top: 1px solid var(--c5); }
+.beta-items li:last-child { padding-bottom: 0; }
+
+.cta { text-align: center; padding: 140px 0; }
+.cta h2 { font-family: var(--serif); font-size: clamp(2.2rem, 4.5vw, 3.2rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.03em; color: var(--c0); margin-bottom: var(--s5); }
+.cta h2 em { font-style: italic; color: var(--c4); }
+.cta-sub { font-size: 1rem; font-weight: 300; color: var(--c3); max-width: 380px; margin: 0 auto var(--s8); line-height: 1.6; }
+.cta-signal { font-family: var(--mono); font-size: 0.7rem; color: var(--c4); margin-top: var(--s5); letter-spacing: 0.02em; }
+
+/* Built by */
+.built-by { display: flex; align-items: center; gap: var(--s3); margin-top: var(--s8); padding-top: var(--s6); border-top: 1px solid var(--c5); }
+.built-by-text { font-size: 0.78rem; font-weight: 300; color: var(--c4); }
+.built-by-text strong { font-weight: 500; color: var(--c3); }
+
+footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; justify-content: space-between; align-items: center; }
+.foot-l { font-family: var(--mono); font-size: 0.7rem; color: var(--c4); }
+.foot-r { display: flex; gap: var(--s6); }
+.foot-r a { font-size: 0.8rem; color: var(--c4); text-decoration: none; transition: color 0.15s; }
+.foot-r a:hover { color: var(--c0); }
+
+@keyframes up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+.rv { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.rv.v { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+  .hero { padding-top: 130px; }
+  .pillars { grid-template-columns: 1fr; }
+  .feat-grid { grid-template-columns: 1fr; }
+  .beta-box { grid-template-columns: 1fr; }
+  .persona-grid { grid-template-columns: 1fr; }
+  .nav-r a:not(.btn) { display: none; }
+  footer { flex-direction: column; gap: var(--s6); text-align: center; }
+  .hero-actions { flex-direction: column; align-items: flex-start; }
+  .mockup-body { grid-template-columns: 1fr; }
+  .mock-sidebar, .mock-graph { display: none; }
+  .cross-grid { grid-template-columns: 1fr; gap: var(--s8); }
+}
+</style>
+</head>
+<body>
+
+<nav><div class="w">
+  <a href="#" class="nav-mark">Kept</a>
+  <div class="nav-r">
+    <a href="#how">How it works</a>
+    <a href="#features">Features</a>
+    <a href="#who">Who it's for</a>
+    <a href="#go" class="btn btn-p">Join waitlist</a>
+  </div>
+</div></nav>
+
+<section class="hero"><div class="w">
+  <div class="hero-badge">Open source &middot; Local-first &middot; Desktop + Extension</div>
+  <h1>Your AI conversations, <em>kept.</em></h1>
+  <p class="hero-sub">Kept captures every AI conversation, indexes it locally, and lets you carry context between platforms. One archive. One knowledge graph. Every LLM you use.</p>
+  <div class="hero-actions">
+    <a href="#go" class="btn btn-p btn-l">Join the waitlist <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="#go" class="btn btn-s btn-l"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> View on GitHub</a>
+  </div>
+  <p class="hero-meta">Tauri 2 &nbsp;/ Rust &nbsp;/ SQLite FTS5 &nbsp;/ Manifest V3 &nbsp;/ MIT Licensed</p>
+</div></section>
+
+<div class="w"><div class="line"></div></div>
+
+<!-- Product mockup -->
+<section class="mockup-section"><div class="w">
+  <div class="rv">
+    <p class="label">The product</p>
+    <h2 class="heading">Every conversation. One living archive. <em>Your machine.</em></h2>
+    <p class="desc">A 5MB desktop app and Chrome extension. No cloud accounts, no server, no subscriptions required for core features.</p>
+  </div>
+  <div class="mockup-container rv">
+    <div class="mockup-bar">
+      <div class="mockup-dot"></div>
+      <div class="mockup-dot"></div>
+      <div class="mockup-dot"></div>
+      <span class="mockup-bar-title">Kept &mdash; Knowledge Archive</span>
+    </div>
+    <div class="mockup-body">
+      <div class="mock-sidebar">
+        <div class="mock-sidebar-label">Conversations</div>
+        <div class="mock-convo active">
+          <div style="display:flex;align-items:center;gap:6px"><span class="mock-platform claude">C</span><span class="mock-convo-title">Tauri migration strategy</span></div>
+          <div class="mock-convo-meta">Today &middot; 23 messages</div>
+        </div>
+        <div class="mock-convo">
+          <div style="display:flex;align-items:center;gap:6px"><span class="mock-platform gpt">G</span><span class="mock-convo-title">React performance audit</span></div>
+          <div class="mock-convo-meta">Today &middot; 41 messages</div>
+        </div>
+        <div class="mock-convo">
+          <div style="display:flex;align-items:center;gap:6px"><span class="mock-platform gem">G</span><span class="mock-convo-title">Q1 market research synthesis</span></div>
+          <div class="mock-convo-meta">Yesterday &middot; 18 messages</div>
+        </div>
+        <div class="mock-convo">
+          <div style="display:flex;align-items:center;gap:6px"><span class="mock-platform gpt">G</span><span class="mock-convo-title">API auth flow decisions</span></div>
+          <div class="mock-convo-meta">Yesterday &middot; 35 messages</div>
+        </div>
+        <div class="mock-convo">
+          <div style="display:flex;align-items:center;gap:6px"><span class="mock-platform claude">C</span><span class="mock-convo-title">Federated learning overview</span></div>
+          <div class="mock-convo-meta">Feb 10 &middot; 27 messages</div>
+        </div>
+        <div class="mock-convo">
+          <div style="display:flex;align-items:center;gap:6px"><span class="mock-platform gem">G</span><span class="mock-convo-title">Competitor positioning doc</span></div>
+          <div class="mock-convo-meta">Feb 9 &middot; 14 messages</div>
+        </div>
+        <div class="mock-convo">
+          <div style="display:flex;align-items:center;gap:6px"><span class="mock-platform gpt">G</span><span class="mock-convo-title">SQLite FTS5 vs Tantivy</span></div>
+          <div class="mock-convo-meta">Feb 8 &middot; 52 messages</div>
+        </div>
+      </div>
+      <div class="mock-main">
+        <div class="mock-search">
+          <svg class="mock-search-icon" width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          What architectural decisions did I make this week?
+        </div>
+        <div class="mock-digest">
+          <div class="mock-digest-title">Knowledge Extract + Actions</div>
+          <div class="mock-digest-item">
+            <span class="mock-entity-tag decision">Decision</span>
+            <div>
+              <div class="mock-digest-text">Chose Tauri 2 over Electron for desktop shell. Reasons: 5MB vs 150MB binary, Rust backend performance, native webview.</div>
+              <div class="mock-digest-src">Claude &middot; "Tauri migration strategy" &middot; Today &nbsp; <span style="font-family:var(--mono);font-size:0.5rem;padding:1px 4px;background:#2563EB;color:white;border-radius:3px;">Share</span> <span style="font-family:var(--mono);font-size:0.5rem;padding:1px 4px;background:#18181b;color:white;border-radius:3px;">Continue in ChatGPT &rarr;</span></div>
+            </div>
+          </div>
+          <div class="mock-digest-item">
+            <span class="mock-entity-tag tool">Tool</span>
+            <div>
+              <div class="mock-digest-text">Evaluated SQLite FTS5 vs Tantivy for full-text search. Selected FTS5 for simplicity and zero external dependencies.</div>
+              <div class="mock-digest-src">ChatGPT &middot; "SQLite FTS5 vs Tantivy" &middot; Feb 8</div>
+            </div>
+          </div>
+          <div class="mock-digest-item">
+            <span class="mock-entity-tag concept">Concept</span>
+            <div>
+              <div class="mock-digest-text">Explored federated learning coordination patterns. Noted FedAvg limitations for non-IID data distributions.</div>
+              <div class="mock-digest-src">Claude &middot; "Federated learning overview" &middot; Feb 10</div>
+            </div>
+          </div>
+          <div class="mock-digest-item">
+            <span class="mock-entity-tag person">Person</span>
+            <div>
+              <div class="mock-digest-text">Referenced Antal's feedback on go-to-market timeline. Action item: compress launch to 8-week cycle.</div>
+              <div class="mock-digest-src">Gemini &middot; "Q1 market research synthesis" &middot; Yesterday</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mock-graph">
+        <div class="mock-graph-label">Knowledge Graph</div>
+        <div class="graph-canvas">
+          <!-- SVG lines connecting nodes -->
+          <svg style="position:absolute;inset:0;width:100%;height:100%;z-index:1">
+            <line x1="120" y1="90" x2="60" y2="160" stroke="#e4e4e7" stroke-width="1"/>
+            <line x1="120" y1="90" x2="185" y2="165" stroke="#e4e4e7" stroke-width="1"/>
+            <line x1="120" y1="90" x2="80" y2="35" stroke="#e4e4e7" stroke-width="1"/>
+            <line x1="60" y1="160" x2="140" y2="235" stroke="#e4e4e7" stroke-width="1"/>
+            <line x1="185" y1="165" x2="140" y2="235" stroke="#e4e4e7" stroke-width="1"/>
+            <line x1="185" y1="165" x2="220" y2="100" stroke="#e4e4e7" stroke-width="1"/>
+            <line x1="80" y1="35" x2="180" y2="45" stroke="#e4e4e7" stroke-width="1"/>
+            <line x1="140" y1="235" x2="60" y2="270" stroke="#e4e4e7" stroke-width="1"/>
+            <line x1="185" y1="165" x2="140" y2="100" stroke="#e4e4e7" stroke-width="1"/>
+          </svg>
+          <div class="graph-node large" style="left:94px;top:64px;background:#7c3aed;">Tauri</div>
+          <div class="graph-node med" style="left:40px;top:140px;background:#0891b2;">FTS5</div>
+          <div class="graph-node large" style="left:160px;top:140px;background:#7c3aed;">Auth</div>
+          <div class="graph-node med" style="left:120px;top:210px;background:#15803d;">FL</div>
+          <div class="graph-node sm" style="left:55px;top:12px;background:#c2410c;">Antal</div>
+          <div class="graph-node sm" style="left:165px;top:30px;background:#0891b2;">Rust</div>
+          <div class="graph-node sm" style="left:200px;top:80px;background:#15803d;">Perf</div>
+          <div class="graph-node sm" style="left:45px;top:255px;background:#c2410c;">GTM</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<div class="w"><div class="line"></div></div>
+
+<!-- Cross-platform section - elevated -->
+<section class="sec cross-section" id="cross"><div class="w">
+  <div class="rv">
+    <p class="label">The structural advantage</p>
+    <h2 class="heading">They'll never build this <em>for each other.</em></h2>
+    <p class="desc">ChatGPT, Claude, and Gemini are all adding memory and search &mdash; inside their own walls. But they're competing companies. They will never index each other's conversations. That gap is permanent.</p>
+  </div>
+  <div class="cross-grid rv">
+    <div class="cross-visual">
+      <div class="cross-platform-row">
+        <div class="cross-icon gpt">G</div>
+        <div class="cross-bar"><div class="cross-bar-fill gpt"></div></div>
+        <div class="cross-converge"><svg viewBox="0 0 16 16" fill="none"><path d="M4 8h8M8 4v8" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="cross-platform-row">
+        <div class="cross-icon claude">C</div>
+        <div class="cross-bar"><div class="cross-bar-fill claude"></div></div>
+        <div class="cross-converge"><svg viewBox="0 0 16 16" fill="none"><path d="M4 8h8M8 4v8" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="cross-platform-row">
+        <div class="cross-icon gem">G</div>
+        <div class="cross-bar"><div class="cross-bar-fill gem"></div></div>
+        <div class="cross-converge"><svg viewBox="0 0 16 16" fill="none"><path d="M4 8h8M8 4v8" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="cross-platform-row">
+        <div class="cross-icon deep">D</div>
+        <div class="cross-bar"><div class="cross-bar-fill deep"></div></div>
+        <div class="cross-converge"><svg viewBox="0 0 16 16" fill="none"><path d="M4 8h8M8 4v8" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="cross-platform-row">
+        <div class="cross-icon grok">X</div>
+        <div class="cross-bar"><div class="cross-bar-fill grok"></div></div>
+        <div class="cross-converge"><svg viewBox="0 0 16 16" fill="none"><path d="M4 8h8M8 4v8" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </div>
+    </div>
+    <div class="cross-text">
+      <p class="desc" style="margin-top:0;">Gmail doesn't show your Outlook emails. That's why email clients like Spark and Superhuman exist. The same structural gap exists for AI platforms &mdash; and it widens as more models launch.</p>
+      <div class="cross-insight">Kept is the unified intelligence layer that sits above all of them. One knowledge graph. One search. Context that moves between them. Every platform.</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- Problem -->
+<section class="sec"><div class="w rv">
+  <p class="label">The problem</p>
+  <h2 class="heading">Research, decisions, working code, reasoning. <em>Trapped in silos.</em></h2>
+  <p class="desc">You use ChatGPT for code, Claude for writing, Gemini for research. You can't search across any of them. You can't carry context from one into another. Sharing a snippet with your team destroys the formatting. Every insight lives and dies inside a single chat window.</p>
+</div></section>
+
+<div class="w"><div class="line"></div></div>
+
+<section class="sec" id="how"><div class="w">
+  <div class="rv">
+    <p class="label">How it works</p>
+    <h2 class="heading">Four steps from conversation <em>to knowledge</em></h2>
+  </div>
+  <div class="steps">
+    <div class="step rv"><span class="step-n">01</span><div><p class="step-t">Capture</p><p class="step-d">Chrome extension detects your AI conversations automatically and saves them locally. No copy-paste, no manual exports. Also supports bulk import from platform data exports for your full history.</p></div></div>
+    <div class="step rv"><span class="step-n">02</span><div><p class="step-t">Index</p><p class="step-d">Tauri backend writes markdown with YAML frontmatter to a local vault. SQLite FTS5 delivers instant full-text search across thousands of conversations.</p></div></div>
+    <div class="step rv"><span class="step-n">03</span><div><p class="step-t">Extract</p><p class="step-d">Knowledge engine parses every conversation for entities, decisions, and concepts. These become nodes in a local knowledge graph that maps relationships across all your interactions &mdash; regardless of which platform they came from.</p></div></div>
+    <div class="step rv"><span class="step-n">04</span><div><p class="step-t">Use</p><p class="step-d">Carry context into a new conversation on any platform. Share formatted snippets with your team. Ask questions that span your full archive. Weekly digests surface what matters.</p></div></div>
+  </div>
+</div></section>
+
+<section class="sec-sm"><div class="w">
+  <div class="rv">
+    <p class="label">Developer workflow</p>
+    <h2 class="heading">Three features. <em>Built for how you actually work.</em></h2>
+    <p class="desc">The team agreed: these are the three things developers need on day one. Everything else follows from here.</p>
+  </div>
+  <div class="pillars rv">
+    <div class="pill"><p class="pill-n">01 Portability</p><h3 class="pill-t">Context Sharing</h3><p class="pill-d">Architecting in Claude and want a second opinion from ChatGPT? Kept packages the context and lets you start a new conversation in any LLM with full background loaded. No more re-explaining. Also works with local repo context, so you stop copy-pasting between your IDE and browser.</p></div>
+    <div class="pill"><p class="pill-n">02 Collaboration</p><h3 class="pill-t">Intelligent Sharing</h3><p class="pill-d">Share AI conversation snippets to Slack, email, or docs with formatting preserved. Code blocks stay clean, key insights get extracted, structure survives. No more tedious copy-paste that breaks everything.</p></div>
+    <div class="pill"><p class="pill-n">03 Organization</p><h3 class="pill-t">Centralized Archive</h3><p class="pill-d">One searchable home for every conversation across every platform. Auto-organized by project, browsable by timeline, with a visual mind map that surfaces forgotten ideas and connections.</p></div>
+  </div>
+</div></section>
+
+<section class="sec dark" id="features"><div class="w">
+  <div class="rv">
+    <p class="label">Features</p>
+    <h2 class="heading">Workflow tools and intelligence. <em>In one place.</em></h2>
+    <p class="desc">Developer workflow features you use every day, plus a knowledge engine that gets smarter with every conversation.</p>
+  </div>
+  <div class="feat-grid rv">
+    <div class="feat"><p class="feat-t">Context portability</p><p class="feat-d">Start a conversation in Claude, continue it in ChatGPT. Kept packages your context so you never re-explain your project to a new LLM again.</p></div>
+    <div class="feat"><p class="feat-t">Intelligent sharing</p><p class="feat-d">Share conversation excerpts to Slack, email, or docs. Formatting preserved, code blocks intact, key insights extracted automatically.</p></div>
+    <div class="feat"><p class="feat-t">Entity extraction</p><p class="feat-d">People, tools, libraries, models, decisions. Every conversation parsed into structured nodes for the knowledge graph.</p></div>
+    <div class="feat"><p class="feat-t">Relationship mapping</p><p class="feat-d">Reference a library in ChatGPT, discuss trade-offs in Claude weeks later. Kept connects them automatically.</p></div>
+    <div class="feat"><p class="feat-t">Decision tracking</p><p class="feat-d">Decisions and rationale extracted with timestamps. Trace why you chose one approach over another, months later.</p></div>
+    <div class="feat"><p class="feat-t">AI agent</p><p class="feat-d">"What architectural decisions did I make this quarter?" Answered with citations across every platform you used.</p></div>
+    <div class="feat"><p class="feat-t">Visual mind map</p><p class="feat-d">Interactive knowledge graph and timeline view. Surface forgotten ideas, see project clusters, zoom from themes down to individual messages.</p></div>
+    <div class="feat"><p class="feat-t">Comparative agent (coming)</p><p class="feat-d">Query multiple LLMs from one interface and compare responses side by side. Get a second opinion without switching tabs.</p></div>
+  </div>
+</div></section>
+
+<section class="sec-sm" id="stack"><div class="w">
+  <div class="rv">
+    <p class="label">Stack</p>
+    <h2 class="heading">No Electron. No cloud. <em>Just fast.</em></h2>
+    <p class="desc">A native desktop app that starts in under a second and searches 10,000+ messages in milliseconds. Open source under MIT.</p>
+  </div>
+  <div class="tags rv">
+    <span class="tag">Tauri 2</span><span class="tag">Rust</span><span class="tag">Axum</span><span class="tag">SQLite FTS5</span><span class="tag">Manifest V3</span><span class="tag">YAML Frontmatter</span><span class="tag">NER Pipeline</span><span class="tag">Vector Embeddings</span><span class="tag">Graph DB</span><span class="tag">OpenAI / Anthropic / Ollama</span><span class="tag">SHA-256</span><span class="tag">Markdown Vault</span>
+  </div>
+</div></section>
+
+<div class="w"><div class="line"></div></div>
+
+<!-- Who it's for -->
+<section class="sec" id="who"><div class="w">
+  <div class="rv">
+    <p class="label">Who it's for</p>
+    <h2 class="heading">Power users who live <em>across platforms</em></h2>
+    <p class="desc">If you use multiple AI tools daily and your best thinking is scattered across all of them, Kept was built for you.</p>
+  </div>
+  <div class="persona-grid rv">
+    <div class="persona">
+      <div class="persona-icon">&gt;_</div>
+      <p class="persona-t">Developers</p>
+      <p class="persona-d">You debug in ChatGPT, architect in Claude, prototype in Gemini. Kept lets you carry context between them, share clean snippets with your team, and search every decision you have ever made across all platforms.</p>
+    </div>
+    <div class="persona">
+      <div class="persona-icon">&#x1F50D;</div>
+      <p class="persona-t">Researchers</p>
+      <p class="persona-d">Months of AI-assisted analysis scattered across platforms. Kept turns research threads into a knowledge graph where every source, finding, and connection is traceable.</p>
+    </div>
+    <div class="persona">
+      <div class="persona-icon">&#x25B2;</div>
+      <p class="persona-t">Founders &amp; PMs</p>
+      <p class="persona-d">Strategy sessions, competitive analysis, product specs, investor prep &mdash; all generated through AI conversations. Kept makes sure none of it gets lost.</p>
+    </div>
+  </div>
+</div></section>
+
+<div class="w"><div class="line"></div></div>
+
+<!-- Beta section (replaces pricing) -->
+<section class="beta-section" id="beta"><div class="w">
+  <div class="rv">
+    <p class="label">Early access</p>
+    <h2 class="heading">Open core. <em>Free to start.</em></h2>
+    <p class="desc">The capture and search layer is open source and free forever. The knowledge intelligence layer is coming soon as a premium tier to sustain development.</p>
+  </div>
+  <div class="beta-box rv">
+    <div class="beta-card">
+      <p class="beta-card-label">Open Source Core</p>
+      <p class="beta-card-title">Free forever</p>
+      <p class="beta-card-note">MIT licensed. Available at beta launch.</p>
+      <ul class="beta-items">
+        <li>Chrome extension capture</li>
+        <li>Tauri desktop app</li>
+        <li>Full-text search (FTS5)</li>
+        <li>Context sharing between LLMs</li>
+        <li>Intelligent formatted sharing</li>
+        <li>Markdown vault &amp; export</li>
+        <li>Bulk import from data exports</li>
+        <li>ChatGPT + Claude + Gemini</li>
+      </ul>
+    </div>
+    <div class="beta-card featured">
+      <p class="beta-card-label">Kept Pro &mdash; Coming Soon</p>
+      <p class="beta-card-title">Intelligence layer</p>
+      <p class="beta-card-note">Pricing TBD. Beta testers will help shape it. BYOK option planned.</p>
+      <ul class="beta-items">
+        <li>Everything in free</li>
+        <li>Knowledge graph extraction</li>
+        <li>Entity recognition &amp; relationships</li>
+        <li>AI agent with archive Q&amp;A</li>
+        <li>Semantic search</li>
+        <li>Weekly AI digests</li>
+        <li>Visual mind map &amp; timeline</li>
+        <li>Comparative agent (multi-LLM query)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="built-by rv">
+    <div class="built-by-text">Built by <strong>E-Group Labs</strong> &mdash; 30 years in sovereign infrastructure, now building the tools for an AI-native world.</div>
+  </div>
+</div></section>
+
+<div class="w"><div class="line"></div></div>
+
+<section class="cta" id="go"><div class="w rv">
+  <h2>Your conversations.<br><em>Kept.</em></h2>
+  <p class="cta-sub">Launching in closed beta. Join the waitlist for early access to the desktop app and Chrome extension.</p>
+  <a href="#" class="btn btn-p btn-l">Join the waitlist <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  <p class="cta-signal">Open source &middot; Local-first &middot; No account required</p>
+</div></section>
+
+<div class="w"><footer>
+  <span class="foot-l">Kept &mdash; An E-Group Labs product &mdash; 2026</span>
+  <div class="foot-r"><a href="#">GitHub</a><a href="#">Docs</a><a href="#">Privacy</a></div>
+</footer></div>
+
+<script>
+const o = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); o.unobserve(e.target); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -32px 0px' });
+document.querySelectorAll('.rv').forEach(el => o.observe(el));
+</script>
+</body>
+</html>
