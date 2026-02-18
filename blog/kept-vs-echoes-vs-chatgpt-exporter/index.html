@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Primary Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kept vs Echoes vs ChatGPT Exporter: AI Conversation Tools Compared - Kept</title>
+<meta name="description" content="Comparing three approaches to managing AI conversations: export tools, conversation managers, and knowledge platforms. An honest breakdown of what each does well and where each falls short.">
+<meta name="keywords" content="Echoes alternative, ChatGPT Exporter alternative, AI conversation manager comparison, best AI conversation tool, Echoes vs Kept, ChatGPT Exporter vs Kept, AI conversation search tool">
+<link rel="canonical" href="https://kept.sh/blog/kept-vs-echoes-vs-chatgpt-exporter/">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Chris Hoar">
+<meta name="theme-color" content="#09090b">
+<link rel="icon" type="image/svg+xml" href="/KP5D/favicon.svg">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Kept vs Echoes vs ChatGPT Exporter: AI Conversation Tools Compared">
+<meta property="og:description" content="Comparing three approaches to managing AI conversations: export tools, conversation managers, and knowledge platforms. An honest breakdown of what each does well.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kept.sh/blog/kept-vs-echoes-vs-chatgpt-exporter/">
+<meta property="og:image" content="https://kept.sh/og-article-comparison.png">
+<meta property="article:author" content="Chris Hoar">
+<meta property="article:published_time" content="2026-03-04T00:00:00Z">
+<meta property="article:section" content="Comparison">
+<meta property="article:tag" content="AI tools">
+<meta property="article:tag" content="ChatGPT">
+<meta property="article:tag" content="Claude">
+<meta property="article:tag" content="Echoes">
+<meta property="article:tag" content="developer tools">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kept vs Echoes vs ChatGPT Exporter: AI Conversation Tools Compared">
+<meta name="twitter:description" content="Comparing export tools, conversation managers, and knowledge platforms for AI conversations.">
+<meta name="twitter:image" content="https://kept.sh/og-article-comparison.png">
+
+<!-- JSON-LD Article -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Kept vs Echoes vs ChatGPT Exporter: AI Conversation Tools Compared",
+  "description": "Comparing three approaches to managing AI conversations: export tools, conversation managers, and knowledge platforms. An honest breakdown of what each does well and where each falls short.",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Hoar"
+  },
+  "datePublished": "2026-03-04T00:00:00Z",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kept",
+    "url": "https://kept.sh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kept.sh/blog/kept-vs-echoes-vs-chatgpt-exporter/"
+  },
+  "wordCount": 2000
+}
+</script>
+
+<!-- JSON-LD FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the best alternative to Echoes for AI conversations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kept is the closest alternative to Echoes with a different approach. Echoes focuses on conversation management (search, labels, organization). Kept focuses on knowledge extraction (entity recognition, knowledge graph, context portability). Both offer cross-platform search across ChatGPT, Claude, and Gemini. The right choice depends on whether you need better organization or structured intelligence from your conversations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there an alternative to ChatGPT Exporter that works across platforms?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ChatGPT Exporter only handles ChatGPT conversations. For cross-platform export and search, Echoes covers multiple platforms with search and labeling. Kept captures from ChatGPT, Claude, and Gemini automatically and adds knowledge graph extraction on top of search."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I search across ChatGPT, Claude, and Gemini with one tool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Both Echoes and Kept offer cross-platform search. Echoes works as a Chrome extension with fuzzy matching and logical operators. Kept is a desktop app plus Chrome extension using SQLite FTS5 for local full-text search. Both index conversations from multiple AI platforms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between an AI conversation manager and a knowledge platform?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A conversation manager helps you find, organize, and label your AI conversations. A knowledge platform goes further by extracting structured data like entities, decisions, relationships, and concepts from your conversations and building a queryable knowledge graph. Echoes is a conversation manager. Kept is a knowledge platform."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Kept open source?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Kept is MIT licensed. The core capture, search, and context sharing features are free and open source. A premium intelligence layer (knowledge graph, AI agent, weekly digests) is planned as a paid tier to sustain development."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --c0: #09090b;
+  --c1: #18181b;
+  --c2: #3f3f46;
+  --c3: #71717a;
+  --c4: #a1a1aa;
+  --c5: #e4e4e7;
+  --c6: #f4f4f5;
+  --cw: #fafafa;
+  --white: #ffffff;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', 'SF Mono', monospace;
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 20px;
+  --s6: 24px; --s7: 32px; --s8: 40px; --s9: 48px; --s10: 64px;
+  --s11: 80px; --s12: 120px;
+  --r: 8px;
+  --max: 1060px;
+  --article: 720px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--sans); color: var(--c1); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+::selection { background: var(--c0); color: var(--white); }
+
+.w { max-width: var(--max); margin: 0 auto; padding: 0 var(--s9); }
+.wa { max-width: var(--article); margin: 0 auto; padding: 0 var(--s9); }
+@media (max-width: 768px) { 
+  .w { padding: 0 var(--s6); }
+  .wa { padding: 0 var(--s6); }
+}
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 56px; display: flex; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--c5); }
+nav .w { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.nav-mark { font-family: var(--sans); font-weight: 600; font-size: 0.9rem; color: var(--c0); text-decoration: none; letter-spacing: -0.03em; }
+.nav-r { display: flex; align-items: center; gap: var(--s7); }
+.nav-r a { font-size: 0.82rem; color: var(--c3); text-decoration: none; transition: color 0.15s; }
+.nav-r a:hover { color: var(--c0); }
+.nav-r a.active { color: var(--c0); }
+
+.btn { display: inline-flex; align-items: center; gap: var(--s2); font-family: var(--sans); font-size: 0.82rem; font-weight: 500; padding: var(--s2) var(--s4); border-radius: var(--r); text-decoration: none; transition: all 0.15s; letter-spacing: -0.01em; cursor: pointer; border: none; }
+.btn-p { color: var(--white); background: var(--c0); }
+.btn-p:hover { background: var(--c2); }
+
+.label { font-family: var(--mono); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s5); }
+.line { height: 1px; background: var(--c5); }
+
+/* Article header */
+.article-header { padding: 140px 0 var(--s8); }
+.article-header-tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s3); }
+.article-header h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.15; letter-spacing: -0.03em; color: var(--c0); }
+.article-meta { display: flex; align-items: center; gap: var(--s2); margin-top: var(--s6); font-family: var(--mono); font-size: 0.72rem; color: var(--c3); }
+.article-meta span { display: flex; align-items: center; }
+.meta-sep { color: var(--c5); margin: 0 var(--s2); }
+
+/* Article body */
+.article-body { padding: 0 0 var(--s10); font-size: 1.05rem; line-height: 1.75; color: var(--c1); }
+.article-body h2 { font-family: var(--serif); font-size: 1.75rem; font-weight: 400; line-height: 1.2; letter-spacing: -0.02em; color: var(--c0); margin: var(--s9) 0 var(--s5); }
+.article-body h3 { font-family: var(--sans); font-size: 1.25rem; font-weight: 600; line-height: 1.3; color: var(--c0); margin: var(--s8) 0 var(--s4); }
+.article-body p { margin-bottom: var(--s6); }
+.article-body a { color: var(--c0); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: opacity 0.15s; }
+.article-body a:hover { opacity: 0.7; }
+.article-body ul, .article-body ol { margin: var(--s6) 0; padding-left: var(--s7); }
+.article-body li { margin-bottom: var(--s3); }
+.article-body strong { font-weight: 600; color: var(--c0); }
+.article-body em { font-style: italic; }
+.article-body code { font-family: var(--mono); font-size: 0.85em; background: var(--c6); padding: 2px 6px; border-radius: 4px; }
+
+/* Comparison table */
+.comparison-table { margin: var(--s8) 0; border-radius: var(--r); overflow: hidden; border: 1px solid var(--c5); }
+.comparison-header { background: var(--c6); display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; padding: var(--s4); border-bottom: 1px solid var(--c5); }
+.comparison-header div { font-family: var(--sans); font-size: 0.9rem; font-weight: 600; color: var(--c0); }
+.comparison-row { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; padding: var(--s4); border-bottom: 1px solid var(--c5); }
+.comparison-row:last-child { border-bottom: none; }
+.comparison-row .feature { font-size: 0.92rem; font-weight: 500; color: var(--c1); }
+.comparison-row .value { font-size: 0.88rem; color: var(--c3); text-align: center; }
+.comparison-row .value.yes { color: var(--c1); font-weight: 500; }
+.comparison-row .value.coming { color: var(--c4); font-style: italic; }
+
+/* Callout */
+.callout { background: var(--c0); color: var(--white); border-radius: var(--r); padding: var(--s7); margin: var(--s9) 0; }
+.callout h3 { font-family: var(--sans); font-size: 1.1rem; font-weight: 600; margin-bottom: var(--s4); }
+.callout p { font-size: 0.95rem; line-height: 1.6; margin-bottom: var(--s4); opacity: 0.9; }
+.callout ul { margin: var(--s4) 0; padding-left: var(--s6); }
+.callout li { margin-bottom: var(--s2); font-size: 0.9rem; opacity: 0.85; }
+.callout a { color: var(--white); }
+.callout .btn { margin-top: var(--s4); background: var(--white); color: var(--c0); }
+.callout .btn:hover { background: var(--c6); }
+
+/* FAQ */
+.faq { margin: var(--s10) 0; }
+.faq h2 { font-family: var(--serif); font-size: 1.75rem; font-weight: 400; color: var(--c0); margin-bottom: var(--s7); }
+.faq-item { border-top: 1px solid var(--c5); padding: var(--s6) 0; }
+.faq-item:last-child { border-bottom: 1px solid var(--c5); }
+.faq-q { font-family: var(--sans); font-size: 1.05rem; font-weight: 600; color: var(--c0); margin-bottom: var(--s3); }
+.faq-a { font-size: 0.95rem; line-height: 1.65; color: var(--c3); }
+
+/* CTA */
+.article-cta { text-align: center; padding: var(--s11) 0; border-top: 1px solid var(--c5); }
+.article-cta h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 400; line-height: 1.15; letter-spacing: -0.02em; color: var(--c0); margin-bottom: var(--s4); }
+.article-cta p { font-size: 0.95rem; color: var(--c3); margin-bottom: var(--s7); }
+
+/* Related */
+.related { padding: var(--s10) 0; border-top: 1px solid var(--c5); }
+.related h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; color: var(--c0); margin-bottom: var(--s7); }
+.related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s7); }
+.related-item { text-decoration: none; }
+.related-item:hover .related-title { color: var(--c2); }
+.related-tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s2); }
+.related-title { font-family: var(--serif); font-size: 1.25rem; line-height: 1.3; color: var(--c0); margin-bottom: var(--s2); transition: color 0.15s; }
+.related-excerpt { font-size: 0.88rem; line-height: 1.6; color: var(--c3); }
+
+footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; justify-content: space-between; align-items: center; }
+.foot-l { font-family: var(--mono); font-size: 0.7rem; color: var(--c4); }
+.foot-r { display: flex; gap: var(--s6); }
+.foot-r a { font-size: 0.8rem; color: var(--c4); text-decoration: none; transition: color 0.15s; }
+.foot-r a:hover { color: var(--c0); }
+
+@keyframes up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+.rv { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.rv.v { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+  .article-header { padding-top: 120px; }
+  .comparison-header, .comparison-row { grid-template-columns: 1fr; gap: var(--s3); }
+  .comparison-header div:first-child { display: none; }
+  .comparison-row .feature { font-weight: 600; margin-bottom: var(--s2); }
+  .comparison-row .value { text-align: left; }
+  .related-grid { grid-template-columns: 1fr; gap: var(--s8); }
+  .nav-r a:not(.btn) { display: none; }
+  footer { flex-direction: column; gap: var(--s6); text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav><div class="w">
+  <a href="/KP5D/" class="nav-mark">Kept</a>
+  <div class="nav-r">
+    <a href="/KP5D/">Home</a>
+    <a href="/KP5D/blog/" class="active">Blog</a>
+    <a href="/KP5D/#go" class="btn btn-p">Join waitlist</a>
+  </div>
+</div></nav>
+
+<article>
+  <header class="article-header"><div class="wa">
+    <p class="article-header-tag">Comparison</p>
+    <h1>Kept vs Echoes vs ChatGPT Exporter: AI Conversation Tools Compared</h1>
+    <div class="article-meta">
+      <span>Chris Hoar</span>
+      <span class="meta-sep">•</span>
+      <span>March 2026</span>
+      <span class="meta-sep">•</span>
+      <span>9 min read</span>
+    </div>
+  </div></header>
+
+  <div class="article-body wa">
+    <p>The market for AI conversation tools is growing fast. If you search the Chrome Web Store for "ChatGPT export" or "AI conversation manager" you will find dozens of extensions.</p>
+
+    <p>I have tested most of them. They broadly fall into three categories: export tools, conversation managers, and knowledge platforms. Each solves a different problem at a different level of depth.</p>
+
+    <p>This is an honest comparison of the three most relevant tools in the space right now. I built one of them, so I will be upfront about my bias. But I have also been a daily user of the other two, and I will give credit where it is earned.</p>
+
+    <h2>Export tools: ChatGPT Exporter, ExportGPT, AI Exporter</h2>
+
+    <p>These do one thing well. They get your conversations out of the platform and into a file. PDF, Markdown, JSON, sometimes Notion sync. They install in seconds, they are free or cheap, and they work reliably.</p>
+
+    <p>ChatGPT Exporter has a 4.8 star rating on the Chrome Web Store for good reason. It is simple and it delivers.</p>
+
+    <p>The limitation is clear: export is a one-time action, not a workflow. You get a file, but you cannot search across your exported files. You cannot connect ideas between conversations. Every export is manual and one conversation at a time. You also lose the ability to go back and export again once a conversation is updated.</p>
+
+    <p><strong>Best for:</strong> occasional backups, sharing a specific conversation with a colleague, one-time archives.</p>
+
+    <p><strong>Not for:</strong> daily workflows, cross-platform search, building a knowledge base.</p>
+
+    <h2>Echoes by R2bits: the conversation manager</h2>
+
+    <p>Echoes deserves real respect. It is the strongest player in the conversation management category and it has earned its position.</p>
+
+    <p>Here is what Echoes does well. Cross-platform search across ChatGPT, Claude, Gemini, and several other platforms. The search is genuinely good with fuzzy matching, logical operators, and stemming. Labels and favorites for organizing conversations. Conversation summarization. Multi-account management. Cross-device sync.</p>
+
+    <p>An active community with 850+ members on Discord. It is a Featured extension on the Chrome Web Store, which tells you Google has vetted it. The free tier is generous and the premium pricing ($5.99 to $49.99) is reasonable for what you get.</p>
+
+    <p>I used Echoes before building Kept and I still think it is the right tool for a lot of people. If your primary need is finding and organizing your AI conversations, Echoes handles roughly 70% of what most people need.</p>
+
+    <p>The limitation is that Echoes is a management tool, not an intelligence tool. It helps you find and organize conversations, but it does not extract structured knowledge from them. There is no entity recognition. No knowledge graph. No relationship mapping between conversations. No context portability between platforms. It does not tell you what decisions you made, which tools you discussed, or how concepts connect across months of interactions.</p>
+
+    <p><strong>Best for:</strong> users who need better search and organization within existing platforms.</p>
+
+    <p><strong>Not for:</strong> users who want structured intelligence extraction or context transfer between LLMs.</p>
+
+    <h2>Kept: the knowledge platform</h2>
+
+    <p>Full disclosure: I am building Kept, so take this section with appropriate skepticism. I will focus on what Kept does differently rather than claiming it is better at everything.</p>
+
+    <p>Kept takes a different architectural approach. Instead of just managing conversations, it treats them as raw material for a knowledge graph. Every conversation is parsed for entities (people, tools, libraries, decisions, concepts). These become searchable, connected nodes in a local graph. A decision you made in ChatGPT three months ago gets linked to the library you discussed in Claude last week.</p>
+
+    <p>Kept also offers two capabilities no other tool in this category has.</p>
+
+    <p><strong>Context sharing:</strong> transfer your context from one LLM to another without re-explaining your project. If you have been architecting a system in Claude and want ChatGPT's take, Kept packages the relevant context and starts the new conversation with background loaded.</p>
+
+    <p><strong>Intelligent sharing:</strong> export formatted conversation snippets to Slack, email, or docs with code blocks and structure preserved. No more copy-paste that destroys formatting.</p>
+
+    <p>The trade-off is real. Kept is a desktop app (Tauri 2, about 5MB) plus Chrome extension, not just a lightweight browser add-on. It requires a small install. In return, all your data stays local on your machine, searches are instant through SQLite FTS5, and you own everything. It is MIT licensed and open source.</p>
+
+    <p><strong>Best for:</strong> developers and researchers who use multiple AI platforms daily and want a searchable, connected archive with structured intelligence extraction.</p>
+
+    <p><strong>Not for:</strong> users who want a zero-install browser-only solution.</p>
+
+    <h2>Feature comparison</h2>
+
+    <div class="comparison-table">
+      <div class="comparison-header">
+        <div>Feature</div>
+        <div>Export Tools</div>
+        <div>Echoes</div>
+        <div>Kept</div>
+      </div>
+      <div class="comparison-row">
+        <div class="feature">Cross-platform search</div>
+        <div class="value">No</div>
+        <div class="value yes">Yes</div>
+        <div class="value yes">Yes</div>
+      </div>
+      <div class="comparison-row">
+        <div class="feature">Knowledge graph</div>
+        <div class="value">No</div>
+        <div class="value">No</div>
+        <div class="value yes">Yes</div>
+      </div>
+      <div class="comparison-row">
+        <div class="feature">Context sharing (LLM to LLM)</div>
+        <div class="value">No</div>
+        <div class="value">No</div>
+        <div class="value yes">Yes</div>
+      </div>
+      <div class="comparison-row">
+        <div class="feature">Intelligent formatted sharing</div>
+        <div class="value">No</div>
+        <div class="value">No</div>
+        <div class="value yes">Yes</div>
+      </div>
+      <div class="comparison-row">
+        <div class="feature">Entity extraction</div>
+        <div class="value">No</div>
+        <div class="value">No</div>
+        <div class="value yes">Yes</div>
+      </div>
+      <div class="comparison-row">
+        <div class="feature">Local-first storage</div>
+        <div class="value">N/A (file export)</div>
+        <div class="value">Cloud sync</div>
+        <div class="value yes">Yes (SQLite)</div>
+      </div>
+      <div class="comparison-row">
+        <div class="feature">Labels and organization</div>
+        <div class="value">No</div>
+        <div class="value yes">Yes</div>
+        <div class="value coming">Coming</div>
+      </div>
+      <div class="comparison-row">
+        <div class="feature">Multi-account support</div>
+        <div class="value">No</div>
+        <div class="value yes">Yes</div>
+        <div class="value coming">Coming</div>
+      </div>
+      <div class="comparison-row">
+        <div class="feature">Open source</div>
+        <div class="value">Some</div>
+        <div class="value">No</div>
+        <div class="value yes">Yes (MIT)</div>
+      </div>
+      <div class="comparison-row">
+        <div class="feature">Price</div>
+        <div class="value">Free</div>
+        <div class="value">Free / $5.99-49.99</div>
+        <div class="value">Free / Pro TBD</div>
+      </div>
+    </div>
+
+    <h2>Which one should you use?</h2>
+
+    <p>Be direct and honest.</p>
+
+    <p>If you just need to export a conversation once in a while, use ChatGPT Exporter. It is free, fast, and does the job.</p>
+
+    <p>If you want better search and organization across your AI platforms and you want a lightweight browser extension, use Echoes. It is polished, well-maintained, and the community is active.</p>
+
+    <p>If you use multiple AI platforms daily and you want structured knowledge extraction, context portability between LLMs, and a local-first architecture where you own all your data, Kept is built for that specific workflow.</p>
+
+    <p>These tools are not mutually exclusive. You could use Echoes for daily organization and Kept for knowledge extraction. The question is what problem is most painful for you right now.</p>
+
+    <h2>One more thing: the platform comparison</h2>
+
+    <p>Brief section noting that all three of these tools exist because the platforms themselves will never solve the cross-platform problem. ChatGPT, Claude, and Gemini are competitors. They are adding memory and search inside their own walls, but they will never index each other.</p>
+
+    <p>This structural gap is permanent and it widens with every new model that launches. Third-party tools are not optional. They are infrastructure.</p>
+
+    <div class="faq">
+      <h2>Frequently asked questions</h2>
+      
+      <div class="faq-item">
+        <div class="faq-q">What is the best alternative to Echoes for AI conversations?</div>
+        <div class="faq-a">Kept is the closest alternative to Echoes with a different approach. Echoes focuses on conversation management (search, labels, organization). Kept focuses on knowledge extraction (entity recognition, knowledge graph, context portability). Both offer cross-platform search across ChatGPT, Claude, and Gemini. The right choice depends on whether you need better organization or structured intelligence from your conversations.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Is there an alternative to ChatGPT Exporter that works across platforms?</div>
+        <div class="faq-a">ChatGPT Exporter only handles ChatGPT conversations. For cross-platform export and search, Echoes covers multiple platforms with search and labeling. Kept captures from ChatGPT, Claude, and Gemini automatically and adds knowledge graph extraction on top of search.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Can I search across ChatGPT, Claude, and Gemini with one tool?</div>
+        <div class="faq-a">Yes. Both Echoes and Kept offer cross-platform search. Echoes works as a Chrome extension with fuzzy matching and logical operators. Kept is a desktop app plus Chrome extension using SQLite FTS5 for local full-text search. Both index conversations from multiple AI platforms.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What is the difference between an AI conversation manager and a knowledge platform?</div>
+        <div class="faq-a">A conversation manager helps you find, organize, and label your AI conversations. A knowledge platform goes further by extracting structured data like entities, decisions, relationships, and concepts from your conversations and building a queryable knowledge graph. Echoes is a conversation manager. Kept is a knowledge platform.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Is Kept open source?</div>
+        <div class="faq-a">Yes. Kept is MIT licensed. The core capture, search, and context sharing features are free and open source. A premium intelligence layer (knowledge graph, AI agent, weekly digests) is planned as a paid tier to sustain development.</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="article-cta"><div class="wa">
+    <h2>Try the knowledge platform approach.</h2>
+    <p>Kept captures AI conversations from every platform, extracts structured intelligence, and lets you carry context between LLMs. Open source, local-first, launching in beta.</p>
+    <a href="/KP5D/#go" class="btn btn-p">Join the waitlist →</a>
+  </div></section>
+
+  <section class="related"><div class="wa">
+    <h3>Related posts</h3>
+    <div class="related-grid">
+      <a href="/KP5D/blog/search-across-ai-conversations/" class="related-item">
+        <p class="related-tag">Guide</p>
+        <h4 class="related-title">How to Search Across All Your AI Conversations</h4>
+        <p class="related-excerpt">You use ChatGPT, Claude, and Gemini daily. But you can't search across all of them. Here's why that gap exists, and how to solve it.</p>
+      </a>
+      <a href="/KP5D/blog/transfer-context-chatgpt-claude/" class="related-item">
+        <p class="related-tag">Guide</p>
+        <h4 class="related-title">How to Transfer Context Between ChatGPT and Claude</h4>
+        <p class="related-excerpt">You built 30 messages of context in ChatGPT and now want Claude's take. Here are the current manual methods and an automatic alternative.</p>
+      </a>
+    </div>
+  </div></section>
+</article>
+
+<div class="w"><footer>
+  <span class="foot-l">Kept — An E-Group Labs product — 2026</span>
+  <div class="foot-r"><a href="#">GitHub</a><a href="#">Docs</a><a href="#">Privacy</a></div>
+</footer></div>
+
+<script>
+const o = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); o.unobserve(e.target); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -32px 0px' });
+document.querySelectorAll('.rv').forEach(el => o.observe(el));
+</script>
+</body>
+</html>
