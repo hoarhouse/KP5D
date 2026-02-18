@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Primary Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Search Across All Your AI Conversations (ChatGPT, Claude, Gemini) - Kept</title>
+<meta name="description" content="You use ChatGPT, Claude, and Gemini daily but can't search across all of them. Here's why that gap exists, what it costs you, and how to solve it with open source tools.">
+<meta name="keywords" content="search AI conversations, ChatGPT search, Claude search, Gemini search, cross-platform AI search, Kept app, AI conversation manager, knowledge graph extraction">
+<link rel="canonical" href="https://kept.sh/blog/search-across-ai-conversations/">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Chris Hoar">
+<meta name="theme-color" content="#09090b">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<!-- Open Graph -->
+<meta property="og:title" content="How to Search Across All Your AI Conversations (ChatGPT, Claude, Gemini)">
+<meta property="og:description" content="You use multiple AI platforms daily but can't search across them. Here's why that gap exists and how to solve it with open source tools.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kept.sh/blog/search-across-ai-conversations/">
+<meta property="og:image" content="https://kept.sh/og-article-search.png">
+<meta property="article:author" content="Chris Hoar">
+<meta property="article:published_time" content="2026-02-01T00:00:00Z">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Search Across All Your AI Conversations">
+<meta name="twitter:description" content="You use ChatGPT, Claude, and Gemini daily but can't search across them. Here's why and how to fix it.">
+<meta name="twitter:image" content="https://kept.sh/og-article-search.png">
+
+<!-- JSON-LD Article -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Search Across All Your AI Conversations (ChatGPT, Claude, Gemini)",
+  "description": "You use ChatGPT, Claude, and Gemini daily but can't search across all of them. Here's why that gap exists, what it costs you, and how to solve it with open source tools.",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Hoar"
+  },
+  "datePublished": "2026-02-01T00:00:00Z",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kept",
+    "url": "https://kept.sh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kept.sh/blog/search-across-ai-conversations/"
+  }
+}
+</script>
+
+<!-- JSON-LD FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I search across ChatGPT and Claude at the same time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not natively. ChatGPT and Claude each have their own search functions, but they don't connect. You need a third-party tool like Kept or manual export methods to search across both platforms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why won't AI platforms add cross-platform search?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Competitive lock-in. OpenAI won't index Anthropic's conversations and vice versa. It's the same reason Gmail doesn't search Outlook. The solution has to come from outside the platforms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the best way to export AI conversations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For automatic capture: Kept (open source) or Echoes. For manual exports: ChatGPT's data export feature or browser extensions like ChatGPT Exporter. The key is consistency, which is why automatic tools work better long-term."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my conversation data safe with third-party tools?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depends on the tool. Kept stores everything locally in SQLite on your machine. Echoes and others may use cloud storage. Always check where your data lives and who has access."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I build my own AI conversation search tool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can export conversations via API or browser automation, store in a database, and use full-text search. But maintaining parsers for multiple platforms is complex. That's why tools like Kept exist."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --c0: #09090b;
+  --c1: #18181b;
+  --c2: #3f3f46;
+  --c3: #71717a;
+  --c4: #a1a1aa;
+  --c5: #e4e4e7;
+  --c6: #f4f4f5;
+  --cw: #fafafa;
+  --white: #ffffff;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', 'SF Mono', monospace;
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 20px;
+  --s6: 24px; --s7: 32px; --s8: 40px; --s9: 48px; --s10: 64px;
+  --s11: 80px; --s12: 120px;
+  --r: 8px;
+  --max: 1060px;
+  --article: 720px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--sans); color: var(--c1); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+::selection { background: var(--c0); color: var(--white); }
+
+.w { max-width: var(--max); margin: 0 auto; padding: 0 var(--s9); }
+.wa { max-width: var(--article); margin: 0 auto; padding: 0 var(--s9); }
+@media (max-width: 768px) { 
+  .w { padding: 0 var(--s6); }
+  .wa { padding: 0 var(--s6); }
+}
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 56px; display: flex; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--c5); }
+nav .w { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.nav-mark { font-family: var(--sans); font-weight: 600; font-size: 0.9rem; color: var(--c0); text-decoration: none; letter-spacing: -0.03em; }
+.nav-r { display: flex; align-items: center; gap: var(--s7); }
+.nav-r a { font-size: 0.82rem; color: var(--c3); text-decoration: none; transition: color 0.15s; }
+.nav-r a:hover { color: var(--c0); }
+.nav-r a.active { color: var(--c0); }
+
+.btn { display: inline-flex; align-items: center; gap: var(--s2); font-family: var(--sans); font-size: 0.82rem; font-weight: 500; padding: var(--s2) var(--s4); border-radius: var(--r); text-decoration: none; transition: all 0.15s; letter-spacing: -0.01em; cursor: pointer; border: none; }
+.btn-p { color: var(--white); background: var(--c0); }
+.btn-p:hover { background: var(--c2); }
+
+.label { font-family: var(--mono); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s5); }
+.line { height: 1px; background: var(--c5); }
+
+/* Article header */
+.article-header { padding: 140px 0 var(--s8); }
+.article-header-tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s3); }
+.article-header h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.15; letter-spacing: -0.03em; color: var(--c0); }
+.article-meta { display: flex; align-items: center; gap: var(--s2); margin-top: var(--s6); font-family: var(--mono); font-size: 0.72rem; color: var(--c3); }
+.article-meta span { display: flex; align-items: center; }
+.meta-sep { color: var(--c5); margin: 0 var(--s2); }
+
+/* Article body */
+.article-body { padding: 0 0 var(--s10); font-size: 1.05rem; line-height: 1.75; color: var(--c1); }
+.article-body h2 { font-family: var(--serif); font-size: 1.75rem; font-weight: 400; line-height: 1.2; letter-spacing: -0.02em; color: var(--c0); margin: var(--s9) 0 var(--s5); }
+.article-body h3 { font-family: var(--sans); font-size: 1.25rem; font-weight: 600; line-height: 1.3; color: var(--c0); margin: var(--s8) 0 var(--s4); }
+.article-body p { margin-bottom: var(--s6); }
+.article-body a { color: var(--c0); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: opacity 0.15s; }
+.article-body a:hover { opacity: 0.7; }
+.article-body ul, .article-body ol { margin: var(--s6) 0; padding-left: var(--s7); }
+.article-body li { margin-bottom: var(--s3); }
+.article-body strong { font-weight: 600; color: var(--c0); }
+.article-body em { font-style: italic; }
+.article-body code { font-family: var(--mono); font-size: 0.85em; background: var(--c6); padding: 2px 6px; border-radius: 4px; }
+
+/* Grid */
+.platform-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s4); margin: var(--s7) 0; }
+.platform-card { background: var(--cw); border: 1px solid var(--c5); border-radius: var(--r); padding: var(--s5); }
+.platform-card h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--c0); margin-bottom: var(--s2); }
+.platform-card p { font-size: 0.88rem; line-height: 1.5; color: var(--c3); }
+
+/* Callout */
+.callout { background: var(--c0); color: var(--white); border-radius: var(--r); padding: var(--s7); margin: var(--s9) 0; }
+.callout h3 { font-family: var(--sans); font-size: 1.1rem; font-weight: 600; margin-bottom: var(--s4); }
+.callout p { font-size: 0.95rem; line-height: 1.6; margin-bottom: var(--s4); opacity: 0.9; }
+.callout ul { margin: var(--s4) 0; padding-left: var(--s6); }
+.callout li { margin-bottom: var(--s2); font-size: 0.9rem; opacity: 0.85; }
+.callout a { color: var(--white); }
+.callout .btn { margin-top: var(--s4); background: var(--white); color: var(--c0); }
+.callout .btn:hover { background: var(--c6); }
+
+/* FAQ */
+.faq { margin: var(--s10) 0; }
+.faq h2 { font-family: var(--serif); font-size: 1.75rem; font-weight: 400; color: var(--c0); margin-bottom: var(--s7); }
+.faq-item { border-top: 1px solid var(--c5); padding: var(--s6) 0; }
+.faq-item:last-child { border-bottom: 1px solid var(--c5); }
+.faq-q { font-family: var(--sans); font-size: 1.05rem; font-weight: 600; color: var(--c0); margin-bottom: var(--s3); }
+.faq-a { font-size: 0.95rem; line-height: 1.65; color: var(--c3); }
+
+/* CTA */
+.article-cta { text-align: center; padding: var(--s11) 0; border-top: 1px solid var(--c5); }
+.article-cta h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 400; line-height: 1.15; letter-spacing: -0.02em; color: var(--c0); margin-bottom: var(--s4); }
+.article-cta p { font-size: 0.95rem; color: var(--c3); margin-bottom: var(--s7); }
+
+/* Related */
+.related { padding: var(--s10) 0; border-top: 1px solid var(--c5); }
+.related h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; color: var(--c0); margin-bottom: var(--s7); }
+.related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s7); }
+.related-item { text-decoration: none; }
+.related-item:hover .related-title { color: var(--c2); }
+.related-tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s2); }
+.related-title { font-family: var(--serif); font-size: 1.25rem; line-height: 1.3; color: var(--c0); margin-bottom: var(--s2); transition: color 0.15s; }
+.related-excerpt { font-size: 0.88rem; line-height: 1.6; color: var(--c3); }
+
+footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; justify-content: space-between; align-items: center; }
+.foot-l { font-family: var(--mono); font-size: 0.7rem; color: var(--c4); }
+.foot-r { display: flex; gap: var(--s6); }
+.foot-r a { font-size: 0.8rem; color: var(--c4); text-decoration: none; transition: color 0.15s; }
+.foot-r a:hover { color: var(--c0); }
+
+@keyframes up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+.rv { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.rv.v { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+  .article-header { padding-top: 120px; }
+  .platform-grid { grid-template-columns: 1fr; }
+  .related-grid { grid-template-columns: 1fr; gap: var(--s8); }
+  .nav-r a:not(.btn) { display: none; }
+  footer { flex-direction: column; gap: var(--s6); text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav><div class="w">
+  <a href="/" class="nav-mark">Kept</a>
+  <div class="nav-r">
+    <a href="/">Home</a>
+    <a href="/blog/" class="active">Blog</a>
+    <a href="/#go" class="btn btn-p">Join waitlist</a>
+  </div>
+</div></nav>
+
+<article>
+  <header class="article-header"><div class="wa">
+    <p class="article-header-tag">Guide</p>
+    <h1>How to Search Across All Your AI Conversations (ChatGPT, Claude, Gemini)</h1>
+    <div class="article-meta">
+      <span>Chris Hoar</span>
+      <span class="meta-sep">•</span>
+      <span>February 2026</span>
+      <span class="meta-sep">•</span>
+      <span>8 min read</span>
+    </div>
+  </div></header>
+
+  <div class="article-body wa">
+    <p>I spent 20 minutes yesterday searching for a database indexing conversation I knew I'd had recently. Checked ChatGPT history. Nothing. Tried Claude's search. Nope. Finally found it in Gemini, filed under a completely different title than I remembered.</p>
+
+    <p>This isn't a workflow problem. It's a structural one.</p>
+
+    <p>Every AI platform builds its own conversation silo. You can search within ChatGPT, within Claude, within Gemini. But you can't search across them. And with each new model release, each new platform launch, the fragmentation gets worse.</p>
+
+    <h2>What each platform offers today</h2>
+
+    <div class="platform-grid">
+      <div class="platform-card">
+        <h4>ChatGPT</h4>
+        <p>Basic title search. Filters by date. Can star conversations. No content search, no tags, no export API.</p>
+      </div>
+      <div class="platform-card">
+        <h4>Claude</h4>
+        <p>Title and content search. Projects for organization. Better than ChatGPT but still locked to Claude-only conversations.</p>
+      </div>
+      <div class="platform-card">
+        <h4>Gemini</h4>
+        <p>Google-powered search across your conversations. Good for finding specific chats. Zero interoperability with other platforms.</p>
+      </div>
+    </div>
+
+    <p>Each platform's search works fine in isolation. But isolation is the problem.</p>
+
+    <h2>Why platforms will never solve this</h2>
+
+    <p>OpenAI isn't going to build Claude conversation import. Anthropic won't index your ChatGPT history. Google certainly won't aggregate competitor data.</p>
+
+    <p>It's the same reason Gmail doesn't search your Outlook emails. Competitive lock-in is a feature, not a bug, of platform economics.</p>
+
+    <p>And the gap keeps widening. DeepSeek launches. Grok goes mainstream. Perplexity adds conversation history. Every new model means another silo, another place your knowledge disappears into.</p>
+
+    <p>The platforms have zero incentive to fix this. The solution has to come from outside.</p>
+
+    <h2>The actual cost of this fragmentation</h2>
+
+    <p><strong>Decisions disappear.</strong> That perfect problem-solving approach you worked out with ChatGPT? Lost in a sea of "New conversation" titles.</p>
+
+    <p><strong>Context resets constantly.</strong> You rebuild the same context with Claude that you already built with ChatGPT last week. Hours of redundant work.</p>
+
+    <p><strong>Patterns stay invisible.</strong> You can't see that you've asked variations of the same question across three platforms over six months. No learning compounds.</p>
+
+    <p>We're building incredible conversations with AI, then letting them evaporate.</p>
+
+    <h2>Current workarounds and why they fall short</h2>
+
+    <p><strong>Manual exports.</strong> ChatGPT lets you download your data every few weeks. Claude has conversation export. But these are snapshots, not systems. By the time you export, you've already lost the context you needed.</p>
+
+    <p><strong>Browser extensions.</strong> ChatGPT Exporter and similar tools work conversation by conversation. Fine for archiving specific chats. Useless for ongoing search needs.</p>
+
+    <p><strong>Echoes by R2bits.</strong> Actually solid for search. Their Chrome extension captures conversations, indexes them, makes them searchable. 850+ people in their Discord proves the need. But it's pure retrieval, no knowledge extraction. You can find conversations but not patterns.</p>
+
+    <p><strong>Copy-paste to Obsidian/Notion.</strong> The manual factor kills this. The moment you have to remember to copy something, you've already lost. The conversations you forget to save are always the ones you need.</p>
+
+    <p>All these approaches treat symptoms. None address the core issue: conversations need to be captured automatically, stored locally, searchable instantly, and intelligent about extraction.</p>
+
+    <div class="callout">
+      <h3>Enter Kept: Open source, local-first, automatic</h3>
+      <p>We're building what the platforms won't. A desktop app and Chrome extension that captures every conversation from ChatGPT, Claude, and Gemini automatically.</p>
+      <ul>
+        <li><strong>SQLite FTS5 search</strong> across all your conversations, stored locally on your machine</li>
+        <li><strong>Knowledge graph extraction</strong> to surface patterns and connections you'd never spot manually</li>
+        <li><strong>5MB total.</strong> No bloat, no cloud dependency, no subscription walls</li>
+        <li><strong>MIT licensed core</strong> with optional premium intelligence features coming</li>
+      </ul>
+      <p>It's the difference between searching for an email and having a knowledge system.</p>
+      <a href="https://kept.sh" class="btn">Learn more at kept.sh →</a>
+    </div>
+
+    <h2>The bigger picture</h2>
+
+    <p>Multi-LLM workflows are accelerating. You use ChatGPT for creative work. Claude for code. Gemini for research. Specialized models for specific tasks.</p>
+
+    <p>This is good. Competition drives innovation. Model diversity prevents lock-in.</p>
+
+    <p>But without unified search, without pattern recognition across platforms, we're trading capability for chaos. Every new model makes us potentially smarter but practically more fragmented.</p>
+
+    <p>The platforms won't fix this. They can't. Their incentives run the opposite direction.</p>
+
+    <p>The solution has to be local, open, and platform-agnostic. It has to treat your conversations as a unified knowledge base, not scattered fragments.</p>
+
+    <div class="faq">
+      <h2>Frequently asked questions</h2>
+      
+      <div class="faq-item">
+        <div class="faq-q">Can I search across ChatGPT and Claude at the same time?</div>
+        <div class="faq-a">Not natively. ChatGPT and Claude each have their own search functions, but they don't connect. You need a third-party tool like Kept or manual export methods to search across both platforms.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Why won't AI platforms add cross-platform search?</div>
+        <div class="faq-a">Competitive lock-in. OpenAI won't index Anthropic's conversations and vice versa. It's the same reason Gmail doesn't search Outlook. The solution has to come from outside the platforms.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What's the best way to export AI conversations?</div>
+        <div class="faq-a">For automatic capture: Kept (open source) or Echoes. For manual exports: ChatGPT's data export feature or browser extensions like ChatGPT Exporter. The key is consistency, which is why automatic tools work better long-term.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Is my conversation data safe with third-party tools?</div>
+        <div class="faq-a">Depends on the tool. Kept stores everything locally in SQLite on your machine. Echoes and others may use cloud storage. Always check where your data lives and who has access.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Can I build my own AI conversation search tool?</div>
+        <div class="faq-a">Yes. You can export conversations via API or browser automation, store in a database, and use full-text search. But maintaining parsers for multiple platforms is complex. That's why tools like Kept exist.</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="article-cta"><div class="wa">
+    <h2>Stop searching. Start finding.</h2>
+    <p>Your AI conversations shouldn't disappear into platform silos.</p>
+    <a href="/#go" class="btn btn-p">Join the waitlist →</a>
+  </div></section>
+
+  <section class="related"><div class="wa">
+    <h3>Related posts</h3>
+    <div class="related-grid">
+      <a href="/blog/transfer-context-chatgpt-claude/" class="related-item">
+        <p class="related-tag">Guide</p>
+        <h4 class="related-title">How to Transfer Context Between ChatGPT and Claude</h4>
+        <p class="related-excerpt">You built 30 messages of context in ChatGPT and now want Claude's take. Here are the current methods.</p>
+      </a>
+      <a href="/blog/kept-vs-echoes-vs-chatgpt-exporter/" class="related-item">
+        <p class="related-tag">Comparison</p>
+        <h4 class="related-title">Kept vs Echoes vs ChatGPT Exporter: Compared</h4>
+        <p class="related-excerpt">Three approaches to managing AI conversations. Which one fits your workflow?</p>
+      </a>
+    </div>
+  </div></section>
+</article>
+
+<div class="w"><footer>
+  <span class="foot-l">Kept — An E-Group Labs product — 2026</span>
+  <div class="foot-r"><a href="#">GitHub</a><a href="#">Docs</a><a href="#">Privacy</a></div>
+</footer></div>
+
+<script>
+const o = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); o.unobserve(e.target); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -32px 0px' });
+document.querySelectorAll('.rv').forEach(el => o.observe(el));
+</script>
+</body>
+</html>
