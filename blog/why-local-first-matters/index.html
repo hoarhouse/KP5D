@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Primary Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Local-First Matters for Your AI Conversations - Kept</title>
+<meta name="description" content="Your AI conversations contain code, strategy, and decisions. They live on someone else's server by default. Here's why local-first storage matters and how to take ownership of your AI data.">
+<meta name="keywords" content="save AI conversations locally, local-first AI tool, backup ChatGPT conversations, AI conversation privacy, own your AI data, local AI conversation storage">
+<link rel="canonical" href="https://kept.sh/blog/why-local-first-matters/">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Chris Hoar">
+<meta name="theme-color" content="#09090b">
+<link rel="icon" type="image/svg+xml" href="/KP5D/favicon.svg">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Why Local-First Matters for Your AI Conversations">
+<meta property="og:description" content="Your AI conversations contain code, strategy, and decisions. They live on someone else's server by default. Here's why local-first storage matters.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kept.sh/blog/why-local-first-matters/">
+<meta property="og:image" content="https://kept.sh/og-article-local.png">
+<meta property="article:author" content="Chris Hoar">
+<meta property="article:published_time" content="2026-03-11T00:00:00Z">
+<meta property="article:section" content="Guide">
+<meta property="article:tag" content="local-first">
+<meta property="article:tag" content="AI privacy">
+<meta property="article:tag" content="data ownership">
+<meta property="article:tag" content="developer tools">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Why Local-First Matters for Your AI Conversations">
+<meta name="twitter:description" content="Your AI conversations contain code, strategy, and decisions. Here's why they should live on your machine, not someone else's server.">
+<meta name="twitter:image" content="https://kept.sh/og-article-local.png">
+
+<!-- JSON-LD Article -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Why Local-First Matters for Your AI Conversations",
+  "description": "Your AI conversations contain code, strategy, and decisions. They live on someone else's server by default. Here's why local-first storage matters and how to take ownership of your AI data.",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Hoar"
+  },
+  "datePublished": "2026-03-11T00:00:00Z",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kept",
+    "url": "https://kept.sh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kept.sh/blog/why-local-first-matters/"
+  },
+  "wordCount": 1700
+}
+</script>
+
+<!-- JSON-LD FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I save my ChatGPT conversations locally?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ChatGPT offers a data export through Settings that gives you a JSON file of your full history. However this is a one-time snapshot, not continuous backup. It does not update automatically. For continuous local capture, tools like Kept use a Chrome extension to save conversations to your machine automatically as you have them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are my AI conversations private?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the platform and your settings. By default, OpenAI, Anthropic, and Google store your conversations on their servers. Some platforms use conversations for model training unless you opt out. Even with opt-outs, your data still lives on their infrastructure and is subject to their data retention policies, security practices, and legal obligations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does local-first mean for AI tools?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Local-first means your data is stored on your own machine as the primary copy, not on a cloud server. The application works offline, searches are instant because there is no network round trip, and you have full ownership of your data. No account required, no server dependency, no subscription needed to access your own conversations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens to my AI conversations if I cancel my subscription?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Platform policies vary. Most platforms let you export data before canceling. But conversation history, organization, and any platform-specific features are lost. With a local-first tool, your data exists independently of any subscription or platform account."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --c0: #09090b;
+  --c1: #18181b;
+  --c2: #3f3f46;
+  --c3: #71717a;
+  --c4: #a1a1aa;
+  --c5: #e4e4e7;
+  --c6: #f4f4f5;
+  --cw: #fafafa;
+  --white: #ffffff;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', 'SF Mono', monospace;
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 20px;
+  --s6: 24px; --s7: 32px; --s8: 40px; --s9: 48px; --s10: 64px;
+  --s11: 80px; --s12: 120px;
+  --r: 8px;
+  --max: 1060px;
+  --article: 720px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--sans); color: var(--c1); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+::selection { background: var(--c0); color: var(--white); }
+
+.w { max-width: var(--max); margin: 0 auto; padding: 0 var(--s9); }
+.wa { max-width: var(--article); margin: 0 auto; padding: 0 var(--s9); }
+@media (max-width: 768px) { 
+  .w { padding: 0 var(--s6); }
+  .wa { padding: 0 var(--s6); }
+}
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 56px; display: flex; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--c5); }
+nav .w { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.nav-mark { font-family: var(--sans); font-weight: 600; font-size: 0.9rem; color: var(--c0); text-decoration: none; letter-spacing: -0.03em; }
+.nav-r { display: flex; align-items: center; gap: var(--s7); }
+.nav-r a { font-size: 0.82rem; color: var(--c3); text-decoration: none; transition: color 0.15s; }
+.nav-r a:hover { color: var(--c0); }
+.nav-r a.active { color: var(--c0); }
+
+.btn { display: inline-flex; align-items: center; gap: var(--s2); font-family: var(--sans); font-size: 0.82rem; font-weight: 500; padding: var(--s2) var(--s4); border-radius: var(--r); text-decoration: none; transition: all 0.15s; letter-spacing: -0.01em; cursor: pointer; border: none; }
+.btn-p { color: var(--white); background: var(--c0); }
+.btn-p:hover { background: var(--c2); }
+
+.label { font-family: var(--mono); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s5); }
+.line { height: 1px; background: var(--c5); }
+
+/* Article header */
+.article-header { padding: 140px 0 var(--s8); }
+.article-header-tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s3); }
+.article-header h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.15; letter-spacing: -0.03em; color: var(--c0); }
+.article-meta { display: flex; align-items: center; gap: var(--s2); margin-top: var(--s6); font-family: var(--mono); font-size: 0.72rem; color: var(--c3); }
+.article-meta span { display: flex; align-items: center; }
+.meta-sep { color: var(--c5); margin: 0 var(--s2); }
+
+/* Article body */
+.article-body { padding: 0 0 var(--s10); font-size: 1.05rem; line-height: 1.75; color: var(--c1); }
+.article-body h2 { font-family: var(--serif); font-size: 1.75rem; font-weight: 400; line-height: 1.2; letter-spacing: -0.02em; color: var(--c0); margin: var(--s9) 0 var(--s5); }
+.article-body h3 { font-family: var(--sans); font-size: 1.25rem; font-weight: 600; line-height: 1.3; color: var(--c0); margin: var(--s8) 0 var(--s4); }
+.article-body p { margin-bottom: var(--s6); }
+.article-body a { color: var(--c0); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: opacity 0.15s; }
+.article-body a:hover { opacity: 0.7; }
+.article-body ul, .article-body ol { margin: var(--s6) 0; padding-left: var(--s7); }
+.article-body li { margin-bottom: var(--s3); }
+.article-body strong { font-weight: 600; color: var(--c0); }
+.article-body em { font-style: italic; }
+.article-body code { font-family: var(--mono); font-size: 0.85em; background: var(--c6); padding: 2px 6px; border-radius: 4px; }
+
+/* Grid */
+.platform-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s4); margin: var(--s7) 0; }
+.platform-card { background: var(--cw); border: 1px solid var(--c5); border-radius: var(--r); padding: var(--s5); }
+.platform-card h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--c0); margin-bottom: var(--s2); }
+.platform-card p { font-size: 0.88rem; line-height: 1.5; color: var(--c3); }
+
+/* Callout */
+.callout { background: var(--c0); color: var(--white); border-radius: var(--r); padding: var(--s7); margin: var(--s9) 0; }
+.callout h3 { font-family: var(--sans); font-size: 1.1rem; font-weight: 600; margin-bottom: var(--s4); }
+.callout p { font-size: 0.95rem; line-height: 1.6; margin-bottom: var(--s4); opacity: 0.9; }
+.callout ul { margin: var(--s4) 0; padding-left: var(--s6); }
+.callout li { margin-bottom: var(--s2); font-size: 0.9rem; opacity: 0.85; }
+.callout a { color: var(--white); }
+.callout .btn { margin-top: var(--s4); background: var(--white); color: var(--c0); }
+.callout .btn:hover { background: var(--c6); }
+
+/* FAQ */
+.faq { margin: var(--s10) 0; }
+.faq h2 { font-family: var(--serif); font-size: 1.75rem; font-weight: 400; color: var(--c0); margin-bottom: var(--s7); }
+.faq-item { border-top: 1px solid var(--c5); padding: var(--s6) 0; }
+.faq-item:last-child { border-bottom: 1px solid var(--c5); }
+.faq-q { font-family: var(--sans); font-size: 1.05rem; font-weight: 600; color: var(--c0); margin-bottom: var(--s3); }
+.faq-a { font-size: 0.95rem; line-height: 1.65; color: var(--c3); }
+
+/* CTA */
+.article-cta { text-align: center; padding: var(--s11) 0; border-top: 1px solid var(--c5); }
+.article-cta h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 400; line-height: 1.15; letter-spacing: -0.02em; color: var(--c0); margin-bottom: var(--s4); }
+.article-cta p { font-size: 0.95rem; color: var(--c3); margin-bottom: var(--s7); }
+
+/* Related */
+.related { padding: var(--s10) 0; border-top: 1px solid var(--c5); }
+.related h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; color: var(--c0); margin-bottom: var(--s7); }
+.related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s7); }
+.related-item { text-decoration: none; }
+.related-item:hover .related-title { color: var(--c2); }
+.related-tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s2); }
+.related-title { font-family: var(--serif); font-size: 1.25rem; line-height: 1.3; color: var(--c0); margin-bottom: var(--s2); transition: color 0.15s; }
+.related-excerpt { font-size: 0.88rem; line-height: 1.6; color: var(--c3); }
+
+footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; justify-content: space-between; align-items: center; }
+.foot-l { font-family: var(--mono); font-size: 0.7rem; color: var(--c4); }
+.foot-r { display: flex; gap: var(--s6); }
+.foot-r a { font-size: 0.8rem; color: var(--c4); text-decoration: none; transition: color 0.15s; }
+.foot-r a:hover { color: var(--c0); }
+
+@keyframes up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+.rv { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.rv.v { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+  .article-header { padding-top: 120px; }
+  .platform-grid { grid-template-columns: 1fr; }
+  .related-grid { grid-template-columns: 1fr; gap: var(--s8); }
+  .nav-r a:not(.btn) { display: none; }
+  footer { flex-direction: column; gap: var(--s6); text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav><div class="w">
+  <a href="/KP5D/" class="nav-mark">Kept</a>
+  <div class="nav-r">
+    <a href="/KP5D/">Home</a>
+    <a href="/KP5D/blog/" class="active">Blog</a>
+    <a href="/KP5D/#go" class="btn btn-p">Join waitlist</a>
+  </div>
+</div></nav>
+
+<article>
+  <header class="article-header"><div class="wa">
+    <p class="article-header-tag">Guide</p>
+    <h1>Why Local-First Matters for Your AI Conversations</h1>
+    <div class="article-meta">
+      <span>Chris Hoar</span>
+      <span class="meta-sep">•</span>
+      <span>March 2026</span>
+      <span class="meta-sep">•</span>
+      <span>7 min read</span>
+    </div>
+  </div></header>
+
+  <div class="article-body wa">
+    <p>I recently counted up what my AI conversations contain from the past six months. Architectural decisions for three different projects. Proprietary code for a product in active development. Competitive analysis with specific revenue estimates. Investor strategy and positioning documents. Personal career decisions.</p>
+
+    <p>All of it lives on servers owned by OpenAI, Anthropic, and Google.</p>
+
+    <p>I never made a conscious decision to store this information with them. It just happened, one conversation at a time.</p>
+
+    <p>If you use AI tools for anything beyond casual questions, your conversation history is probably one of the most valuable and sensitive datasets you have. And by default, you do not control where it lives.</p>
+
+    <h2>What the platforms actually do with your data</h2>
+
+    <p><strong>OpenAI:</strong> Conversations stored on their servers. Used for model training by default unless you opt out in settings or use the API. They introduced the ability to turn off training, but the default is on.</p>
+
+    <p><strong>Anthropic:</strong> Conversations stored on their servers. Retention policies apply. Claude has stated clearer data handling policies but the data still lives on their infrastructure.</p>
+
+    <p><strong>Google/Gemini:</strong> Tied to your Google account. Subject to Google's broader data policies. Google has the most extensive data ecosystem of the three.</p>
+
+    <p>The common thread: with all three platforms, your conversations exist on infrastructure you do not control, governed by terms of service that can change, and subject to the security posture of companies that are high-value targets for breaches.</p>
+
+    <h2>The three risks nobody talks about</h2>
+
+    <p><strong>Risk 1: Platform discontinuation or policy changes.</strong> Services shut down. Terms change. What happens to three years of AI conversations if a platform pivots, gets acquired, or changes its data retention policy? You have no contractual guarantee of perpetual access to your conversation history.</p>
+
+    <p><strong>Risk 2: The training data question.</strong> Even with opt-outs, the mechanics of how conversation data flows through ML pipelines are complex. Opt-out settings can change. Bugs happen. The safest way to ensure your conversations are not used for training is to not have them on the platform's servers at all.</p>
+
+    <p><strong>Risk 3: The aggregation problem.</strong> A single conversation is low-risk. But six months of daily AI conversations creates a detailed profile of your technical decisions, business strategy, intellectual interests, and working patterns. The aggregate is far more sensitive than any individual conversation. This profile exists on each platform's servers whether you think about it or not.</p>
+
+    <h2>What local-first actually means</h2>
+
+    <p>Local-first is not just "offline mode." It means your data is stored on your machine as the primary copy. The application works without an internet connection. Searches are instant because there is no network request. You can back up your data using any tool you already use (Time Machine, rsync, external drives).</p>
+
+    <p>No account is required to access your own data. No subscription is needed to keep using the tool. If the company that built the tool disappears tomorrow, your data is still on your machine in readable formats.</p>
+
+    <p>Contrast this with cloud-first tools where the server is the source of truth and your local device is just a viewer.</p>
+
+    <h2>The performance argument</h2>
+
+    <p>Local-first is not just about privacy. It is also faster.</p>
+
+    <p>SQLite FTS5 searching 10,000 conversations on your local machine takes milliseconds. The same search through a cloud API takes seconds at best, assuming you have a connection.</p>
+
+    <p>When you are in a coding flow and need to find a conversation quickly, that speed difference matters. There is no loading spinner. No "connecting to server." No outage on someone else's infrastructure blocking your access to your own data.</p>
+
+    <p>A 5MB desktop app with a local SQLite database will always be faster than a cloud round trip. This is physics, not opinion.</p>
+
+    <h2>The format argument</h2>
+
+    <p>When your data is local, you control the format.</p>
+
+    <p>Kept stores conversations as Markdown files with YAML frontmatter. You can open them in any text editor. You can grep them from the terminal. You can import them into Obsidian, feed them to a local LLM, or write scripts against them.</p>
+
+    <p>Try doing that with conversations locked inside ChatGPT's interface.</p>
+
+    <p>Data portability is not a feature you need until the day you desperately need it. Local storage in open formats means you are never locked in, never dependent on an export feature that may or may not give you everything.</p>
+
+    <div class="callout">
+      <h3>Kept is built local-first from the ground up</h3>
+      <p>Every conversation is stored as Markdown with YAML frontmatter on your machine. SQLite FTS5 handles full-text search across thousands of conversations in milliseconds.</p>
+      <p>The Tauri 2 desktop app is about 5MB. No cloud account required for core features. No server dependency. Your data is yours, in formats you can read and use with any tool.</p>
+      <p>Open source under MIT license.</p>
+      <a href="https://kept.sh" class="btn">Join the beta at kept.sh →</a>
+    </div>
+
+    <h2>The honest trade-offs</h2>
+
+    <p>Be upfront about what local-first costs you.</p>
+
+    <p>No automatic cross-device sync (you need to handle that yourself with Syncthing, Dropbox, or similar). No collaborative features without additional infrastructure. If your machine dies and you have no backup, the data is gone. You are responsible for your own backups.</p>
+
+    <p>These are real trade-offs. For some workflows, cloud sync is essential and the privacy cost is acceptable.</p>
+
+    <p>Local-first is not the right choice for everyone. But for developers who value ownership, speed, and independence, the trade-offs are worth it.</p>
+
+    <div class="faq">
+      <h2>Frequently asked questions</h2>
+      
+      <div class="faq-item">
+        <div class="faq-q">Can I save my ChatGPT conversations locally?</div>
+        <div class="faq-a">ChatGPT offers a data export through Settings that gives you a JSON file of your full history. However this is a one-time snapshot, not continuous backup. It does not update automatically. For continuous local capture, tools like Kept use a Chrome extension to save conversations to your machine automatically as you have them.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Are my AI conversations private?</div>
+        <div class="faq-a">It depends on the platform and your settings. By default, OpenAI, Anthropic, and Google store your conversations on their servers. Some platforms use conversations for model training unless you opt out. Even with opt-outs, your data still lives on their infrastructure and is subject to their data retention policies, security practices, and legal obligations.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What does local-first mean for AI tools?</div>
+        <div class="faq-a">Local-first means your data is stored on your own machine as the primary copy, not on a cloud server. The application works offline, searches are instant because there is no network round trip, and you have full ownership of your data. No account required, no server dependency, no subscription needed to access your own conversations.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What happens to my AI conversations if I cancel my subscription?</div>
+        <div class="faq-a">Platform policies vary. Most platforms let you export data before canceling. But conversation history, organization, and any platform-specific features are lost. With a local-first tool, your data exists independently of any subscription or platform account.</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="article-cta"><div class="wa">
+    <h2>Own your AI conversations.</h2>
+    <p>Kept stores everything locally on your machine. Markdown files, SQLite search, no cloud required. Open source, local-first, launching in beta.</p>
+    <a href="/KP5D/#go" class="btn btn-p">Join the waitlist →</a>
+  </div></section>
+
+  <section class="related"><div class="wa">
+    <h3>Related posts</h3>
+    <div class="related-grid">
+      <a href="/KP5D/blog/search-across-ai-conversations/" class="related-item">
+        <p class="related-tag">Guide</p>
+        <h4 class="related-title">How to Search Across All Your AI Conversations</h4>
+        <p class="related-excerpt">You use ChatGPT, Claude, and Gemini daily. But you can't search across all of them. Here's why that gap exists, and how to solve it.</p>
+      </a>
+      <a href="/KP5D/blog/transfer-context-chatgpt-claude/" class="related-item">
+        <p class="related-tag">Guide</p>
+        <h4 class="related-title">How to Transfer Context Between ChatGPT and Claude</h4>
+        <p class="related-excerpt">You built 30 messages of context in ChatGPT and now want Claude's take. Here are the current manual methods and an automatic alternative.</p>
+      </a>
+    </div>
+  </div></section>
+</article>
+
+<div class="w"><footer>
+  <span class="foot-l">Kept — An E-Group Labs product — 2026</span>
+  <div class="foot-r"><a href="#">GitHub</a><a href="#">Docs</a><a href="#">Privacy</a></div>
+</footer></div>
+
+<script>
+const o = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); o.unobserve(e.target); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -32px 0px' });
+document.querySelectorAll('.rv').forEach(el => o.observe(el));
+</script>
+</body>
+</html>
