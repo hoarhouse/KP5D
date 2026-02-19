@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Context Drift Is Killing Your AI Coding Sessions. Here's the Fix. | Kept Blog</title>
-    <meta name="description" content="AI assistants lose 47% accuracy after 10 turns. Learn how context drift happens, why it destroys productivity, and how to maintain context across long coding sessions.">
-    <meta name="keywords" content="context drift, AI coding sessions, ChatGPT context, Claude context management, AI conversation degradation, coding assistant memory, context window management, AI productivity">
+
+<!-- Primary Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Context Drift Is Killing Your AI Coding Sessions. Here's the Fix. - Kept</title>
+<meta name="description" content="AI assistants lose 47% accuracy after 10 turns. Learn how context drift happens, why it destroys productivity, and how to maintain context across long coding sessions.">
+<meta name="keywords" content="context drift, AI coding sessions, ChatGPT context, Claude context management, AI conversation degradation, coding assistant memory, context window management, AI productivity">
+<link rel="canonical" href="https://kept.sh/blog/context-drift-killing-ai-coding-sessions/">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Chris Hoar">
+<meta name="theme-color" content="#09090b">
+<link rel="icon" type="image/svg+xml" href="/KP5D/favicon.svg">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Context Drift Is Killing Your AI Coding Sessions. Here's the Fix.">
+<meta property="og:description" content="AI assistants lose 47% accuracy after 10 turns. Learn how context drift happens and how to maintain context across long sessions.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kept.sh/blog/context-drift-killing-ai-coding-sessions/">
+<meta property="og:image" content="https://kept.sh/og-article-drift.png">
+<meta property="article:author" content="Chris Hoar">
+<meta property="article:published_time" content="2026-03-15T00:00:00Z">
+<meta property="article:section" content="Guide">
+<meta property="article:tag" content="context drift">
+<meta property="article:tag" content="AI coding">
+<meta property="article:tag" content="productivity">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Context Drift Is Killing Your AI Coding Sessions. Here's the Fix.">
+<meta name="twitter:description" content="AI assistants lose 47% accuracy after 10 turns. Learn how to fix context drift in your coding sessions.">
+<meta name="twitter:image" content="https://kept.sh/og-article-drift.png">
     
-    <!-- Open Graph -->
-    <meta property="og:title" content="Context Drift Is Killing Your AI Coding Sessions. Here's the Fix.">
-    <meta property="og:description" content="AI assistants lose 47% accuracy after 10 turns. Learn how context drift happens and how to maintain context across long sessions.">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://hoarhouse.github.io/KP5D/blog/context-drift-killing-ai-coding-sessions/">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Context Drift Is Killing Your AI Coding Sessions. Here's the Fix.">
-    <meta name="twitter:description" content="AI assistants lose 47% accuracy after 10 turns. Learn how to fix context drift in your coding sessions.">
-    
-    <link rel="canonical" href="https://hoarhouse.github.io/KP5D/blog/context-drift-killing-ai-coding-sessions/">
-    <link rel="stylesheet" href="/KP5D/styles.css">
-    
-    <!-- JSON-LD Article Schema -->
+<!-- Article JSON-LD -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -35,19 +47,19 @@
         "publisher": {
             "@type": "Organization",
             "name": "Kept",
-            "url": "https://hoarhouse.github.io/KP5D/"
+            "url": "https://kept.sh"
         },
-        "datePublished": "2024-03-15",
-        "dateModified": "2024-03-15",
+        "datePublished": "2026-03-15T00:00:00Z",
+        "dateModified": "2026-03-15T00:00:00Z",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://hoarhouse.github.io/KP5D/blog/context-drift-killing-ai-coding-sessions/"
+            "@id": "https://kept.sh/blog/context-drift-killing-ai-coding-sessions/"
         },
         "keywords": "context drift, AI coding sessions, ChatGPT context, Claude context management, AI conversation degradation"
     }
     </script>
     
-    <!-- JSON-LD FAQPage Schema -->
+<!-- FAQ JSON-LD -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -96,35 +108,134 @@
         ]
     }
     </script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --c0: #09090b;
+  --c1: #18181b;
+  --c2: #3f3f46;
+  --c3: #71717a;
+  --c4: #a1a1aa;
+  --c5: #e4e4e7;
+  --c6: #f4f4f5;
+  --cw: #fafafa;
+  --white: #ffffff;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', 'SF Mono', monospace;
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 20px;
+  --s6: 24px; --s7: 32px; --s8: 40px; --s9: 48px; --s10: 64px;
+  --s11: 80px; --s12: 120px;
+  --r: 8px;
+  --max: 1060px;
+  --article: 720px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--sans); color: var(--c1); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+::selection { background: var(--c0); color: var(--white); }
+
+.w { max-width: var(--max); margin: 0 auto; padding: 0 var(--s9); }
+.wa { max-width: var(--article); margin: 0 auto; padding: 0 var(--s9); }
+@media (max-width: 768px) { 
+  .w { padding: 0 var(--s6); }
+  .wa { padding: 0 var(--s6); }
+}
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 56px; display: flex; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--c5); }
+nav .w { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.nav-mark { font-family: var(--sans); font-weight: 600; font-size: 0.9rem; color: var(--c0); text-decoration: none; letter-spacing: -0.03em; }
+.nav-r { display: flex; align-items: center; gap: var(--s7); }
+.nav-r a { font-size: 0.82rem; color: var(--c3); text-decoration: none; transition: color 0.15s; }
+.nav-r a:hover { color: var(--c0); }
+.nav-r a.active { color: var(--c0); }
+
+.btn { display: inline-flex; align-items: center; gap: var(--s2); font-family: var(--sans); font-size: 0.82rem; font-weight: 500; padding: var(--s2) var(--s4); border-radius: var(--r); text-decoration: none; transition: all 0.15s; letter-spacing: -0.01em; cursor: pointer; border: none; }
+.btn-p { color: var(--white); background: var(--c0); }
+.btn-p:hover { background: var(--c2); }
+
+/* Article header */
+.article-header { padding: 140px 0 var(--s8); }
+.article-header-tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s3); }
+.article-header h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.15; letter-spacing: -0.03em; color: var(--c0); }
+.article-subtitle { font-size: 1.1rem; color: var(--c3); margin-top: var(--s4); line-height: 1.4; }
+.article-meta { display: flex; align-items: center; gap: var(--s2); margin-top: var(--s6); font-family: var(--mono); font-size: 0.72rem; color: var(--c3); }
+.article-meta span { display: flex; align-items: center; }
+.meta-sep { color: var(--c5); margin: 0 var(--s2); }
+
+/* Article body */
+.article-body { padding: 0 0 var(--s10); font-size: 1.05rem; line-height: 1.75; color: var(--c1); }
+.article-body h2 { font-family: var(--serif); font-size: 1.75rem; font-weight: 400; line-height: 1.2; letter-spacing: -0.02em; color: var(--c0); margin: var(--s9) 0 var(--s5); }
+.article-body h3 { font-family: var(--sans); font-size: 1.25rem; font-weight: 600; line-height: 1.3; color: var(--c0); margin: var(--s8) 0 var(--s4); }
+.article-body p { margin-bottom: var(--s6); }
+.article-body a { color: var(--c0); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: opacity 0.15s; }
+.article-body a:hover { opacity: 0.7; }
+.article-body ul, .article-body ol { margin: var(--s6) 0; padding-left: var(--s7); }
+.article-body li { margin-bottom: var(--s3); }
+.article-body strong { font-weight: 600; color: var(--c0); }
+.article-body em { font-style: italic; }
+.article-body code { font-family: var(--mono); font-size: 0.85em; background: var(--c6); padding: 2px 6px; border-radius: 4px; }
+
+/* Related articles */
+.related { padding: var(--s10) 0; border-top: 1px solid var(--c5); }
+.related h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; color: var(--c0); margin-bottom: var(--s7); }
+.related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s7); }
+.related-item { text-decoration: none; }
+.related-item:hover .related-title { color: var(--c2); }
+.related-tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s2); }
+.related-title { font-family: var(--serif); font-size: 1.25rem; line-height: 1.3; color: var(--c0); margin-bottom: var(--s2); transition: color 0.15s; }
+.related-excerpt { font-size: 0.88rem; line-height: 1.6; color: var(--c3); }
+
+/* CTA */
+.article-cta { text-align: center; padding: var(--s11) 0; border-top: 1px solid var(--c5); }
+.article-cta h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 400; line-height: 1.15; letter-spacing: -0.02em; color: var(--c0); margin-bottom: var(--s4); }
+.article-cta p { font-size: 0.95rem; color: var(--c3); margin-bottom: var(--s7); }
+
+footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; justify-content: space-between; align-items: center; }
+.foot-l { font-family: var(--mono); font-size: 0.7rem; color: var(--c4); }
+.foot-r { display: flex; gap: var(--s6); }
+.foot-r a { font-size: 0.8rem; color: var(--c4); text-decoration: none; transition: color 0.15s; }
+.foot-r a:hover { color: var(--c0); }
+
+@media (max-width: 768px) {
+  .article-header { padding-top: 120px; }
+  .related-grid { grid-template-columns: 1fr; gap: var(--s8); }
+  .nav-r a:not(.btn) { display: none; }
+  footer { flex-direction: column; gap: var(--s6); text-align: center; }
+}
+</style>
 </head>
 <body>
-    <nav>
-        <div class="container">
-            <a href="/KP5D/" class="logo">Kept</a>
-            <div class="nav-links">
-                <a href="/KP5D/#features">Features</a>
-                <a href="/KP5D/#pricing">Pricing</a>
-                <a href="/KP5D/blog/">Blog</a>
-            </div>
-        </div>
-    </nav>
+<nav><div class="w">
+  <a href="/KP5D/" class="nav-mark">Kept</a>
+  <div class="nav-r">
+    <a href="/KP5D/">Home</a>
+    <a href="/KP5D/blog/" class="active">Blog</a>
+    <a href="/KP5D/#go" class="btn btn-p">Join waitlist</a>
+  </div>
+</div></nav>
     
-    <main>
-        <article class="blog-post">
-            <div class="container">
-                <header>
-                    <div class="breadcrumb">
-                        <a href="/KP5D/">Home</a> / <a href="/KP5D/blog/">Blog</a>
-                    </div>
-                    <h1>Context Drift Is Killing Your AI Coding Sessions. Here's the Fix.</h1>
-                    <div class="meta">
-                        <time datetime="2024-03-15">March 15, 2024</time>
-                        <span class="reading-time">11 min read</span>
-                    </div>
-                </header>
-                
-                <div class="content">
-                    <p class="lead">You start strong. ChatGPT understands your architecture perfectly. Ten messages later, it's suggesting solutions that break everything you just built. Sound familiar?</p>
+<article>
+  <header class="article-header"><div class="wa">
+    <p class="article-header-tag">Guide</p>
+    <h1>Context Drift Is Killing Your AI Coding Sessions. Here's the Fix.</h1>
+    <p class="article-subtitle">AI assistants lose 47% accuracy after just 10 conversation turns. Learn how context drift happens and how to fix it.</p>
+    <div class="article-meta">
+      <span>Chris Hoar</span>
+      <span class="meta-sep">•</span>
+      <span>March 2026</span>
+      <span class="meta-sep">•</span>
+      <span>11 min read</span>
+    </div>
+  </div></header>
+
+  <div class="article-body wa">
+    <p>You start strong. ChatGPT understands your architecture perfectly. Ten messages later, it's suggesting solutions that break everything you just built. Sound familiar?</p>
                     
                     <p>Research from AMCIS 2025 just confirmed what every developer already knows: AI assistants lose 47% of their accuracy after just 10 conversation turns. That brilliant coding partner from message one becomes a confused junior dev by message twenty.</p>
                     
@@ -326,43 +437,35 @@
                     
                     <p>Stop accepting context drift. Start preserving context that works. Your code quality, your productivity, and your sanity depend on it.</p>
                     
-                    <p>Because the best context isn't the one you rebuild. It's the one you never lose.</p>
-                    
-                    <div class="cta-section">
-                        <h3>Ready to eliminate context drift?</h3>
-                        <p>Join thousands of developers who've stopped losing context and started preserving it.</p>
-                        <a href="/KP5D/#download" class="cta-button">Get Kept Free</a>
-                    </div>
-                </div>
-            </div>
-        </article>
-    </main>
+    <p>Because the best context isn't the one you rebuild. It's the one you never lose.</p>
+  </div>
+</article>
+
+<section class="article-cta"><div class="wa">
+  <h2>Ready to eliminate context drift?</h2>
+  <p>Join thousands of developers who've stopped losing context and started preserving it.</p>
+  <a href="/KP5D/#go" class="btn btn-p">Get Kept Free</a>
+</div></section>
+
+<section class="related"><div class="wa">
+  <h3>Related articles</h3>
+  <div class="related-grid">
+    <a href="/KP5D/blog/claude-md-llms-txt-spec-md-manual-context-systems/" class="related-item">
+      <p class="related-tag">Guide</p>
+      <h4 class="related-title">CLAUDE.md, llms.txt, and spec.md: Why Developers Are Building Context Systems for AI</h4>
+      <p class="related-excerpt">Developers are building manual context files for AI tools. Here's what each format does and where they fall short.</p>
+    </a>
+    <a href="/KP5D/blog/why-ai-platforms-will-never-index-each-other/" class="related-item">
+      <p class="related-tag">Thought Leadership</p>
+      <h4 class="related-title">Why AI Platforms Will Never Index Each Other</h4>
+      <p class="related-excerpt">ChatGPT won't search Claude conversations. Claude won't index Gemini chats. The structural gap creates opportunity.</p>
+    </a>
+  </div>
+</div></section>
     
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Product</h4>
-                    <a href="/KP5D/#features">Features</a>
-                    <a href="/KP5D/#pricing">Pricing</a>
-                    <a href="/KP5D/#download">Download</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <a href="/KP5D/blog/">Blog</a>
-                    <a href="/KP5D/docs/">Documentation</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Company</h4>
-                    <a href="/KP5D/#about">About</a>
-                    <a href="/KP5D/privacy/">Privacy</a>
-                    <a href="/KP5D/terms/">Terms</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Kept. Cross-platform AI conversation management.</p>
-            </div>
-        </div>
-    </footer>
+<div class="w"><footer>
+  <span class="foot-l">Kept — An E-Group Labs product — 2026</span>
+  <div class="foot-r"><a href="#">GitHub</a><a href="#">Docs</a><a href="#">Privacy</a></div>
+</footer></div>
 </body>
 </html>
