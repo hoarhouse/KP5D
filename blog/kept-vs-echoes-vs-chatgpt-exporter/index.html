@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kept vs Echoes vs ChatGPT Exporter: AI Conversation Tools Compared - Kept</title>
-<meta name="description" content="Comparing three approaches to managing AI conversations: export tools, conversation managers, and knowledge platforms. An honest breakdown of what each does well and where each falls short.">
+<meta name="description" content="Comparing three approaches to managing AI conversations: export tools, conversation managers, and cross-platform management interfaces. An honest breakdown of what each does well and where each falls short.">
 <meta name="keywords" content="Echoes alternative, ChatGPT Exporter alternative, AI conversation manager comparison, best AI conversation tool, Echoes vs Kept, ChatGPT Exporter vs Kept, AI conversation search tool">
 <link rel="canonical" href="https://kept.sh/blog/kept-vs-echoes-vs-chatgpt-exporter/">
 <meta name="robots" content="index, follow">
@@ -16,7 +16,7 @@
 
 <!-- Open Graph -->
 <meta property="og:title" content="Kept vs Echoes vs ChatGPT Exporter: AI Conversation Tools Compared">
-<meta property="og:description" content="Comparing three approaches to managing AI conversations: export tools, conversation managers, and knowledge platforms. An honest breakdown of what each does well.">
+<meta property="og:description" content="Comparing three approaches to managing AI conversations: export tools, conversation managers, and cross-platform management interfaces. An honest breakdown of what each does well.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kept.sh/blog/kept-vs-echoes-vs-chatgpt-exporter/">
 <meta property="og:image" content="https://kept.sh/og-article-comparison.png">
@@ -32,7 +32,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kept vs Echoes vs ChatGPT Exporter: AI Conversation Tools Compared">
-<meta name="twitter:description" content="Comparing export tools, conversation managers, and knowledge platforms for AI conversations.">
+<meta name="twitter:description" content="Comparing export tools, conversation managers, and cross-platform management interfaces for AI conversations.">
 <meta name="twitter:image" content="https://kept.sh/og-article-comparison.png">
 
 <!-- JSON-LD Article -->
@@ -41,7 +41,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Kept vs Echoes vs ChatGPT Exporter: AI Conversation Tools Compared",
-  "description": "Comparing three approaches to managing AI conversations: export tools, conversation managers, and knowledge platforms. An honest breakdown of what each does well and where each falls short.",
+  "description": "Comparing three approaches to managing AI conversations: export tools, conversation managers, and cross-platform management interfaces. An honest breakdown of what each does well and where each falls short.",
   "author": {
     "@type": "Person",
     "name": "Chris Hoar"
@@ -92,10 +92,10 @@
     },
     {
       "@type": "Question",
-      "name": "What is the difference between an AI conversation manager and a knowledge platform?",
+      "name": "What is the difference between an AI conversation manager and a cross-platform management interface?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A conversation manager helps you find, organize, and label your AI conversations. A knowledge platform goes further by extracting structured data like entities, decisions, relationships, and concepts from your conversations and building a queryable knowledge graph. Echoes is a conversation manager. Kept is a knowledge platform."
+        "text": "A conversation manager helps you find, organize, and label your AI conversations within a browser extension. A cross-platform management interface goes further with a desktop client, browser extension, and CLI that work together. Kept offers Conversation Forks to continue chats between models, Context Templating to sync project files with LLM sessions, and Dynamic Links to connect information across separate chats. Echoes is a conversation manager. Kept is a cross-platform management interface."
       }
     },
     {
@@ -277,7 +277,7 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
   <div class="article-body wa">
     <p>The market for AI conversation tools is growing fast. If you search the Chrome Web Store for "ChatGPT export" or "AI conversation manager" you will find dozens of extensions.</p>
 
-    <p>I have tested most of them. They broadly fall into three categories: export tools, conversation managers, and knowledge platforms. Each solves a different problem at a different level of depth.</p>
+    <p>I have tested most of them. They broadly fall into three categories: export tools, conversation managers, and cross-platform management interfaces. Each solves a different problem at a different level of depth.</p>
 
     <p>This is an honest comparison of the three most relevant tools in the space right now. I built one of them, so I will be upfront about my bias. But I have also been a daily user of the other two, and I will give credit where it is earned.</p>
 
@@ -309,21 +309,23 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
 
     <p><strong>Not for:</strong> users who want structured intelligence extraction or context transfer between LLMs.</p>
 
-    <h2>Kept: the knowledge platform</h2>
+    <h2>Kept: the cross-platform AI conversation manager</h2>
 
     <p>Full disclosure: I am building Kept, so take this section with appropriate skepticism. I will focus on what Kept does differently rather than claiming it is better at everything.</p>
 
-    <p>Kept takes a different architectural approach. Instead of just managing conversations, it treats them as raw material for a knowledge graph. Every conversation is parsed for entities (people, tools, libraries, decisions, concepts). These become searchable, connected nodes in a local graph. A decision you made in ChatGPT three months ago gets linked to the library you discussed in Claude last week.</p>
+    <p>Kept takes a different approach. Instead of just managing conversations in the browser, it gives you a desktop client, Chrome extension, and CLI that work together. The extension archives conversations from every provider. The desktop client lets you read, search, and connect them. Conversation Forks let you continue any chat in a different model with full context carried over. Context Templating keeps your project files synced with LLM sessions through the CLI. And Dynamic Links connect information across separate chats into a knowledge graph.</p>
 
-    <p>Kept also offers two capabilities no other tool in this category has.</p>
+    <p>Kept offers three capabilities no other tool in this category has:</p>
 
-    <p><strong>Context sharing:</strong> transfer your context from one LLM to another without re-explaining your project. If you have been architecting a system in Claude and want ChatGPT's take, Kept packages the relevant context and starts the new conversation with background loaded.</p>
+    <p><strong>Conversation Forks:</strong> continue any chat in a different model with full context. If you have been architecting a system in Claude and want ChatGPT's take, Kept packages the relevant context and starts the new conversation with background loaded.</p>
 
-    <p><strong>Intelligent sharing:</strong> export formatted conversation snippets to Slack, email, or docs with code blocks and structure preserved. No more copy-paste that destroys formatting.</p>
+    <p><strong>Context Templating:</strong> define project context once and the CLI keeps it synced. File watcher monitors changes so the agent always sees current state. Tunable retrieval size and context compression make it work even with smaller context windows.</p>
 
-    <p>The trade-off is real. Kept is a desktop app (Tauri 2, about 5MB) plus Chrome extension, not just a lightweight browser add-on. It requires a small install. In return, all your data stays local on your machine, searches are instant through SQLite FTS5, and you own everything. It is MIT licensed and open source.</p>
+    <p><strong>Dynamic Links:</strong> connect information across separate chats into a knowledge graph. A decision you made in ChatGPT three months ago gets linked to the library you discussed in Claude last week.</p>
 
-    <p><strong>Best for:</strong> developers and researchers who use multiple AI platforms daily and want a searchable, connected archive with structured intelligence extraction.</p>
+    <p>The trade-off is real. Kept is a desktop app (Tauri 2, about 5MB) plus Chrome extension plus CLI, not just a lightweight browser add-on. It requires installation. In return, all your data stays local on your machine, searches are instant through SQLite FTS5, and you own everything. It is MIT licensed and open source.</p>
+
+    <p><strong>Best for:</strong> developers who use multiple AI platforms daily and want one interface to archive, fork, and template their conversations across every provider.</p>
 
     <p><strong>Not for:</strong> users who want a zero-install browser-only solution.</p>
 
@@ -435,8 +437,8 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
       </div>
 
       <div class="faq-item">
-        <div class="faq-q">What is the difference between an AI conversation manager and a knowledge platform?</div>
-        <div class="faq-a">A conversation manager helps you find, organize, and label your AI conversations. A knowledge platform goes further by extracting structured data like entities, decisions, relationships, and concepts from your conversations and building a queryable knowledge graph. Echoes is a conversation manager. Kept is a knowledge platform.</div>
+        <div class="faq-q">What is the difference between an AI conversation manager and a cross-platform management interface?</div>
+        <div class="faq-a">A conversation manager helps you find, organize, and label your AI conversations within a browser extension. A cross-platform management interface goes further with a desktop client, browser extension, and CLI that work together. Kept offers Conversation Forks to continue chats between models, Context Templating to sync project files with LLM sessions, and Dynamic Links to connect information across separate chats. Echoes is a conversation manager. Kept is a cross-platform management interface.</div>
       </div>
 
       <div class="faq-item">
@@ -447,7 +449,7 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
   </div>
 
   <section class="article-cta"><div class="wa">
-    <h2>Try the knowledge platform approach.</h2>
+    <h2>Try the cross-platform approach.</h2>
     <p>Kept captures AI conversations from every platform, extracts structured intelligence, and lets you carry context between LLMs. Open source, local-first, launching in beta.</p>
     <a href="/KP5D/#go" class="btn btn-p">Join the waitlist →</a>
   </div></section>
