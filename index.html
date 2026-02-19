@@ -459,8 +459,9 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
 <!-- Problem -->
 <section class="sec"><div class="w rv">
   <p class="label">The problem</p>
-  <h2 class="heading">Research, decisions, working code, reasoning. <em>Trapped in silos.</em></h2>
-  <p class="desc">You use ChatGPT for code, Claude for writing, Gemini for research. You can't search across any of them. You can't carry context from one into another. Sharing a snippet with your team destroys the formatting. Every insight lives and dies inside a single chat window.</p>
+  <h2 class="heading">Fragmented context. Lost conversations. <em>Wasted time.</em></h2>
+  <p class="desc">You work across ChatGPT, Claude, Gemini, and other providers. You split context across dozens of separate chats. But there is no way to centralize those conversations or organize the information locally.</p>
+  <p class="desc">Meanwhile, transferring context between your projects and LLM providers means tedious copy-pasting through the browser. Formatting breaks, critical information gets left out, and the files you need rarely change. The workflow tax is real.</p>
 </div></section>
 
 <div class="w"><div class="line"></div></div>
@@ -471,23 +472,24 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
     <h2 class="heading">Four steps from conversation <em>to knowledge</em></h2>
   </div>
   <div class="steps">
-    <div class="step rv"><span class="step-n">01</span><div><p class="step-t">Capture</p><p class="step-d">Chrome extension detects your AI conversations automatically and saves them locally. No copy-paste, no manual exports. Also supports bulk import from platform data exports for your full history.</p></div></div>
-    <div class="step rv"><span class="step-n">02</span><div><p class="step-t">Index</p><p class="step-d">Tauri backend writes markdown with YAML frontmatter to a local vault. SQLite FTS5 delivers instant full-text search across thousands of conversations.</p></div></div>
-    <div class="step rv"><span class="step-n">03</span><div><p class="step-t">Extract</p><p class="step-d">Knowledge engine parses every conversation for entities, decisions, and concepts. These become nodes in a local knowledge graph that maps relationships across all your interactions &mdash; regardless of which platform they came from.</p></div></div>
-    <div class="step rv"><span class="step-n">04</span><div><p class="step-t">Use</p><p class="step-d">Carry context into a new conversation on any platform. Share formatted snippets with your team. Ask questions that span your full archive. Weekly digests surface what matters.</p></div></div>
+    <div class="step rv"><span class="step-n">01</span><div><p class="step-t">Capture</p><p class="step-d">The Kept extension detects your AI conversations across providers and archives them locally. No copy-paste, no manual exports. Also supports bulk import from platform data exports for your full history.</p></div></div>
+    <div class="step rv"><span class="step-n">02</span><div><p class="step-t">Index</p><p class="step-d">Desktop client writes conversations to a local vault with full metadata. SQLite FTS5 delivers instant full-text search across thousands of conversations from every provider.</p></div></div>
+    <div class="step rv"><span class="step-n">03</span><div><p class="step-t">Extract</p><p class="step-d">Dynamic Links connect information across separate chats. Build a knowledge graph of relationships between conversations, projects, and ideas regardless of which provider they came from.</p></div></div>
+    <div class="step rv"><span class="step-n">04</span><div><p class="step-t">Work</p><p class="step-d">Fork a conversation to continue it in a different model. Define context templates that keep your project files synced with your LLM sessions. The CLI monitors your codebase so the agent always sees current state.</p></div></div>
   </div>
 </div></section>
 
 <section class="sec-sm"><div class="w">
   <div class="rv">
-    <p class="label">Developer workflow</p>
-    <h2 class="heading">Three features. <em>Built for how you actually work.</em></h2>
-    <p class="desc">The team agreed: these are the three things developers need on day one. Everything else follows from here.</p>
+    <p class="label">Core features</p>
+    <h2 class="heading">Four capabilities. <em>Built for how you actually work.</em></h2>
+    <p class="desc">The features developers need on day one. Everything else follows from here.</p>
   </div>
-  <div class="pillars rv">
-    <div class="pill"><p class="pill-n">01 Portability</p><h3 class="pill-t">Context Sharing</h3><p class="pill-d">Architecting in Claude and want a second opinion from ChatGPT? Kept packages the context and lets you start a new conversation in any LLM with full background loaded. No more re-explaining. Also works with local repo context, so you stop copy-pasting between your IDE and browser.</p></div>
-    <div class="pill"><p class="pill-n">02 Collaboration</p><h3 class="pill-t">Intelligent Sharing</h3><p class="pill-d">Share AI conversation snippets to Slack, email, or docs with formatting preserved. Code blocks stay clean, key insights get extracted, structure survives. No more tedious copy-paste that breaks everything.</p></div>
-    <div class="pill"><p class="pill-n">03 Organization</p><h3 class="pill-t">Centralized Archive</h3><p class="pill-d">One searchable home for every conversation across every platform. Auto-organized by project, browsable by timeline, with a visual mind map that surfaces forgotten ideas and connections.</p></div>
+  <div class="pillars rv" style="grid-template-columns: repeat(2, 1fr);">
+    <div class="pill"><p class="pill-n">01 Archival</p><h3 class="pill-t">Chat Archival</h3><p class="pill-d">No more 'I forgot which model wrote this code.' Download and manage your AI conversations from every provider in a single desktop application.</p></div>
+    <div class="pill"><p class="pill-n">02 Portability</p><h3 class="pill-t">Conversation Forks</h3><p class="pill-d">Let Claude finish the chat you started with Gemini, or start task execution with multiple providers at the same time. No re-explaining.</p></div>
+    <div class="pill"><p class="pill-n">03 Context</p><h3 class="pill-t">Context Templating</h3><p class="pill-d">Define what belongs to the feature you are shipping, then let Kept manage the context as your project grows. The CLI watches your files and keeps everything current.</p></div>
+    <div class="pill"><p class="pill-n">04 Intelligence</p><h3 class="pill-t">Dynamic Links</h3><p class="pill-d">Connect information in separate chats to build a knowledge graph. See how your projects and ideas evolve through conversations across every provider.</p></div>
   </div>
 </div></section>
 
