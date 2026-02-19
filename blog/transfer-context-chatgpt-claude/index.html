@@ -70,7 +70,7 @@
       "name": "Can you transfer a conversation from ChatGPT to Claude?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Not natively. The platforms don't talk to each other. Current options are manual (summarize and paste, export markdown, use extensions like Retry in Another AI). Kept automates this by packaging context and letting you start a new session in any platform with background loaded."
+        "text": "Not natively. The platforms don't talk to each other. Current options are manual (summarize and paste, export markdown, use extensions like Retry in Another AI). Kept automates this with Conversation Forks, which packages context and lets you start a new session in any platform with background loaded."
       }
     },
     {
@@ -94,7 +94,7 @@
       "name": "How do developers use multiple AI models effectively?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most developers use different models for different strengths. ChatGPT for code generation, Claude for architecture and reasoning, Gemini for research with Google integration. The challenge is maintaining context across them."
+        "text": "Most developers use different models for different strengths. ChatGPT for code generation, Claude for architecture and reasoning, Gemini for research with Google integration. The challenge is maintaining context across them. Kept's Context Templating and CLI help by keeping your project files synced with every LLM session automatically."
       }
     }
   ]
@@ -304,10 +304,10 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
 
     <div class="callout">
       <h3>Kept approaches this differently</h3>
-      <p>Because it captures and indexes all your conversations across every platform, it has the full context available locally at all times.</p>
-      <p>When you want to continue a conversation in a different LLM, Kept packages the relevant context and lets you start a new session with that background loaded. No copy-pasting. No summarizing. No uploading files.</p>
-      <p>It also works with local repo context so you stop re-explaining your codebase to every new AI conversation.</p>
-      <p>Open source, local-first, launching in beta.</p>
+      <p>The Kept extension archives all your conversations across every provider locally.</p>
+      <p>When you want to continue a conversation in a different LLM, Conversation Forks packages the relevant context and lets you start a new session with that background loaded. No copy-pasting. No summarizing. No uploading files. The context follows you between providers.</p>
+      <p>Context Templating takes this further. Instead of re-explaining your codebase structure every time you open a new AI conversation, define what belongs to the feature you are shipping and the CLI watches your files for changes. Every LLM session starts with up-to-date project context injected automatically. Tunable retrieval size and context compression make it work even with models that have smaller context windows.</p>
+      <p>Desktop app, Chrome extension, and CLI. Open source, local-first, launching in beta.</p>
       <a href="https://kept.sh" class="btn">Learn more at kept.sh →</a>
     </div>
 
@@ -326,7 +326,7 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
       
       <div class="faq-item">
         <div class="faq-q">Can you transfer a conversation from ChatGPT to Claude?</div>
-        <div class="faq-a">Not natively. The platforms don't talk to each other. Current options are manual (summarize and paste, export markdown, use extensions like Retry in Another AI). Kept automates this by packaging context and letting you start a new session in any platform with background loaded.</div>
+        <div class="faq-a">Not natively. The platforms don't talk to each other. Current options are manual (summarize and paste, export markdown, use extensions like Retry in Another AI). Kept automates this with Conversation Forks, which packages context and lets you start a new session in any platform with background loaded.</div>
       </div>
 
       <div class="faq-item">
@@ -341,14 +341,14 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
 
       <div class="faq-item">
         <div class="faq-q">How do developers use multiple AI models effectively?</div>
-        <div class="faq-a">Most developers use different models for different strengths. ChatGPT for code generation, Claude for architecture and reasoning, Gemini for research with Google integration. The challenge is maintaining context across them.</div>
+        <div class="faq-a">Most developers use different models for different strengths. ChatGPT for code generation, Claude for architecture and reasoning, Gemini for research with Google integration. The challenge is maintaining context across them. Kept's Context Templating and CLI help by keeping your project files synced with every LLM session automatically.</div>
       </div>
     </div>
   </div>
 
   <section class="article-cta"><div class="wa">
     <h2>Context that moves with you.</h2>
-    <p>Kept packages your AI conversation context and lets you carry it between platforms. No copy-pasting, no re-explaining.</p>
+    <p>Kept archives your AI conversations, lets you fork them between providers, and keeps your project context synced through the CLI. Open source, local-first, launching in beta.</p>
     <a href="/KP5D/#go" class="btn btn-p">Join the waitlist →</a>
   </div></section>
 
@@ -370,7 +370,7 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
 </article>
 
 <div class="w"><footer>
-  <span class="foot-l">Kept — An E-Group Labs product — 2026</span>
+  <span class="foot-l">Kept · An E-Group Labs product · 2026</span>
   <div class="foot-r"><a href="#">GitHub</a><a href="#">Docs</a><a href="#">Privacy</a></div>
 </footer></div>
 
