@@ -479,6 +479,21 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
   </div>
 </div></section>
 
+<div class="w"><div class="line"></div></div>
+
+<section class="sec-sm"><div class="w">
+  <div class="rv">
+    <p class="label">Architecture</p>
+    <h2 class="heading">Three components. <em>One workflow.</em></h2>
+    <p class="desc">A desktop client, browser extension, and CLI that work together to manage your AI conversations across every provider.</p>
+  </div>
+  <div class="pillars rv" style="grid-template-columns: repeat(3, 1fr)">
+    <div class="pill"><p class="pill-n">Desktop Client</p><h3 class="pill-t">Obsidian but for AI chat</h3><p class="pill-d">Read and manage previous chats and connect relevant messages. Switch models without clearing the conversation history. Built-in support for local LLMs.</p></div>
+    <div class="pill"><p class="pill-n">Kept Extension</p><h3 class="pill-t">The LLM interface</h3><p class="pill-d">Manages chat archival and downloading from provider sites. Injects project context into your messages so every LLM session starts with full background.</p></div>
+    <div class="pill"><p class="pill-n">Kept CLI</p><h3 class="pill-t">Projects meet the browser</h3><p class="pill-d">Set up context templates for different features from the command line. File watcher monitors changes so the agent always sees current info. Tunable retrieval size and context compression for smaller windows.</p></div>
+  </div>
+</div></section>
+
 <section class="sec-sm"><div class="w">
   <div class="rv">
     <p class="label">Core features</p>
@@ -496,18 +511,18 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
 <section class="sec dark" id="features"><div class="w">
   <div class="rv">
     <p class="label">Features</p>
-    <h2 class="heading">Workflow tools and intelligence. <em>In one place.</em></h2>
-    <p class="desc">Developer workflow features you use every day, plus a knowledge engine that gets smarter with every conversation.</p>
+    <h2 class="heading">Chat management and intelligence. <em>In one place.</em></h2>
+    <p class="desc">A desktop client, browser extension, and CLI that work together. Archive, fork, template, and connect your AI conversations.</p>
   </div>
   <div class="feat-grid rv">
-    <div class="feat"><p class="feat-t">Context portability</p><p class="feat-d">Start a conversation in Claude, continue it in ChatGPT. Kept packages your context so you never re-explain your project to a new LLM again.</p></div>
-    <div class="feat"><p class="feat-t">Intelligent sharing</p><p class="feat-d">Share conversation excerpts to Slack, email, or docs. Formatting preserved, code blocks intact, key insights extracted automatically.</p></div>
-    <div class="feat"><p class="feat-t">Entity extraction</p><p class="feat-d">People, tools, libraries, models, decisions. Every conversation parsed into structured nodes for the knowledge graph.</p></div>
-    <div class="feat"><p class="feat-t">Relationship mapping</p><p class="feat-d">Reference a library in ChatGPT, discuss trade-offs in Claude weeks later. Kept connects them automatically.</p></div>
-    <div class="feat"><p class="feat-t">Decision tracking</p><p class="feat-d">Decisions and rationale extracted with timestamps. Trace why you chose one approach over another, months later.</p></div>
-    <div class="feat"><p class="feat-t">AI agent</p><p class="feat-d">"What architectural decisions did I make this quarter?" Answered with citations across every platform you used.</p></div>
-    <div class="feat"><p class="feat-t">Visual mind map</p><p class="feat-d">Interactive knowledge graph and timeline view. Surface forgotten ideas, see project clusters, zoom from themes down to individual messages.</p></div>
-    <div class="feat"><p class="feat-t">Comparative agent (coming)</p><p class="feat-d">Query multiple LLMs from one interface and compare responses side by side. Get a second opinion without switching tabs.</p></div>
+    <div class="feat"><p class="feat-t">Chat archival</p><p class="feat-d">Auto-download conversations from ChatGPT, Claude, Gemini, and other providers. Everything saved locally to your machine.</p></div>
+    <div class="feat"><p class="feat-t">Conversation forks</p><p class="feat-d">Continue any conversation in a different model. Kept packages the context so you pick up right where you left off.</p></div>
+    <div class="feat"><p class="feat-t">Context templates</p><p class="feat-d">Define project context once. The CLI watches your files and injects up-to-date information into every LLM session automatically.</p></div>
+    <div class="feat"><p class="feat-t">Dynamic links</p><p class="feat-d">Connect related messages across separate chats. Build a knowledge graph that maps how your projects evolve over time.</p></div>
+    <div class="feat"><p class="feat-t">Local LLM support</p><p class="feat-d">Built-in support for local models. Switch between cloud and local inference without changing your workflow.</p></div>
+    <div class="feat"><p class="feat-t">CLI integration</p><p class="feat-d">Set up context templates from the command line. File watcher monitors changes so the agent always sees current state.</p></div>
+    <div class="feat"><p class="feat-t">Smart compression</p><p class="feat-d">Tunable retrieval size and context compression. Fit your project context into LLMs with smaller context windows.</p></div>
+    <div class="feat"><p class="feat-t">Cross-provider search</p><p class="feat-d">Instant full-text search across every archived conversation. Find anything regardless of which model you were using.</p></div>
   </div>
 </div></section>
 
@@ -535,17 +550,17 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
     <div class="persona">
       <div class="persona-icon">&gt;_</div>
       <p class="persona-t">Developers</p>
-      <p class="persona-d">You debug in ChatGPT, architect in Claude, prototype in Gemini. Kept lets you carry context between them, share clean snippets with your team, and search every decision you have ever made across all platforms.</p>
+      <p class="persona-d">You debug in ChatGPT, architect in Claude, prototype in Gemini. Kept archives every conversation, lets you fork chats between providers, and keeps your project context synced through the CLI.</p>
     </div>
     <div class="persona">
       <div class="persona-icon">&#x1F50D;</div>
       <p class="persona-t">Researchers</p>
-      <p class="persona-d">Months of AI-assisted analysis scattered across platforms. Kept turns research threads into a knowledge graph where every source, finding, and connection is traceable.</p>
+      <p class="persona-d">Months of AI-assisted analysis scattered across platforms. Kept turns fragmented research threads into a connected archive where every source, finding, and conversation is searchable and linked.</p>
     </div>
     <div class="persona">
       <div class="persona-icon">&#x25B2;</div>
       <p class="persona-t">Founders &amp; PMs</p>
-      <p class="persona-d">Strategy sessions, competitive analysis, product specs, investor prep &mdash; all generated through AI conversations. Kept makes sure none of it gets lost.</p>
+      <p class="persona-d">Strategy sessions, competitive analysis, product specs, investor prep. All generated through AI conversations across multiple tools. Kept makes sure none of it gets lost and all of it stays connected.</p>
     </div>
   </div>
 </div></section>
@@ -565,13 +580,13 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
       <p class="beta-card-title">Free forever</p>
       <p class="beta-card-note">MIT licensed. Available at beta launch.</p>
       <ul class="beta-items">
-        <li>Chrome extension capture</li>
-        <li>Tauri desktop app</li>
+        <li>Chrome extension archival</li>
+        <li>Tauri desktop client</li>
         <li>Full-text search (FTS5)</li>
-        <li>Context sharing between LLMs</li>
-        <li>Intelligent formatted sharing</li>
-        <li>Markdown vault &amp; export</li>
-        <li>Bulk import from data exports</li>
+        <li>Conversation forks between LLMs</li>
+        <li>Context templating</li>
+        <li>CLI with file monitoring</li>
+        <li>Markdown vault and export</li>
         <li>ChatGPT + Claude + Gemini</li>
       </ul>
     </div>
@@ -581,13 +596,13 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
       <p class="beta-card-note">Pricing TBD. Beta testers will help shape it. BYOK option planned.</p>
       <ul class="beta-items">
         <li>Everything in free</li>
-        <li>Knowledge graph extraction</li>
-        <li>Entity recognition &amp; relationships</li>
+        <li>Dynamic links / knowledge graph</li>
+        <li>Smart context compression</li>
         <li>AI agent with archive Q&amp;A</li>
         <li>Semantic search</li>
         <li>Weekly AI digests</li>
-        <li>Visual mind map &amp; timeline</li>
-        <li>Comparative agent (multi-LLM query)</li>
+        <li>Visual mind map and timeline</li>
+        <li>Multi-provider comparison</li>
       </ul>
     </div>
   </div>
