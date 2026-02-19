@@ -1,288 +1,384 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Obsidian, Notion, and Tana: Where AI Conversations Don't Fit | Kept Blog</title>
-    <meta name="description" content="Obsidian, Notion, and Tana are great for notes. But AI conversations from ChatGPT, Claude, and Gemini don't fit any of them. Here's why.">
-    <meta name="keywords" content="Obsidian AI conversations, Notion AI integration, Tana PKM, save ChatGPT conversations Obsidian, AI conversation management, PKM for AI chats, Obsidian ChatGPT plugin, knowledge management AI conversations">
-    <meta name="author" content="Chris Hoar">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://kept.sh/blog/obsidian-notion-tana-ai-conversations/">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Obsidian, Notion, and Tana: Where AI Conversations Don't Fit">
-    <meta property="og:description" content="PKM tools are built for notes you write. AI conversations are a different beast. Here's why Obsidian, Notion, and Tana can't solve this problem.">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://kept.sh/blog/obsidian-notion-tana-ai-conversations/">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Obsidian, Notion, and Tana: Where AI Conversations Don't Fit">
-    <meta name="twitter:description" content="PKM tools are built for notes you write. AI conversations are a different beast. Here's why none of them solve this problem.">
-    
-    <link rel="stylesheet" href="/KP5D/styles.css">
-    
-    <!-- JSON-LD Article Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "Obsidian, Notion, and Tana: Where AI Conversations Don't Fit",
-        "description": "Obsidian, Notion, and Tana are great for notes. But AI conversations from ChatGPT, Claude, and Gemini don't fit any of them. Here's why.",
-        "author": {
-            "@type": "Person",
-            "name": "Chris Hoar"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Kept",
-            "url": "https://kept.sh/"
-        },
-        "datePublished": "2026-04-15",
-        "dateModified": "2026-04-15",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://kept.sh/blog/obsidian-notion-tana-ai-conversations/"
-        },
-        "keywords": "Obsidian, Notion, Tana, AI conversations, PKM, ChatGPT, Claude, Gemini, knowledge management"
-    }
-    </script>
-    
-    <!-- JSON-LD FAQPage Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "Can I save ChatGPT conversations to Obsidian?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, through Chrome extensions like Save ChatGPT to Obsidian or manual export. But this only handles ChatGPT. There is no unified solution for conversations across ChatGPT, Claude, and Gemini. Each platform needs its own export workflow, and once conversations land in your vault they are static markdown files with no cross-conversation search, entity extraction, or knowledge graph capabilities. They become inert text that you have to manually organize and tag."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Does Notion AI work with external AI conversations?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Notion AI works within Notion pages and connected apps like Slack and Google Drive. But it cannot ingest or search AI conversations from ChatGPT, Claude, or Gemini. You would need to manually copy conversations into Notion pages, losing formatting and context. Notion AI also has a short memory, treating each interaction independently without retaining context from previous questions."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Is Tana good for managing AI conversations?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Tana has strong AI-native features including built-in AI chat and a knowledge graph. However, it is designed for notes and structured data you create within Tana. There is no automatic ingestion of external AI conversations from ChatGPT, Claude, or Gemini. Tana's Input API can only write new nodes in, not sync ongoing conversations. It also requires a paid plan for AI features and has limited API access for getting data out."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "What is the best tool for managing AI conversations across platforms?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Tools built specifically for AI conversation management, like Kept, are designed to solve this problem. Unlike PKM tools that require manual import, Kept automatically captures conversations from ChatGPT, Claude, and Gemini through a Chrome extension, indexes them locally with full-text search, and extracts a knowledge graph of entities, decisions, and relationships. The key difference is automatic cross-platform capture versus manual copy-paste into a general-purpose note-taking tool."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Why can't I just export AI conversations as markdown and put them in Obsidian?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "You can, and many developers do. But exporting creates static files that lack the intelligence layer. Conversations sitting as markdown in an Obsidian vault are just text. You cannot search across them intelligently, extract entities and decisions automatically, transfer context from one conversation to a new session on another platform, or see relationships between topics discussed in different conversations over time. Export solves the storage problem but not the knowledge problem."
-                }
+
+<!-- Primary Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Obsidian, Notion, and Tana: Where AI Conversations Don't Fit - Kept</title>
+<meta name="description" content="Obsidian, Notion, and Tana are great for notes. But AI conversations from ChatGPT, Claude, and Gemini don't fit any of them. Here's why.">
+<meta name="keywords" content="Obsidian AI conversations, Notion AI integration, Tana PKM, save ChatGPT conversations Obsidian, AI conversation management, PKM for AI chats, Obsidian ChatGPT plugin, knowledge management AI conversations">
+<link rel="canonical" href="https://kept.sh/blog/obsidian-notion-tana-ai-conversations/">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Chris Hoar">
+<meta name="theme-color" content="#09090b">
+<link rel="icon" type="image/svg+xml" href="/KP5D/favicon.svg">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Obsidian, Notion, and Tana: Where AI Conversations Don't Fit">
+<meta property="og:description" content="PKM tools are built for notes you write. AI conversations are a different beast. Here's why Obsidian, Notion, and Tana can't solve this problem.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kept.sh/blog/obsidian-notion-tana-ai-conversations/">
+<meta property="og:image" content="https://kept.sh/og-article-pkm.png">
+<meta property="article:author" content="Chris Hoar">
+<meta property="article:published_time" content="2026-04-15T00:00:00Z">
+<meta property="article:section" content="Comparison">
+<meta property="article:tag" content="PKM">
+<meta property="article:tag" content="AI conversations">
+<meta property="article:tag" content="knowledge management">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Obsidian, Notion, and Tana: Where AI Conversations Don't Fit">
+<meta name="twitter:description" content="PKM tools are built for notes you write. AI conversations are a different beast. Here's why none of them solve this problem.">
+<meta name="twitter:image" content="https://kept.sh/og-article-pkm.png">
+
+<!-- Article JSON-LD -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Obsidian, Notion, and Tana: Where AI Conversations Don't Fit",
+    "description": "Obsidian, Notion, and Tana are great for notes. But AI conversations from ChatGPT, Claude, and Gemini don't fit any of them. Here's why.",
+    "author": {
+        "@type": "Person",
+        "name": "Chris Hoar"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Kept",
+        "url": "https://kept.sh"
+    },
+    "datePublished": "2026-04-15T00:00:00Z",
+    "dateModified": "2026-04-15T00:00:00Z",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://kept.sh/blog/obsidian-notion-tana-ai-conversations/"
+    },
+    "keywords": "Obsidian, Notion, Tana, AI conversations, PKM, ChatGPT, Claude, Gemini, knowledge management"
+}
+</script>
+
+<!-- FAQ JSON-LD -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Can I save ChatGPT conversations to Obsidian?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, through Chrome extensions like Save ChatGPT to Obsidian or manual export. But this only handles ChatGPT. There is no unified solution for conversations across ChatGPT, Claude, and Gemini. Each platform needs its own export workflow, and once conversations land in your vault they are static markdown files with no cross-conversation search, entity extraction, or knowledge graph capabilities. They become inert text that you have to manually organize and tag."
             }
-        ]
-    }
-    </script>
+        },
+        {
+            "@type": "Question",
+            "name": "Does Notion AI work with external AI conversations?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Notion AI works within Notion pages and connected apps like Slack and Google Drive. But it cannot ingest or search AI conversations from ChatGPT, Claude, or Gemini. You would need to manually copy conversations into Notion pages, losing formatting and context. Notion AI also has a short memory, treating each interaction independently without retaining context from previous questions."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is Tana good for managing AI conversations?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Tana has strong AI-native features including built-in AI chat and a knowledge graph. However, it is designed for notes and structured data you create within Tana. There is no automatic ingestion of external AI conversations from ChatGPT, Claude, or Gemini. Tana's Input API can only write new nodes in, not sync ongoing conversations. It also requires a paid plan for AI features and has limited API access for getting data out."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What is the best tool for managing AI conversations across platforms?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Tools built specifically for AI conversation management, like Kept, are designed to solve this problem. Unlike PKM tools that require manual import, Kept automatically captures conversations from ChatGPT, Claude, and Gemini through a Chrome extension, indexes them locally with full-text search, and extracts a knowledge graph of entities, decisions, and relationships. The key difference is automatic cross-platform capture versus manual copy-paste into a general-purpose note-taking tool."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Why can't I just export AI conversations as markdown and put them in Obsidian?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can, and many developers do. But exporting creates static files that lack the intelligence layer. Conversations sitting as markdown in an Obsidian vault are just text. You cannot search across them intelligently, extract entities and decisions automatically, transfer context from one conversation to a new session on another platform, or see relationships between topics discussed in different conversations over time. Export solves the storage problem but not the knowledge problem."
+            }
+        }
+    ]
+}
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --c0: #09090b;
+  --c1: #18181b;
+  --c2: #3f3f46;
+  --c3: #71717a;
+  --c4: #a1a1aa;
+  --c5: #e4e4e7;
+  --c6: #f4f4f5;
+  --cw: #fafafa;
+  --white: #ffffff;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', 'SF Mono', monospace;
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 20px;
+  --s6: 24px; --s7: 32px; --s8: 40px; --s9: 48px; --s10: 64px;
+  --s11: 80px; --s12: 120px;
+  --r: 8px;
+  --max: 1060px;
+  --article: 720px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--sans); color: var(--c1); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+::selection { background: var(--c0); color: var(--white); }
+
+.w { max-width: var(--max); margin: 0 auto; padding: 0 var(--s9); }
+.wa { max-width: var(--article); margin: 0 auto; padding: 0 var(--s9); }
+@media (max-width: 768px) { 
+  .w { padding: 0 var(--s6); }
+  .wa { padding: 0 var(--s6); }
+}
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 56px; display: flex; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--c5); }
+nav .w { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.nav-mark { font-family: var(--sans); font-weight: 600; font-size: 0.9rem; color: var(--c0); text-decoration: none; letter-spacing: -0.03em; }
+.nav-r { display: flex; align-items: center; gap: var(--s7); }
+.nav-r a { font-size: 0.82rem; color: var(--c3); text-decoration: none; transition: color 0.15s; }
+.nav-r a:hover { color: var(--c0); }
+.nav-r a.active { color: var(--c0); }
+
+.btn { display: inline-flex; align-items: center; gap: var(--s2); font-family: var(--sans); font-size: 0.82rem; font-weight: 500; padding: var(--s2) var(--s4); border-radius: var(--r); text-decoration: none; transition: all 0.15s; letter-spacing: -0.01em; cursor: pointer; border: none; }
+.btn-p { color: var(--white); background: var(--c0); }
+.btn-p:hover { background: var(--c2); }
+
+/* Article header */
+.article-header { padding: 140px 0 var(--s8); }
+.article-header-tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s3); }
+.article-header h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.15; letter-spacing: -0.03em; color: var(--c0); }
+.article-subtitle { font-size: 1.1rem; color: var(--c3); margin-top: var(--s4); line-height: 1.4; }
+.article-meta { display: flex; align-items: center; gap: var(--s2); margin-top: var(--s6); font-family: var(--mono); font-size: 0.72rem; color: var(--c3); }
+.article-meta span { display: flex; align-items: center; }
+.meta-sep { color: var(--c5); margin: 0 var(--s2); }
+
+/* Article body */
+.article-body { padding: 0 0 var(--s10); font-size: 1.05rem; line-height: 1.75; color: var(--c1); }
+.article-body h2 { font-family: var(--serif); font-size: 1.75rem; font-weight: 400; line-height: 1.2; letter-spacing: -0.02em; color: var(--c0); margin: var(--s9) 0 var(--s5); }
+.article-body h3 { font-family: var(--sans); font-size: 1.25rem; font-weight: 600; line-height: 1.3; color: var(--c0); margin: var(--s8) 0 var(--s4); }
+.article-body p { margin-bottom: var(--s6); }
+.article-body a { color: var(--c0); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: opacity 0.15s; }
+.article-body a:hover { opacity: 0.7; }
+.article-body ul, .article-body ol { margin: var(--s6) 0; padding-left: var(--s7); }
+.article-body li { margin-bottom: var(--s3); }
+.article-body strong { font-weight: 600; color: var(--c0); }
+.article-body em { font-style: italic; }
+.article-body code { font-family: var(--mono); font-size: 0.85em; background: var(--c6); padding: 2px 6px; border-radius: 4px; }
+
+/* Related articles */
+.related { padding: var(--s10) 0; border-top: 1px solid var(--c5); }
+.related h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; color: var(--c0); margin-bottom: var(--s7); }
+.related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s7); }
+.related-item { text-decoration: none; }
+.related-item:hover .related-title { color: var(--c2); }
+.related-tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s2); }
+.related-title { font-family: var(--serif); font-size: 1.25rem; line-height: 1.3; color: var(--c0); margin-bottom: var(--s2); transition: color 0.15s; }
+.related-excerpt { font-size: 0.88rem; line-height: 1.6; color: var(--c3); }
+
+/* CTA */
+.article-cta { text-align: center; padding: var(--s11) 0; border-top: 1px solid var(--c5); }
+.article-cta h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 400; line-height: 1.15; letter-spacing: -0.02em; color: var(--c0); margin-bottom: var(--s4); }
+.article-cta p { font-size: 0.95rem; color: var(--c3); margin-bottom: var(--s7); }
+
+footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; justify-content: space-between; align-items: center; }
+.foot-l { font-family: var(--mono); font-size: 0.7rem; color: var(--c4); }
+.foot-r { display: flex; gap: var(--s6); }
+.foot-r a { font-size: 0.8rem; color: var(--c4); text-decoration: none; transition: color 0.15s; }
+.foot-r a:hover { color: var(--c0); }
+
+@media (max-width: 768px) {
+  .article-header { padding-top: 120px; }
+  .related-grid { grid-template-columns: 1fr; gap: var(--s8); }
+  .nav-r a:not(.btn) { display: none; }
+  footer { flex-direction: column; gap: var(--s6); text-align: center; }
+}
+</style>
 </head>
 <body>
-    <nav>
-        <div class="container">
-            <a href="/KP5D/" class="logo">Kept</a>
-            <div class="nav-links">
-                <a href="/KP5D/#features">Features</a>
-                <a href="/KP5D/#pricing">Pricing</a>
-                <a href="/KP5D/blog/">Blog</a>
-            </div>
-        </div>
-    </nav>
+
+<nav><div class="w">
+  <a href="/KP5D/" class="nav-mark">Kept</a>
+  <div class="nav-r">
+    <a href="/KP5D/">Home</a>
+    <a href="/KP5D/blog/" class="active">Blog</a>
+    <a href="/KP5D/#go" class="btn btn-p">Join waitlist</a>
+  </div>
+</div></nav>
+
+<article>
+  <header class="article-header"><div class="wa">
+    <p class="article-header-tag">Comparison</p>
+    <h1>Obsidian, Notion, and Tana: Where AI Conversations Don't Fit</h1>
+    <p class="article-subtitle">PKM tools are built for notes you write. AI conversations are a different beast. Here's why none of them can properly handle your ChatGPT, Claude, and Gemini threads.</p>
+    <div class="article-meta">
+      <span>Chris Hoar</span>
+      <span class="meta-sep">•</span>
+      <span>April 2026</span>
+      <span class="meta-sep">•</span>
+      <span>10 min read</span>
+    </div>
+  </div></header>
+
+  <div class="article-body wa">
+    <p>I had 14 months of AI conversations across ChatGPT, Claude, and Gemini. Hundreds of threads about architecture, debugging, research, competitive analysis. I wanted them all in one place, searchable. So I did what every developer does. I tried putting them in my PKM tool.</p>
     
-    <main>
-        <article class="blog-post">
-            <div class="container">
-                <header>
-                    <div class="breadcrumb">
-                        <a href="/KP5D/">Home</a> / <a href="/KP5D/blog/">Blog</a>
-                    </div>
-                    <h1>Obsidian, Notion, and Tana: Where AI Conversations Don't Fit</h1>
-                    <div class="meta">
-                        <time datetime="2026-04-15">April 15, 2026</time>
-                        <span class="reading-time">10 min read</span>
-                    </div>
-                </header>
-                
-                <div class="content">
-                    <p>I had 14 months of AI conversations across ChatGPT, Claude, and Gemini. Hundreds of threads about architecture, debugging, research, competitive analysis. I wanted them all in one place, searchable. So I did what every developer does. I tried putting them in my PKM tool.</p>
-                    
-                    <p>First came the export dance. ChatGPT conversations, manually exported one by one. Claude threads, copy-pasted into markdown files. Gemini exports, wrestling with formatting. Hours of friction trying to make AI conversations fit into tools designed for a different kind of content.</p>
-                    
-                    <p>Then I realized the problem wasn't which PKM tool I was using. The problem was that AI conversations are fundamentally different from the notes these tools were built to handle.</p>
-                    
-                    <h2>Obsidian has 2,700+ plugins. None of them solve this.</h2>
-                    
-                    <p>Obsidian is the best local-first note-taking tool I have used. Its 2,736 community plugins cover everything from Kanban boards to academic citations. Obsidian plugins have been downloaded over 100 million times. But every AI conversation plugin I tried solves only a piece of the problem, not the whole thing.</p>
-                    
-                    <p>Obsidian's strengths are impressive. 1.5 million monthly active users. Over 2,736 community plugins with 100 million total downloads. A local-first markdown vault that you own completely. Free for personal use. The community has built an ecosystem around every possible use case.</p>
-                    
-                    <p>The plugin ecosystem for AI conversations exists. Save ChatGPT to Obsidian gives you one-click export via Chrome extension. Nexus AI Chat Importer handles bulk imports. ChatKeeper converts exports to markdown. Smart ChatGPT embeds ChatGPT sessions directly. Obsidian Copilot adds AI assistance. Smart Connections provides semantic search.</p>
-                    
-                    <p>But here's the fundamental problem: each plugin handles ONE platform. Save ChatGPT to Obsidian only does ChatGPT. There's a separate "Sync Claude to Obsidian" extension with 4.8 stars. Nothing unifies them all. You're running three different export workflows for three different platforms.</p>
-                    
-                    <p>Once conversations land in your vault, they're just markdown files. No entity extraction. No cross-conversation search for decisions. No knowledge graph connecting topics across threads. No ability to take context from one conversation and carry it to another platform.</p>
-                    
-                    <p>The vault gets cluttered fast. A heavy AI user generates 10-20 conversations per day. That's 300-600 files per month just dumped into folders with no intelligence layer. Your carefully organized vault becomes a graveyard of AI transcripts.</p>
-                    
-                    <p>Obsidian's Smart Connections plugin uses embeddings for semantic search within your vault, which is great for notes you write. But AI conversations have a different structure. Question/answer pairs, long context windows, code blocks mixed with prose. General-purpose vault search handles this poorly.</p>
-                    
-                    <h2>Notion AI knows your workspace. It doesn't know your AI conversations.</h2>
-                    
-                    <p>Notion has 100 million users and recently bundled AI into its Business plan at $20/user/month. Notion AI is genuinely useful for summarizing pages, drafting content, and searching your workspace. But it has zero awareness of what happens in your ChatGPT, Claude, or Gemini conversations.</p>
-                    
-                    <p>Notion's scale and AI ambitions are massive. 100 million users reached in 2024. Over $500 million annualized revenue in 2025. 4 million paying customers. Over 50% of Fortune 500 companies use Notion. This is not a small player.</p>
-                    
-                    <p>Notion 3.0 launched in September 2025 with autonomous AI Agents. Multi-model access to GPT-5, Claude Opus 4.1, o3. The AI features are impressive for work within Notion.</p>
-                    
-                    <p>But there's a boundary problem. Notion AI works inside Notion. It can connect to Slack and Google Drive via connectors. But there's no connector for ChatGPT, Claude, or Gemini conversations. Those are completely invisible to Notion's AI.</p>
-                    
-                    <p>If you manually paste conversations into Notion pages, you lose formatting. You create a mess of unstructured text. Notion AI treats each pasted conversation as just another page of text with no special understanding of the question/answer structure.</p>
-                    
-                    <p>Notion AI has a short memory, treating each interaction as a new conversation without retaining past context. This is a documented limitation. Even if you paste 50 conversations into Notion, asking "what architectural decisions have I made across my AI conversations this quarter?" wouldn't work well.</p>
-                    
-                    <p>Sync delay for connectors is 36-72 hours. Real-time AI conversation capture isn't possible through Notion's connector architecture. By the time your conversations would theoretically sync, they're already stale.</p>
-                    
-                    <p>The pricing adds up. Notion Business at $20/user/month for AI. You still need separate subscriptions for ChatGPT Plus ($20), Claude Pro ($20), and others. None of that spending connects your conversations.</p>
-                    
-                    <h2>Tana is the closest, and it still doesn't work.</h2>
-                    
-                    <p>Tana is the most AI-native PKM tool on the market. It has a built-in knowledge graph, AI chat with your notes, multi-model support for GPT-5, Claude Opus 4.5, and Gemini 3 Pro, meeting transcription, and AI agents. If any PKM tool could handle AI conversations, it would be Tana. It can't.</p>
-                    
-                    <p>Give Tana genuine credit. Launched publicly in January 2025 on Product Hunt. AI-native from the ground up. Supertags create structured data. Built-in knowledge graph. MCP integration so Claude Code can read/write to your Tana workspace. Meeting notetaker that transcribes and extracts tasks. Voice chat on iOS. Support for frontier models across OpenAI, Anthropic, and Google.</p>
-                    
-                    <p>What Tana gets right: the philosophy of structured, connected knowledge is exactly what AI conversations need. Supertags could theoretically tag decisions, entities, and tools. The knowledge graph could map relationships.</p>
-                    
-                    <p>What Tana gets wrong for this use case: all of Tana's AI features work on content created WITHIN Tana. There's no automatic ingestion from external AI platforms. No Chrome extension that captures ChatGPT, Claude, or Gemini conversations and feeds them into Tana's graph.</p>
-                    
-                    <p>The API limitation is real. Tana's Input API can write new nodes in, but has restrictions. One call per second. Limited payload. Won't sync on large workspaces. You can get data in but not get it out. As one prominent PKM blogger wrote in July 2025: "you can get data in, but not get it out." Data lock-in risk.</p>
-                    
-                    <p>AI credits are limited on paid plans. Roughly 22 thirty-minute meetings, 570 blog posts, 25 hours of transcription per month. Heavy AI conversation users would burn through credits fast.</p>
-                    
-                    <p>Cloud-only architecture. Your data lives on Tana's servers. No local-first option. If your account is compromised or Tana has an outage, your knowledge base is inaccessible.</p>
-                    
-                    <h2>The real problem: AI conversations aren't notes</h2>
-                    
-                    <p>Notes are things you write deliberately. You choose what goes in, how it's structured, where it lives. AI conversations are different. They're generated collaboratively, they're long, they mix code with prose, and the valuable parts are buried inside threads of back-and-forth. That's a fundamentally different content type that PKM tools were never designed to handle.</p>
-                    
-                    <p>The structural differences are clear. Notes are authored by you. AI conversations are co-authored. Notes are usually about one topic. AI conversations meander across topics within a single thread. Notes are final, you edit them into shape. AI conversations are iterative, the value is in the progression.</p>
-                    
-                    <p>Notes are typically short to medium length. A single AI conversation can be 5,000-20,000+ tokens. Notes have a structure you control. AI conversations have a question/answer structure imposed by the platform.</p>
-                    
-                    <p>The volume problem is massive. A developer using AI tools daily might have 10-20 conversations per day. That's 300-600 per month. No PKM tool is designed for that ingestion rate of someone else's content format.</p>
-                    
-                    <p>The cross-platform problem compounds this. Most developers use multiple AI tools. ChatGPT for code generation. Claude for architecture and writing. Gemini for research and Google integration. DeepSeek for cost-effective alternatives. The conversations are scattered by default.</p>
-                    
-                    <p>The intelligence problem is what kills it. Dumping raw conversations into any vault gives you storage. It doesn't give you intelligence. You need entity extraction to identify tools, people, and decisions. You need relationship mapping to connect topics across conversations. You need decision tracking to understand what you decided and why. Without these, the archive is useless.</p>
-                    
-                    <h2>What an AI conversation tool actually needs</h2>
-                    
-                    <p>The tool that solves this problem needs four capabilities that no PKM tool offers today: automatic multi-platform capture, cross-platform full-text search, knowledge graph extraction from conversation content, and the ability to carry context from one platform to another.</p>
-                    
-                    <p>Capability 1: Automatic capture. Not export-and-import. Not copy-paste. A Chrome extension that detects when you're in ChatGPT, Claude, or Gemini and saves the conversation automatically. Zero manual work.</p>
-                    
-                    <p>Capability 2: Unified search. One search bar. All platforms. Every conversation. Full-text search that works across thousands of threads in milliseconds.</p>
-                    
-                    <p>Capability 3: Intelligence extraction. Parse conversations for entities like people, tools, libraries, decisions, and concepts. Build a local knowledge graph. Map relationships across conversations from different platforms. This is the part no PKM tool offers.</p>
-                    
-                    <p>Capability 4: Context portability. Take context from a Claude conversation and start a ChatGPT session with that background already loaded. This is impossible in any PKM tool because they're designed for reading and writing, not for feeding context back into AI platforms.</p>
-                    
-                    <p>This is what Kept is built to do. Kept is an open source desktop app and Chrome extension that captures conversations from ChatGPT, Claude, and Gemini automatically. It indexes them locally with SQLite FTS5 and extracts a knowledge graph. It also lets you share context between platforms and export formatted snippets to Slack and email.</p>
-                    
-                    <p>Kept's architecture reflects these requirements. Tauri 2 with Rust for performance. Approximately 5MB binary for minimal footprint. Local-first for privacy. MIT licensed for transparency.</p>
-                    
-                    <p>The email client analogy makes this clear. Gmail doesn't show your Outlook emails. That's why email clients like Spark and Superhuman exist. The same structural gap exists for AI conversations. Obsidian, Notion, and Tana are the equivalent of saying "just paste your emails into Google Docs." It technically works, but it misses the point entirely.</p>
-                    
-                    <h2>Should you still use Obsidian, Notion, or Tana?</h2>
-                    
-                    <p>Absolutely. These are excellent tools for their intended purpose. The point isn't that they're bad. The point is that AI conversations are a different content type that needs a purpose-built solution. Use Obsidian for your personal knowledge vault. Use Notion for team collaboration. Use Tana for structured knowledge work. And use a dedicated tool like Kept for your AI conversations.</p>
-                    
-                    <p>Each tool excels at what it was designed for. Obsidian is unmatched for local-first markdown notes. Notion is the best collaborative workspace. Tana pioneered the structured knowledge graph approach.</p>
-                    
-                    <p>The hybrid workflow makes sense. Kept captures and indexes AI conversations. When you find something valuable, you can export clean, formatted snippets into Obsidian, Notion, or Tana. Kept's intelligent sharing feature preserves code blocks and structure.</p>
-                    
-                    <p>This isn't either/or. It's a stack. Your AI conversations have their own lifecycle that starts before they hit your PKM tool. Kept integrates with the tools you already use rather than trying to replace them.</p>
-                    
-                    <h2>Frequently Asked Questions</h2>
-                    
-                    <h3>Can I save ChatGPT conversations to Obsidian?</h3>
-                    <p>Yes, through Chrome extensions like Save ChatGPT to Obsidian or manual export. But this only handles ChatGPT. There's no unified solution for ChatGPT, Claude, and Gemini. Once conversations land in your vault, they're static markdown files with no intelligence layer.</p>
-                    
-                    <h3>Does Notion AI work with external AI conversations?</h3>
-                    <p>Notion AI works within Notion pages and connected apps like Slack and Google Drive. But it cannot ingest or search AI conversations from ChatGPT, Claude, or Gemini. You'd need to manually copy conversations, losing formatting and context.</p>
-                    
-                    <h3>Is Tana good for managing AI conversations?</h3>
-                    <p>Tana has strong AI-native features including built-in AI chat and a knowledge graph. However, it's designed for notes you create within Tana. There's no automatic ingestion of external AI conversations from ChatGPT, Claude, or Gemini.</p>
-                    
-                    <h3>What is the best tool for managing AI conversations across platforms?</h3>
-                    <p>Tools built specifically for AI conversation management, like Kept, are designed to solve this problem. Unlike PKM tools that require manual import, Kept automatically captures conversations from all platforms and extracts a knowledge graph.</p>
-                    
-                    <h3>Why can't I just export AI conversations as markdown and put them in Obsidian?</h3>
-                    <p>You can, and many developers do. But exporting creates static files that lack the intelligence layer. You cannot search across them intelligently, extract entities automatically, or transfer context between platforms.</p>
-                    
-                    <div class="cta-section">
-                        <p>Your AI conversations don't fit in a vault designed for notes. Kept captures them automatically, indexes them locally, and extracts the knowledge within. Open source, local-first, MIT licensed. <a href="/KP5D/#go">Join the beta at kept.sh</a>.</p>
-                    </div>
-                    
-                    <div class="related-posts">
-                        <h3>Related Posts</h3>
-                        <ul>
-                            <li><a href="/KP5D/blog/search-across-ai-conversations/">How to Search Across All Your AI Conversations (ChatGPT, Claude, Gemini)</a></li>
-                            <li><a href="/KP5D/blog/kept-vs-echoes-vs-chatgpt-exporter/">Kept vs Echoes vs ChatGPT Exporter: AI Conversation Tools Compared</a></li>
-                            <li><a href="/KP5D/blog/your-ai-conversations-are-a-codebase/">Your AI Conversations Are a Codebase</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </article>
-    </main>
+    <p>First came the export dance. ChatGPT conversations, manually exported one by one. Claude threads, copy-pasted into markdown files. Gemini exports, wrestling with formatting. Hours of friction trying to make AI conversations fit into tools designed for a different kind of content.</p>
     
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Product</h4>
-                    <a href="/KP5D/#features">Features</a>
-                    <a href="/KP5D/#pricing">Pricing</a>
-                    <a href="/KP5D/#download">Download</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <a href="/KP5D/blog/">Blog</a>
-                    <a href="/KP5D/docs/">Documentation</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Company</h4>
-                    <a href="/KP5D/#about">About</a>
-                    <a href="/KP5D/privacy/">Privacy</a>
-                    <a href="/KP5D/terms/">Terms</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Kept. Cross-platform AI conversation management.</p>
-            </div>
-        </div>
-    </footer>
+    <p>Then I realized the problem wasn't which PKM tool I was using. The problem was that AI conversations are fundamentally different from the notes these tools were built to handle.</p>
+    
+    <h2>Obsidian has 2,700+ plugins. None of them solve this.</h2>
+    
+    <p>Obsidian is the best local-first note-taking tool I have used. Its 2,736 community plugins cover everything from Kanban boards to academic citations. Obsidian plugins have been downloaded over 100 million times. But every AI conversation plugin I tried solves only a piece of the problem, not the whole thing.</p>
+    
+    <p>Obsidian's strengths are impressive. 1.5 million monthly active users. Over 2,736 community plugins with 100 million total downloads. A local-first markdown vault that you own completely. Free for personal use. The community has built an ecosystem around every possible use case.</p>
+    
+    <p>The plugin ecosystem for AI conversations exists. Save ChatGPT to Obsidian gives you one-click export via Chrome extension. Nexus AI Chat Importer handles bulk imports. ChatKeeper converts exports to markdown. Smart ChatGPT embeds ChatGPT sessions directly. Obsidian Copilot adds AI assistance. Smart Connections provides semantic search.</p>
+    
+    <p>But here's the fundamental problem: each plugin handles ONE platform. Save ChatGPT to Obsidian only does ChatGPT. There's a separate "Sync Claude to Obsidian" extension with 4.8 stars. Nothing unifies them all. You're running three different export workflows for three different platforms.</p>
+    
+    <p>Once conversations land in your vault, they're just markdown files. No entity extraction. No cross-conversation search for decisions. No knowledge graph connecting topics across threads. No ability to take context from one conversation and carry it to another platform.</p>
+    
+    <p>The vault gets cluttered fast. A heavy AI user generates 10-20 conversations per day. That's 300-600 files per month just dumped into folders with no intelligence layer. Your carefully organized vault becomes a graveyard of AI transcripts.</p>
+    
+    <p>Obsidian's Smart Connections plugin uses embeddings for semantic search within your vault, which is great for notes you write. But AI conversations have a different structure. Question/answer pairs, long context windows, code blocks mixed with prose. General-purpose vault search handles this poorly.</p>
+    
+    <h2>Notion AI knows your workspace. It doesn't know your AI conversations.</h2>
+    
+    <p>Notion has 100 million users and recently bundled AI into its Business plan at $20/user/month. Notion AI is genuinely useful for summarizing pages, drafting content, and searching your workspace. But it has zero awareness of what happens in your ChatGPT, Claude, or Gemini conversations.</p>
+    
+    <p>Notion's scale and AI ambitions are massive. 100 million users reached in 2024. Over $500 million annualized revenue in 2025. 4 million paying customers. Over 50% of Fortune 500 companies use Notion. This is not a small player.</p>
+    
+    <p>Notion 3.0 launched in September 2025 with autonomous AI Agents. Multi-model access to GPT-5, Claude Opus 4.1, o3. The AI features are impressive for work within Notion.</p>
+    
+    <p>But there's a boundary problem. Notion AI works inside Notion. It can connect to Slack and Google Drive via connectors. But there's no connector for ChatGPT, Claude, or Gemini conversations. Those are completely invisible to Notion's AI.</p>
+    
+    <p>If you manually paste conversations into Notion pages, you lose formatting. You create a mess of unstructured text. Notion AI treats each pasted conversation as just another page of text with no special understanding of the question/answer structure.</p>
+    
+    <p>Notion AI has a short memory, treating each interaction as a new conversation without retaining past context. This is a documented limitation. Even if you paste 50 conversations into Notion, asking "what architectural decisions have I made across my AI conversations this quarter?" wouldn't work well.</p>
+    
+    <p>Sync delay for connectors is 36-72 hours. Real-time AI conversation capture isn't possible through Notion's connector architecture. By the time your conversations would theoretically sync, they're already stale.</p>
+    
+    <p>The pricing adds up. Notion Business at $20/user/month for AI. You still need separate subscriptions for ChatGPT Plus ($20), Claude Pro ($20), and others. None of that spending connects your conversations.</p>
+    
+    <h2>Tana is the closest, and it still doesn't work.</h2>
+    
+    <p>Tana is the most AI-native PKM tool on the market. It has a built-in knowledge graph, AI chat with your notes, multi-model support for GPT-5, Claude Opus 4.5, and Gemini 3 Pro, meeting transcription, and AI agents. If any PKM tool could handle AI conversations, it would be Tana. It can't.</p>
+    
+    <p>Give Tana genuine credit. Launched publicly in January 2025 on Product Hunt. AI-native from the ground up. Supertags create structured data. Built-in knowledge graph. MCP integration so Claude Code can read/write to your Tana workspace. Meeting notetaker that transcribes and extracts tasks. Voice chat on iOS. Support for frontier models across OpenAI, Anthropic, and Google.</p>
+    
+    <p>What Tana gets right: the philosophy of structured, connected knowledge is exactly what AI conversations need. Supertags could theoretically tag decisions, entities, and tools. The knowledge graph could map relationships.</p>
+    
+    <p>What Tana gets wrong for this use case: all of Tana's AI features work on content created WITHIN Tana. There's no automatic ingestion from external AI platforms. No Chrome extension that captures ChatGPT, Claude, or Gemini conversations and feeds them into Tana's graph.</p>
+    
+    <p>The API limitation is real. Tana's Input API can write new nodes in, but has restrictions. One call per second. Limited payload. Won't sync on large workspaces. You can get data in but not get it out. As one prominent PKM blogger wrote in July 2025: "you can get data in, but not get it out." Data lock-in risk.</p>
+    
+    <p>AI credits are limited on paid plans. Roughly 22 thirty-minute meetings, 570 blog posts, 25 hours of transcription per month. Heavy AI conversation users would burn through credits fast.</p>
+    
+    <p>Cloud-only architecture. Your data lives on Tana's servers. No local-first option. If your account is compromised or Tana has an outage, your knowledge base is inaccessible.</p>
+    
+    <h2>The real problem: AI conversations aren't notes</h2>
+    
+    <p>Notes are things you write deliberately. You choose what goes in, how it's structured, where it lives. AI conversations are different. They're generated collaboratively, they're long, they mix code with prose, and the valuable parts are buried inside threads of back-and-forth. That's a fundamentally different content type that PKM tools were never designed to handle.</p>
+    
+    <p>The structural differences are clear. Notes are authored by you. AI conversations are co-authored. Notes are usually about one topic. AI conversations meander across topics within a single thread. Notes are final, you edit them into shape. AI conversations are iterative, the value is in the progression.</p>
+    
+    <p>Notes are typically short to medium length. A single AI conversation can be 5,000-20,000+ tokens. Notes have a structure you control. AI conversations have a question/answer structure imposed by the platform.</p>
+    
+    <p>The volume problem is massive. A developer using AI tools daily might have 10-20 conversations per day. That's 300-600 per month. No PKM tool is designed for that ingestion rate of someone else's content format.</p>
+    
+    <p>The cross-platform problem compounds this. Most developers use multiple AI tools. ChatGPT for code generation. Claude for architecture and writing. Gemini for research and Google integration. DeepSeek for cost-effective alternatives. The conversations are scattered by default.</p>
+    
+    <p>The intelligence problem is what kills it. Dumping raw conversations into any vault gives you storage. It doesn't give you intelligence. You need entity extraction to identify tools, people, and decisions. You need relationship mapping to connect topics across conversations. You need decision tracking to understand what you decided and why. Without these, the archive is useless.</p>
+    
+    <h2>What an AI conversation tool actually needs</h2>
+    
+    <p>The tool that solves this problem needs four capabilities that no PKM tool offers today: automatic multi-platform capture, cross-platform full-text search, knowledge graph extraction from conversation content, and the ability to carry context from one platform to another.</p>
+    
+    <p>Capability 1: Automatic capture. Not export-and-import. Not copy-paste. A Chrome extension that detects when you're in ChatGPT, Claude, or Gemini and saves the conversation automatically. Zero manual work.</p>
+    
+    <p>Capability 2: Unified search. One search bar. All platforms. Every conversation. Full-text search that works across thousands of threads in milliseconds.</p>
+    
+    <p>Capability 3: Intelligence extraction. Parse conversations for entities like people, tools, libraries, decisions, and concepts. Build a local knowledge graph. Map relationships across conversations from different platforms. This is the part no PKM tool offers.</p>
+    
+    <p>Capability 4: Context portability. Take context from a Claude conversation and start a ChatGPT session with that background already loaded. This is impossible in any PKM tool because they're designed for reading and writing, not for feeding context back into AI platforms.</p>
+    
+    <p>This is what Kept is built to do. Kept is an open source desktop app and Chrome extension that captures conversations from ChatGPT, Claude, and Gemini automatically. It indexes them locally with SQLite FTS5 and extracts a knowledge graph. It also lets you share context between platforms and export formatted snippets to Slack and email.</p>
+    
+    <p>Kept's architecture reflects these requirements. Tauri 2 with Rust for performance. Approximately 5MB binary for minimal footprint. Local-first for privacy. MIT licensed for transparency.</p>
+    
+    <p>The email client analogy makes this clear. Gmail doesn't show your Outlook emails. That's why email clients like Spark and Superhuman exist. The same structural gap exists for AI conversations. Obsidian, Notion, and Tana are the equivalent of saying "just paste your emails into Google Docs." It technically works, but it misses the point entirely.</p>
+    
+    <h2>Should you still use Obsidian, Notion, or Tana?</h2>
+    
+    <p>Absolutely. These are excellent tools for their intended purpose. The point isn't that they're bad. The point is that AI conversations are a different content type that needs a purpose-built solution. Use Obsidian for your personal knowledge vault. Use Notion for team collaboration. Use Tana for structured knowledge work. And use a dedicated tool like Kept for your AI conversations.</p>
+    
+    <p>Each tool excels at what it was designed for. Obsidian is unmatched for local-first markdown notes. Notion is the best collaborative workspace. Tana pioneered the structured knowledge graph approach.</p>
+    
+    <p>The hybrid workflow makes sense. Kept captures and indexes AI conversations. When you find something valuable, you can export clean, formatted snippets into Obsidian, Notion, or Tana. Kept's intelligent sharing feature preserves code blocks and structure.</p>
+    
+    <p>This isn't either/or. It's a stack. Your AI conversations have their own lifecycle that starts before they hit your PKM tool. Kept integrates with the tools you already use rather than trying to replace them.</p>
+    
+    <h2>Frequently Asked Questions</h2>
+    
+    <h3>Can I save ChatGPT conversations to Obsidian?</h3>
+    <p>Yes, through Chrome extensions like Save ChatGPT to Obsidian or manual export. But this only handles ChatGPT. There's no unified solution for ChatGPT, Claude, and Gemini. Once conversations land in your vault, they're static markdown files with no intelligence layer.</p>
+    
+    <h3>Does Notion AI work with external AI conversations?</h3>
+    <p>Notion AI works within Notion pages and connected apps like Slack and Google Drive. But it cannot ingest or search AI conversations from ChatGPT, Claude, or Gemini. You'd need to manually copy conversations, losing formatting and context.</p>
+    
+    <h3>Is Tana good for managing AI conversations?</h3>
+    <p>Tana has strong AI-native features including built-in AI chat and a knowledge graph. However, it's designed for notes you create within Tana. There's no automatic ingestion of external AI conversations from ChatGPT, Claude, or Gemini.</p>
+    
+    <h3>What is the best tool for managing AI conversations across platforms?</h3>
+    <p>Tools built specifically for AI conversation management, like Kept, are designed to solve this problem. Unlike PKM tools that require manual import, Kept automatically captures conversations from all platforms and extracts a knowledge graph.</p>
+    
+    <h3>Why can't I just export AI conversations as markdown and put them in Obsidian?</h3>
+    <p>You can, and many developers do. But exporting creates static files that lack the intelligence layer. You cannot search across them intelligently, extract entities automatically, or transfer context between platforms.</p>
+  </div>
+</article>
+
+<section class="article-cta"><div class="wa">
+  <h2>Your AI conversations don't fit in a vault designed for notes</h2>
+  <p>Kept captures them automatically, indexes them locally, and extracts the knowledge within. Open source, local-first, MIT licensed.</p>
+  <a href="/KP5D/#go" class="btn btn-p">Join the beta at kept.sh</a>
+</div></section>
+
+<section class="related"><div class="wa">
+  <h3>Related articles</h3>
+  <div class="related-grid">
+    <a href="/KP5D/blog/search-across-ai-conversations/" class="related-item">
+      <p class="related-tag">Guide</p>
+      <h4 class="related-title">How to Search Across All Your AI Conversations</h4>
+      <p class="related-excerpt">You use ChatGPT, Claude, and Gemini daily. But you can't search across all of them. Here's how to solve it.</p>
+    </a>
+    <a href="/KP5D/blog/kept-vs-echoes-vs-chatgpt-exporter/" class="related-item">
+      <p class="related-tag">Comparison</p>
+      <h4 class="related-title">Kept vs Echoes vs ChatGPT Exporter: AI Conversation Tools Compared</h4>
+      <p class="related-excerpt">Export tools, conversation managers, and knowledge platforms. Three approaches to managing AI conversations.</p>
+    </a>
+  </div>
+</div></section>
+
+<div class="w"><footer>
+  <span class="foot-l">Kept — An E-Group Labs product — 2026</span>
+  <div class="foot-r"><a href="#">GitHub</a><a href="#">Docs</a><a href="#">Privacy</a></div>
+</footer></div>
+
 </body>
 </html>
