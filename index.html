@@ -54,6 +54,79 @@
 }
 </script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I search across all my ChatGPT, Claude, and Gemini conversations in one place?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Kept's Chrome extension captures conversations from ChatGPT, Claude, and Gemini automatically. The desktop app indexes everything locally with SQLite FTS5, so you get instant full-text search across every conversation from every provider. No switching between platforms to find something you discussed last week."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I transfer context between ChatGPT and Claude?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kept lets you fork any conversation to a different model. If you have been building context in ChatGPT and want Claude's take, Kept packages the relevant context and starts a new session in Claude with your full background already loaded. No manual copy-pasting, no re-explaining your project."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data stored in the cloud?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Kept is local-first. All conversations are stored as markdown files with YAML frontmatter in a vault on your machine. The SQLite database stays local. There are no cloud accounts, no servers receiving your data, and no subscriptions required for the core features. You own your data completely."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Kept free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The core product is open source under the MIT license and free forever. This includes the Chrome extension, Tauri desktop app, full-text search, conversation forks, context templating, CLI with file monitoring, and export. A premium tier for the knowledge graph, AI agent, semantic search, and weekly digests is planned but not yet priced."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What makes Kept different from Echoes or ChatGPT Exporter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ChatGPT Exporter only exports conversations from a single platform. Echoes covers cross-platform search and labeling but does not extract structured knowledge. Kept goes further with a knowledge graph that maps entities and relationships across conversations, context forking between LLMs, CLI-based context templating for developers, and local LLM support."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Kept work with local LLMs like Ollama?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Kept has built-in support for local models through Ollama integration. You can switch between cloud providers and local inference without changing your workflow. Context templating and conversation forks work the same way regardless of whether the model is running locally or in the cloud."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a knowledge graph for AI conversations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most AI conversation tools store raw transcripts. Kept parses every conversation to extract entities like people, tools, libraries, decisions, and concepts, then maps the relationships between them across all your interactions. The result is a queryable graph that shows how your projects, ideas, and decisions connect across months of conversations and multiple AI providers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What platforms and operating systems does Kept support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Chrome extension captures from ChatGPT, Claude, and Gemini, with more platforms planned (DeepSeek, Grok, Perplexity). The desktop app runs on Windows and Linux at launch, with macOS in development. Kept also supports bulk import from official data exports if you want to bring in your full conversation history."
+      }
+    }
+  ]
+}
+</script>
+
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -272,6 +345,17 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
   .mock-sidebar, .mock-graph { display: none; }
   .cross-grid { grid-template-columns: 1fr; gap: var(--s8); }
 }
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:0;margin-top:3rem;max-width:720px}
+.faq-item{border-bottom:1px solid #e5e5e5;overflow:hidden}
+.faq-item:first-child{border-top:1px solid #e5e5e5}
+.faq-q{padding:1.25rem 0;font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:500;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:#1a1a1a;transition:color 0.2s}
+.faq-q:hover{color:#555}
+.faq-q::-webkit-details-marker{display:none}
+.faq-q::after{content:'+';font-size:1.4rem;font-weight:300;color:#999;transition:transform 0.2s;flex-shrink:0;margin-left:1rem}
+details[open] .faq-q::after{content:'\2212'}
+.faq-a{padding:0 0 1.25rem 0}
+.faq-a p{font-family:'DM Sans',sans-serif;font-size:0.95rem;line-height:1.7;color:#666;margin:0}
 </style>
 </head>
 <body>
@@ -282,6 +366,7 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
     <a href="#how">How it works</a>
     <a href="#features">Features</a>
     <a href="#who">Who it's for</a>
+    <a href="#faq">FAQ</a>
     <a href="/KP5D/blog/">Blog</a>
     <a href="#go" class="btn btn-p">Join waitlist</a>
   </div>
@@ -564,6 +649,77 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
     </div>
   </div>
 </div></section>
+
+<div class="w"><div class="line"></div></div>
+
+<section id="faq" class="sec">
+  <div class="w">
+    <div class="rv">
+      <p class="label">FAQ</p>
+      <h2 class="heading">Questions developers actually ask.</h2>
+      <p class="desc">The short version of how Kept works, what it costs, and why it exists.</p>
+    </div>
+    <div class="faq-list rv">
+
+      <details class="faq-item">
+        <summary class="faq-q">Can I search across all my ChatGPT, Claude, and Gemini conversations in one place?</summary>
+        <div class="faq-a">
+          <p>Yes. Kept's Chrome extension captures conversations from ChatGPT, Claude, and Gemini automatically. The desktop app indexes everything locally with SQLite FTS5, so you get instant full-text search across every conversation from every provider. No switching between platforms to find something you discussed last week.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">How do I transfer context between ChatGPT and Claude?</summary>
+        <div class="faq-a">
+          <p>Kept lets you fork any conversation to a different model. If you have been building context in ChatGPT and want Claude's take, Kept packages the relevant context and starts a new session in Claude with your full background already loaded. No manual copy-pasting, no re-explaining your project.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Is my data stored in the cloud?</summary>
+        <div class="faq-a">
+          <p>No. Kept is local-first. All conversations are stored as markdown files with YAML frontmatter in a vault on your machine. The SQLite database stays local. There are no cloud accounts, no servers receiving your data, and no subscriptions required for the core features. You own your data completely.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Is Kept free?</summary>
+        <div class="faq-a">
+          <p>The core product is open source under the MIT license and free forever. This includes the Chrome extension, Tauri desktop app, full-text search, conversation forks, context templating, CLI with file monitoring, and export. A premium tier for the knowledge graph, AI agent, semantic search, and weekly digests is planned but not yet priced.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">What makes Kept different from Echoes or ChatGPT Exporter?</summary>
+        <div class="faq-a">
+          <p>ChatGPT Exporter only exports conversations from a single platform. Echoes covers cross-platform search and labeling but does not extract structured knowledge. Kept goes further with a knowledge graph that maps entities and relationships across conversations, context forking between LLMs, CLI-based context templating for developers, and local LLM support. The full comparison is on the blog.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Does Kept work with local LLMs like Ollama?</summary>
+        <div class="faq-a">
+          <p>Yes. Kept has built-in support for local models through Ollama integration. You can switch between cloud providers and local inference without changing your workflow. Context templating and conversation forks work the same way regardless of whether the model is running locally or in the cloud.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">What is a knowledge graph for AI conversations?</summary>
+        <div class="faq-a">
+          <p>Most AI conversation tools store raw transcripts. Kept parses every conversation to extract entities like people, tools, libraries, decisions, and concepts, then maps the relationships between them across all your interactions. The result is a queryable graph that shows how your projects, ideas, and decisions connect across months of conversations and multiple AI providers.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">What platforms and operating systems does Kept support?</summary>
+        <div class="faq-a">
+          <p>The Chrome extension captures from ChatGPT, Claude, and Gemini, with more platforms planned (DeepSeek, Grok, Perplexity). The desktop app runs on Windows and Linux at launch, with macOS in development. Kept also supports bulk import from official data exports if you want to bring in your full conversation history.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
 
 <div class="w"><div class="line"></div></div>
 
