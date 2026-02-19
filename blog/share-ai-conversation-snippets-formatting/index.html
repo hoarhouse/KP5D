@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Primary Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Share AI Conversation Snippets Without Losing Formatting - Kept</title>
+<meta name="description" content="Copy-pasting from ChatGPT or Claude into Slack, email, or docs destroys formatting. Code blocks flatten, tables vanish, lists collapse. Here is how to share AI conversation snippets cleanly.">
+<meta name="keywords" content="share ChatGPT conversation formatting, copy paste AI conversation Slack, share Claude conversation email, AI conversation snippet sharing, preserve AI chat formatting, export ChatGPT formatted, share AI code blocks Slack">
+<link rel="canonical" href="https://kept.sh/blog/share-ai-conversation-snippets-formatting/">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Chris Hoar">
+<meta name="theme-color" content="#09090b">
+<link rel="icon" type="image/svg+xml" href="/KP5D/favicon.svg">
+
+<!-- Open Graph -->
+<meta property="og:title" content="How to Share AI Conversation Snippets Without Losing Formatting">
+<meta property="og:description" content="Copy-pasting from ChatGPT or Claude into Slack destroys formatting. Code blocks, tables, and lists all break. Here is how to share AI snippets cleanly.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kept.sh/blog/share-ai-conversation-snippets-formatting/">
+<meta property="og:image" content="https://kept.sh/og-article-share.png">
+<meta property="article:author" content="Chris Hoar">
+<meta property="article:published_time" content="2026-04-17T00:00:00Z">
+<meta property="article:section" content="Guide">
+<meta property="article:tag" content="AI conversation formatting">
+<meta property="article:tag" content="share AI snippets">
+<meta property="article:tag" content="copy paste ChatGPT">
+<meta property="article:tag" content="Slack formatting">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Share AI Conversation Snippets Without Losing Formatting">
+<meta name="twitter:description" content="Copy-pasting from ChatGPT or Claude into Slack destroys formatting. Code blocks, tables, and lists all break. Here is how to share AI snippets cleanly.">
+<meta name="twitter:image" content="https://kept.sh/og-article-share.png">
+
+<!-- Article JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Share AI Conversation Snippets Without Losing Formatting",
+  "description": "Copy-pasting from ChatGPT or Claude into Slack, email, or docs destroys formatting. Code blocks flatten, tables vanish, lists collapse. Here is how to share AI conversation snippets cleanly.",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Hoar"
+  },
+  "datePublished": "2026-04-17T00:00:00Z",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kept",
+    "url": "https://kept.sh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kept.sh/blog/share-ai-conversation-snippets-formatting/"
+  },
+  "keywords": "ChatGPT, Claude, Gemini, Slack, AI conversation formatting, code blocks, markdown, copy paste, snippet sharing, Kept",
+  "wordCount": 1800
+}
+</script>
+
+<!-- FAQ JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why does copy-paste from ChatGPT break formatting in Slack?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ChatGPT renders content as HTML with markdown formatting. Slack uses its own markup syntax called mrkdwn that does not support standard markdown features like tables or nested lists. The clipboard conversion between these formats loses structure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I share a ChatGPT code block in Slack without it breaking?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If you manually wrap the code in triple backticks in Slack, yes. But copy-paste does not do this automatically. Kept's Intelligent Sharing handles this conversion for you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a way to share AI conversation tables in email?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standard copy-paste destroys table formatting in most email clients. You need a tool that converts the markdown table to HTML table markup, which is what Kept does when you share via email."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Kept work with Claude and Gemini, or just ChatGPT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kept captures and enables sharing from ChatGPT, Claude, and Gemini. The formatting conversion works the same regardless of source platform."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Intelligent Sharing a free or paid feature?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Intelligent Sharing is part of Kept's free, open-source core. It is available to all users at beta launch."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --c0: #09090b;
+  --c1: #18181b;
+  --c2: #3f3f46;
+  --c3: #71717a;
+  --c4: #a1a1aa;
+  --c5: #e4e4e7;
+  --c6: #f4f4f5;
+  --cw: #fafafa;
+  --white: #ffffff;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', 'SF Mono', monospace;
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 20px;
+  --s6: 24px; --s7: 32px; --s8: 40px; --s9: 48px; --s10: 64px;
+  --s11: 80px; --s12: 120px;
+  --r: 8px;
+  --max: 1060px;
+  --article: 720px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--sans); color: var(--c1); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+::selection { background: var(--c0); color: var(--white); }
+
+.w { max-width: var(--max); margin: 0 auto; padding: 0 var(--s9); }
+.wa { max-width: var(--article); margin: 0 auto; padding: 0 var(--s9); }
+@media (max-width: 768px) { 
+  .w { padding: 0 var(--s6); }
+  .wa { padding: 0 var(--s6); }
+}
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 56px; display: flex; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--c5); }
+nav .w { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.nav-mark { font-family: var(--sans); font-weight: 600; font-size: 0.9rem; color: var(--c0); text-decoration: none; letter-spacing: -0.03em; }
+.nav-r { display: flex; align-items: center; gap: var(--s7); }
+.nav-r a { font-size: 0.82rem; color: var(--c3); text-decoration: none; transition: color 0.15s; }
+.nav-r a:hover { color: var(--c0); }
+.nav-r a.active { color: var(--c0); }
+
+.btn { display: inline-flex; align-items: center; gap: var(--s2); font-family: var(--sans); font-size: 0.82rem; font-weight: 500; padding: var(--s2) var(--s4); border-radius: var(--r); text-decoration: none; transition: all 0.15s; letter-spacing: -0.01em; cursor: pointer; border: none; }
+.btn-p { color: var(--white); background: var(--c0); }
+.btn-p:hover { background: var(--c2); }
+
+/* Article header */
+.article-header { padding: 140px 0 var(--s8); }
+.article-header-tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s3); }
+.article-header h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.15; letter-spacing: -0.03em; color: var(--c0); }
+.article-subtitle { font-size: 1.1rem; color: var(--c3); margin-top: var(--s4); line-height: 1.4; }
+.article-meta { display: flex; align-items: center; gap: var(--s2); margin-top: var(--s6); font-family: var(--mono); font-size: 0.72rem; color: var(--c3); }
+.article-meta span { display: flex; align-items: center; }
+.meta-sep { color: var(--c5); margin: 0 var(--s2); }
+
+/* Article body */
+.article-body { padding: 0 0 var(--s10); font-size: 1.05rem; line-height: 1.75; color: var(--c1); }
+.article-body h2 { font-family: var(--serif); font-size: 1.75rem; font-weight: 400; line-height: 1.2; letter-spacing: -0.02em; color: var(--c0); margin: var(--s9) 0 var(--s5); }
+.article-body h3 { font-family: var(--sans); font-size: 1.25rem; font-weight: 600; line-height: 1.3; color: var(--c0); margin: var(--s8) 0 var(--s4); }
+.article-body p { margin-bottom: var(--s6); }
+.article-body a { color: var(--c0); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: opacity 0.15s; }
+.article-body a:hover { opacity: 0.7; }
+.article-body ul, .article-body ol { margin: var(--s6) 0; padding-left: var(--s7); }
+.article-body li { margin-bottom: var(--s3); }
+.article-body strong { font-weight: 600; color: var(--c0); }
+.article-body em { font-style: italic; }
+.article-body code { font-family: var(--mono); font-size: 0.85em; background: var(--c6); padding: 2px 6px; border-radius: 4px; }
+
+/* Related articles */
+.related { padding: var(--s10) 0; border-top: 1px solid var(--c5); }
+.related h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; color: var(--c0); margin-bottom: var(--s7); }
+.related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s7); }
+.related-item { text-decoration: none; }
+.related-item:hover .related-title { color: var(--c2); }
+.related-tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s2); }
+.related-title { font-family: var(--serif); font-size: 1.25rem; line-height: 1.3; color: var(--c0); margin-bottom: var(--s2); transition: color 0.15s; }
+.related-excerpt { font-size: 0.88rem; line-height: 1.6; color: var(--c3); }
+
+/* CTA */
+.article-cta { text-align: center; padding: var(--s11) 0; border-top: 1px solid var(--c5); }
+.article-cta h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 400; line-height: 1.15; letter-spacing: -0.02em; color: var(--c0); margin-bottom: var(--s4); }
+.article-cta p { font-size: 0.95rem; color: var(--c3); margin-bottom: var(--s7); }
+
+footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; justify-content: space-between; align-items: center; }
+.foot-l { font-family: var(--mono); font-size: 0.7rem; color: var(--c4); }
+.foot-r { display: flex; gap: var(--s6); }
+.foot-r a { font-size: 0.8rem; color: var(--c4); text-decoration: none; transition: color 0.15s; }
+.foot-r a:hover { color: var(--c0); }
+
+@media (max-width: 768px) {
+  .article-header { padding-top: 120px; }
+  .related-grid { grid-template-columns: 1fr; gap: var(--s8); }
+  .nav-r a:not(.btn) { display: none; }
+  footer { flex-direction: column; gap: var(--s6); text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav><div class="w">
+  <a href="/KP5D/" class="nav-mark">Kept</a>
+  <div class="nav-r">
+    <a href="/KP5D/">Home</a>
+    <a href="/KP5D/blog/" class="active">Blog</a>
+    <a href="/KP5D/#go" class="btn btn-p">Join waitlist</a>
+  </div>
+</div></nav>
+
+<article>
+  <header class="article-header"><div class="wa">
+    <p class="article-header-tag">Guide</p>
+    <h1>How to Share AI Conversation Snippets Without Losing Formatting</h1>
+    <p class="article-subtitle">You found the perfect answer in ChatGPT. You copy it, paste it into Slack, and watch the formatting disintegrate. Code blocks flatten. Lists collapse. Tables vanish. There is a better way.</p>
+    <div class="article-meta">
+      <span>Chris Hoar</span>
+      <span class="meta-sep">•</span>
+      <span>April 2026</span>
+      <span class="meta-sep">•</span>
+      <span>9 min read</span>
+    </div>
+  </div></header>
+
+  <div class="article-body wa">
+    <p>You spent 20 minutes refining an answer in Claude. It has clean code blocks, a comparison table, a numbered implementation plan. You need to share it with your team. So you copy it, paste it into Slack, and watch the formatting disintegrate in real time.</p>
+
+    <p>Code blocks become a wall of unindented text. The comparison table turns into a single run-on line. Numbered steps merge into a paragraph. You spend the next 10 minutes manually reformatting something that was already perfectly formatted.</p>
+
+    <p>This is not a minor annoyance. It is a workflow tax that every developer pays multiple times per day. And it gets worse the more useful AI tools become, because the better the AI output, the more complex the formatting you need to preserve.</p>
+
+    <h2>Why copy-paste from AI platforms is fundamentally broken</h2>
+
+    <p>ChatGPT, Claude, and Gemini render conversations as rich HTML with markdown under the hood. When you copy text from these platforms, the browser converts the rendered HTML to clipboard data. But every destination app interprets that clipboard data differently.</p>
+
+    <p>Slack uses its own markdown variant (mrkdwn) that does not support standard markdown tables or nested lists. Email clients strip most HTML formatting. Google Docs sometimes preserves formatting and sometimes does not, with no consistency. Apple Notes, Notion, and other tools each have their own interpretation.</p>
+
+    <p>The result: what you see in your AI conversation is not what anyone else sees after you paste it. And mobile makes it even worse, since iOS and Android aggressively simplify clipboard content.</p>
+
+    <h2>The five things that break every time</h2>
+
+    <p><strong>Code blocks:</strong> Triple-backtick code blocks flatten into plain text. Indentation disappears. Language-specific syntax highlighting is gone. For developers, this turns runnable code into something that needs manual repair.</p>
+
+    <p><strong>Tables:</strong> Markdown tables simply do not survive copy-paste into Slack, most email clients, or many note-taking apps. Columns collapse into a single line of pipe-separated text.</p>
+
+    <p><strong>Nested lists:</strong> Multi-level bullet points or numbered lists flatten into a single-depth list or merge into a paragraph. The hierarchy that made the information scannable disappears.</p>
+
+    <p><strong>Inline code:</strong> Backtick-wrapped inline code references like <code>variable_name</code> or CLI commands lose their monospace formatting and become indistinguishable from surrounding text.</p>
+
+    <p><strong>Mixed content:</strong> A response that combines a paragraph of explanation, a code block, a comparison table, and a bulleted summary loses all visual separation between sections.</p>
+
+    <h2>The workarounds people actually use (and why they all have problems)</h2>
+
+    <p><strong>Screenshot and paste as image:</strong> Preserves formatting perfectly but is unsearchable, inaccessible, and cannot be edited. Also terrible on mobile.</p>
+
+    <p><strong>Ask the AI to reformat for Slack:</strong> You can prompt ChatGPT to "reformat this for Slack's mrkdwn syntax." Works sometimes. Requires a separate prompt every time. Does not handle tables since Slack simply does not support them.</p>
+
+    <p><strong>Copy to a markdown file, then convert:</strong> Export to .md, open in a converter, copy the HTML, paste into email. Multiple steps for something that should take one click.</p>
+
+    <p><strong>Use a Chrome extension exporter:</strong> Tools like ChatGPT Exporter can export to PDF or Markdown. But exporting an entire conversation when you only need one snippet is overkill.</p>
+
+    <p><strong>Just give up and summarize manually:</strong> The most common approach. You read the AI output, type a summary in your own words into Slack, and lose all the structured detail. This is what most people actually do, and it defeats the purpose of having AI generate well-structured output.</p>
+
+    <h2>What intelligent sharing should actually look like</h2>
+
+    <p>You highlight a snippet in your AI conversation. You click "share." You pick the destination: Slack, email, or docs. The tool automatically reformats the content for that specific destination. Code blocks get wrapped in Slack's triple-backtick syntax. Tables get converted to a clean formatted alternative that actually renders. Inline code preserves its monospace styling. The output includes a source attribution so your team knows which AI platform and conversation produced it.</p>
+
+    <p>One action. Clean output. No manual reformatting.</p>
+
+    <p>This is not a hypothetical feature request. This is an active formatting pipeline that needs to understand both the source format (markdown-rendered HTML from AI platforms) and the destination format (Slack mrkdwn, email HTML, Google Docs rich text, Notion blocks).</p>
+
+    <h2>How Kept solves this</h2>
+
+    <p>Kept's Intelligent Sharing feature works exactly like the workflow described above. Because Kept already captures and indexes your conversations, it has access to the original structured content, not just the rendered HTML in the browser. When you share a snippet through Kept, it parses the original markdown, identifies the content types (code blocks, tables, lists, inline code), and reformats specifically for your chosen destination.</p>
+
+    <p>For Slack: code blocks use Slack's triple-backtick syntax, tables convert to formatted text blocks that actually display correctly, inline code wraps in single backticks.</p>
+
+    <p>For email: the output generates clean HTML that renders properly in Gmail, Outlook, and Apple Mail, with code blocks in monospace, tables with borders, and lists with proper indentation.</p>
+
+    <p>For docs: the content pastes as rich text with all structure intact.</p>
+
+    <p>Every shared snippet includes a small attribution footer with the source platform and conversation title, so your team can trace the context.</p>
+
+    <p>Stop spending 10 minutes reformatting something that was already perfectly formatted. Kept's Intelligent Sharing is part of the free, open-source core. Join the beta at kept.sh.</p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Why does copy-paste from ChatGPT break formatting in Slack?</h3>
+    <p>ChatGPT renders content as HTML with markdown formatting. Slack uses its own markup syntax called mrkdwn that does not support standard markdown features like tables or nested lists. The clipboard conversion between these formats loses structure.</p>
+
+    <h3>Can I share a ChatGPT code block in Slack without it breaking?</h3>
+    <p>If you manually wrap the code in triple backticks in Slack, yes. But copy-paste does not do this automatically. Kept's Intelligent Sharing handles this conversion for you.</p>
+
+    <h3>Is there a way to share AI conversation tables in email?</h3>
+    <p>Standard copy-paste destroys table formatting in most email clients. You need a tool that converts the markdown table to HTML table markup, which is what Kept does when you share via email.</p>
+
+    <h3>Does Kept work with Claude and Gemini, or just ChatGPT?</h3>
+    <p>Kept captures and enables sharing from ChatGPT, Claude, and Gemini. The formatting conversion works the same regardless of source platform.</p>
+
+    <h3>Is Intelligent Sharing a free or paid feature?</h3>
+    <p>Intelligent Sharing is part of Kept's free, open-source core. It is available to all users at beta launch.</p>
+
+  </div>
+
+  <section class="article-cta"><div class="wa">
+    <h2>Stop reformatting what was already formatted.</h2>
+    <p>Kept's Intelligent Sharing converts AI conversation snippets for any destination. Code blocks, tables, lists, all preserved. Free and open source.</p>
+    <a href="/KP5D/#go" class="btn btn-p">Join the waitlist →</a>
+  </div></section>
+
+  <section class="related"><div class="wa">
+    <h3>Related posts</h3>
+    <div class="related-grid">
+      <a href="/KP5D/blog/stop-re-explaining-your-codebase-to-every-ai/" class="related-item">
+        <p class="related-tag">Guide</p>
+        <h4 class="related-title">Stop Re-explaining Your Codebase to Every AI</h4>
+        <p class="related-excerpt">You open ChatGPT, start a new conversation, and spend the first 10 messages re-explaining your project structure. Every single time.</p>
+      </a>
+      <a href="/KP5D/blog/transfer-context-chatgpt-claude/" class="related-item">
+        <p class="related-tag">Guide</p>
+        <h4 class="related-title">How to Transfer Context Between ChatGPT and Claude</h4>
+        <p class="related-excerpt">You are 30 messages deep in ChatGPT and want Claude's perspective. Your current options are all manual.</p>
+      </a>
+      <a href="/KP5D/blog/context-window-tax-copy-pasting-ide-browser/" class="related-item">
+        <p class="related-tag">Research</p>
+        <h4 class="related-title">The Context Window Tax: How Copy-Pasting Between Your IDE and Browser Costs You 40 Minutes a Day</h4>
+        <p class="related-excerpt">You are paying a hidden productivity tax every time you manually move context between your IDE and your AI assistant.</p>
+      </a>
+    </div>
+  </div></section>
+</article>
+
+<div class="w"><footer>
+  <span class="foot-l">Kept — An E-Group Labs product — 2026</span>
+  <div class="foot-r">
+    <a href="/KP5D/">Home</a>
+    <a href="/KP5D/blog/">Blog</a>
+    <a href="https://github.com/hoarhouse/kept">GitHub</a>
+  </div>
+</footer></div>
+
+<script>
+const o = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); o.unobserve(e.target); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -32px 0px' });
+document.querySelectorAll('.rv').forEach(el => o.observe(el));
+</script>
+
+</body>
+</html>
