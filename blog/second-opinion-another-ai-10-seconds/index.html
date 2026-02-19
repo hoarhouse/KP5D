@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Primary Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Getting a Second Opinion from Another AI in 10 Seconds - Kept</title>
+<meta name="description" content="You are deep in a ChatGPT conversation and want Claude's perspective. Currently that means 10 minutes of manual context transfer. Here is how to do it in 10 seconds.">
+<meta name="keywords" content="compare AI responses, ChatGPT vs Claude second opinion, switch between AI models, AI context transfer, compare ChatGPT Claude answers, multi-LLM workflow, get second opinion AI">
+<link rel="canonical" href="https://kept.sh/blog/second-opinion-another-ai-10-seconds/">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Chris Hoar">
+<meta name="theme-color" content="#09090b">
+<link rel="icon" type="image/svg+xml" href="/KP5D/favicon.svg">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Getting a Second Opinion from Another AI in 10 Seconds">
+<meta property="og:description" content="Deep in ChatGPT and want Claude's take? Today that requires 10 minutes of copy-paste. It should take 10 seconds. Here is how.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kept.sh/blog/second-opinion-another-ai-10-seconds/">
+<meta property="og:image" content="https://kept.sh/og-article-second-opinion.png">
+<meta property="article:author" content="Chris Hoar">
+<meta property="article:published_time" content="2026-05-08T00:00:00Z">
+<meta property="article:section" content="Workflow">
+<meta property="article:tag" content="AI workflow">
+<meta property="article:tag" content="second opinion">
+<meta property="article:tag" content="multi-model">
+<meta property="article:tag" content="context transfer">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Getting a Second Opinion from Another AI in 10 Seconds">
+<meta name="twitter:description" content="Deep in ChatGPT and want Claude's take? Today that requires 10 minutes of copy-paste. It should take 10 seconds. Here is how.">
+<meta name="twitter:image" content="https://kept.sh/og-article-second-opinion.png">
+
+<!-- Article JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Getting a Second Opinion from Another AI in 10 Seconds",
+  "description": "You are deep in a ChatGPT conversation and want Claude's perspective. Currently that means 10 minutes of manual context transfer. Here is how to do it in 10 seconds.",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Hoar"
+  },
+  "datePublished": "2026-05-08T00:00:00Z",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kept",
+    "url": "https://kept.sh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kept.sh/blog/second-opinion-another-ai-10-seconds/"
+  },
+  "keywords": "ChatGPT, Claude, Gemini, second opinion, AI context transfer, multi-model workflow, developer workflow, Kept",
+  "wordCount": 1800
+}
+</script>
+
+<!-- FAQ JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is it worth using multiple AI models for coding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Different models have architectural differences that produce genuinely different outputs. ChatGPT, Claude, and Gemini each have areas where they outperform the others. For important technical decisions, a second perspective catches blind spots."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I transfer context from ChatGPT to Claude?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Currently, you have to manually summarize your conversation and paste it into a new Claude chat. Kept automates this by packaging the full conversation context and loading it directly into the target platform."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does switching AI platforms improve code quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Developer reports suggest that multi-model review catches issues that single-model usage misses, similar to how human code review catches bugs the original author does not see. The value scales with the importance of the decision."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Kept's comparative agent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A planned feature that lets you query multiple AI models from a single interface and compare their responses side by side, with the same context loaded into each. Currently in development for post-launch release."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is context sharing between AI platforms a free feature in Kept?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Context sharing is part of Kept's free, open-source core, available at beta launch."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --c0: #09090b;
+  --c1: #18181b;
+  --c2: #3f3f46;
+  --c3: #71717a;
+  --c4: #a1a1aa;
+  --c5: #e4e4e7;
+  --c6: #f4f4f5;
+  --cw: #fafafa;
+  --white: #ffffff;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', 'SF Mono', monospace;
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 20px;
+  --s6: 24px; --s7: 32px; --s8: 40px; --s9: 48px; --s10: 64px;
+  --s11: 80px; --s12: 120px;
+  --r: 8px;
+  --max: 1060px;
+  --article: 720px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--sans); color: var(--c1); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+::selection { background: var(--c0); color: var(--white); }
+
+.w { max-width: var(--max); margin: 0 auto; padding: 0 var(--s9); }
+.wa { max-width: var(--article); margin: 0 auto; padding: 0 var(--s9); }
+@media (max-width: 768px) { 
+  .w { padding: 0 var(--s6); }
+  .wa { padding: 0 var(--s6); }
+}
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 56px; display: flex; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--c5); }
+nav .w { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.nav-mark { font-family: var(--sans); font-weight: 600; font-size: 0.9rem; color: var(--c0); text-decoration: none; letter-spacing: -0.03em; }
+.nav-r { display: flex; align-items: center; gap: var(--s7); }
+.nav-r a { font-size: 0.82rem; color: var(--c3); text-decoration: none; transition: color 0.15s; }
+.nav-r a:hover { color: var(--c0); }
+.nav-r a.active { color: var(--c0); }
+
+.btn { display: inline-flex; align-items: center; gap: var(--s2); font-family: var(--sans); font-size: 0.82rem; font-weight: 500; padding: var(--s2) var(--s4); border-radius: var(--r); text-decoration: none; transition: all 0.15s; letter-spacing: -0.01em; cursor: pointer; border: none; }
+.btn-p { color: var(--white); background: var(--c0); }
+.btn-p:hover { background: var(--c2); }
+
+/* Article header */
+.article-header { padding: 140px 0 var(--s8); }
+.article-header-tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s3); }
+.article-header h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.15; letter-spacing: -0.03em; color: var(--c0); }
+.article-subtitle { font-size: 1.1rem; color: var(--c3); margin-top: var(--s4); line-height: 1.4; }
+.article-meta { display: flex; align-items: center; gap: var(--s2); margin-top: var(--s6); font-family: var(--mono); font-size: 0.72rem; color: var(--c3); }
+.article-meta span { display: flex; align-items: center; }
+.meta-sep { color: var(--c5); margin: 0 var(--s2); }
+
+/* Article body */
+.article-body { padding: 0 0 var(--s10); font-size: 1.05rem; line-height: 1.75; color: var(--c1); }
+.article-body h2 { font-family: var(--serif); font-size: 1.75rem; font-weight: 400; line-height: 1.2; letter-spacing: -0.02em; color: var(--c0); margin: var(--s9) 0 var(--s5); }
+.article-body h3 { font-family: var(--sans); font-size: 1.25rem; font-weight: 600; line-height: 1.3; color: var(--c0); margin: var(--s8) 0 var(--s4); }
+.article-body p { margin-bottom: var(--s6); }
+.article-body a { color: var(--c0); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: opacity 0.15s; }
+.article-body a:hover { opacity: 0.7; }
+.article-body ul, .article-body ol { margin: var(--s6) 0; padding-left: var(--s7); }
+.article-body li { margin-bottom: var(--s3); }
+.article-body strong { font-weight: 600; color: var(--c0); }
+.article-body em { font-style: italic; }
+.article-body code { font-family: var(--mono); font-size: 0.85em; background: var(--c6); padding: 2px 6px; border-radius: 4px; }
+
+/* Related articles */
+.related { padding: var(--s10) 0; border-top: 1px solid var(--c5); }
+.related h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; color: var(--c0); margin-bottom: var(--s7); }
+.related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s7); }
+.related-item { text-decoration: none; }
+.related-item:hover .related-title { color: var(--c2); }
+.related-tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s2); }
+.related-title { font-family: var(--serif); font-size: 1.25rem; line-height: 1.3; color: var(--c0); margin-bottom: var(--s2); transition: color 0.15s; }
+.related-excerpt { font-size: 0.88rem; line-height: 1.6; color: var(--c3); }
+
+/* CTA */
+.article-cta { text-align: center; padding: var(--s11) 0; border-top: 1px solid var(--c5); }
+.article-cta h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 400; line-height: 1.15; letter-spacing: -0.02em; color: var(--c0); margin-bottom: var(--s4); }
+.article-cta p { font-size: 0.95rem; color: var(--c3); margin-bottom: var(--s7); }
+
+footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; justify-content: space-between; align-items: center; }
+.foot-l { font-family: var(--mono); font-size: 0.7rem; color: var(--c4); }
+.foot-r { display: flex; gap: var(--s6); }
+.foot-r a { font-size: 0.8rem; color: var(--c4); text-decoration: none; transition: color 0.15s; }
+.foot-r a:hover { color: var(--c0); }
+
+@media (max-width: 768px) {
+  .article-header { padding-top: 120px; }
+  .related-grid { grid-template-columns: 1fr; gap: var(--s8); }
+  .nav-r a:not(.btn) { display: none; }
+  footer { flex-direction: column; gap: var(--s6); text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav><div class="w">
+  <a href="/KP5D/" class="nav-mark">Kept</a>
+  <div class="nav-r">
+    <a href="/KP5D/">Home</a>
+    <a href="/KP5D/blog/" class="active">Blog</a>
+    <a href="/KP5D/#go" class="btn btn-p">Join waitlist</a>
+  </div>
+</div></nav>
+
+<article>
+  <header class="article-header"><div class="wa">
+    <p class="article-header-tag">Workflow</p>
+    <h1>Getting a Second Opinion from Another AI in 10 Seconds</h1>
+    <p class="article-subtitle">You are 30 messages deep in ChatGPT and something feels off about the answer. You want Claude's take. Today that takes 10 minutes of copy-paste. It should take 10 seconds.</p>
+    <div class="article-meta">
+      <span>Chris Hoar</span>
+      <span class="meta-sep">•</span>
+      <span>May 2026</span>
+      <span class="meta-sep">•</span>
+      <span>8 min read</span>
+    </div>
+  </div></header>
+
+  <div class="article-body wa">
+    <p>You are 30 messages deep in a ChatGPT conversation about your API authentication flow. The model has suggested an approach, but something feels off. Maybe the error handling is too optimistic. Maybe the token refresh logic has an edge case. You want a second opinion.</p>
+
+    <p>In the real world, you would turn to a colleague and say "hey, can you look at this?" They already have the context because they have been sitting next to you. In the AI world, getting that second opinion means opening Claude in a new tab, re-explaining your entire project, re-explaining the specific problem, re-explaining what ChatGPT suggested, and then asking your question. Ten minutes of setup for a 30-second question.</p>
+
+    <p>This friction means most developers just stay in one platform, even when they know a different model might give a better answer for this specific problem.</p>
+
+    <h2>Why second opinions from different AI models actually matter</h2>
+
+    <p>This is not just convenience. Different models have genuine, measurable differences in how they approach problems. ChatGPT tends toward breadth and quick solutions. Claude tends toward depth and careful reasoning. Gemini brings Google's knowledge graph and real-time information. These are not subjective preferences. They are architectural differences that produce genuinely different outputs for the same prompt.</p>
+
+    <p>For technical decisions, this matters. An API design that ChatGPT calls "clean" might have edge cases that Claude's more cautious reasoning would flag. A database query that Gemini optimizes for speed might miss a correctness issue that a different model catches. Using only one model is like only asking one expert. You get one perspective, and you never know what you are missing.</p>
+
+    <p>Studies and developer reports consistently show that multi-model usage is growing. Developers use 2-3 AI platforms regularly now, not because they are indecisive, but because no single model is the best at everything.</p>
+
+    <h2>The 10-minute tax on every platform switch</h2>
+
+    <p>Walk through the actual manual steps required today to get a second opinion:</p>
+
+    <p>First, open the second AI platform in a new tab. Then try to summarize 30 messages of context into a prompt. This is surprisingly hard. You either over-explain (pasting entire conversations that blow up context windows) or under-explain (losing the nuance that makes the question meaningful).</p>
+
+    <p>Next, re-describe your project's technical constraints. Re-state the specific question. Wait for the response. Mentally compare the two answers, switching between tabs. If the second model suggests something useful, go back to the first platform and manually relay that context.</p>
+
+    <p>For a quick factual question, this is overkill. But for substantive technical decisions, architectural choices, or debugging complex problems, this is the workflow. And it happens multiple times per day for developers who use more than one platform.</p>
+
+    <p>The hidden cost is not just time. It is the context degradation. Every time you summarize a 30-message conversation into a prompt, you lose nuance. Decisions you explained in message 8, constraints you clarified in message 15, edge cases you explored in message 22. All of that gets flattened into a few sentences of summary.</p>
+
+    <h2>What "10 seconds" actually looks like</h2>
+
+    <p>You are in your ChatGPT conversation. You highlight the relevant section or click a button that says "Get second opinion." You pick the target platform: Claude. Kept packages the full conversation context (not a lossy summary, the actual structured context), opens the conversation in Claude, and asks your question with the background already loaded.</p>
+
+    <p>Ten seconds. No re-explaining. No manual summarization. No tab switching and mental juggling.</p>
+
+    <p>The key difference: Kept has access to the full conversation because it has been capturing and indexing it in real time. It does not need you to copy-paste anything. The context already exists locally, structured and searchable, ready to be packaged for another platform.</p>
+
+    <h2>When to get a second opinion (a practical framework)</h2>
+
+    <p><strong>Always get a second opinion for:</strong> Security-sensitive code (authentication, encryption, access control). Architectural decisions that will be expensive to reverse. Performance-critical code where edge cases matter. Legal, compliance, or policy questions. Any answer where the first model says "I think" or hedges significantly.</p>
+
+    <p><strong>Probably fine with one model for:</strong> Boilerplate code generation. Formatting or syntax questions. Well-documented API usage. Simple refactoring tasks. Writing that does not require factual accuracy.</p>
+
+    <p><strong>The general rule:</strong> If the decision matters and is hard to reverse, spend 10 seconds getting a second opinion. If you were asking a human colleague, you would want two perspectives on anything non-trivial.</p>
+
+    <h2>Beyond second opinions: the comparative workflow</h2>
+
+    <p>Second opinions are the entry point, but the full multi-model workflow is richer than that. Some developers are already using ChatGPT and Claude side by side for code reviews: one generates, the other critiques. Others use Gemini for initial research, then Claude for synthesis, then ChatGPT for implementation.</p>
+
+    <p>These workflows are powerful but currently require enormous manual effort. Each platform switch is a full context restart. The future is not choosing one AI platform. It is using all of them fluidly, with context that moves between them automatically.</p>
+
+    <p>Kept's upcoming comparative agent feature will take this further: query multiple LLMs from one interface and compare their responses side by side, with the same context loaded into each. No platform switching. No re-explaining. Just multiple expert perspectives on the same question.</p>
+
+    <h2>The platform lock-in problem this solves</h2>
+
+    <p>AI platforms want you to stay in their ecosystem. ChatGPT's memory feature, Claude's Projects, Gemini's Google integration. All are designed to make leaving expensive. The more context you build up in one platform, the harder it is to switch.</p>
+
+    <p>This is not malicious. It is just business. But for you as a developer, it means your best thinking gets trapped in whichever platform you happened to use that day. A second opinion should be as easy as asking a different colleague. Context portability makes that possible.</p>
+
+    <p>Kept's context sharing lets you move conversations between ChatGPT, Claude, and Gemini with one action. No copy-paste. No re-explaining. No context lost. Join the beta at kept.sh and make second opinions effortless.</p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Is it worth using multiple AI models for coding?</h3>
+    <p>Yes. Different models have architectural differences that produce genuinely different outputs. ChatGPT, Claude, and Gemini each have areas where they outperform the others. For important technical decisions, a second perspective catches blind spots.</p>
+
+    <h3>How do I transfer context from ChatGPT to Claude?</h3>
+    <p>Currently, you have to manually summarize your conversation and paste it into a new Claude chat. Kept automates this by packaging the full conversation context and loading it directly into the target platform.</p>
+
+    <h3>Does switching AI platforms improve code quality?</h3>
+    <p>Developer reports suggest that multi-model review catches issues that single-model usage misses, similar to how human code review catches bugs the original author does not see. The value scales with the importance of the decision.</p>
+
+    <h3>What is Kept's comparative agent?</h3>
+    <p>A planned feature that lets you query multiple AI models from a single interface and compare their responses side by side, with the same context loaded into each. Currently in development for post-launch release.</p>
+
+    <h3>Is context sharing between AI platforms a free feature in Kept?</h3>
+    <p>Yes. Context sharing is part of Kept's free, open-source core, available at beta launch.</p>
+
+  </div>
+
+  <section class="article-cta"><div class="wa">
+    <h2>Make second opinions effortless.</h2>
+    <p>Kept's context sharing moves your conversations between ChatGPT, Claude, and Gemini with one click. No copy-paste. No re-explaining. Just multiple perspectives on demand.</p>
+    <a href="/KP5D/#go" class="btn btn-p">Join the waitlist →</a>
+  </div></section>
+
+  <section class="related"><div class="wa">
+    <h3>Related posts</h3>
+    <div class="related-grid">
+      <a href="/KP5D/blog/transfer-context-chatgpt-claude/" class="related-item">
+        <p class="related-tag">Guide</p>
+        <h4 class="related-title">How to Transfer Context Between ChatGPT and Claude</h4>
+        <p class="related-excerpt">You are 30 messages deep in ChatGPT and want Claude's perspective. Your current options are all manual.</p>
+      </a>
+      <a href="/KP5D/blog/analyzed-6-months-ai-conversations/" class="related-item">
+        <p class="related-tag">Research</p>
+        <h4 class="related-title">I Analyzed 6 Months of AI Conversations. Here Is What I Found.</h4>
+        <p class="related-excerpt">2,847 conversations across ChatGPT, Claude, and Gemini. I tracked every topic, every decision, every tool mentioned. The patterns surprised me.</p>
+      </a>
+      <a href="/KP5D/blog/developer-guide-ai-model-strengths/" class="related-item">
+        <p class="related-tag">Guide</p>
+        <h4 class="related-title">The Developer's Guide to AI Model Strengths</h4>
+        <p class="related-excerpt">ChatGPT for code generation. Claude for architecture review. Gemini for research. Here is how to use all three without losing your mind.</p>
+      </a>
+    </div>
+  </div></section>
+</article>
+
+<div class="w"><footer>
+  <span class="foot-l">Kept — An E-Group Labs product — 2026</span>
+  <div class="foot-r">
+    <a href="/KP5D/">Home</a>
+    <a href="/KP5D/blog/">Blog</a>
+    <a href="https://github.com/hoarhouse/kept">GitHub</a>
+  </div>
+</footer></div>
+
+<script>
+const o = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); o.unobserve(e.target); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -32px 0px' });
+document.querySelectorAll('.rv').forEach(el => o.observe(el));
+</script>
+
+</body>
+</html>
