@@ -303,11 +303,11 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
 
     <p>I used Echoes before building Kept and I still think it is the right tool for a lot of people. If your primary need is finding and organizing your AI conversations, Echoes handles roughly 70% of what most people need.</p>
 
-    <p>The limitation is that Echoes is a management tool, not an intelligence tool. It helps you find and organize conversations, but it does not extract structured knowledge from them. There is no entity recognition. No knowledge graph. No relationship mapping between conversations. No context portability between platforms. It does not tell you what decisions you made, which tools you discussed, or how concepts connect across months of interactions.</p>
+    <p>The limitation is that Echoes is a browser-only management tool. It helps you find and organize conversations, but it does not offer CLI integration for developer workflows. No file watching for project context. No automated context templating. No ability to fork conversations between models. It manages what you have but does not enhance how you work with AI.</p>
 
     <p><strong>Best for:</strong> users who need better search and organization within existing platforms.</p>
 
-    <p><strong>Not for:</strong> users who want structured intelligence extraction or context transfer between LLMs.</p>
+    <p><strong>Not for:</strong> developers who need CLI integration, context templating, or the ability to fork conversations between models.</p>
 
     <h2>Kept: the cross-platform AI conversation manager</h2>
 
@@ -345,25 +345,25 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
         <div class="value yes">Yes</div>
       </div>
       <div class="comparison-row">
-        <div class="feature">Knowledge graph</div>
+        <div class="feature">Dynamic Links</div>
         <div class="value">No</div>
         <div class="value">No</div>
         <div class="value yes">Yes</div>
       </div>
       <div class="comparison-row">
-        <div class="feature">Context sharing (LLM to LLM)</div>
+        <div class="feature">Conversation Forks</div>
         <div class="value">No</div>
         <div class="value">No</div>
         <div class="value yes">Yes</div>
       </div>
       <div class="comparison-row">
-        <div class="feature">Intelligent formatted sharing</div>
+        <div class="feature">Context Templating</div>
         <div class="value">No</div>
         <div class="value">No</div>
         <div class="value yes">Yes</div>
       </div>
       <div class="comparison-row">
-        <div class="feature">Entity extraction</div>
+        <div class="feature">CLI integration</div>
         <div class="value">No</div>
         <div class="value">No</div>
         <div class="value yes">Yes</div>
@@ -423,17 +423,17 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
       
       <div class="faq-item">
         <div class="faq-q">What is the best alternative to Echoes for AI conversations?</div>
-        <div class="faq-a">Kept is the closest alternative to Echoes with a different approach. Echoes focuses on conversation management (search, labels, organization). Kept focuses on knowledge extraction (entity recognition, knowledge graph, context portability). Both offer cross-platform search across ChatGPT, Claude, and Gemini. The right choice depends on whether you need better organization or structured intelligence from your conversations.</div>
+        <div class="faq-a">Kept is the closest alternative to Echoes with a different approach. Echoes focuses on conversation management (search, labels, organization). Kept provides a desktop client, Chrome extension, and CLI that enable Conversation Forks, Context Templating, and Dynamic Links. Both offer cross-platform search across ChatGPT, Claude, and Gemini. The right choice depends on whether you need better organization or a unified interface with CLI integration.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">Is there an alternative to ChatGPT Exporter that works across platforms?</div>
-        <div class="faq-a">ChatGPT Exporter only handles ChatGPT conversations. For cross-platform export and search, Echoes covers multiple platforms with search and labeling. Kept captures from ChatGPT, Claude, and Gemini automatically and adds knowledge graph extraction on top of search.</div>
+        <div class="faq-a">ChatGPT Exporter only handles ChatGPT conversations. For cross-platform export and search, Echoes covers multiple platforms with search and labeling. Kept captures from ChatGPT, Claude, and Gemini automatically and adds Conversation Forks, Context Templating through CLI, and Dynamic Links on top of search.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">Can I search across ChatGPT, Claude, and Gemini with one tool?</div>
-        <div class="faq-a">Yes. Both Echoes and Kept offer cross-platform search. Echoes works as a Chrome extension with fuzzy matching and logical operators. Kept is a desktop app plus Chrome extension using SQLite FTS5 for local full-text search. Both index conversations from multiple AI platforms.</div>
+        <div class="faq-a">Yes. Both Echoes and Kept offer cross-platform search. Echoes works as a Chrome extension with fuzzy matching and logical operators. Kept is a desktop app plus Chrome extension plus CLI using SQLite FTS5 for local full-text search. Both index conversations from multiple AI platforms.</div>
       </div>
 
       <div class="faq-item">
@@ -443,7 +443,7 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
 
       <div class="faq-item">
         <div class="faq-q">Is Kept open source?</div>
-        <div class="faq-a">Yes. Kept is MIT licensed. The core capture, search, and context sharing features are free and open source. A premium intelligence layer (knowledge graph, AI agent, weekly digests) is planned as a paid tier to sustain development.</div>
+        <div class="faq-a">Yes. Kept is MIT licensed. The core features including Chat Archival, Conversation Forks, Context Templating, and Dynamic Links are free and open source. A premium tier with advanced features is planned to sustain development.</div>
       </div>
     </div>
   </div>
