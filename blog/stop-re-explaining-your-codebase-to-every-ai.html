@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Primary Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stop Re-explaining Your Codebase to Every AI - Kept</title>
+<meta name="description" content="Context templating automatically syncs your codebase with ChatGPT, Claude, and Gemini. No more copy-pasting project structure. Your files stay current across every AI conversation through Kept's CLI and Chrome extension.">
+<meta name="keywords" content="share code context with AI, stop re-explaining codebase to LLM, repo context for ChatGPT Claude, AI coding context management, CLAUDE.md llms.txt alternative, how to give AI your codebase, context engineering for developers, context templating, Kept CLI, Conversation Forks">
+<link rel="canonical" href="https://kept.sh/blog/stop-re-explaining-your-codebase-to-every-ai/">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Chris Hoar">
+<meta name="theme-color" content="#09090b">
+<link rel="icon" type="image/svg+xml" href="/KP5D/favicon.svg">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Stop Re-explaining Your Codebase to Every AI">
+<meta property="og:description" content="You've copy-pasted your project structure into ChatGPT for the last time. Context templating keeps your codebase synced across every AI platform.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kept.sh/blog/stop-re-explaining-your-codebase-to-every-ai/">
+<meta property="og:image" content="https://kept.sh/og-article-context.png">
+<meta property="article:author" content="Chris Hoar">
+<meta property="article:published_time" content="2026-02-19T00:00:00Z">
+<meta property="article:section" content="Developer Tools">
+<meta property="article:tag" content="AI coding">
+<meta property="article:tag" content="context management">
+<meta property="article:tag" content="developer workflow">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Stop Re-explaining Your Codebase to Every AI">
+<meta name="twitter:description" content="Context templating keeps your codebase synced across ChatGPT, Claude, and Gemini. No more copy-pasting.">
+<meta name="twitter:image" content="https://kept.sh/og-article-context.png">
+
+<!-- Article JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Stop Re-explaining Your Codebase to Every AI",
+  "description": "Context templating automatically syncs your codebase with ChatGPT, Claude, and Gemini. No more copy-pasting project structure. Your files stay current across every AI conversation through Kept's CLI and Chrome extension.",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Hoar"
+  },
+  "datePublished": "2026-02-19T00:00:00Z",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kept",
+    "url": "https://kept.sh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kept.sh/blog/stop-re-explaining-your-codebase-to-every-ai/"
+  },
+  "keywords": "share code context with AI, stop re-explaining codebase to LLM, repo context for ChatGPT Claude, AI coding context management, CLAUDE.md, llms.txt, context templating, Kept CLI, Chrome extension, Conversation Forks, Dynamic Links",
+  "wordCount": 2100
+}
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --c0: #09090b;
+  --c1: #18181b;
+  --c2: #3f3f46;
+  --c3: #71717a;
+  --c4: #a1a1aa;
+  --c5: #e4e4e7;
+  --c6: #f4f4f5;
+  --cw: #fafafa;
+  --white: #ffffff;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', 'SF Mono', monospace;
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 20px;
+  --s6: 24px; --s7: 32px; --s8: 40px; --s9: 48px; --s10: 64px;
+  --s11: 80px; --s12: 120px;
+  --r: 8px;
+  --max: 1060px;
+  --article: 720px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--sans); color: var(--c1); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+::selection { background: var(--c0); color: var(--white); }
+
+.w { max-width: var(--max); margin: 0 auto; padding: 0 var(--s9); }
+.wa { max-width: var(--article); margin: 0 auto; padding: 0 var(--s9); }
+@media (max-width: 768px) { 
+  .w { padding: 0 var(--s6); }
+  .wa { padding: 0 var(--s6); }
+}
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 56px; display: flex; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--c5); }
+nav .w { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.nav-mark { font-family: var(--sans); font-weight: 600; font-size: 0.9rem; color: var(--c0); text-decoration: none; letter-spacing: -0.03em; }
+.nav-r { display: flex; align-items: center; gap: var(--s7); }
+.nav-r a { font-size: 0.82rem; color: var(--c3); text-decoration: none; transition: color 0.15s; }
+.nav-r a:hover { color: var(--c0); }
+.nav-r a.active { color: var(--c0); }
+
+.btn { display: inline-flex; align-items: center; gap: var(--s2); font-family: var(--sans); font-size: 0.82rem; font-weight: 500; padding: var(--s2) var(--s4); border-radius: var(--r); text-decoration: none; transition: all 0.15s; letter-spacing: -0.01em; cursor: pointer; border: none; }
+.btn-p { color: var(--white); background: var(--c0); }
+.btn-p:hover { background: var(--c2); }
+
+/* Article header */
+.article-header { padding: 140px 0 var(--s8); }
+.article-header-tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s3); }
+.article-header h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.15; letter-spacing: -0.03em; color: var(--c0); }
+.article-subtitle { font-size: 1.1rem; color: var(--c3); margin-top: var(--s4); line-height: 1.4; }
+.article-meta { display: flex; align-items: center; gap: var(--s2); margin-top: var(--s6); font-family: var(--mono); font-size: 0.72rem; color: var(--c3); }
+.article-meta span { display: flex; align-items: center; }
+.meta-sep { color: var(--c5); margin: 0 var(--s2); }
+
+/* Article body */
+.article-body { padding: 0 0 var(--s10); font-size: 1.05rem; line-height: 1.75; color: var(--c1); }
+.article-body h2 { font-family: var(--serif); font-size: 1.75rem; font-weight: 400; line-height: 1.2; letter-spacing: -0.02em; color: var(--c0); margin: var(--s9) 0 var(--s5); }
+.article-body h3 { font-family: var(--sans); font-size: 1.25rem; font-weight: 600; line-height: 1.3; color: var(--c0); margin: var(--s8) 0 var(--s4); }
+.article-body p { margin-bottom: var(--s6); }
+.article-body a { color: var(--c0); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: opacity 0.15s; }
+.article-body a:hover { opacity: 0.7; }
+.article-body ul, .article-body ol { margin: var(--s6) 0; padding-left: var(--s7); }
+.article-body li { margin-bottom: var(--s3); }
+.article-body strong { font-weight: 600; color: var(--c0); }
+.article-body em { font-style: italic; }
+.article-body code { font-family: var(--mono); font-size: 0.85em; background: var(--c6); padding: 2px 6px; border-radius: 4px; }
+.article-body blockquote { border-left: 3px solid var(--c5); padding-left: var(--s5); margin: var(--s6) 0; color: var(--c3); font-style: italic; }
+
+/* Comparison table */
+.comparison { background: var(--cw); border: 1px solid var(--c5); border-radius: var(--r); padding: var(--s6); margin: var(--s7) 0; }
+.comparison h4 { font-family: var(--sans); font-size: 1.1rem; font-weight: 600; color: var(--c0); margin-bottom: var(--s4); }
+.comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s5); margin-top: var(--s4); }
+.comparison-item h5 { font-size: 0.95rem; font-weight: 600; color: var(--c0); margin-bottom: var(--s2); }
+.comparison-item ul { margin: 0; padding-left: var(--s5); }
+.comparison-item li { font-size: 0.9rem; color: var(--c3); margin-bottom: var(--s2); }
+
+/* CTA */
+.article-cta { text-align: center; padding: var(--s11) 0; border-top: 1px solid var(--c5); }
+.article-cta h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 400; line-height: 1.15; letter-spacing: -0.02em; color: var(--c0); margin-bottom: var(--s4); }
+.article-cta p { font-size: 0.95rem; color: var(--c3); margin-bottom: var(--s7); }
+
+footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; justify-content: space-between; align-items: center; }
+.foot-l { font-family: var(--mono); font-size: 0.7rem; color: var(--c4); }
+.foot-r { display: flex; gap: var(--s6); }
+.foot-r a { font-size: 0.8rem; color: var(--c4); text-decoration: none; transition: color 0.15s; }
+.foot-r a:hover { color: var(--c0); }
+
+@media (max-width: 768px) {
+  .article-header { padding-top: 120px; }
+  .comparison-grid { grid-template-columns: 1fr; }
+  .nav-r a:not(.btn) { display: none; }
+  footer { flex-direction: column; gap: var(--s6); text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav><div class="w">
+  <a href="/KP5D/" class="nav-mark">Kept</a>
+  <div class="nav-r">
+    <a href="/KP5D/">Home</a>
+    <a href="/KP5D/blog/" class="active">Blog</a>
+    <a href="/KP5D/#go" class="btn btn-p">Join waitlist</a>
+  </div>
+</div></nav>
+
+<article>
+  <header class="article-header"><div class="wa">
+    <p class="article-header-tag">Developer Tools</p>
+    <h1>Stop Re-explaining Your Codebase to Every AI</h1>
+    <p class="article-subtitle">You've copy-pasted your project structure into ChatGPT for the last time. Here's what comes next.</p>
+    <div class="article-meta">
+      <span>Chris Hoar</span>
+      <span class="meta-sep">•</span>
+      <span>February 2026</span>
+      <span class="meta-sep">•</span>
+      <span>9 min read</span>
+    </div>
+  </div></header>
+
+  <div class="article-body wa">
+    <p>Last Tuesday I pasted my project's folder structure into Claude for the fourth time that day. Same project. Same files. Same "here is what I am building" preamble that I have now typed so many times I could recite it from memory.</p>
+
+    <p>Every time I opened a new AI conversation, I lost all context. Every chat started from scratch. I spent the first 10 minutes of every session just getting the AI up to speed on code it had already seen dozens of times.</p>
+
+    <p>I realized I was spending more time explaining my codebase than actually getting help with it.</p>
+
+    <h2>Why does every AI conversation start from zero?</h2>
+
+    <p>AI platforms do not retain project context between conversations. Each chat session starts with no knowledge of your codebase, architecture decisions, or file structure. You have to manually re-establish context every single time.</p>
+
+    <p>ChatGPT, Claude, and Gemini are stateless per conversation. Even with memory features, they do not have access to your local files. The AI does not know your repo exists until you tell it. This is why every conversation starts with you pasting a file tree or uploading README files.</p>
+
+    <p>I've tried all the workarounds. Copy-pasting directory structures from `tree` commands. Uploading entire README files. Writing elaborate preambles that I save in a text file and paste at the start of each chat. Running `find . -name "*.py" | head -20` and pasting the output to give Claude a sense of my project structure.</p>
+
+    <p>It works, sort of. But it's manual labor that shouldn't exist.</p>
+
+    <h2>The manual context packing era: CLAUDE.md, llms.txt, and spec.md</h2>
+
+    <p>Developers have started creating dedicated context files to feed their AI tools. CLAUDE.md gives Claude project rules. The llms.txt standard provides machine-readable site context. Spec.md files capture project requirements. These help, but they are manual and static.</p>
+
+    <p>Let me walk through what's out there, because I use most of these daily:</p>
+
+    <p><strong>CLAUDE.md and .cursorrules:</strong> These are project-specific instruction files that live in your repo root. You write rules like "always use async/await instead of promises" or "follow the existing error handling pattern in src/utils/errors.ts". Claude reads CLAUDE.md automatically. Cursor reads .cursorrules. They work great until your patterns change and you forget to update the file.</p>
+
+    <p><strong>llms.txt:</strong> This emerging standard (llms.txt) lets you provide context about your website or project in a machine-readable format. You create an llms.txt file at your domain root, and AI tools can fetch it to understand what your site does. Smart idea. But it's meant for public websites, not local development projects.</p>
+
+    <p><strong>spec.md:</strong> Some teams maintain a spec.md file with detailed project specifications, API contracts, and architecture decisions. You paste this at the start of AI conversations. I've seen spec.md files that are 500+ lines long, meticulously maintained. They work, but they become outdated the moment you merge a PR.</p>
+
+    <p><strong>gitingest and repo2txt:</strong> These tools dump your entire codebase into a single text file that you can feed to an LLM. Gitingest.com lets you paste a GitHub URL and get back a text dump. repo2txt is a Python script that does similar things locally. Useful for one-shot "review my codebase" requests, but impractical for ongoing development.</p>
+
+    <p><strong>Context7:</strong> This is an MCP (Model Context Protocol) server that provides library documentation to AI tools. It can fetch docs for React, Python, or whatever you're using. Helpful for general library knowledge but doesn't know anything about your specific project.</p>
+
+    <p>I use CLAUDE.md in my projects. It genuinely helps. But these static files have serious limitations. They don't update when your code changes. They only work within one platform at a time. Your CLAUDE.md does nothing when you switch to ChatGPT. And maintaining them becomes another task on your already full plate.</p>
+
+    <h2>What breaks when your project grows?</h2>
+
+    <p>Static context files become outdated as your codebase evolves. Features get added, dependencies change, architecture shifts. But your CLAUDE.md still describes the project as it was three weeks ago. The AI gets confused because the context no longer matches reality.</p>
+
+    <p>Here's a real scenario from last week. I was working on a feature branch where I'd added a new service layer. My CLAUDE.md still described the old two-tier architecture. Claude kept suggesting patterns that conflicted with what I'd actually built. I spent 15 minutes debugging why the AI's suggestions were so off before realizing my context file was stale.</p>
+
+    <p>If you use AI tools multiple times per day across multiple providers, maintaining accurate context files for each platform becomes a job in itself. I calculated it once. I was spending 30-45 minutes per day just on context management. Copy-pasting, updating files, making sure each AI had the right information.</p>
+
+    <p>The manual approach breaks down after day three.</p>
+
+    <h2>What is context templating and how does it solve this?</h2>
+
+    <p>Context templating is the practice of defining your project's context once, in a structured format, and having a tool automatically keep it current as your codebase changes. Instead of manually updating static files, a context template watches your project and compresses the relevant information for whatever AI tool you're using.</p>
+
+    <p>Kept introduced Context Templating as one of its core features. Here's what it actually does:</p>
+
+    <p>You define the context for your project once. This includes your tech stack, architecture patterns, key files, and coding conventions. Kept's CLI then monitors your files and keeps this context current. When you open a conversation in ChatGPT, Claude, or Gemini, the Kept Chrome extension sees you're starting a new chat and offers to inject your project context automatically.</p>
+
+    <p>The smart compression part matters. Instead of dumping your entire codebase (which would eat up your token limit), Kept compresses the context intelligently. It knows which files are relevant based on what you're working on. If you're debugging the auth flow, it prioritizes auth-related files. If you're working on the database layer, it includes your schema and model files.</p>
+
+    <div class="comparison">
+      <h4>Manual context packing vs automated context templating</h4>
+      <div class="comparison-grid">
+        <div class="comparison-item">
+          <h5>Manual (CLAUDE.md, spec.md)</h5>
+          <ul>
+            <li>Static files that go stale</li>
+            <li>Single-platform only</li>
+            <li>Requires constant updating</li>
+            <li>No intelligent compression</li>
+            <li>You choose what to include each time</li>
+          </ul>
+        </div>
+        <div class="comparison-item">
+          <h5>Automated (Kept's Context Templating)</h5>
+          <ul>
+            <li>Dynamic, stays current with file watching</li>
+            <li>Works across all AI platforms</li>
+            <li>Updates automatically via CLI</li>
+            <li>Smart compression based on relevance</li>
+            <li>Injects the right context automatically</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <p>This isn't replacing CLAUDE.md. It's solving a different problem. CLAUDE.md tells the AI how to behave. Context templating tells the AI what you're building.</p>
+
+    <h2>How does the CLI fit into this workflow?</h2>
+
+    <p>Kept's CLI is the bridge between your local project and your browser-based AI conversations. It runs in your terminal, watches your project files, builds context templates, and makes them available to the Chrome extension for injection into any AI provider's interface.</p>
+
+    <p>Here's my actual workflow from yesterday:</p>
+
+    <p>I'm working in VS Code on a Rust project, specifically a REST API with Actix-web 4.4. I run <code>kept watch</code> in my terminal. The CLI starts monitoring my src/, Cargo.toml, and migrations/ directories. It builds a context template that includes my route definitions, database schema, and recent changes.</p>
+
+    <p>I open Claude in my browser to ask about optimizing a particularly gnarly query. The Kept extension sees I'm on claude.ai and shows a small button: "Inject project context". I click once. Claude now knows my database schema, my model structs, the specific query I'm working on, and the performance constraints I documented in my README.</p>
+
+    <p>Halfway through the conversation, I want ChatGPT's take on the same problem. I open ChatGPT, and Kept offers to inject the same context. But here's where Conversation Forks come in. Since I already started this conversation in Claude, Kept can package both the conversation history and the project context. ChatGPT picks up right where Claude left off, with full context.</p>
+
+    <p>No copy-pasting. No "let me explain my project" preambles. The AI knows what I'm building from the first message.</p>
+
+    <h2>Does this replace CLAUDE.md and llms.txt?</h2>
+
+    <p>No. Context templating works alongside existing tools, not instead of them. Your CLAUDE.md still works within Claude. Your llms.txt still serves web crawlers. Kept adds a layer on top that handles the parts these static files cannot: automatic updates, cross-platform portability, and smart compression.</p>
+
+    <p>Think of it as an evolution. CLAUDE.md was a good first step. We figured out that giving AI tools persistent project instructions improved their output. Context templating is the next step. We're automating the manual parts and making context portable across platforms.</p>
+
+    <p>You might be wondering if you need to learn a new file format or configuration language. You don't. Kept reads your existing project structure and generates context automatically. If you already have a CLAUDE.md or spec.md, it incorporates those too.</p>
+
+    <h2>What this actually looks like day to day</h2>
+
+    <p>In practice, context templating saves 10-15 minutes per AI coding session by eliminating the manual context setup step. Over a week of heavy AI-assisted development, that adds up to 1-2 hours of recovered productive time.</p>
+
+    <p>Before: Open ChatGPT. Paste project tree. Paste key files. Explain architecture. Explain what you're trying to do. Finally ask your actual question. Total time before productive conversation: 8-12 minutes.</p>
+
+    <p>After: Open ChatGPT. Context is already there via Kept's Chrome extension. Ask your question immediately. Total time before productive conversation: 5 seconds.</p>
+
+    <p>The difference compounds. When you're debugging something tricky and jumping between ChatGPT, Claude, and Gemini for different perspectives (which I do constantly), you save that setup time on every single platform. The context follows you.</p>
+
+    <p>Yesterday I had a gnarly TypeScript generics issue. I asked Claude first, got a partial solution. Jumped to ChatGPT with the same context plus Claude's attempt. Got a different approach. Went to Gemini for a third opinion. Each AI had full context from message one. The entire debugging session took 20 minutes instead of an hour.</p>
+
+    <h2>The real cost of manual context management</h2>
+
+    <p>I tracked my context management time for a week. Here's what I found:</p>
+
+    <p>Average time spent setting up context per AI conversation: 7 minutes. Average AI conversations per day: 6-8. Total daily time on context setup: 42-56 minutes. Weekly total: 3.5 to 4.6 hours.</p>
+
+    <p>That's half a workday every week just copying and pasting the same information into different AI tools. It's invisible work that doesn't feel like work, but it adds up.</p>
+
+    <p>Context templating through Kept eliminates most of this. The CLI watches your files. The Chrome extension injects context. You spend those recovered hours actually building things instead of explaining what you're building.</p>
+
+    <h2>What about security and privacy?</h2>
+
+    <p>You might be wondering about the security implications of a CLI watching your project files. Fair question. Here's how Kept handles it:</p>
+
+    <p>Everything stays local. The CLI doesn't send your code anywhere. It builds context templates on your machine and makes them available to the Chrome extension through local storage. When you inject context into ChatGPT or Claude, it goes directly from your browser to their servers. Kept never sees your code.</p>
+
+    <p>You control what gets included. The CLI respects .gitignore by default. You can add a .keptignore file for additional exclusions. Sensitive files like .env or private keys are never included in context templates.</p>
+
+    <p>This is different from cloud-based code intelligence tools. Your code doesn't leave your machine until you explicitly inject it into an AI conversation, and then it goes directly to the AI provider you're using.</p>
+
+    <h2>The ecosystem is evolving fast</h2>
+
+    <p>Six months ago, nobody was talking about CLAUDE.md. Now it's a standard practice. The llms.txt specification launched recently. Context7 and other MCPs are proliferating. The ecosystem is recognizing that context management is a fundamental problem.</p>
+
+    <p>But we're still in the manual era. Every solution requires you to maintain files, copy-paste content, or remember to update things. Context templating automates this. It's the difference between manually managing dependencies with copy-paste and using npm or cargo.</p>
+
+    <p>Kept's approach with CLI file watching plus browser extension injection feels like the right architecture. Your code stays local. The context stays fresh. The injection works across every AI platform. No vendor lock-in.</p>
+
+    <p>Your codebase context should follow you between AI conversations. It should update when your code changes. It should not care which platform you're using. That's what Kept does.</p>
+
+    <p>The combination of Context Templating, Conversation Forks, and Dynamic Links means your AI tools finally understand not just what you're asking, but what you're building. Every conversation starts informed. Every platform has the same context. Every change in your codebase is reflected automatically.</p>
+
+    <p>This is how AI coding assistance should work. Not copy-paste marathons. Not outdated static files. Not platform-specific configurations. Just your code, your context, available everywhere you need it.</p>
+
+    <p>Kept is launching in beta. Desktop app, Chrome extension, and CLI. Context templating, conversation forks, and local-first architecture. Join the waitlist at kept.sh.</p>
+
+    <p>Open source. Local-first. No account required.</p>
+  </div>
+
+  <section class="article-cta"><div class="wa">
+    <h2>Ready to stop copy-pasting?</h2>
+    <p>Kept's Context Templating keeps your codebase synced across ChatGPT, Claude, and Gemini. CLI watches your files. Extension injects context. You code instead of explaining.</p>
+    <a href="/KP5D/#go" class="btn btn-p">Join the waitlist →</a>
+  </div></section>
+</article>
+
+<div class="w"><footer>
+  <span class="foot-l">Kept — 2026</span>
+  <div class="foot-r">
+    <a href="/KP5D/">Home</a>
+    <a href="/KP5D/blog/">Blog</a>
+    <a href="https://github.com/hoarhouse/kept">GitHub</a>
+  </div>
+</footer></div>
+
+</body>
+</html>
