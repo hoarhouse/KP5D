@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Primary Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Use Claude for Architecture and ChatGPT for Code. Here's How I Keep Context Between Them. - Kept</title>
+<meta name="description" content="I use Claude for architecture, ChatGPT for implementation, and Gemini for research. Here is how I manage context between them, where it breaks down, and a better approach.">
+<meta name="keywords" content="use ChatGPT and Claude together, best AI model for coding vs architecture, how to transfer context between AI models, multi LLM developer workflow, ChatGPT vs Claude for coding 2026, switch between AI models without losing context, multi model AI workflow for developers, Conversation Forks, Kept CLI">
+<link rel="canonical" href="https://kept.sh/blog/claude-for-architecture-chatgpt-for-code-keeping-context/">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Chris Hoar">
+<meta name="theme-color" content="#09090b">
+<link rel="icon" type="image/svg+xml" href="/KP5D/favicon.svg">
+
+<!-- Open Graph -->
+<meta property="og:title" content="I Use Claude for Architecture and ChatGPT for Code. Here's How I Keep Context Between Them.">
+<meta property="og:description" content="Most developers now use multiple AI models daily. The workflow is powerful. The context transfer is painful. Here is what I do about it.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kept.sh/blog/claude-for-architecture-chatgpt-for-code-keeping-context/">
+<meta property="og:image" content="https://kept.sh/og-article-multimodel.png">
+<meta property="article:author" content="Chris Hoar">
+<meta property="article:published_time" content="2026-02-21T00:00:00Z">
+<meta property="article:section" content="Developer Workflow">
+<meta property="article:tag" content="AI workflow">
+<meta property="article:tag" content="multi-model development">
+<meta property="article:tag" content="context management">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="I Use Claude for Architecture and ChatGPT for Code">
+<meta name="twitter:description" content="Most developers now use multiple AI models daily. Here's how to manage context between them.">
+<meta name="twitter:image" content="https://kept.sh/og-article-multimodel.png">
+
+<!-- Article JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "I Use Claude for Architecture and ChatGPT for Code. Here's How I Keep Context Between Them.",
+  "description": "I use Claude for architecture, ChatGPT for implementation, and Gemini for research. Here is how I manage context between them, where it breaks down, and a better approach using Conversation Forks.",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Hoar"
+  },
+  "datePublished": "2026-02-21T00:00:00Z",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kept",
+    "url": "https://kept.sh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kept.sh/blog/claude-for-architecture-chatgpt-for-code-keeping-context/"
+  },
+  "keywords": "ChatGPT, Claude, Gemini, DeepSeek, Grok, Claude Code, Cursor, multi-model workflow, AI development, context transfer, Conversation Forks, Context Templating, Dynamic Links, Kept Chrome extension, Kept CLI",
+  "wordCount": 2100
+}
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --c0: #09090b;
+  --c1: #18181b;
+  --c2: #3f3f46;
+  --c3: #71717a;
+  --c4: #a1a1aa;
+  --c5: #e4e4e7;
+  --c6: #f4f4f5;
+  --cw: #fafafa;
+  --white: #ffffff;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', 'SF Mono', monospace;
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 20px;
+  --s6: 24px; --s7: 32px; --s8: 40px; --s9: 48px; --s10: 64px;
+  --s11: 80px; --s12: 120px;
+  --r: 8px;
+  --max: 1060px;
+  --article: 720px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--sans); color: var(--c1); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+::selection { background: var(--c0); color: var(--white); }
+
+.w { max-width: var(--max); margin: 0 auto; padding: 0 var(--s9); }
+.wa { max-width: var(--article); margin: 0 auto; padding: 0 var(--s9); }
+@media (max-width: 768px) { 
+  .w { padding: 0 var(--s6); }
+  .wa { padding: 0 var(--s6); }
+}
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 56px; display: flex; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--c5); }
+nav .w { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.nav-mark { font-family: var(--sans); font-weight: 600; font-size: 0.9rem; color: var(--c0); text-decoration: none; letter-spacing: -0.03em; }
+.nav-r { display: flex; align-items: center; gap: var(--s7); }
+.nav-r a { font-size: 0.82rem; color: var(--c3); text-decoration: none; transition: color 0.15s; }
+.nav-r a:hover { color: var(--c0); }
+.nav-r a.active { color: var(--c0); }
+
+.btn { display: inline-flex; align-items: center; gap: var(--s2); font-family: var(--sans); font-size: 0.82rem; font-weight: 500; padding: var(--s2) var(--s4); border-radius: var(--r); text-decoration: none; transition: all 0.15s; letter-spacing: -0.01em; cursor: pointer; border: none; }
+.btn-p { color: var(--white); background: var(--c0); }
+.btn-p:hover { background: var(--c2); }
+
+/* Article header */
+.article-header { padding: 140px 0 var(--s8); }
+.article-header-tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s3); }
+.article-header h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.15; letter-spacing: -0.03em; color: var(--c0); }
+.article-subtitle { font-size: 1.1rem; color: var(--c3); margin-top: var(--s4); line-height: 1.4; }
+.article-meta { display: flex; align-items: center; gap: var(--s2); margin-top: var(--s6); font-family: var(--mono); font-size: 0.72rem; color: var(--c3); }
+.article-meta span { display: flex; align-items: center; }
+.meta-sep { color: var(--c5); margin: 0 var(--s2); }
+
+/* Article body */
+.article-body { padding: 0 0 var(--s10); font-size: 1.05rem; line-height: 1.75; color: var(--c1); }
+.article-body h2 { font-family: var(--serif); font-size: 1.75rem; font-weight: 400; line-height: 1.2; letter-spacing: -0.02em; color: var(--c0); margin: var(--s9) 0 var(--s5); }
+.article-body h3 { font-family: var(--sans); font-size: 1.25rem; font-weight: 600; line-height: 1.3; color: var(--c0); margin: var(--s8) 0 var(--s4); }
+.article-body p { margin-bottom: var(--s6); }
+.article-body a { color: var(--c0); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: opacity 0.15s; }
+.article-body a:hover { opacity: 0.7; }
+.article-body ul, .article-body ol { margin: var(--s6) 0; padding-left: var(--s7); }
+.article-body li { margin-bottom: var(--s3); }
+.article-body strong { font-weight: 600; color: var(--c0); }
+.article-body em { font-style: italic; }
+.article-body code { font-family: var(--mono); font-size: 0.85em; background: var(--c6); padding: 2px 6px; border-radius: 4px; }
+
+/* Task breakdown */
+.task-breakdown { background: var(--cw); border: 1px solid var(--c5); border-radius: var(--r); padding: var(--s6); margin: var(--s7) 0; }
+.task-breakdown h4 { font-family: var(--sans); font-size: 1.1rem; font-weight: 600; color: var(--c0); margin-bottom: var(--s5); }
+.task-item { padding: var(--s4) 0; border-bottom: 1px solid var(--c5); }
+.task-item:last-child { border-bottom: none; }
+.task-item h5 { font-size: 1rem; font-weight: 600; color: var(--c0); margin-bottom: var(--s2); }
+.task-item p { font-size: 0.95rem; color: var(--c3); margin: 0; }
+
+/* Workflow steps */
+.workflow-steps { margin: var(--s7) 0; }
+.workflow-steps ol { counter-reset: step-counter; list-style: none; padding-left: 0; }
+.workflow-steps li { counter-increment: step-counter; position: relative; padding-left: var(--s9); margin-bottom: var(--s4); }
+.workflow-steps li::before { content: counter(step-counter); position: absolute; left: 0; top: 2px; width: 28px; height: 28px; background: var(--c0); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 600; }
+
+/* CTA */
+.article-cta { text-align: center; padding: var(--s11) 0; border-top: 1px solid var(--c5); }
+.article-cta h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 400; line-height: 1.15; letter-spacing: -0.02em; color: var(--c0); margin-bottom: var(--s4); }
+.article-cta p { font-size: 0.95rem; color: var(--c3); margin-bottom: var(--s7); }
+
+footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; justify-content: space-between; align-items: center; }
+.foot-l { font-family: var(--mono); font-size: 0.7rem; color: var(--c4); }
+.foot-r { display: flex; gap: var(--s6); }
+.foot-r a { font-size: 0.8rem; color: var(--c4); text-decoration: none; transition: color 0.15s; }
+.foot-r a:hover { color: var(--c0); }
+
+@media (max-width: 768px) {
+  .article-header { padding-top: 120px; }
+  .nav-r a:not(.btn) { display: none; }
+  footer { flex-direction: column; gap: var(--s6); text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav><div class="w">
+  <a href="/KP5D/" class="nav-mark">Kept</a>
+  <div class="nav-r">
+    <a href="/KP5D/">Home</a>
+    <a href="/KP5D/blog/" class="active">Blog</a>
+    <a href="/KP5D/#go" class="btn btn-p">Join waitlist</a>
+  </div>
+</div></nav>
+
+<article>
+  <header class="article-header"><div class="wa">
+    <p class="article-header-tag">Developer Workflow</p>
+    <h1>I Use Claude for Architecture and ChatGPT for Code. Here's How I Keep Context Between Them.</h1>
+    <p class="article-subtitle">Most developers now use multiple AI models daily. The workflow is powerful. The context transfer is painful. Here is what I do about it.</p>
+    <div class="article-meta">
+      <span>Chris Hoar</span>
+      <span class="meta-sep">•</span>
+      <span>February 2026</span>
+      <span class="meta-sep">•</span>
+      <span>8 min read</span>
+    </div>
+  </div></header>
+
+  <div class="article-body wa">
+    <p>Last Tuesday I was 45 messages deep in a Claude conversation about our API authentication flow. I had the architecture locked in. JWT strategy mapped out, refresh token rotation designed, rate limiting decided. Then I needed ChatGPT to generate the actual Express middleware implementation.</p>
+
+    <p>So I did what every developer does: opened a new tab, started a fresh ChatGPT conversation, and spent ten minutes re-explaining everything Claude already knew. The project context. The auth requirements. The decisions we'd made about token expiration. All of it, again, from scratch.</p>
+
+    <p>Every developer who uses multiple AI models knows this moment. You have the context. The AI does not.</p>
+
+    <p>This is not a niche workflow anymore. Recent data shows 81% of developers use ChatGPT, 43% use Claude, 35% use Gemini. ChatGPT's market share dropped from 87% to 68% in one year. Multi-model usage is now the default, not the exception.</p>
+
+    <h2>Why I use different AI models for different tasks</h2>
+
+    <p>Different AI models have genuine strengths. Claude excels at architecture, long-context reasoning, and catching edge cases. ChatGPT is fastest for implementation and has the broadest framework knowledge. Gemini handles massive context windows and integrates with Google's ecosystem. Using one model for everything means accepting its weaknesses alongside its strengths.</p>
+
+    <p>Here's my actual workflow and why each model earns its place:</p>
+
+    <p><strong>Claude for architecture and system design.</strong> When I'm designing an API or planning a complex feature, Claude is unmatched. It holds context longer, reasons more carefully about trade-offs, and catches edge cases I haven't considered. When I'm designing an authentication system, I want the model that will ask "what happens when the refresh token is compromised?" before I've thought about it. Claude does that consistently.</p>
+
+    <p><strong>ChatGPT for implementation and code generation.</strong> Once the architecture is solid, ChatGPT is my implementation workhorse. Faster responses, broader library knowledge, better at "just make it work" tasks. Need Express middleware? ChatGPT. React component with Tailwind? ChatGPT. Quick Python script to process CSV files? ChatGPT. It's the difference between a thoughtful architect and a fast carpenter. I need both.</p>
+
+    <p><strong>Gemini for research with large documents.</strong> When I need to understand a massive codebase or synthesize multiple documentation sources, Gemini's 2-million token context window is unbeatable. I dumped our entire legacy codebase into Gemini last month to understand the existing auth implementation. No other model could handle that much context.</p>
+
+    <p><strong>DeepSeek for a different perspective.</strong> Sometimes a model trained differently catches things the others miss. DeepSeek R1 reasons through problems step-by-step in a way that surfaces different insights. When I'm stuck, I'll run the same problem through DeepSeek to see what emerges.</p>
+
+    <p>This is what developers are calling the "Triple Stack" workflow: Research (Gemini) → Build (Claude) → Refine (ChatGPT). It's becoming formalized because it works.</p>
+
+    <h2>What actually happens when you switch between AI models</h2>
+
+    <p>Every model switch requires you to rebuild context from scratch. You copy text, summarize conversations, paste system prompts, and re-explain your project. This process takes 5-15 minutes per switch and happens multiple times per day for developers using two or more models.</p>
+
+    <p>Here's the brutal reality of my current workflow:</p>
+
+    <div class="workflow-steps">
+      <ol>
+        <li>Ask Claude to summarize what it knows about the current conversation</li>
+        <li>Copy that summary to my clipboard</li>
+        <li>Open ChatGPT in a new tab</li>
+        <li>Paste the summary as the first message</li>
+        <li>Add any additional context (file structure, coding conventions, recent decisions)</li>
+        <li>Hope the nuance survived the transfer</li>
+        <li>Start working, then realize something was lost in translation</li>
+        <li>Go back to Claude to grab the missing piece</li>
+        <li>Repeat until frustrated</li>
+      </ol>
+    </div>
+
+    <p>If you switch models three times a day and each switch takes ten minutes, that's 30 minutes of pure context transfer overhead. Every single day. 150 minutes per week. Over 10 hours per month just moving information between browser tabs.</p>
+
+    <p>The METR study found that developers using AI tools took 19% longer than expected, partly because of workflow friction like prompting, reviewing, and context management. I believe it. The tools are powerful. The glue between them is missing.</p>
+
+    <h2>The approaches I have tried (and why they only half work)</h2>
+
+    <p>The most common workarounds are manual summarization, shared system prompts, project files like CLAUDE.md, and browser extensions. Each helps, but none solve the fundamental problem of transferring live conversation context between competing platforms.</p>
+
+    <p><strong>Manual summarization:</strong> Ask the AI to summarize, copy it over. Works for simple conversations. Falls apart when the context includes nuanced architectural decisions, rejected approaches, or multi-step reasoning chains. I tried this with a complex debugging session last week. The summary said "identified race condition in auth middleware." What it didn't capture: the three wrong paths we explored first and why they were wrong.</p>
+
+    <p><strong>Shared system prompt:</strong> I have a 400-line "project context" document I paste into every new conversation. Decent for establishing baseline context. Does nothing for transferring the specific decisions and reasoning from the conversation I just had. It's like giving someone a map when what they need is turn-by-turn directions from where you are right now.</p>
+
+    <p><strong>CLAUDE.md and .cursorrules:</strong> Great for Claude Code and Cursor. Useless for browser-based ChatGPT or Gemini conversations. And they're static. They don't capture what happened in today's conversation. My CLAUDE.md still describes the auth system we designed two weeks ago, not the one we refined this morning.</p>
+
+    <p><strong>Copy-paste the whole thread:</strong> Works if the conversation is short. When you're 40+ messages deep, you blow through the context window of the receiving model before you've even asked your first question. I tried this with a long Claude conversation. ChatGPT's response: "I see you've shared a lot of context. Could you summarize what you need help with?"</p>
+
+    <p><strong>Browser extensions:</strong> Some exist for copying threads between platforms. They get the text across but don't intelligently compress or select the relevant parts. You end up with a wall of text that the receiving model has to parse. It's like photocopying a book when you need a specific chapter.</p>
+
+    <p>All of these are manual, all require you to stop working and think about context management instead of your actual problem, and none of them keep the context fresh across sessions.</p>
+
+    <h2>Which AI model is best for which development task?</h2>
+
+    <p>Based on daily usage across multiple models, Claude is strongest for system design, code review, and debugging complex logic. ChatGPT excels at rapid implementation, broad framework support, and prototyping. Gemini handles large codebase analysis and documentation tasks. No single model is best at everything.</p>
+
+    <div class="task-breakdown">
+      <h4>My model selection criteria after months of daily usage:</h4>
+      
+      <div class="task-item">
+        <h5>Architecture and system design: Claude</h5>
+        <p>Best at long-context reasoning, catching edge cases, structured analysis. When I need to think through complex systems, Claude is unmatched.</p>
+      </div>
+      
+      <div class="task-item">
+        <h5>Code generation and implementation: ChatGPT</h5>
+        <p>Fastest for boilerplate, broadest framework knowledge, good at "just build it." When I need code quickly, ChatGPT delivers.</p>
+      </div>
+      
+      <div class="task-item">
+        <h5>Large codebase analysis: Gemini</h5>
+        <p>Largest context window (2M tokens), good at processing entire repos or documentation sets. Essential for understanding legacy systems.</p>
+      </div>
+      
+      <div class="task-item">
+        <h5>Code review and debugging: Claude</h5>
+        <p>Better at explaining why something is wrong, not just what is wrong. Catches subtle bugs that other models miss.</p>
+      </div>
+      
+      <div class="task-item">
+        <h5>Quick prototyping: ChatGPT</h5>
+        <p>Speed matters for throwaway code and proof-of-concept work. ChatGPT's response time makes iteration faster.</p>
+      </div>
+      
+      <div class="task-item">
+        <h5>Research and synthesis: Gemini or Claude</h5>
+        <p>Gemini for Google-integrated research and massive documents. Claude for careful synthesis of complex technical content.</p>
+      </div>
+      
+      <div class="task-item">
+        <h5>Second opinion on architecture: DeepSeek or Grok</h5>
+        <p>Different training approaches catch different blind spots. Worth the context transfer cost for critical decisions.</p>
+      </div>
+    </div>
+
+    <p>This is what I've found after months of daily usage. Your mileage will vary. But the pattern is clear: different models excel at different tasks.</p>
+
+    <h2>What would a real solution to multi-model context transfer look like?</h2>
+
+    <p>A real solution would capture your conversation context automatically, keep it updated as your conversation evolves, and let you inject that context into any AI platform with one click. No copy-pasting, no manual summarization, no re-explaining. The context follows you, not the other way around.</p>
+
+    <p>The requirements are clear. Automatic capture with no manual steps to save context. Intelligent compression to send relevant parts, not entire threads. Cross-platform support for ChatGPT, Claude, Gemini, and any new model. Live context that reflects the current conversation, not stale snapshots. One-click transfer to start conversations in new models with full context loaded.</p>
+
+    <p>This is exactly the problem I started building Kept to solve. Not as a sales pitch, but because I was tired of the daily friction.</p>
+
+    <p>Here's how Kept's Conversation Forks feature handles this:</p>
+
+    <p>Your conversations are captured and archived automatically through the Chrome extension. When you want to continue a conversation in a different model, Kept creates a fork. The fork carries the relevant context, intelligently compressed, into the new platform.</p>
+
+    <p>You start the new conversation with full background. No copy-pasting. No re-explaining. The original conversation and the fork stay linked through Dynamic Links, so you can trace the reasoning chain across platforms.</p>
+
+    <p>Last week I designed an entire caching strategy in Claude, then forked to ChatGPT for the Redis implementation. The handoff took one click. ChatGPT knew the caching requirements, the TTL decisions, the eviction strategy. Everything we'd discussed in Claude was there.</p>
+
+    <p>This is what a multi-model workflow should feel like. Not the manual context juggling we do today.</p>
+
+    <h2>The multi-model workflow is here to stay</h2>
+
+    <p>The era of using one AI model for everything is over. Benchmark data, market share shifts, and developer behavior all confirm that multi-model usage is now the default workflow for serious developers. The tooling needs to catch up.</p>
+
+    <p>ChatGPT's market share dropped from 87% to 68% in one year. Gemini grew from 5% to 18%. Claude carved out a distinct niche for developers and technical users. DeepSeek and Grok are gaining ground. No single model wins every benchmark anymore.</p>
+
+    <p>The developers who get the most from AI are the ones who use the right model for each task. But right now, the cost of switching between models is high enough that many developers just stay in one platform. That's the problem worth solving.</p>
+
+    <p>I see developers every day who know Claude would give them better architecture feedback but stick with ChatGPT because switching is too much friction. Or they know Gemini could analyze their entire codebase but can't face re-explaining their project context one more time.</p>
+
+    <p>The friction is costing us better outcomes. Not because the models aren't capable, but because moving between them is too expensive in time and mental energy.</p>
+
+    <h2>How Kept changes the equation</h2>
+
+    <p>With Kept running, my multi-model workflow looks completely different. I start in Claude for architecture without worrying about how I'll transfer context later. When I'm ready for implementation, I fork to ChatGPT with one click. If I need to analyze our existing codebase, I fork to Gemini. The context follows me.</p>
+
+    <p>The Chrome extension captures everything automatically. The CLI handles Context Templating for my project files. Conversation Forks carry context between models. Dynamic Links maintain the connection between related conversations across platforms.</p>
+
+    <p>This isn't theoretical. I've been using it for three months. My context transfer overhead went from 30+ minutes per day to essentially zero. I use the right model for each task without hesitation because switching is frictionless.</p>
+
+    <p>I will keep using Claude for architecture and ChatGPT for code. The multi-model workflow is genuinely better than picking one model and hoping for the best. But the context transfer tax is real, and I'm tired of paying it. Kept is how I'm fixing that.</p>
+
+    <p>The future of AI development is multi-model. The tools that make multi-model workflows frictionless will define how we build software in 2026 and beyond.</p>
+
+    <p>Kept is launching in beta with Conversation Forks, automatic context capture, and cross-platform context transfer. Join the waitlist at kept.sh.</p>
+
+    <p>Open source. Local-first. No account required.</p>
+  </div>
+
+  <section class="article-cta"><div class="wa">
+    <h2>Stop losing context between AI models.</h2>
+    <p>Kept's Conversation Forks carry your context from Claude to ChatGPT to Gemini with one click. Automatic capture, intelligent compression, zero friction.</p>
+    <a href="/KP5D/#go" class="btn btn-p">Join the waitlist →</a>
+  </div></section>
+</article>
+
+<div class="w"><footer>
+  <span class="foot-l">Kept — 2026</span>
+  <div class="foot-r">
+    <a href="/KP5D/">Home</a>
+    <a href="/KP5D/blog/">Blog</a>
+    <a href="https://github.com/hoarhouse/kept">GitHub</a>
+  </div>
+</footer></div>
+
+</body>
+</html>
