@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Primary Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CLAUDE.md, llms.txt, and spec.md: Why Developers Are Building Context Systems for AI - Kept</title>
+<meta name="description" content="CLAUDE.md, llms.txt, spec.md, and .cursorrules are how developers give AI tools project context. Here is what each does, where they fall short, and what automated context management looks like.">
+<meta name="keywords" content="what is CLAUDE.md, CLAUDE.md vs cursorrules, llms.txt standard explained, context engineering for AI coding, AGENTS.md specification, how to give AI coding tools project context, spec.md AI development, AI coding rules file comparison, context files for LLM coding tools, Kept CLI, Context Templating">
+<link rel="canonical" href="https://kept.sh/blog/claude-md-llms-txt-spec-md-manual-context-systems/">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Chris Hoar">
+<meta name="theme-color" content="#09090b">
+<link rel="icon" type="image/svg+xml" href="/KP5D/favicon.svg">
+
+<!-- Open Graph -->
+<meta property="og:title" content="CLAUDE.md, llms.txt, and spec.md: Why Developers Are Building Context Systems for AI">
+<meta property="og:description" content="Every serious AI coding setup now has a rules file. Here is what each one does, where they break down, and what comes next.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kept.sh/blog/claude-md-llms-txt-spec-md-manual-context-systems/">
+<meta property="og:image" content="https://kept.sh/og-article-context-systems.png">
+<meta property="article:author" content="Chris Hoar">
+<meta property="article:published_time" content="2026-02-20T00:00:00Z">
+<meta property="article:section" content="Developer Tools">
+<meta property="article:tag" content="AI coding">
+<meta property="article:tag" content="context engineering">
+<meta property="article:tag" content="developer workflow">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CLAUDE.md, llms.txt, and spec.md: Why Developers Are Building Context Systems for AI">
+<meta name="twitter:description" content="Every serious AI coding setup now has a rules file. Here is what each one does and what comes next.">
+<meta name="twitter:image" content="https://kept.sh/og-article-context-systems.png">
+
+<!-- Article JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "CLAUDE.md, llms.txt, and spec.md: Why Developers Are Building Context Systems for AI",
+  "description": "CLAUDE.md, llms.txt, spec.md, and .cursorrules are how developers give AI tools project context. Here is what each does, where they fall short, and what automated context management looks like.",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Hoar"
+  },
+  "datePublished": "2026-02-20T00:00:00Z",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kept",
+    "url": "https://kept.sh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kept.sh/blog/claude-md-llms-txt-spec-md-manual-context-systems/"
+  },
+  "keywords": "CLAUDE.md, llms.txt, spec.md, .cursorrules, AGENTS.md, context engineering, AI coding, Claude Code, Cursor, Windsurf, GitHub Copilot, ChatGPT, Claude, Gemini, DeepSeek, Context Templating, Kept CLI, Chrome extension, Conversation Forks, Dynamic Links",
+  "wordCount": 2400
+}
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --c0: #09090b;
+  --c1: #18181b;
+  --c2: #3f3f46;
+  --c3: #71717a;
+  --c4: #a1a1aa;
+  --c5: #e4e4e7;
+  --c6: #f4f4f5;
+  --cw: #fafafa;
+  --white: #ffffff;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', 'SF Mono', monospace;
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 20px;
+  --s6: 24px; --s7: 32px; --s8: 40px; --s9: 48px; --s10: 64px;
+  --s11: 80px; --s12: 120px;
+  --r: 8px;
+  --max: 1060px;
+  --article: 720px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--sans); color: var(--c1); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+::selection { background: var(--c0); color: var(--white); }
+
+.w { max-width: var(--max); margin: 0 auto; padding: 0 var(--s9); }
+.wa { max-width: var(--article); margin: 0 auto; padding: 0 var(--s9); }
+@media (max-width: 768px) { 
+  .w { padding: 0 var(--s6); }
+  .wa { padding: 0 var(--s6); }
+}
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 56px; display: flex; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--c5); }
+nav .w { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.nav-mark { font-family: var(--sans); font-weight: 600; font-size: 0.9rem; color: var(--c0); text-decoration: none; letter-spacing: -0.03em; }
+.nav-r { display: flex; align-items: center; gap: var(--s7); }
+.nav-r a { font-size: 0.82rem; color: var(--c3); text-decoration: none; transition: color 0.15s; }
+.nav-r a:hover { color: var(--c0); }
+.nav-r a.active { color: var(--c0); }
+
+.btn { display: inline-flex; align-items: center; gap: var(--s2); font-family: var(--sans); font-size: 0.82rem; font-weight: 500; padding: var(--s2) var(--s4); border-radius: var(--r); text-decoration: none; transition: all 0.15s; letter-spacing: -0.01em; cursor: pointer; border: none; }
+.btn-p { color: var(--white); background: var(--c0); }
+.btn-p:hover { background: var(--c2); }
+
+/* Article header */
+.article-header { padding: 140px 0 var(--s8); }
+.article-header-tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s3); }
+.article-header h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.15; letter-spacing: -0.03em; color: var(--c0); }
+.article-subtitle { font-size: 1.1rem; color: var(--c3); margin-top: var(--s4); line-height: 1.4; }
+.article-meta { display: flex; align-items: center; gap: var(--s2); margin-top: var(--s6); font-family: var(--mono); font-size: 0.72rem; color: var(--c3); }
+.article-meta span { display: flex; align-items: center; }
+.meta-sep { color: var(--c5); margin: 0 var(--s2); }
+
+/* Article body */
+.article-body { padding: 0 0 var(--s10); font-size: 1.05rem; line-height: 1.75; color: var(--c1); }
+.article-body h2 { font-family: var(--serif); font-size: 1.75rem; font-weight: 400; line-height: 1.2; letter-spacing: -0.02em; color: var(--c0); margin: var(--s9) 0 var(--s5); }
+.article-body h3 { font-family: var(--sans); font-size: 1.25rem; font-weight: 600; line-height: 1.3; color: var(--c0); margin: var(--s8) 0 var(--s4); }
+.article-body p { margin-bottom: var(--s6); }
+.article-body a { color: var(--c0); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: opacity 0.15s; }
+.article-body a:hover { opacity: 0.7; }
+.article-body ul, .article-body ol { margin: var(--s6) 0; padding-left: var(--s7); }
+.article-body li { margin-bottom: var(--s3); }
+.article-body strong { font-weight: 600; color: var(--c0); }
+.article-body em { font-style: italic; }
+.article-body code { font-family: var(--mono); font-size: 0.85em; background: var(--c6); padding: 2px 6px; border-radius: 4px; }
+.article-body blockquote { border-left: 3px solid var(--c5); padding-left: var(--s5); margin: var(--s6) 0; color: var(--c3); font-style: italic; }
+
+/* Comparison section */
+.comparison { background: var(--cw); border: 1px solid var(--c5); border-radius: var(--r); padding: var(--s6); margin: var(--s7) 0; }
+.comparison-item { padding: var(--s4) 0; border-bottom: 1px solid var(--c5); }
+.comparison-item:last-child { border-bottom: none; }
+.comparison-item h4 { font-size: 1.1rem; font-weight: 600; color: var(--c0); margin-bottom: var(--s3); }
+.comparison-item p { font-size: 0.95rem; line-height: 1.6; color: var(--c3); margin-bottom: var(--s2); }
+.comparison-item .meta { font-family: var(--mono); font-size: 0.8rem; color: var(--c4); }
+
+/* CTA */
+.article-cta { text-align: center; padding: var(--s11) 0; border-top: 1px solid var(--c5); }
+.article-cta h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 400; line-height: 1.15; letter-spacing: -0.02em; color: var(--c0); margin-bottom: var(--s4); }
+.article-cta p { font-size: 0.95rem; color: var(--c3); margin-bottom: var(--s7); }
+
+footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; justify-content: space-between; align-items: center; }
+.foot-l { font-family: var(--mono); font-size: 0.7rem; color: var(--c4); }
+.foot-r { display: flex; gap: var(--s6); }
+.foot-r a { font-size: 0.8rem; color: var(--c4); text-decoration: none; transition: color 0.15s; }
+.foot-r a:hover { color: var(--c0); }
+
+@media (max-width: 768px) {
+  .article-header { padding-top: 120px; }
+  .nav-r a:not(.btn) { display: none; }
+  footer { flex-direction: column; gap: var(--s6); text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav><div class="w">
+  <a href="/KP5D/" class="nav-mark">Kept</a>
+  <div class="nav-r">
+    <a href="/KP5D/">Home</a>
+    <a href="/KP5D/blog/" class="active">Blog</a>
+    <a href="/KP5D/#go" class="btn btn-p">Join waitlist</a>
+  </div>
+</div></nav>
+
+<article>
+  <header class="article-header"><div class="wa">
+    <p class="article-header-tag">Developer Tools</p>
+    <h1>CLAUDE.md, llms.txt, and spec.md: Why Developers Are Building Context Systems for AI</h1>
+    <p class="article-subtitle">Every serious AI coding setup now has a rules file. Here is what each one does, where they break down, and what comes next.</p>
+    <div class="article-meta">
+      <span>Chris Hoar</span>
+      <span class="meta-sep">•</span>
+      <span>February 2026</span>
+      <span class="meta-sep">•</span>
+      <span>10 min read</span>
+    </div>
+  </div></header>
+
+  <div class="article-body wa">
+    <p>I counted the context files in my current project last week. CLAUDE.md for Claude Code. A .cursorrules file for Cursor. An llms.txt for the website. A spec.md I paste into ChatGPT at the start of every session. Four different files, all trying to solve the same problem: telling AI tools what my project is and how I want them to behave.</p>
+
+    <p>This is not just me. Every developer I know who uses AI tools seriously has some version of this setup. We have independently converged on creating manual context files because AI tools do not retain project knowledge between sessions.</p>
+
+    <p>This is not a niche trick anymore. Martin Fowler's ThoughtWorks team published a full article on "Context Engineering for Coding Agents" in 2026. Addy Osmani calls it "context packing" and dedicates an entire section to it in his workflow guide. The Honeycomb blog has three posts on managing AI context. This is now a standard part of the AI-assisted development workflow.</p>
+
+    <p>The pattern has a name now: manual context systems. And they are everywhere.</p>
+
+    <h2>What is CLAUDE.md and why does every Claude Code project have one?</h2>
+
+    <p>CLAUDE.md is a markdown file in your project root that Claude Code reads at the start of every session. It contains project rules, coding conventions, architecture decisions, and behavioral instructions. Think of it as a persistent system prompt for your AI coding assistant. Claude Code loads it automatically, so you do not have to re-explain your project every time.</p>
+
+    <p>Here's what goes in a typical CLAUDE.md file. Project description and purpose. Tech stack details ("React 18.2 with TypeScript 5.3"). Coding style rules ("use async/await, never .then()"). File structure notes ("all API routes go in src/api/"). Things to avoid ("never modify the auth module without asking"). Testing conventions ("write Vitest unit tests for all utils").</p>
+
+    <p>Claude Code also supports a <code>.claude/rules/</code> directory for path-scoped rules. You can have rules that only apply to <code>*.ts</code> files, or different rules for your frontend versus backend code. And Skills let you define reusable workflows that Claude can follow.</p>
+
+    <p>I use CLAUDE.md in every project now. It works well within Claude Code. But it does nothing when you switch to ChatGPT, Gemini, or Cursor with a non-Claude model. Your carefully crafted context stays locked in one tool.</p>
+
+    <h2>What is .cursorrules and how is it different from CLAUDE.md?</h2>
+
+    <p>.cursorrules (and the newer .cursor/rules/ directory) is Cursor's equivalent of CLAUDE.md. It tells Cursor's AI features how to behave in your project. The format is similar, markdown with instructions, but it only works inside the Cursor editor. If you use both Claude Code and Cursor, you need both files, often with overlapping content.</p>
+
+    <p>Cursor is moving toward a more structured rules system similar to Claude Code's path-scoped approach. You can now have different rules for different file types or directories. But again, this only works in Cursor.</p>
+
+    <p>There's also the emerging AGENTS.md standard that attempts to be tool-agnostic. GitHub Copilot started recognizing it recently. Windsurf supports it too. The idea is one context file that multiple tools can read. But adoption is still spotty, and each tool interprets it slightly differently.</p>
+
+    <p>The fragmentation is real. I have projects with CLAUDE.md, .cursorrules, and AGENTS.md all saying basically the same thing in slightly different formats.</p>
+
+    <h2>What is llms.txt and should your project have one?</h2>
+
+    <p>llms.txt is an emerging web standard, similar to robots.txt, that provides machine-readable context about a website or project for LLM crawlers. While CLAUDE.md and .cursorrules are for coding assistants, llms.txt is designed for any LLM that might need to understand your site or documentation. It is still experimental, but platforms like Perplexity have started honoring it.</p>
+
+    <p>The use case is different. If you maintain a library or API, an llms.txt file helps AI tools give better answers about your project. When someone asks ChatGPT "how do I use the FooBar library?", your llms.txt provides the context.</p>
+
+    <p>The format is structured text with sections like DESCRIPTION, DOCUMENTATION, API_ENDPOINTS, and EXAMPLES. It serves a different purpose than the coding context files. It is about discoverability, not development workflow.</p>
+
+    <p>I add llms.txt to public projects now. It takes five minutes and helps AI tools understand what you've built. But it does not solve the context problem for your development workflow.</p>
+
+    <h2>What is spec.md and how do developers use it for AI coding?</h2>
+
+    <p>spec.md is not a standard, but it has become a common convention. Developers write a detailed project specification in markdown and feed it to their AI tool at the start of a coding session. Addy Osmani describes creating a spec.md with requirements, architecture decisions, data models, and testing strategy before writing any code. It acts as the shared understanding between you and the AI.</p>
+
+    <p>This is the most manual of all the approaches. You write it, you maintain it, you copy-paste it into each conversation. There's no automatic loading. No tool integration. Just a markdown file you manually feed to the AI.</p>
+
+    <p>I have a spec.md for my current project that's 847 lines long. It has everything. Database schema. API endpoints. Business logic rules. UI component hierarchy. Testing requirements. It is comprehensive. It is also a pain to maintain and I have to paste it into every new ChatGPT conversation.</p>
+
+    <p>The manual nature is both a weakness and a strength. It works with every AI tool. But you pay for that portability with tedium.</p>
+
+    <h2>CLAUDE.md vs .cursorrules vs llms.txt vs AGENTS.md: which one do you need?</h2>
+
+    <p>It depends on which tools you use. CLAUDE.md is for Claude Code. .cursorrules is for Cursor. AGENTS.md aims to be universal but is still gaining adoption. llms.txt is for web-facing projects. Most developers using multiple AI tools end up maintaining several of these files.</p>
+
+    <div class="comparison">
+      <div class="comparison-item">
+        <h4>CLAUDE.md</h4>
+        <p>Claude Code only. Auto-loaded at session start. Supports path-scoped rules via .claude/rules/ directory. Most mature system with Skills for reusable workflows.</p>
+        <p class="meta">Tools: Claude Code</p>
+        <p class="meta">Format: Markdown with specific conventions</p>
+        <p class="meta">Scope: Project-wide and path-specific rules</p>
+      </div>
+      
+      <div class="comparison-item">
+        <h4>.cursorrules / .cursor/rules/</h4>
+        <p>Cursor only. Loaded in-editor automatically. Moving toward path-scoped rules similar to Claude. Works with any model Cursor supports.</p>
+        <p class="meta">Tools: Cursor</p>
+        <p class="meta">Format: Markdown instructions</p>
+        <p class="meta">Scope: Project-wide, evolving path-specific support</p>
+      </div>
+      
+      <div class="comparison-item">
+        <h4>AGENTS.md</h4>
+        <p>Tool-agnostic attempt at standardization. Recognized by GitHub Copilot, Windsurf, and growing list of tools. Still early but gaining momentum.</p>
+        <p class="meta">Tools: GitHub Copilot, Windsurf, others</p>
+        <p class="meta">Format: Markdown with flexible structure</p>
+        <p class="meta">Scope: Project-wide</p>
+      </div>
+      
+      <div class="comparison-item">
+        <h4>llms.txt</h4>
+        <p>Web-facing standard for LLM crawlers, not coding assistants. Helps AI understand your public project or API. Different purpose than development context files.</p>
+        <p class="meta">Tools: Perplexity, web crawlers</p>
+        <p class="meta">Format: Structured text sections</p>
+        <p class="meta">Scope: Public project documentation</p>
+      </div>
+      
+      <div class="comparison-item">
+        <h4>spec.md</h4>
+        <p>Manual convention, not a standard. Copy-pasted into conversations. No tool integration. Most portable but most tedious. Works everywhere because it is just text.</p>
+        <p class="meta">Tools: Any (manual paste)</p>
+        <p class="meta">Format: Freeform markdown</p>
+        <p class="meta">Scope: Whatever you write</p>
+      </div>
+    </div>
+
+    <p>If you use Claude Code, you need a CLAUDE.md. If you use Cursor, you need .cursorrules. If you use both, you need both. Nobody loves this, but that is the current state.</p>
+
+    <p>A question I keep seeing: "Should I just use AGENTS.md for everything?" Maybe eventually. But today, tool-specific files give you better integration and more features. CLAUDE.md with Skills is more powerful than generic AGENTS.md. The trade-off is maintenance burden versus functionality.</p>
+
+    <h2>Where do manual context files break down?</h2>
+
+    <p>Manual context files have three fundamental limitations. They are static and do not update when your code changes. They are platform-locked and only work with one tool. And they require manual maintenance that developers inevitably neglect as projects evolve.</p>
+
+    <p><strong>The static problem:</strong> Your CLAUDE.md describes your project as it was when you wrote the file. Three weeks and forty commits later, the context is stale. You refactored the auth system but forgot to update the context file. The AI is working from outdated information and gives you subtly wrong suggestions. I've debugged "why is Claude suggesting the old pattern" too many times.</p>
+
+    <p><strong>The platform-lock problem:</strong> CLAUDE.md does nothing in Cursor. .cursorrules does nothing in Claude Code. If you use multiple tools (and the JetBrains survey shows 73% of developers do), you are maintaining duplicate context files. Same information, different formats, constant synchronization burden.</p>
+
+    <p><strong>The maintenance burden:</strong> Writing the initial file is easy. Keeping it accurate over months of development is a chore nobody prioritizes. The file drifts from reality. The AI drifts with it. Your suggestions get progressively worse as the gap widens.</p>
+
+    <p>These problems compound if you use AI tools multiple times per day across multiple providers. Which, if you are reading this, you probably do.</p>
+
+    <h2>What does automated context management look like?</h2>
+
+    <p>Automated context management means defining your project context once and having a tool keep it current as your codebase changes, then making that context available to any AI platform you use. Instead of maintaining separate static files for each tool, you maintain one source of truth that updates itself.</p>
+
+    <p>This is the problem Kept's Context Templating feature is designed to solve. Not as a sales pitch, but as an example of where the tooling is headed.</p>
+
+    <p>Here's how it works. You define your project context once through Kept's CLI. The CLI watches your project files and keeps the context template current. When you open any AI platform (ChatGPT, Claude, Gemini), the Kept Chrome extension can inject the relevant context. Smart compression ensures you are not wasting tokens on files that are not relevant to your current task.</p>
+
+    <p>Same context, every platform, automatically updated. Your CLAUDE.md describes behavior. Kept's context describes your actual code.</p>
+
+    <p>This feels like the natural evolution. CLAUDE.md was the right instinct. We recognized that AI tools need context to be useful. But maintaining that context manually across multiple tools is not sustainable. Automation is the obvious next step.</p>
+
+    <h2>Does this replace your existing context files?</h2>
+
+    <p>No. Your CLAUDE.md still works in Claude Code. Your .cursorrules still works in Cursor. Kept adds a layer that handles what these static files cannot: automatic updates when your code changes, portability across every AI platform, and smart compression to stay within token limits.</p>
+
+    <p>Think of it as the difference between writing deployment scripts by hand and using CI/CD. The manual approach works. Automation makes it sustainable.</p>
+
+    <p>You might be wondering if Kept reads your existing CLAUDE.md or .cursorrules. It does not replace them. It solves the cross-platform and freshness problems they cannot. Your CLAUDE.md tells Claude how to behave. Kept tells it what you are building.</p>
+
+    <p>The two work together. Behavioral rules in your tool-specific files. Current project state from automated context management.</p>
+
+    <h2>The bigger pattern: context is the new code</h2>
+
+    <p>The explosion of context files signals something important. As AI tools become central to development workflows, the quality of context you provide determines the quality of output you get. Context engineering is becoming a core developer skill, not a hack or a workaround.</p>
+
+    <p>Martin Fowler's ThoughtWorks article calls it "the hidden productivity multiplier." Addy Osmani says "context packing is 80% of getting good AI output." These are not fringe ideas. This is mainstream thinking now.</p>
+
+    <p>The tools that figure out context management will win the next wave of AI development tooling. Claude Code's CLAUDE.md was a breakthrough because it eliminated the copy-paste tax. But it is still single-platform and static. The next breakthrough will be cross-platform and dynamic.</p>
+
+    <p>We are watching the ecosystem evolve in real time. Six months ago, nobody had heard of CLAUDE.md. Today it is in thousands of repos. Six months from now, automated context management will likely be standard.</p>
+
+    <p>The developers who figure out context management first will get dramatically better results from every AI tool they use. I have seen 10x differences in output quality between well-contextualized and poorly-contextualized AI sessions. Same model, same prompt, wildly different results based on context alone.</p>
+
+    <h2>What happens next?</h2>
+
+    <p>The manual context file era is necessary but temporary. We needed to discover that context files work before we could automate them. CLAUDE.md proved the value. Now we need to solve the maintenance and portability problems.</p>
+
+    <p>I expect three things to happen in 2026. First, more tools will adopt AGENTS.md or create a genuine standard for context files. Second, automated context management will become a standard feature, not a third-party add-on. Third, context will become more intelligent, understanding not just your files but your development patterns.</p>
+
+    <p>Kept is one approach to this problem. There will be others. The important thing is that we are moving past the copy-paste era. Context should follow you between tools. It should stay current as your code evolves. It should not require manual maintenance.</p>
+
+    <p>Your AI tools are only as good as the context you give them. Right now that context is scattered across half a dozen static files that go stale the moment you write them. It does not have to be that way.</p>
+
+    <p>The teams that solve context management will build the next generation of AI development tools. The developers who adopt these tools early will have a significant productivity advantage. This is not speculative. It is happening now.</p>
+
+    <p>I still maintain my CLAUDE.md and .cursorrules files. They work well for what they are. But I also run Kept's CLI to keep my context fresh across platforms. The combination gives me the best of both worlds: tool-specific behavioral rules and automatically updated project context.</p>
+
+    <p>This is where we are headed. Not replacing CLAUDE.md, but augmenting it. Not abandoning manual context files, but automating the tedious parts. The goal is simple: your AI tools should understand your project as well as you do, without you having to explain it every time.</p>
+
+    <p>Kept is launching in beta with automated context templating, cross-platform context injection, and a CLI that keeps your project context current. Join the waitlist at kept.sh.</p>
+
+    <p>Open source. Local-first. No account required.</p>
+  </div>
+
+  <section class="article-cta"><div class="wa">
+    <h2>Automate your context management.</h2>
+    <p>Kept's Context Templating keeps your project context fresh across ChatGPT, Claude, and Gemini. Define once, inject everywhere, update automatically.</p>
+    <a href="/KP5D/#go" class="btn btn-p">Join the waitlist →</a>
+  </div></section>
+</article>
+
+<div class="w"><footer>
+  <span class="foot-l">Kept — 2026</span>
+  <div class="foot-r">
+    <a href="/KP5D/">Home</a>
+    <a href="/KP5D/blog/">Blog</a>
+    <a href="https://github.com/hoarhouse/kept">GitHub</a>
+  </div>
+</footer></div>
+
+</body>
+</html>
