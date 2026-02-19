@@ -352,12 +352,12 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
           What architectural decisions did I make this week?
         </div>
         <div class="mock-digest">
-          <div class="mock-digest-title">Knowledge Extract + Actions</div>
+          <div class="mock-digest-title">Archive + Context</div>
           <div class="mock-digest-item">
             <span class="mock-entity-tag decision">Decision</span>
             <div>
-              <div class="mock-digest-text">Chose Tauri 2 over Electron for desktop shell. Reasons: 5MB vs 150MB binary, Rust backend performance, native webview.</div>
-              <div class="mock-digest-src">Claude &middot; "Tauri migration strategy" &middot; Today &nbsp; <span style="font-family:var(--mono);font-size:0.5rem;padding:1px 4px;background:#2563EB;color:white;border-radius:3px;">Share</span> <span style="font-family:var(--mono);font-size:0.5rem;padding:1px 4px;background:#18181b;color:white;border-radius:3px;">Continue in ChatGPT &rarr;</span></div>
+              <div class="mock-digest-text">Archived from Claude. Conversation forked from Gemini session on API design. Full context carried over.</div>
+              <div class="mock-digest-src">Claude &middot; "Tauri migration strategy" &middot; Today &nbsp; <span style="font-family:var(--mono);font-size:0.5rem;padding:1px 4px;background:#2563EB;color:white;border-radius:3px;">Template</span> <span style="font-family:var(--mono);font-size:0.5rem;padding:1px 4px;background:#18181b;color:white;border-radius:3px;">Fork to ChatGPT &rarr;</span></div>
             </div>
           </div>
           <div class="mock-digest-item">
@@ -419,7 +419,7 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
   <div class="rv">
     <p class="label">The structural advantage</p>
     <h2 class="heading">They'll never build this <em>for each other.</em></h2>
-    <p class="desc">ChatGPT, Claude, and Gemini are all adding memory and search &mdash; inside their own walls. But they're competing companies. They will never index each other's conversations. That gap is permanent.</p>
+    <p class="desc">ChatGPT, Claude, and Gemini are all adding memory and search inside their own walls. But they are competing companies. They will never index each other's conversations. That gap is permanent.</p>
   </div>
   <div class="cross-grid rv">
     <div class="cross-visual">
@@ -451,7 +451,7 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
     </div>
     <div class="cross-text">
       <p class="desc" style="margin-top:0;">Gmail doesn't show your Outlook emails. That's why email clients like Spark and Superhuman exist. The same structural gap exists for AI platforms &mdash; and it widens as more models launch.</p>
-      <div class="cross-insight">Kept is the unified intelligence layer that sits above all of them. One knowledge graph. One search. Context that moves between them. Every platform.</div>
+      <div class="cross-insight">Kept is the unified interface that sits above all of them. One archive. Context that moves between them. A CLI that connects your projects to any provider.</div>
     </div>
   </div>
 </div></section>
@@ -533,7 +533,7 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
     <p class="desc">A native desktop app that starts in under a second and searches 10,000+ messages in milliseconds. Open source under MIT.</p>
   </div>
   <div class="tags rv">
-    <span class="tag">Tauri 2</span><span class="tag">Rust</span><span class="tag">Axum</span><span class="tag">SQLite FTS5</span><span class="tag">Manifest V3</span><span class="tag">YAML Frontmatter</span><span class="tag">NER Pipeline</span><span class="tag">Vector Embeddings</span><span class="tag">Graph DB</span><span class="tag">OpenAI / Anthropic / Ollama</span><span class="tag">SHA-256</span><span class="tag">Markdown Vault</span>
+    <span class="tag">Tauri 2</span><span class="tag">Rust</span><span class="tag">Axum</span><span class="tag">SQLite FTS5</span><span class="tag">Manifest V3</span><span class="tag">CLI</span><span class="tag">File Watcher</span><span class="tag">Context Compression</span><span class="tag">YAML Frontmatter</span><span class="tag">OpenAI / Anthropic / Ollama</span><span class="tag">SHA-256</span><span class="tag">Markdown Vault</span>
   </div>
 </div></section>
 
