@@ -290,7 +290,7 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
     
     <p>AI credits are limited on paid plans. Roughly 22 thirty-minute meetings, 570 blog posts, 25 hours of transcription per month. Heavy AI conversation users would burn through credits fast.</p>
     
-    <p>Cloud-only architecture. Your data lives on Tana's servers. No local-first option. If your account is compromised or Tana has an outage, your knowledge base is inaccessible.</p>
+    <p>Cloud-only architecture. Your data lives on Tana's servers. <a href="/KP5D/blog/why-local-first-matters/">No local-first option</a>. If your account is compromised or Tana has an outage, your knowledge base is inaccessible.</p>
     
     <h2>The real problem: AI conversations aren't notes</h2>
     
@@ -304,7 +304,7 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
     
     <p>The cross-platform problem compounds this. Most developers use multiple AI tools. ChatGPT for code generation. Claude for architecture and writing. Gemini for research and Google integration. DeepSeek for cost-effective alternatives. The conversations are scattered by default.</p>
     
-    <p>The intelligence problem is what kills it. Dumping raw conversations into any vault gives you storage. It doesn't give you intelligence. You need entity extraction to identify tools, people, and decisions. You need relationship mapping to connect topics across conversations. You need decision tracking to understand what you decided and why. Without these, the archive is useless.</p>
+    <p>The intelligence problem is what kills it. Dumping raw conversations into any vault gives you storage. It doesn't give you intelligence. You need entity extraction to identify tools, people, and decisions. You need relationship mapping to connect topics across conversations. You need decision tracking to understand what you decided and why. Without these, <a href="/KP5D/blog/building-knowledge-graph-ai-conversations/">the archive is useless</a>.</p>
     
     <h2>What an AI conversation tool actually needs</h2>
     
@@ -318,7 +318,7 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
     
     <p>Capability 4: Context portability. Take context from a Claude conversation and start a ChatGPT session with that background already loaded. This is impossible in any PKM tool because they're designed for reading and writing, not for feeding context back into AI platforms.</p>
     
-    <p>This is what Kept is built to do. Kept is an open source desktop app and Chrome extension that captures conversations from ChatGPT, Claude, and Gemini automatically. It indexes them locally with SQLite FTS5 and extracts a knowledge graph. It also lets you share context between platforms and export formatted snippets to Slack and email.</p>
+    <p>This is what Kept is built to do. <a href="/KP5D/blog/kept-vs-echoes-vs-chatgpt-exporter/">Kept is an open source desktop app</a> and Chrome extension that captures conversations from ChatGPT, Claude, and Gemini automatically. It indexes them locally with SQLite FTS5 and extracts a knowledge graph. It also lets you share context between platforms and export formatted snippets to Slack and email.</p>
     
     <p>Kept's architecture reflects these requirements. Tauri 2 with Rust for performance. Approximately 5MB binary for minimal footprint. Local-first for privacy. MIT licensed for transparency.</p>
     

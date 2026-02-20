@@ -319,17 +319,17 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
                     
                     <p>Start a new conversation every 10 messages. You know this one. Copy your code, paste your requirements, begin again. Developers do this 5-7 times per day on average. That's 35 context resets per week. 140 per month.</p>
                     
-                    <p>Each reset costs 5-10 minutes. That's 11+ hours monthly just restarting conversations.</p>
+                    <p>Each reset costs 5-10 minutes. That's <a href="/KP5D/blog/context-window-tax-copy-pasting-ide-browser/">11+ hours monthly</a> just restarting conversations.</p>
                     
                     <p><strong>The "Summary Prompt" Method</strong></p>
                     
-                    <p>Every few messages, you summarize everything for the AI. "Remember, we're using React with TypeScript, our state is managed by Zustand, we're following atomic design principles..."</p>
+                    <p>Every few messages, you <a href="/KP5D/blog/stop-re-explaining-your-codebase-to-every-ai/">summarize everything for the AI</a>. "Remember, we're using React with TypeScript, our state is managed by Zustand, we're following atomic design principles..."</p>
                     
                     <p>This helps temporarily but accelerates context window exhaustion. You're using precious tokens to repeat information the AI should already know.</p>
                     
                     <p><strong>The "Context File" Method</strong></p>
                     
-                    <p>CLAUDE.md, .cursorrules, llms.txt. You maintain a file with all your context and paste it into each conversation. Better than nothing, but it's static context that can't adapt to your current task.</p>
+                    <p><a href="/KP5D/blog/claude-md-llms-txt-spec-md-manual-context-systems/">CLAUDE.md, .cursorrules, llms.txt</a>. You maintain a file with all your context and paste it into each conversation. Better than nothing, but it's static context that can't adapt to your current task.</p>
                     
                     <p>Plus, these files become outdated quickly. 89% of context files are over 30 days old, containing deprecated information about the codebase.</p>
                     

@@ -264,7 +264,7 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
     
     <p>The organizational cost is real. Research estimates the average US business loses $47 million annually in productivity due to inefficient knowledge sharing. 42% of institutional knowledge resides solely with individual employees. For developers using AI, that institutional knowledge is now partially living in chat windows on three different platforms, accessible to no one else, searchable by nothing.</p>
     
-    <p>Kept exists to solve this. It captures every conversation from ChatGPT, Claude, and Gemini automatically, indexes them locally with SQLite FTS5, and makes them searchable. Your AI conversations become a permanent, queryable knowledge base instead of a transient chat log.</p>
+    <p>Kept exists to solve this. It captures every conversation from ChatGPT, Claude, and Gemini automatically, <a href="/KP5D/blog/why-local-first-matters/">indexes them locally</a> with SQLite FTS5, and makes them searchable. Your AI conversations become a permanent, queryable knowledge base instead of a transient chat log.</p>
     
     <h2>Architecture Decision Records Already Live in Your Chat History</h2>
     
@@ -328,7 +328,7 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
     
     <p>The manual approach, saving interesting conversations, bookmarking key decisions, keeping a notes file, does not scale. It relies on you remembering to capture something at the exact moment it is valuable. Most of the time, you do not realize a conversation was important until weeks later when you need to reference it.</p>
     
-    <p>Kept's approach is automatic. The Chrome extension captures every conversation without requiring any action. SQLite FTS5 makes them instantly searchable. The knowledge graph extracts entities, decisions, and relationships. Conversation forks let you branch into new sessions with context preserved. Dynamic links connect related decisions across platforms.</p>
+    <p>Kept's approach is automatic. The Chrome extension captures every conversation without requiring any action. SQLite FTS5 makes them instantly searchable. <a href="/KP5D/blog/building-knowledge-graph-ai-conversations/">The knowledge graph extracts entities, decisions, and relationships</a>. Conversation forks let you branch into new sessions with context preserved. Dynamic links connect related decisions across platforms.</p>
     
     <p>Your AI conversations are a codebase. Start treating them like one.</p>
     
@@ -344,7 +344,7 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
     <p>Architecture Decision Records (ADRs) are short documents that capture important architectural decisions along with their context and consequences. They are a well-established practice in software engineering but are rarely maintained because writing them requires time and discipline. AI conversations naturally contain the same information: the context, the alternatives considered, the decision made, and the reasoning. Tools like Kept can extract this structured knowledge automatically.</p>
     
     <h3>How much developer knowledge is lost from undocumented AI conversations?</h3>
-    <p>ChatGPT alone processes over 2.5 billion prompts daily, with 65% of developers using AI coding tools weekly. The average coding session runs 14 minutes. Across millions of developers, this represents an enormous volume of technical decision-making that vanishes when conversations are abandoned. Studies show organizations lose $47 million annually in productivity due to inefficient knowledge sharing, and 42% of institutional knowledge resides solely with individual employees.</p>
+    <p>ChatGPT alone processes over 2.5 billion prompts daily, with 65% of developers using AI coding tools weekly. The average coding session runs 14 minutes. Across millions of developers, this represents an enormous volume of technical decision-making that vanishes when conversations are abandoned. Studies show organizations lose <a href="/KP5D/blog/analyzed-6-months-ai-conversations/">$47 million annually in productivity</a> due to inefficient knowledge sharing, and 42% of institutional knowledge resides solely with individual employees.</p>
     
     <h3>How can I treat AI conversations like version-controlled code?</h3>
     <p>Apply the same principles you use for code: capture everything automatically so nothing is lost, make conversations searchable across all platforms, link related conversations so you can trace decision lineage, and fork conversations to branch into new sessions with context preserved. Kept does this by archiving conversations locally with SQLite FTS5, connecting them with dynamic links, and enabling conversation forks across ChatGPT, Claude, and Gemini.</p>

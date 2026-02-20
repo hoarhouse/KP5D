@@ -324,13 +324,13 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
 
     <p>The cost story is remarkable. DeepSeek R1 was trained for $6 million versus hundreds of millions for GPT-5 and Claude. Yet it matches or beats them on many reasoning benchmarks. That efficiency translates to cheaper API costs too.</p>
 
-    <p>I reach for DeepSeek when I want a second opinion on an algorithm or when I'm working on something I don't want touching external servers. Running it locally via Ollama gives me complete privacy for sensitive client work.</p>
+    <p>I reach for DeepSeek when I want <a href="/KP5D/blog/second-opinion-another-ai-10-seconds/">a second opinion on an algorithm</a> or when I'm working on something I don't want touching external servers. Running it locally via Ollama gives me complete privacy for sensitive client work.</p>
 
     <p>DeepSeek V3 for general coding, R1 for reasoning tasks. Both models are available through the API or for local deployment. The 671B parameter R1 model is a beast but runs fine on a decent machine with enough RAM.</p>
 
     <h2>My actual daily workflow across four models</h2>
 
-    <p>In a typical development day, I use Claude for architecture decisions and code review, ChatGPT for quick code generation and boilerplate, Gemini for processing large codebases and Google-specific development, and DeepSeek for algorithmic verification and local reasoning tasks. The models complement each other. The problem is not choosing between them. The problem is managing context across all of them.</p>
+    <p>In a typical development day, I use <a href="/KP5D/blog/claude-for-architecture-chatgpt-for-code-keeping-context.html">Claude for architecture decisions and code review, ChatGPT for quick code generation and boilerplate</a>, Gemini for processing large codebases and Google-specific development, and DeepSeek for algorithmic verification and local reasoning tasks. The models complement each other. The problem is not choosing between them. The problem is managing context across all of them.</p>
 
     <p><strong>Morning:</strong> I start a new feature in Claude. We discuss the architecture, consider edge cases, plan the implementation approach. Claude catches issues I hadn't considered. "What happens if the webhook fails during the transaction?"</p>
 
@@ -340,7 +340,7 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
 
     <p><strong>Evening:</strong> Run a complex algorithm past DeepSeek R1 locally to verify the logic. It reasons through the problem step by step, catches an off-by-one error I missed.</p>
 
-    <p>The friction: Every time I switch platforms, I lose all context. I re-explain the project. I re-paste the relevant code. I re-describe the constraints. This is where Kept comes in.</p>
+    <p>The friction: Every time I switch platforms, I lose all context. I re-explain the project. I re-paste the relevant code. I re-describe the constraints. This is where <a href="/KP5D/blog/transfer-context-chatgpt-claude/">Kept comes in</a>.</p>
 
     <p>With Kept running, every conversation across every platform is captured and indexed locally. When I want to fork a conversation from Claude into ChatGPT, Kept packages the context and I start with full background loaded. No re-explaining. The Chrome extension handles capture, the CLI manages my project context through Context Templating, and Conversation Forks let me continue any chat in a different model.</p>
 

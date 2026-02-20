@@ -299,13 +299,13 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
 
     <p>The difference compounds. When you're debugging something tricky and jumping between ChatGPT, Claude, and Gemini for different perspectives (which I do constantly), you save that setup time on every single platform. The context follows you.</p>
 
-    <p>Yesterday I had a gnarly TypeScript generics issue. I asked Claude first, got a partial solution. Jumped to ChatGPT with the same context plus Claude's attempt. Got a different approach. Went to Gemini for a third opinion. Each AI had full context from message one. The entire debugging session took 20 minutes instead of an hour.</p>
+    <p>Yesterday I had a gnarly TypeScript generics issue. I asked Claude first, got a partial solution. Jumped to ChatGPT with the same context plus Claude's attempt. Got a different approach. Went to Gemini for a third opinion. Each AI had full context from message one. The entire debugging session took 20 minutes instead of an hour, avoiding <a href="/KP5D/blog/context-drift-killing-ai-coding-sessions/">context drift</a>.</p>
 
     <h2>The real cost of manual context management</h2>
 
     <p>I tracked my context management time for a week. Here's what I found:</p>
 
-    <p>Average time spent setting up context per AI conversation: 7 minutes. Average AI conversations per day: 6-8. Total daily time on context setup: 42-56 minutes. Weekly total: 3.5 to 4.6 hours.</p>
+    <p>Average time spent setting up context per AI conversation: 7 minutes. Average AI conversations per day: 6-8. Total daily time on context setup: 42-56 minutes. Weekly total: <a href="/KP5D/blog/context-window-tax-copy-pasting-ide-browser/">3.5 to 4.6 hours</a>.</p>
 
     <p>That's half a workday every week just copying and pasting the same information into different AI tools. It's invisible work that doesn't feel like work, but it adds up.</p>
 
@@ -325,7 +325,7 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
 
     <p>Six months ago, nobody was talking about CLAUDE.md. Now it's a standard practice. The llms.txt specification launched recently. Context7 and other MCPs are proliferating. The ecosystem is recognizing that context management is a fundamental problem.</p>
 
-    <p>But we're still in the manual era. Every solution requires you to maintain files, copy-paste content, or remember to update things. Context templating automates this. It's the difference between manually managing dependencies with copy-paste and using npm or cargo.</p>
+    <p>But we're still in the manual era. Every solution requires you to maintain files, copy-paste content, or remember to update things. <a href="/KP5D/blog/claude-md-llms-txt-spec-md-manual-context-systems/">Context templating automates this</a>. It's the difference between manually managing dependencies with copy-paste and using npm or cargo.</p>
 
     <p>Kept's approach with CLI file watching plus browser extension injection feels like the right architecture. Your code stays local. The context stays fresh. The injection works across every AI platform. No vendor lock-in.</p>
 
