@@ -145,6 +145,13 @@ nav .w { display: flex; align-items: center; justify-content: space-between; wid
 .nav-r { display: flex; align-items: center; gap: var(--s7); }
 .nav-r a { font-size: 0.82rem; color: var(--c3); text-decoration: none; transition: color 0.15s; }
 .nav-r a:hover { color: var(--c0); }
+
+/* Hamburger */
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: var(--s2); }
+.hamburger span { display: block; width: 20px; height: 2px; background: var(--c0); margin: 4px 0; transition: all 0.3s; }
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 .nav-r a.active { color: var(--c0); }
 
 .btn { display: inline-flex; align-items: center; gap: var(--s2); font-family: var(--sans); font-size: 0.82rem; font-weight: 500; padding: var(--s2) var(--s4); border-radius: var(--r); text-decoration: none; transition: all 0.15s; letter-spacing: -0.01em; cursor: pointer; border: none; }
@@ -237,6 +244,11 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
 
 <nav><div class="w">
   <a href="/KP5D/" class="nav-mark">Kept</a>
+  <button class="hamburger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
   <div class="nav-r">
     <a href="/KP5D/">Home</a>
     <a href="/KP5D/blog/" class="active">Blog</a>
@@ -388,6 +400,23 @@ const o = new IntersectionObserver(es => {
   es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); o.unobserve(e.target); } });
 }, { threshold: 0.12, rootMargin: '0px 0px -32px 0px' });
 document.querySelectorAll('.rv').forEach(el => o.observe(el));
+
+// Hamburger menu
+const hamburger = document.querySelector('.hamburger');
+const navR = document.querySelector('.nav-r');
+if (hamburger && navR) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navR.classList.toggle('active');
+  });
+  // Close menu when clicking links
+  document.querySelectorAll('.nav-r a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navR.classList.remove('active');
+    });
+  });
+}
 </script>
 </body>
 </html>
