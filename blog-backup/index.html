@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Primary Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog - Kept</title>
+<meta name="description" content="Guides, comparisons, and insights on managing AI conversations across ChatGPT, Claude, and Gemini. From the team building Kept.">
+<link rel="canonical" href="https://kept.work/blog/">
+<meta name="robots" content="index, follow">
+<meta name="author" content="E-Group Labs">
+<meta name="theme-color" content="#09090b">
+<link rel="icon" type="image/svg+xml" href="/KP5D/favicon.svg">
+<link rel="alternate" type="application/rss+xml" title="Kept Blog" href="/KP5D/blog/feed.xml">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Blog - Kept">
+<meta property="og:description" content="Guides, comparisons, and insights on managing AI conversations across ChatGPT, Claude, and Gemini.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kept.work/blog/">
+<meta property="og:image" content="https://kept.work/og-image.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog - Kept">
+<meta name="twitter:description" content="Guides, comparisons, and insights on managing AI conversations across ChatGPT, Claude, and Gemini.">
+<meta name="twitter:image" content="https://kept.work/og-image.png">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --c0: #09090b;
+  --c1: #18181b;
+  --c2: #3f3f46;
+  --c3: #71717a;
+  --c4: #a1a1aa;
+  --c5: #e4e4e7;
+  --c6: #f4f4f5;
+  --cw: #fafafa;
+  --white: #ffffff;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', 'SF Mono', monospace;
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 20px;
+  --s6: 24px; --s7: 32px; --s8: 40px; --s9: 48px; --s10: 64px;
+  --s11: 80px; --s12: 120px;
+  --r: 8px;
+  --max: 1060px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--sans); color: var(--c1); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+::selection { background: var(--c0); color: var(--white); }
+
+.w { max-width: var(--max); margin: 0 auto; padding: 0 var(--s9); }
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 56px; display: flex; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--c5); }
+nav .w { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.nav-mark { font-family: var(--sans); font-weight: 600; font-size: 0.9rem; color: var(--c0); text-decoration: none; letter-spacing: -0.03em; }
+.nav-r { display: flex; align-items: center; gap: var(--s7); }
+.nav-r a { font-size: 0.82rem; color: var(--c3); text-decoration: none; transition: color 0.15s; }
+.nav-r a:hover { color: var(--c0); }
+
+/* Hamburger */
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: var(--s2); }
+.hamburger span { display: block; width: 20px; height: 2px; background: var(--c0); margin: 4px 0; transition: all 0.3s; }
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+.btn { display: inline-flex; align-items: center; gap: var(--s2); font-family: var(--sans); font-size: 0.82rem; font-weight: 500; padding: var(--s2) var(--s4); border-radius: var(--r); text-decoration: none; transition: all 0.15s; letter-spacing: -0.01em; cursor: pointer; border: none; }
+.btn-p { color: var(--white); background: var(--c0); }
+.btn-p:hover { background: var(--c2); }
+
+.label { font-family: var(--mono); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s5); }
+.line { height: 1px; background: var(--c5); }
+
+/* Blog header */
+.blog-header { padding: 140px 0 var(--s10); }
+.blog-header h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(2.2rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -0.03em; color: var(--c0); }
+.blog-header h1 em { font-style: italic; color: var(--c4); }
+.blog-header-sub { font-size: 1rem; font-weight: 300; line-height: 1.65; color: var(--c3); max-width: 480px; margin-top: var(--s5); }
+
+/* Post list */
+.post-list { padding: var(--s10) 0 var(--s12); }
+.post-item { display: grid; grid-template-columns: 1fr auto; gap: var(--s8); padding: var(--s7) 0; border-top: 1px solid var(--c5); align-items: baseline; }
+.post-item:last-child { border-bottom: 1px solid var(--c5); }
+.post-item:hover .post-title { color: var(--c2); }
+.post-link { text-decoration: none; display: contents; }
+.post-tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c4); margin-bottom: var(--s2); }
+.post-title { font-family: var(--serif); font-size: 1.4rem; letter-spacing: -0.02em; color: var(--c0); line-height: 1.25; transition: color 0.15s; }
+.post-excerpt { font-size: 0.88rem; font-weight: 300; line-height: 1.6; color: var(--c3); max-width: 560px; margin-top: var(--s2); }
+.post-meta { font-family: var(--mono); font-size: 0.68rem; color: var(--c4); white-space: nowrap; letter-spacing: 0.02em; }
+
+/* CTA */
+.blog-cta { text-align: center; padding: var(--s12) 0; }
+.blog-cta h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 400; line-height: 1.15; letter-spacing: -0.02em; color: var(--c0); margin-bottom: var(--s4); }
+.blog-cta h2 em { font-style: italic; color: var(--c4); }
+.blog-cta-sub { font-size: 0.95rem; font-weight: 300; color: var(--c3); margin-bottom: var(--s7); }
+
+footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; justify-content: space-between; align-items: center; }
+.foot-l { font-family: var(--mono); font-size: 0.7rem; color: var(--c4); }
+.foot-r { display: flex; gap: var(--s6); }
+.foot-r a { font-size: 0.8rem; color: var(--c4); text-decoration: none; transition: color 0.15s; }
+.foot-r a:hover { color: var(--c0); }
+
+@keyframes up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+.rv { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.rv.v { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+  .w { padding: 0 var(--s6); }
+  .hamburger { display: block; }
+  .nav-r { position: fixed; top: 56px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--c5); padding: var(--s5) var(--s6); flex-direction: column; align-items: flex-start; gap: var(--s4); transform: translateY(-100%); opacity: 0; visibility: hidden; transition: all 0.3s; }
+  .nav-r.active { transform: translateY(0); opacity: 1; visibility: visible; }
+  .nav-r.active .btn { width: auto; display: inline-block; margin-top: 16px; color: #fff; }
+  .nav-r a { width: 100%; padding: var(--s2) 0; }
+  h1 { font-size: 2rem !important; }
+  h2 { font-size: 1.5rem !important; }
+  .post-excerpt { font-size: 0.85rem; }
+  .blog-header { padding: 100px 0 var(--s8); }
+  .post-list { padding: var(--s9) 0 var(--s10); }
+  .blog-cta { padding: var(--s10) 0; }
+  .post-item { grid-template-columns: 1fr; gap: var(--s2); }
+  footer { flex-direction: column; gap: var(--s6); text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav><div class="w">
+  <a href="/KP5D/" class="nav-mark">Kept</a>
+  <button class="hamburger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <div class="nav-r">
+    <a href="/KP5D/">Home</a>
+    <a href="/KP5D/blog/" style="color:var(--c0);">Blog</a>
+    <a href="/KP5D/blog/feed.xml" title="RSS Feed">RSS</a>
+    <a href="/KP5D/#go" class="btn btn-p">Join waitlist</a>
+  </div>
+</div></nav>
+
+<main>
+<section class="blog-header"><div class="w">
+  <p class="label">Blog</p>
+  <h1>Guides, comparisons, <em>and insights.</em></h1>
+  <p class="blog-header-sub">How to get more from your AI conversations. From the team building Kept.</p>
+</div></section>
+
+<div class="w"><div class="line"></div></div>
+
+<section class="post-list"><div class="w">
+
+  <a href="/KP5D/blog/second-opinion-another-ai-10-seconds/" class="post-link">
+    <div class="post-item rv">
+      <div>
+        <p class="post-tag">Workflow</p>
+        <h2 class="post-title">Getting a Second Opinion from Another AI in 10 Seconds</h2>
+        <p class="post-excerpt">You are deep in a ChatGPT conversation and want Claude's take. Today that means 10 minutes of manual context transfer. It should take 10 seconds.</p>
+      </div>
+      <span class="post-meta">Week 17</span>
+    </div>
+  </a>
+
+  <a href="/KP5D/blog/analyzed-6-months-ai-conversations/" class="post-link">
+    <div class="post-item rv">
+      <div>
+        <p class="post-tag">Research</p>
+        <h2 class="post-title">I Analyzed 6 Months of AI Conversations. Here Is What I Found.</h2>
+        <p class="post-excerpt">2,847 conversations across ChatGPT, Claude, and Gemini. I tracked every topic, every decision, every tool mentioned. The patterns surprised me.</p>
+      </div>
+      <span class="post-meta">Week 16</span>
+    </div>
+  </a>
+
+  <a href="/KP5D/blog/share-ai-conversation-snippets-formatting/" class="post-link">
+    <div class="post-item rv">
+      <div>
+        <p class="post-tag">Guide</p>
+        <h2 class="post-title">How to Share AI Conversation Snippets Without Losing Formatting</h2>
+        <p class="post-excerpt">You copy the perfect AI answer, paste it into Slack, and watch the formatting disintegrate. Code blocks flatten. Tables vanish. There is a better way.</p>
+      </div>
+      <span class="post-meta">Week 15</span>
+    </div>
+  </a>
+
+  <a href="/KP5D/blog/building-knowledge-graph-ai-conversations/" class="post-link">
+    <div class="post-item rv">
+      <div>
+        <p class="post-tag">Guide</p>
+        <h2 class="post-title">Building a Knowledge Graph from Your AI Conversations</h2>
+        <p class="post-excerpt">Your AI conversations contain decisions, tools, people, and concepts. A knowledge graph connects them across platforms and months of history.</p>
+      </div>
+      <span class="post-meta">Week 14</span>
+    </div>
+  </a>
+
+  <a href="/KP5D/blog/obsidian-notion-tana-ai-conversations/" class="post-link">
+    <div class="post-item rv">
+      <div>
+        <p class="post-tag">Comparison</p>
+        <h2 class="post-title">Obsidian, Notion, and Tana: Where AI Conversations Don't Fit</h2>
+        <p class="post-excerpt">Obsidian has 2,700+ plugins. Notion has 100 million users. Tana has a built-in knowledge graph. None of them can properly handle your AI conversations from ChatGPT, Claude, and Gemini.</p>
+      </div>
+      <span class="post-meta">Week 13</span>
+    </div>
+  </a>
+
+  <a href="/KP5D/blog/search-across-ai-conversations/" class="post-link">
+    <div class="post-item rv">
+      <div>
+        <p class="post-tag">Guide</p>
+        <h2 class="post-title">How to Search Across All Your AI Conversations</h2>
+        <p class="post-excerpt">You use ChatGPT, Claude, and Gemini daily. But you can't search across all of them. Here's why that gap exists, and how to solve it.</p>
+      </div>
+      <span class="post-meta">Week 1</span>
+    </div>
+  </a>
+
+  <a href="/KP5D/blog/transfer-context-chatgpt-claude/" class="post-link">
+    <div class="post-item rv">
+      <div>
+        <p class="post-tag">Guide</p>
+        <h2 class="post-title">How to Transfer Context Between ChatGPT and Claude</h2>
+        <p class="post-excerpt">You built 30 messages of context in ChatGPT and now want Claude's take. Here are the current manual methods and an automatic alternative.</p>
+      </div>
+      <span class="post-meta">Week 2</span>
+    </div>
+  </a>
+
+  <a href="/KP5D/blog/kept-vs-echoes-vs-chatgpt-exporter/" class="post-link">
+    <div class="post-item rv">
+      <div>
+        <p class="post-tag">Comparison</p>
+        <h2 class="post-title">Kept vs Echoes vs ChatGPT Exporter: Compared</h2>
+        <p class="post-excerpt">Export tools, conversation managers, and knowledge platforms. Three approaches to managing AI conversations. Which one fits your workflow?</p>
+      </div>
+      <span class="post-meta">Week 3</span>
+    </div>
+  </a>
+
+  <a href="/KP5D/blog/stop-re-explaining-your-codebase-to-every-ai/" class="post-link">
+    <div class="post-item rv">
+      <div>
+        <p class="post-tag">Guide</p>
+        <h2 class="post-title">Stop Re-explaining Your Codebase to Every AI</h2>
+        <p class="post-excerpt">Context templating automatically syncs your codebase with ChatGPT, Claude, and Gemini. No more copy-pasting project structure into every new conversation.</p>
+      </div>
+      <span class="post-meta">Week 4</span>
+    </div>
+  </a>
+
+  <a href="/KP5D/blog/claude-md-llms-txt-spec-md-manual-context-systems/" class="post-link">
+    <div class="post-item rv">
+      <div>
+        <p class="post-tag">Guide</p>
+        <h2 class="post-title">CLAUDE.md, llms.txt, and spec.md: Why Developers Are Building Context Systems for AI</h2>
+        <p class="post-excerpt">Developers are building manual context files for AI tools. Here is what each format does, where they fall short, and what automated context management looks like.</p>
+      </div>
+      <span class="post-meta">Week 5</span>
+    </div>
+  </a>
+
+  <a href="/KP5D/blog/claude-for-architecture-chatgpt-for-code-keeping-context.html" class="post-link">
+    <div class="post-item rv">
+      <div>
+        <p class="post-tag">Guide</p>
+        <h2 class="post-title">I Use Claude for Architecture and ChatGPT for Code. Here's How I Keep Context Between Them.</h2>
+        <p class="post-excerpt">Most developers now use multiple AI models daily. The workflow is powerful. The context transfer is painful. Here is what I do about it.</p>
+      </div>
+      <span class="post-meta">Week 6</span>
+    </div>
+  </a>
+
+  <a href="/KP5D/blog/why-local-first-matters/" class="post-link">
+    <div class="post-item rv">
+      <div>
+        <p class="post-tag">Guide</p>
+        <h2 class="post-title">Why Local-First Matters for Your AI Conversations</h2>
+        <p class="post-excerpt">Your AI conversations contain proprietary code, business strategy, and personal decisions. Here's why they should live on your machine, not someone else's server.</p>
+      </div>
+      <span class="post-meta">Week 7</span>
+    </div>
+  </a>
+
+  <a href="/KP5D/blog/developer-guide-ai-model-strengths/" class="post-link">
+    <div class="post-item rv">
+      <div>
+        <p class="post-tag">Guide</p>
+        <h2 class="post-title">The Developer's Guide to AI Model Strengths: When to Use ChatGPT vs Claude vs Gemini vs DeepSeek</h2>
+        <p class="post-excerpt">Each AI model has different strengths for developers. Here is when to use each one, and how to manage context across all of them.</p>
+      </div>
+      <span class="post-meta">Week 8</span>
+    </div>
+  </a>
+
+  <a href="/KP5D/blog/context-window-tax-copy-pasting-ide-browser/" class="post-link">
+    <div class="post-item rv">
+      <div>
+        <p class="post-tag">Guide</p>
+        <h2 class="post-title">The Context Window Tax: How Copy-Pasting Between Your IDE and Browser Costs You 40 Minutes a Day</h2>
+        <p class="post-excerpt">Developers lose 40+ minutes daily on context management. The METR study found AI tools make experienced devs 19% slower. Here is why, and how to fix it.</p>
+      </div>
+      <span class="post-meta">Week 9</span>
+    </div>
+  </a>
+
+  <a href="/KP5D/blog/why-ai-platforms-will-never-index-each-other/" class="post-link">
+    <div class="post-item rv">
+      <div>
+        <p class="post-tag">Thought Leadership</p>
+        <h2 class="post-title">Why AI Platforms Will Never Index Each Other (And What That Means for Your Workflow)</h2>
+        <p class="post-excerpt">ChatGPT will never search your Claude conversations. Claude will never index your Gemini chats. This is structural, not a missing feature. And the gap widens with every new platform that launches.</p>
+      </div>
+      <span class="post-meta">Week 10</span>
+    </div>
+  </a>
+
+  <a href="/KP5D/blog/context-drift-killing-ai-coding-sessions/" class="post-link">
+    <div class="post-item rv">
+      <div>
+        <p class="post-tag">Guide</p>
+        <h2 class="post-title">Context Drift Is Killing Your AI Coding Sessions. Here's the Fix.</h2>
+        <p class="post-excerpt">AI assistants lose 47% accuracy after 10 turns. Learn how context drift happens, why it destroys productivity, and how to maintain context across long coding sessions.</p>
+      </div>
+      <span class="post-meta">Week 11</span>
+    </div>
+  </a>
+
+  <a href="/KP5D/blog/your-ai-conversations-are-a-codebase/" class="post-link">
+    <div class="post-item rv">
+      <div>
+        <p class="post-tag">Thought Leadership</p>
+        <h2 class="post-title">Your AI Conversations Are a Codebase</h2>
+        <p class="post-excerpt">Developers version control every line of code but treat AI conversations as disposable chat. Those conversations contain the decisions, trade-offs, and reasoning behind the code. It is time to treat them accordingly.</p>
+      </div>
+      <span class="post-meta">Week 12</span>
+    </div>
+  </a>
+
+</div></section>
+
+<div class="w"><div class="line"></div></div>
+
+<section class="blog-cta"><div class="w rv">
+  <h2>Your conversations. <em>Kept.</em></h2>
+  <p class="blog-cta-sub">Join the beta for early access to the desktop app and Chrome extension.</p>
+  <a href="/KP5D/#go" class="btn btn-p">Join the waitlist <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</div></section>
+</main>
+
+<footer>
+  <div class="w">
+    <span class="foot-l">Kept &mdash; An E-Group Labs product &mdash; 2026</span>
+    <div class="foot-r"><a href="/KP5D/blog/feed.xml">RSS</a><a href="https://github.com/hoarhouse/KP5D">GitHub</a><a href="https://kept.work/docs/">Docs</a><a href="https://kept.work/privacy/">Privacy</a></div>
+  </div>
+</footer>
+
+<script>
+const o = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); o.unobserve(e.target); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -32px 0px' });
+document.querySelectorAll('.rv').forEach(el => o.observe(el));
+
+// Hamburger menu
+const hamburger = document.querySelector('.hamburger');
+const navR = document.querySelector('.nav-r');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navR.classList.toggle('active');
+});
+// Close menu when clicking links
+document.querySelectorAll('.nav-r a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navR.classList.remove('active');
+  });
+});
+</script>
+</body>
+</html>

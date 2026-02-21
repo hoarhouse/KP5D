@@ -5,42 +5,47 @@
 <!-- Primary Meta Tags -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How to Search Across All Your AI Conversations (ChatGPT, Claude, Gemini) - Kept</title>
-<meta name="description" content="You use ChatGPT, Claude, and Gemini daily but can't search across all of them. Here's why that gap exists, what it costs you, and how to solve it with open source tools.">
-<meta name="keywords" content="search AI conversations, ChatGPT search, Claude search, Gemini search, cross-platform AI search, Kept app, AI conversation manager, knowledge graph extraction">
-<link rel="canonical" href="https://kept.work/blog/search-across-ai-conversations/">
+<title>How to Transfer Context Between ChatGPT and Claude (Without Starting Over) - Kept</title>
+<meta name="description" content="You built 30 messages of context in ChatGPT and now want Claude's take. Here are the current manual methods and an automatic alternative that carries your context between platforms.">
+<meta name="keywords" content="transfer context ChatGPT to Claude, move ChatGPT memory to Claude, switch between AI models, AI context portability, use ChatGPT and Claude together">
+<link rel="canonical" href="https://kept.work/blog/transfer-context-chatgpt-claude/">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Chris Hoar">
 <meta name="theme-color" content="#09090b">
 <link rel="icon" type="image/svg+xml" href="/KP5D/favicon.svg">
 
 <!-- Open Graph -->
-<meta property="og:title" content="How to Search Across All Your AI Conversations (ChatGPT, Claude, Gemini)">
-<meta property="og:description" content="You use multiple AI platforms daily but can't search across them. Here's why that gap exists and how to solve it with open source tools.">
+<meta property="og:title" content="How to Transfer Context Between ChatGPT and Claude (Without Starting Over)">
+<meta property="og:description" content="You built 30 messages of context in ChatGPT and now want Claude's take. Here are the current manual methods and an automatic alternative.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://kept.work/blog/search-across-ai-conversations/">
-<meta property="og:image" content="https://kept.work/og-article-search.png">
+<meta property="og:url" content="https://kept.work/blog/transfer-context-chatgpt-claude/">
+<meta property="og:image" content="https://kept.work/og-article-context.png">
 <meta property="article:author" content="Chris Hoar">
-<meta property="article:published_time" content="2026-02-01T00:00:00Z">
+<meta property="article:published_time" content="2026-02-25T00:00:00Z">
+<meta property="article:section" content="Guide">
+<meta property="article:tag" content="context transfer">
+<meta property="article:tag" content="ChatGPT">
+<meta property="article:tag" content="Claude">
+<meta property="article:tag" content="developer tools">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="How to Search Across All Your AI Conversations">
-<meta name="twitter:description" content="You use ChatGPT, Claude, and Gemini daily but can't search across them. Here's why and how to fix it.">
-<meta name="twitter:image" content="https://kept.work/og-article-search.png">
+<meta name="twitter:title" content="How to Transfer Context Between ChatGPT and Claude">
+<meta name="twitter:description" content="You built 30 messages of context in ChatGPT and now want Claude's take. Here's how to carry your context between platforms.">
+<meta name="twitter:image" content="https://kept.work/og-article-context.png">
 
 <!-- JSON-LD Article -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "How to Search Across All Your AI Conversations (ChatGPT, Claude, Gemini)",
-  "description": "You use ChatGPT, Claude, and Gemini daily but can't search across all of them. Here's why that gap exists, what it costs you, and how to solve it with open source tools.",
+  "headline": "How to Transfer Context Between ChatGPT and Claude (Without Starting Over)",
+  "description": "You built 30 messages of context in ChatGPT and now want Claude's take. Here are the current manual methods and an automatic alternative that carries your context between platforms.",
   "author": {
     "@type": "Person",
     "name": "Chris Hoar"
   },
-  "datePublished": "2026-02-01T00:00:00Z",
+  "datePublished": "2026-02-25T00:00:00Z",
   "publisher": {
     "@type": "Organization",
     "name": "Kept",
@@ -48,8 +53,9 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://kept.work/blog/search-across-ai-conversations/"
-  }
+    "@id": "https://kept.work/blog/transfer-context-chatgpt-claude/"
+  },
+  "wordCount": 1600
 }
 </script>
 
@@ -61,42 +67,34 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Can I search across ChatGPT and Claude at the same time?",
+      "name": "Can you transfer a conversation from ChatGPT to Claude?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Not natively. ChatGPT and Claude each have their own search functions, but they don't connect. You need a third-party tool like Kept or manual export methods to search across both platforms."
+        "text": "Not natively. The platforms don't talk to each other. Current options are manual (summarize and paste, export markdown, use extensions like Retry in Another AI). Kept automates this with Conversation Forks, which packages context and lets you start a new session in any platform with background loaded."
       }
     },
     {
       "@type": "Question",
-      "name": "Why won't AI platforms add cross-platform search?",
+      "name": "Does Claude have access to my ChatGPT conversations?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Competitive lock-in. OpenAI won't index Anthropic's conversations and vice versa. It's the same reason Gmail doesn't search Outlook. The solution has to come from outside the platforms."
+        "text": "No. Claude and ChatGPT are built by competing companies (Anthropic and OpenAI). They have no data sharing. Each platform only knows about conversations that happened within it."
       }
     },
     {
       "@type": "Question",
-      "name": "What's the best way to export AI conversations?",
+      "name": "What is AI context portability?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For automatic capture: Kept (open source) or Echoes. For manual exports: ChatGPT's data export feature or browser extensions like ChatGPT Exporter. The key is consistency, which is why automatic tools work better long-term."
+        "text": "The ability to move your conversation context, project background, and decisions from one AI platform to another without manually re-explaining everything. Currently no platform supports this natively because they are competitors."
       }
     },
     {
       "@type": "Question",
-      "name": "Is my conversation data safe with third-party tools?",
+      "name": "How do developers use multiple AI models effectively?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Depends on the tool. Kept stores everything locally in SQLite on your machine. Echoes and others may use cloud storage. Always check where your data lives and who has access."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I build my own AI conversation search tool?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. You can export conversations via API or browser automation, store in a database, and use full-text search. But maintaining parsers for multiple platforms is complex. That's why tools like Kept exist."
+        "text": "Most developers use different models for different strengths. ChatGPT for code generation, Claude for architecture and reasoning, Gemini for research with Google integration. The challenge is maintaining context across them. Kept's Context Templating and CLI help by keeping your project files synced with every LLM session automatically."
       }
     }
   ]
@@ -136,7 +134,8 @@ body { font-family: var(--sans); color: var(--c1); background: var(--white); lin
 
 .w { max-width: var(--max); margin: 0 auto; padding: 0 var(--s9); }
 .wa { max-width: var(--article); margin: 0 auto; padding: 0 var(--s9); }
-
+@media (max-width: 768px) { 
+  .w { padding: 0 var(--s6); }
   .wa { padding: 0 var(--s6); }
   .hamburger { display: block; }
   .nav-r { position: fixed; top: 56px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--c5); padding: var(--s5) var(--s6); flex-direction: column; align-items: flex-start; gap: var(--s4); transform: translateY(-100%); opacity: 0; visibility: hidden; transition: all 0.3s; }
@@ -269,147 +268,121 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
   </div>
 </div></nav>
 
-<main>
-
 <article>
   <header class="article-header"><div class="wa">
     <p class="article-header-tag">Guide</p>
-    <h1>How to Search Across All Your AI Conversations (ChatGPT, Claude, Gemini)</h1>
+    <h1>How to Transfer Context Between ChatGPT and Claude (Without Starting Over)</h1>
     <div class="article-meta">
       <span>Chris Hoar</span>
       <span class="meta-sep">•</span>
       <span>February 2026</span>
       <span class="meta-sep">•</span>
-      <span>8 min read</span>
+      <span>7 min read</span>
     </div>
   </div></header>
 
   <div class="article-body wa">
-    <p>I spent 20 minutes yesterday searching for a database indexing conversation I knew I'd had recently. Checked ChatGPT history. Nothing. Tried Claude's search. Nope. Finally found it in Gemini, filed under a completely different title than I remembered.</p>
+    <p>Every developer who uses multiple AI tools hits the same wall. You are 30 messages deep in a ChatGPT conversation about your application architecture. You have established the tech stack, discussed trade-offs, made decisions. Now you want Claude's perspective on a specific part.</p>
 
-    <p>This isn't a workflow problem. It's a structural one.</p>
+    <p>But Claude knows nothing about any of it.</p>
 
-    <p>Every AI platform builds its own conversation silo. You can search within ChatGPT, within Claude, within Gemini. But you can't search across them. And with each new model release, each new platform launch, the fragmentation gets worse.</p>
+    <p>You are back to zero. The context you spent an hour building is locked inside one platform.</p>
 
-    <h2>What each platform offers today</h2>
+    <h2>The manual methods (and their costs)</h2>
 
-    <div class="platform-grid">
-      <div class="platform-card">
-        <h4>ChatGPT</h4>
-        <p>Basic title search. Filters by date. Can star conversations. No content search, no tags, no export API.</p>
-      </div>
-      <div class="platform-card">
-        <h4>Claude</h4>
-        <p>Title and content search. Projects for organization. Better than ChatGPT but still locked to Claude-only conversations.</p>
-      </div>
-      <div class="platform-card">
-        <h4>Gemini</h4>
-        <p>Google-powered search across your conversations. Good for finding specific chats. Zero interoperability with other platforms.</p>
-      </div>
-    </div>
+    <p><strong>Ask ChatGPT to summarize the conversation, copy summary, paste into Claude.</strong> Works but loses nuance. Decisions get flattened into bullet points, and you lose the reasoning trail.</p>
 
-    <p>Each platform's search works fine in isolation. But isolation is the problem.</p>
+    <p><strong>Export conversation as Markdown, upload to Claude Project.</strong> Better fidelity but multiple steps, breaks your flow, and Projects have upload limits.</p>
 
-    <h2>Why platforms will never solve this</h2>
+    <p><strong>Use "Retry in Another AI" type extensions that copy the thread.</strong> Convenient but copies everything including irrelevant tangents. No intelligence about what context actually matters.</p>
 
-    <p>OpenAI isn't going to build Claude conversation import. Anthropic won't index your ChatGPT history. Google certainly won't aggregate competitor data.</p>
+    <p>The real problem: at low frequency (once a month) any of these work fine. But power users switch platforms multiple times per day. ChatGPT for code. Claude for architecture. Gemini for research. DeepSeek for <a href="/KP5D/blog/second-opinion-another-ai-10-seconds/">a different perspective</a>.</p>
 
-    <p>It's the same reason Gmail doesn't search your Outlook emails. <a href="/KP5D/blog/why-ai-platforms-will-never-index-each-other/">Competitive lock-in</a> is a feature, not a bug, of platform economics.</p>
+    <p>At that frequency, manual transfer is a productivity tax you pay every single day.</p>
 
-    <p>And the gap keeps widening. DeepSeek launches. Grok goes mainstream. Perplexity adds conversation history. Every new model means another silo, another place your knowledge disappears into.</p>
+    <h2>Why this problem exists</h2>
 
-    <p>The platforms have zero incentive to fix this. The solution has to come from outside.</p>
+    <p>Each AI platform is a walled garden by design. OpenAI, Anthropic, and Google are competing for the same users. They have zero incentive to make it easy to leave mid-conversation.</p>
 
-    <h2>The actual cost of this fragmentation</h2>
+    <p>This is not a technical limitation. The APIs exist. The data formats are compatible. It is a business decision.</p>
 
-    <p><strong>Decisions disappear.</strong> That perfect problem-solving approach you worked out with ChatGPT? Lost in a sea of "New conversation" titles.</p>
+    <p>Every platform wants to be the only platform you use. Context lock-in is a feature, not a bug, from their perspective.</p>
 
-    <p><strong>Context resets constantly.</strong> You rebuild the same context with Claude that you already built with ChatGPT last week. Hours of <a href="/KP5D/blog/transfer-context-chatgpt-claude/">redundant work</a>.</p>
+    <p>The user is the one who pays the cost.</p>
 
-    <p><strong>Patterns stay invisible.</strong> You can't see that you've asked variations of the same question across three platforms over six months. No learning compounds.</p>
+    <h2>What context portability actually means</h2>
 
-    <p>We're building incredible conversations with AI, then letting them evaporate.</p>
+    <p>It is not just copying text. Real context portability means understanding which parts of a conversation are relevant to the new task, preserving the decision history and reasoning, carrying over project-specific terminology and constraints, and packaging it in a format the receiving platform can actually use effectively.</p>
 
-    <h2>Current workarounds and why they fall short</h2>
+    <p>A 30-message conversation might contain 3 messages worth of transferable context. The rest is back-and-forth, corrections, and tangents.</p>
 
-    <p><strong>Manual exports.</strong> ChatGPT lets you download your data every few weeks. Claude has conversation export. But these are snapshots, not systems. By the time you export, you've already lost the context you needed.</p>
+    <p>Intelligent context transfer means extracting signal from noise.</p>
 
-    <p><strong>Browser extensions.</strong> <a href="/KP5D/blog/kept-vs-echoes-vs-chatgpt-exporter/">ChatGPT Exporter and similar tools</a> work conversation by conversation. Fine for archiving specific chats. Useless for ongoing search needs.</p>
+    <h2>Beyond platform-to-platform: the repo context problem</h2>
 
-    <p><strong>Echoes by R2bits.</strong> Actually solid for search. Their Chrome extension captures conversations, indexes them, makes them searchable. 850+ people in their Discord proves the need. But it's pure retrieval, no knowledge extraction. You can find conversations but not patterns.</p>
+    <p>There is a related problem that compounds this. Every time you open a new AI conversation, <a href="/KP5D/blog/stop-re-explaining-your-codebase-to-every-ai/">you re-explain your codebase</a>. Here is my tech stack. Here are the main files. Here is the architecture. This is the convention we use.</p>
 
-    <p><strong>Copy-paste to Obsidian/Notion.</strong> The manual factor kills this. The moment you have to remember to copy something, you've already lost. The conversations you forget to save are always the ones you need.</p>
+    <p>Developers do this dozens of times per week across different platforms. The setup overhead is constant.</p>
 
-    <p>All these approaches treat symptoms. None address the core issue: conversations need to be captured automatically, stored locally, searchable instantly, and intelligent about extraction.</p>
+    <p>If your conversation context and your repository context were both available locally and packaged automatically, you could start any AI conversation on any platform with full background already loaded. No re-explaining. No setup ritual.</p>
 
     <div class="callout">
-      <h3>Enter Kept: Open source, local-first, automatic</h3>
-      <p>We're building what the platforms won't. A desktop app, Chrome extension, and CLI that archives conversations from ChatGPT, Claude, and Gemini automatically, indexes them locally with SQLite FTS5, and gives you four core tools:</p>
-      <ul>
-        <li><strong>Chat Archival</strong> to download and manage conversations in one place</li>
-        <li><strong>Conversation Forks</strong> to continue any chat in a different model</li>
-        <li><strong>Context Templating</strong> to keep your project files synced with LLM sessions through the CLI</li>
-        <li><strong>Dynamic Links</strong> to connect information across separate chats into a knowledge graph</li>
-      </ul>
-      <p>The core features are free and MIT licensed: chat archival, conversation forks, context templating, CLI with file monitoring, and cross-provider search. A premium intelligence layer (Dynamic Links knowledge graph, AI agent, smart context compression, digests) is coming for users who want deeper extraction from their archive.</p>
+      <h3>Kept approaches this differently</h3>
+      <p>The Kept extension archives all your conversations across every provider locally.</p>
+      <p>When you want to continue a conversation in a different LLM, Conversation Forks packages the relevant context and lets you start a new session with that background loaded. No copy-pasting. No summarizing. No uploading files. The context follows you between providers.</p>
+      <p>Context Templating takes this further. Instead of re-explaining your codebase structure every time you open a new AI conversation, define what belongs to the feature you are shipping and the CLI watches your files for changes. Every LLM session starts with up-to-date project context injected automatically. Tunable retrieval size and context compression make it work even with models that have smaller context windows.</p>
+      <p>Desktop app, Chrome extension, and CLI. Open source, local-first, launching in beta.</p>
       <a href="https://kept.work" class="btn">Learn more at kept.work →</a>
     </div>
 
-    <h2>The bigger picture</h2>
+    <h2>The multi-model workflow is not going away</h2>
 
-    <p>Multi-LLM workflows are accelerating. You use ChatGPT for creative work. Claude for code. Gemini for research. Specialized models for specific tasks.</p>
+    <p>Developers are not going to consolidate to one AI tool. <a href="/KP5D/blog/developer-guide-ai-model-strengths/">The models have different strengths</a> and those strengths shift with every release cycle.</p>
 
-    <p>This is good. Competition drives innovation. Model diversity prevents lock-in.</p>
+    <p>The workflow of the future is not picking the best model. It is using the right model for each task and having your context follow you.</p>
 
-    <p>But without unified search, without pattern recognition across platforms, we're trading capability for chaos. Every new model makes us potentially smarter but practically more fragmented.</p>
+    <p>The tools that enable this portability will become infrastructure, not optional plugins.</p>
 
-    <p>The platforms won't fix this. They can't. Their incentives run the opposite direction.</p>
-
-    <p>The solution has to be local, open, and platform-agnostic. It has to treat your conversations as a unified knowledge base, not scattered fragments.</p>
+    <p>The platforms will not build it because they are competitors. It has to come from outside.</p>
 
     <div class="faq">
       <h2>Frequently asked questions</h2>
       
       <div class="faq-item">
-        <div class="faq-q">Can I search across ChatGPT and Claude at the same time?</div>
-        <div class="faq-a">Not natively. ChatGPT and Claude each have their own search functions, but they don't connect. You need a third-party tool like Kept or manual export methods to search across both platforms.</div>
+        <div class="faq-q">Can you transfer a conversation from ChatGPT to Claude?</div>
+        <div class="faq-a">Not natively. The platforms don't talk to each other. Current options are manual (summarize and paste, export markdown, use extensions like Retry in Another AI). Kept automates this with Conversation Forks, which packages context and lets you start a new session in any platform with background loaded.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q">Why won't AI platforms add cross-platform search?</div>
-        <div class="faq-a">Competitive lock-in. OpenAI won't index Anthropic's conversations and vice versa. It's the same reason Gmail doesn't search Outlook. The solution has to come from outside the platforms.</div>
+        <div class="faq-q">Does Claude have access to my ChatGPT conversations?</div>
+        <div class="faq-a">No. Claude and ChatGPT are built by competing companies (Anthropic and OpenAI). They have no data sharing. Each platform only knows about conversations that happened within it.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q">What's the best way to export AI conversations?</div>
-        <div class="faq-a">For automatic capture: Kept (open source) or Echoes. For manual exports: ChatGPT's data export feature or browser extensions like ChatGPT Exporter. The key is consistency, which is why automatic tools work better long-term.</div>
+        <div class="faq-q">What is AI context portability?</div>
+        <div class="faq-a">The ability to move your conversation context, project background, and decisions from one AI platform to another without manually re-explaining everything. Currently no platform supports this natively because they are competitors.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q">Is my conversation data safe with third-party tools?</div>
-        <div class="faq-a">Depends on the tool. Kept stores everything locally in SQLite on your machine. Echoes and others may use cloud storage. Always check where your data lives and who has access.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">Can I build my own AI conversation search tool?</div>
-        <div class="faq-a">Yes. You can export conversations via API or browser automation, store in a database, and use full-text search. But maintaining parsers for multiple platforms is complex. That's why tools like Kept exist.</div>
+        <div class="faq-q">How do developers use multiple AI models effectively?</div>
+        <div class="faq-a">Most developers use different models for different strengths. ChatGPT for code generation, Claude for architecture and reasoning, Gemini for research with Google integration. The challenge is maintaining context across them. Kept's Context Templating and CLI help by keeping your project files synced with every LLM session automatically.</div>
       </div>
     </div>
   </div>
 
   <section class="article-cta"><div class="wa">
-    <h2>Stop searching. Start finding.</h2>
-    <p>Your AI conversations shouldn't disappear into platform silos.</p>
+    <h2>Context that moves with you.</h2>
+    <p>Kept archives your AI conversations, lets you fork them between providers, and keeps your project context synced through the CLI. Open source, local-first, launching in beta.</p>
     <a href="/KP5D/#go" class="btn btn-p">Join the waitlist →</a>
   </div></section>
 
   <section class="related"><div class="wa">
     <h3>Related posts</h3>
     <div class="related-grid">
-      <a href="/KP5D/blog/transfer-context-chatgpt-claude/" class="related-item">
+      <a href="/KP5D/blog/search-across-ai-conversations/" class="related-item">
         <p class="related-tag">Guide</p>
-        <h4 class="related-title">How to Transfer Context Between ChatGPT and Claude</h4>
-        <p class="related-excerpt">You built 30 messages of context in ChatGPT and now want Claude's take. Here are the current methods.</p>
+        <h4 class="related-title">How to Search Across All Your AI Conversations</h4>
+        <p class="related-excerpt">You use ChatGPT, Claude, and Gemini daily. But you can't search across all of them. Here's why that gap exists, and how to solve it.</p>
       </a>
       <a href="/KP5D/blog/kept-vs-echoes-vs-chatgpt-exporter/" class="related-item">
         <p class="related-tag">Comparison</p>
@@ -420,14 +393,10 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
   </div></section>
 </article>
 
-</main>
-
-<footer>
-  <div class="w">
+<div class="w"><footer>
   <span class="foot-l">Kept · An E-Group Labs product · 2026</span>
-  <div class="foot-r"><a href="https://github.com/hoarhouse/KP5D">GitHub</a><a href="https://kept.work/docs/">Docs</a><a href="https://kept.work/privacy/">Privacy</a></div>
-  </div>
-</footer>
+  <div class="foot-r"><a href="#">GitHub</a><a href="#">Docs</a><a href="#">Privacy</a></div>
+</footer></div>
 
 <script>
 const o = new IntersectionObserver(es => {

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kept Blog</title>
+    <link>https://kept.work/blog/</link>
+    <description>Guides, comparisons, and insights on managing AI conversations across ChatGPT, Claude, and Gemini. From the team building Kept.</description>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 19 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://kept.work/blog/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>Getting a Second Opinion from Another AI in 10 Seconds</title>
+      <link>https://kept.work/blog/second-opinion-another-ai-10-seconds/</link>
+      <guid>https://kept.work/blog/second-opinion-another-ai-10-seconds/</guid>
+      <description>You are deep in a ChatGPT conversation and want Claude's take. Today that means 10 minutes of manual context transfer. It should take 10 seconds.</description>
+      <category>Workflow</category>
+      <pubDate>Wed, 19 Feb 2026 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>I Analyzed 6 Months of AI Conversations. Here Is What I Found.</title>
+      <link>https://kept.work/blog/analyzed-6-months-ai-conversations/</link>
+      <guid>https://kept.work/blog/analyzed-6-months-ai-conversations/</guid>
+      <description>2,847 conversations across ChatGPT, Claude, and Gemini. I tracked every topic, every decision, every tool mentioned. The patterns surprised me.</description>
+      <category>Research</category>
+      <pubDate>Wed, 12 Feb 2026 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>How to Share AI Conversation Snippets Without Losing Formatting</title>
+      <link>https://kept.work/blog/share-ai-conversation-snippets-formatting/</link>
+      <guid>https://kept.work/blog/share-ai-conversation-snippets-formatting/</guid>
+      <description>You copy the perfect AI answer, paste it into Slack, and watch the formatting disintegrate. Code blocks flatten. Tables vanish. There is a better way.</description>
+      <category>Guide</category>
+      <pubDate>Wed, 05 Feb 2026 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>Building a Knowledge Graph from Your AI Conversations</title>
+      <link>https://kept.work/blog/building-knowledge-graph-ai-conversations/</link>
+      <guid>https://kept.work/blog/building-knowledge-graph-ai-conversations/</guid>
+      <description>Your conversations contain decisions, tools, people, and concepts. A knowledge graph extracts them and maps the connections. Here is what that looks like in practice.</description>
+      <category>Guide</category>
+      <pubDate>Wed, 29 Jan 2026 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>Obsidian, Notion, and Tana: Where AI Conversations Don't Fit</title>
+      <link>https://kept.work/blog/obsidian-notion-tana-ai-conversations/</link>
+      <guid>https://kept.work/blog/obsidian-notion-tana-ai-conversations/</guid>
+      <description>General PKM tools require manual entry. AI conversations need automatic ingestion, platform-aware parsing, and cross-provider search. The gap is structural.</description>
+      <category>Comparison</category>
+      <pubDate>Wed, 22 Jan 2026 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>How to Search Across All Your AI Conversations</title>
+      <link>https://kept.work/blog/search-across-ai-conversations/</link>
+      <guid>https://kept.work/blog/search-across-ai-conversations/</guid>
+      <description>You use ChatGPT, Claude, and Gemini daily. But you cannot search across all of them. Here is why that gap exists, and how to solve it.</description>
+      <category>Guide</category>
+      <pubDate>Wed, 15 Jan 2026 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>How to Transfer Context Between ChatGPT and Claude</title>
+      <link>https://kept.work/blog/transfer-context-chatgpt-claude/</link>
+      <guid>https://kept.work/blog/transfer-context-chatgpt-claude/</guid>
+      <description>You built 30 messages of context in ChatGPT and now want Claude's take. Here are the current manual methods and an automatic alternative.</description>
+      <category>Guide</category>
+      <pubDate>Wed, 08 Jan 2026 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>Kept vs Echoes vs ChatGPT Exporter: Compared</title>
+      <link>https://kept.work/blog/kept-vs-echoes-vs-chatgpt-exporter/</link>
+      <guid>https://kept.work/blog/kept-vs-echoes-vs-chatgpt-exporter/</guid>
+      <description>Export tools, conversation managers, and knowledge platforms. Three approaches to managing AI conversations. Which one fits your workflow?</description>
+      <category>Comparison</category>
+      <pubDate>Wed, 01 Jan 2026 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>Stop Re-explaining Your Codebase to Every AI</title>
+      <link>https://kept.work/blog/stop-re-explaining-your-codebase-to-every-ai/</link>
+      <guid>https://kept.work/blog/stop-re-explaining-your-codebase-to-every-ai/</guid>
+      <description>Context templating automatically syncs your codebase with ChatGPT, Claude, and Gemini. No more copy-pasting project structure into every new conversation.</description>
+      <category>Guide</category>
+      <pubDate>Wed, 25 Dec 2025 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>CLAUDE.md, llms.txt, and spec.md: Why Developers Are Building Context Systems for AI</title>
+      <link>https://kept.work/blog/claude-md-llms-txt-spec-md-manual-context-systems/</link>
+      <guid>https://kept.work/blog/claude-md-llms-txt-spec-md-manual-context-systems/</guid>
+      <description>Developers are building manual context files for AI tools. Here is what each format does, where they fall short, and what automated context management looks like.</description>
+      <category>Guide</category>
+      <pubDate>Wed, 18 Dec 2025 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>Claude for Architecture, ChatGPT for Code: Keeping Context When You Switch</title>
+      <link>https://kept.work/blog/claude-for-architecture-chatgpt-for-code-keeping-context.html</link>
+      <guid>https://kept.work/blog/claude-for-architecture-chatgpt-for-code-keeping-context.html</guid>
+      <description>Each AI model has different strengths for developers. Here is when to use each one, and how to manage context across all of them.</description>
+      <category>Guide</category>
+      <pubDate>Wed, 11 Dec 2025 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>Why Local-First Matters for Your AI Conversations</title>
+      <link>https://kept.work/blog/why-local-first-matters/</link>
+      <guid>https://kept.work/blog/why-local-first-matters/</guid>
+      <description>Cloud-first means someone else controls your data. Local-first means you do. For AI conversations that contain your decisions, research, and strategy, that distinction matters.</description>
+      <category>Guide</category>
+      <pubDate>Wed, 04 Dec 2025 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>The Developer's Guide to AI Model Strengths: When to Use ChatGPT vs Claude vs Gemini vs DeepSeek</title>
+      <link>https://kept.work/blog/developer-guide-ai-model-strengths/</link>
+      <guid>https://kept.work/blog/developer-guide-ai-model-strengths/</guid>
+      <description>Each AI model has different strengths for developers. Here is when to use each one, and how to manage context across all of them.</description>
+      <category>Guide</category>
+      <pubDate>Wed, 27 Nov 2025 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>The Context Window Tax: How Copy-Pasting Between Your IDE and Browser Costs You 40 Minutes a Day</title>
+      <link>https://kept.work/blog/context-window-tax-copy-pasting-ide-browser/</link>
+      <guid>https://kept.work/blog/context-window-tax-copy-pasting-ide-browser/</guid>
+      <description>Developers lose 40+ minutes daily on context management. The METR study found AI tools make experienced devs 19% slower. Here is why, and how to fix it.</description>
+      <category>Guide</category>
+      <pubDate>Wed, 20 Nov 2025 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>Why AI Platforms Will Never Index Each Other (And What That Means for Your Workflow)</title>
+      <link>https://kept.work/blog/why-ai-platforms-will-never-index-each-other/</link>
+      <guid>https://kept.work/blog/why-ai-platforms-will-never-index-each-other/</guid>
+      <description>ChatGPT will never search your Claude conversations. Claude will never index your Gemini chats. This is structural, not a missing feature. And the gap widens with every new platform that launches.</description>
+      <category>Thought Leadership</category>
+      <pubDate>Wed, 13 Nov 2025 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>Context Drift Is Killing Your AI Coding Sessions. Here's the Fix.</title>
+      <link>https://kept.work/blog/context-drift-killing-ai-coding-sessions/</link>
+      <guid>https://kept.work/blog/context-drift-killing-ai-coding-sessions/</guid>
+      <description>AI assistants lose 47% accuracy after 10 turns. Learn how context drift happens, why it destroys productivity, and how to maintain context across long coding sessions.</description>
+      <category>Guide</category>
+      <pubDate>Wed, 06 Nov 2025 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>Your AI Conversations Are a Codebase</title>
+      <link>https://kept.work/blog/your-ai-conversations-are-a-codebase/</link>
+      <guid>https://kept.work/blog/your-ai-conversations-are-a-codebase/</guid>
+      <description>Developers version control every line of code but treat AI conversations as disposable chat. Those conversations contain the decisions, trade-offs, and reasoning behind the code. It is time to treat them accordingly.</description>
+      <category>Thought Leadership</category>
+      <pubDate>Wed, 30 Oct 2025 00:00:00 +0000</pubDate>
+    </item>
+
+  </channel>
+</rss>

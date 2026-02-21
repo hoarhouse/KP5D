@@ -92,7 +92,8 @@ body { font-family: var(--sans); color: var(--c1); background: var(--white); lin
 
 .w { max-width: var(--max); margin: 0 auto; padding: 0 var(--s9); }
 .wa { max-width: var(--article); margin: 0 auto; padding: 0 var(--s9); }
-
+@media (max-width: 768px) { 
+  .w { padding: 0 var(--s6); }
   .wa { padding: 0 var(--s6); }
   .hamburger { display: block; }
   .nav-r { position: fixed; top: 56px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--c5); padding: var(--s5) var(--s6); flex-direction: column; align-items: flex-start; gap: var(--s4); transform: translateY(-100%); opacity: 0; visibility: hidden; transition: all 0.3s; }
@@ -192,8 +193,6 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
     <a href="/KP5D/#go" class="btn btn-p">Join waitlist</a>
   </div>
 </div></nav>
-
-<main>
 
 <article>
   <header class="article-header"><div class="wa">
@@ -372,18 +371,14 @@ footer { border-top: 1px solid var(--c5); padding: var(--s8) 0; display: flex; j
   </div></section>
 </article>
 
-</main>
-
-<footer>
-  <div class="w">
+<div class="w"><footer>
   <span class="foot-l">Kept — 2026</span>
   <div class="foot-r">
     <a href="/KP5D/">Home</a>
     <a href="/KP5D/blog/">Blog</a>
     <a href="https://github.com/hoarhouse/kept">GitHub</a>
   </div>
-  </div>
-</footer>
+</footer></div>
 
 <script>
 // Hamburger menu
