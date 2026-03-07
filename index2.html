@@ -715,6 +715,42 @@
       transform: translateY(0);
     }
 
+    /* Hero animations */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero .badge {
+      animation: fadeUp 0.7s ease forwards;
+      animation-delay: 0.1s;
+      opacity: 0;
+    }
+
+    .hero h1 {
+      animation: fadeUp 0.7s ease forwards;
+      animation-delay: 0.2s;
+      opacity: 0;
+    }
+
+    .hero .subhead {
+      animation: fadeUp 0.7s ease forwards;
+      animation-delay: 0.35s;
+      opacity: 0;
+    }
+
+    .hero .hero-cta {
+      animation: fadeUp 0.7s ease forwards;
+      animation-delay: 0.5s;
+      opacity: 0;
+    }
+
     /* Mobile Styles */
     @media (max-width: 768px) {
       .nav-links a:not(.btn) {
@@ -790,7 +826,7 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero rv">
+  <section class="hero">
     <div class="badge">Open source · Local-first · Desktop + Extension</div>
     <h1>You searched ChatGPT for 20 minutes. The answer was in Claude.</h1>
     <p class="subhead">Kept captures every AI conversation across all your platforms, indexes it locally, and lets you carry context between them. One archive. One knowledge graph. Every LLM you use.</p>
@@ -806,7 +842,7 @@
   </section>
 
   <!-- Trust Strip -->
-  <section class="trust-strip rv">
+  <section class="trust-strip">
     <div class="trust-stats">
       <div class="stat">
         <div class="stat-value">5 MB</div>
@@ -1044,7 +1080,7 @@
     <div class="pricing-grid">
       <div class="pricing-card">
         <div class="price-tag">Free</div>
-        <div class="price-label">Forever (MIT License)</div>
+        <div class="price-label">MIT licensed. Free forever. Every conversation, every search result, every extracted insight — stored locally on your machine. Always.</div>
         <ul class="price-features">
           <li>Unlimited conversations</li>
           <li>Local storage only</li>
@@ -1057,14 +1093,17 @@
       </div>
       <div class="pricing-card featured">
         <div class="price-tag">Pro</div>
-        <div class="price-label">Coming soon (Pricing TBD)</div>
+        <div class="price-label">Pricing TBD. All intelligence extracted stays on your machine. No cloud. No data leaving your device.</div>
         <ul class="price-features">
           <li>Everything in Free</li>
-          <li>Cloud backup & sync</li>
-          <li>Advanced AI analysis</li>
-          <li>Team collaboration</li>
-          <li>API access</li>
-          <li>Priority support</li>
+          <li>Knowledge graph extraction</li>
+          <li>Entity recognition and relationships</li>
+          <li>AI agent with archive Q&A ("What decisions did I make this quarter?")</li>
+          <li>Semantic search across all platforms</li>
+          <li>Weekly AI digests</li>
+          <li>Visual mind map and timeline</li>
+          <li>Comparative agent (multi-LLM query)</li>
+          <li>BYOK (bring your own API key)</li>
         </ul>
         <a href="#" class="btn btn-primary" style="width: 100%;">Join waitlist</a>
       </div>
