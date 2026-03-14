@@ -1196,7 +1196,7 @@ footer {
   <div class="w hero-inner">
     <div class="hero-badge">
       <span class="hero-badge-dot"></span>
-      OPEN BETA — COMING SOON
+      Open source · Local-first · Desktop + Extension · Claude Code Manager
     </div>
     <h1>
       Your AI conversations,<br>
@@ -1204,7 +1204,7 @@ footer {
       <span class="accent">Not anymore.</span>
     </h1>
     <p class="hero-sub">
-      Kept is a local-first desktop app and Chrome extension with four core features: Chat Archival across every platform, Conversation Forks to switch AI mid-thread, Context Templating so you stop re-explaining your project, and Dynamic Links that connect ideas across conversations.
+      Type @kept in any chat to save it instantly. Search your full archive across ChatGPT, Claude, Gemini, Grok, and Kimi. Ask questions about your past conversations. Includes a built-in Claude Code project manager.
     </p>
     <div class="hero-actions">
       <a href="#cta" class="btn btn-primary btn-xl">
@@ -1454,6 +1454,13 @@ footer {
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
           </div>
         </div>
+        <div class="platform-row">
+          <div class="plat-icon" style="background:#ff6b35;">K</div>
+          <div class="plat-track"><div class="plat-fill" style="background:#ff6b35;animation-delay:0.85s;"></div></div>
+          <div class="plat-dest kept">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+        </div>
       </div>
       <div class="rv">
         <div class="section-eyebrow">The structural advantage</div>
@@ -1462,7 +1469,7 @@ footer {
           <span class="dim">for each other.</span>
         </h2>
         <p class="section-desc">
-          ChatGPT, Claude, and Gemini are all adding memory. Inside their own walls. These are competing companies. They will never index each other's conversations. That gap is permanent, and it widens every time a new model launches.
+          ChatGPT, Claude, Gemini, Grok, and Kimi are all adding memory. Inside their own walls. These are competing companies. They will never index each other's conversations. That gap is permanent, and it widens every time a new model launches.
         </p>
         <div class="gap-quote">
           Netflix won't show you what's on Disney+. Amazon Prime won't surface your HBO Max watchlist. That's why JustWatch exists — it sits above all of them and tells you where everything lives. The same structural gap now exists for AI platforms, and no regulation is coming to fix it. Kept sits above all of them with Chat Archival, Conversation Forks, Context Templating, and Dynamic Links.
@@ -1536,7 +1543,7 @@ footer {
         <span class="step-num">01</span>
         <div class="step-content">
           <div class="step-title">Capture</div>
-          <div class="step-desc">Chrome extension detects your AI conversations automatically and saves them locally. No copy-paste, no manual exports. Also supports bulk import from platform data exports for your full history.</div>
+          <div class="step-desc">Chrome extension detects your AI conversations automatically and saves them locally. Type @kept in any chat to capture it in one click, or let auto-sync run in the background. Save a full chat, just the last few messages, or a specific branch. No duplicates — Kept tracks what is already saved. Also supports bulk import from platform data exports for your full history.</div>
         </div>
       </div>
       <div class="step-row rv">
@@ -1549,15 +1556,15 @@ footer {
       <div class="step-row rv">
         <span class="step-num">03</span>
         <div class="step-content">
-          <div class="step-title">Connect</div>
-          <div class="step-desc">Link related conversations across platforms using Dynamic Links. Define context templates for your active projects so the CLI watcher keeps your AI context current as files change.</div>
+          <div class="step-title">Extract</div>
+          <div class="step-desc">Knowledge engine parses every conversation for entities, decisions, and concepts. These become nodes in a local 3D knowledge graph mapping relationships across all your interactions, regardless of platform. Arcs automatically group related conversations into themes so connected ideas surface without any manual tagging.</div>
         </div>
       </div>
       <div class="step-row rv">
         <span class="step-num">04</span>
         <div class="step-content">
           <div class="step-title">Use</div>
-          <div class="step-desc">Fork a conversation to a different AI mid-thread. Share clean formatted snippets to Slack or email. Let project context auto-inject from your local files. Navigate your knowledge graph to trace how decisions evolved.</div>
+          <div class="step-desc">Ask questions about your past conversations using built-in Smart Recall. Semantic search finds relevant context even when you do not use the exact words. Frequently accessed knowledge surfaces automatically, and outdated facts fade over time. Share formatted snippets with your team, or carry context into any platform.</div>
         </div>
       </div>
     </div>
@@ -1678,7 +1685,7 @@ footer {
       <div class="persona-card">
         <span class="persona-glyph">&gt;_</span>
         <div class="persona-title">Developers</div>
-        <div class="persona-desc">You debug in ChatGPT, architect in Claude, prototype in Gemini. Kept lets you carry context between them, share clean snippets with your team, and search every decision you have ever made across all platforms.</div>
+        <div class="persona-desc">You debug in ChatGPT, architect in Claude, prototype in Gemini. Kept lets you search every decision across all of them, ask questions about your archive with Smart Recall, and manage every Claude Code project you have ever worked on — instructions, skills, memory files, and reusable templates — all in one place.</div>
       </div>
       <div class="persona-card">
         <span class="persona-glyph">◎</span>
@@ -1710,14 +1717,15 @@ footer {
         <div class="pricing-name">Free forever</div>
         <div class="pricing-note">MIT licensed. Available at beta launch.</div>
         <ul class="pricing-items">
-          <li>Chat Archival — cross-platform archive</li>
-          <li>Conversation Forks — switch AI mid-thread</li>
-          <li>Context Templating — CLI file watcher + injection</li>
-          <li>Dynamic Links — connect conversations</li>
-          <li>Full-text search (SQLite FTS5)</li>
-          <li>Markdown vault &amp; export</li>
+          <li>Chrome extension with @kept capture</li>
+          <li>Auto-sync across all platforms</li>
+          <li>Full-text search (FTS5)</li>
+          <li>Conversation reader with code and math rendering</li>
+          <li>Obsidian-compatible markdown vault</li>
+          <li>Claude Code Manager</li>
           <li>Bulk import from data exports</li>
-          <li>ChatGPT + Claude + Gemini</li>
+          <li>ChatGPT, Claude, Gemini, Grok, Kimi</li>
+          <li>BYOK — OpenAI, Anthropic, OpenRouter, Ollama</li>
         </ul>
         <div class="pricing-cta">
           <a href="#cta" class="btn btn-ghost btn-lg" style="width:100%;justify-content:center;">Join waitlist</a>
@@ -1729,13 +1737,12 @@ footer {
         <div class="pricing-note">Pricing TBD. Beta testers will help shape it. BYOK option planned.</div>
         <ul class="pricing-items">
           <li>Everything in free</li>
-          <li>Knowledge graph extraction</li>
-          <li>Entity recognition &amp; relationships</li>
-          <li>AI agent with archive Q&amp;A</li>
+          <li>Smart Recall — conversational Q&amp;A over your archive</li>
           <li>Semantic search</li>
+          <li>3D knowledge graph with entity extraction</li>
+          <li>Arcs — auto-grouped conversation themes</li>
           <li>Weekly AI digests</li>
-          <li>Visual mind map &amp; timeline</li>
-          <li>Comparative agent (multi-LLM query)</li>
+          <li>Knowledge that learns and fades over time</li>
         </ul>
         <div class="pricing-cta">
           <a href="#cta" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;">
@@ -1778,7 +1785,7 @@ footer {
 <footer>
   <div class="w">
     <div class="foot-inner">
-      <span class="foot-left">Kept, an E-Group Labs product, 2026</span>
+      <span class="foot-left">Kept &middot; An E-Group Labs product &middot; 2026</span>
       <div class="foot-right">
         <a href="https://github.com/hoarhouse/KP5D" target="_blank">GitHub</a>
         <a href="#">Docs</a>
