@@ -1144,7 +1144,12 @@ footer {
   .trust-grid { flex-wrap: wrap; gap: 24px; justify-content: center; }
 }
 
+.prob-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--r2); overflow: hidden; margin-top: 56px; }
+.prob-item { background: var(--bg1); padding: 32px 28px; }
+.prob-q { font-size: 0.9rem; font-weight: 500; color: var(--text); margin-bottom: 12px; font-style: italic; }
+.prob-a { font-size: 0.85rem; font-weight: 400; line-height: 1.6; color: var(--text2); }
 @media (max-width: 768px) {
+  .prob-grid { grid-template-columns: 1fr; }
   .nav-links { display: none; }
   .hero { padding-top: 120px; }
   .hero h1 { font-size: 2.4rem; }
@@ -1310,10 +1315,8 @@ footer {
                 </div>
                 <div class="result-text">Chose Tauri 2 over Electron for desktop shell. Reasons: 5MB vs 150MB binary, Rust backend performance, native webview.</div>
                 <div class="result-meta">
-                  <span class="result-source">Claude · "Tauri migration strategy" · Today</span>
+                  <span class="result-source">Claude · "Tauri migration strategy" · Today &nbsp; <span style="font-family:var(--mono);font-size:0.5rem;padding:1px 4px;background:#7c3aed;color:white;border-radius:3px;">@kept</span></span>
                   <div class="result-actions">
-                    <span class="result-action-btn rab-share">Share</span>
-                    <span class="result-action-btn rab-port">Continue in ChatGPT →</span>
                   </div>
                 </div>
               </div>
@@ -1325,7 +1328,6 @@ footer {
                 <div class="result-meta">
                   <span class="result-source">ChatGPT · "SQLite FTS5 vs Tantivy" · Feb 8</span>
                   <div class="result-actions">
-                    <span class="result-action-btn rab-share">Share</span>
                   </div>
                 </div>
               </div>
@@ -1337,8 +1339,6 @@ footer {
                 <div class="result-meta">
                   <span class="result-source">Claude · "Federated learning overview" · Feb 10</span>
                   <div class="result-actions">
-                    <span class="result-action-btn rab-share">Share</span>
-                    <span class="result-action-btn rab-port">Continue in Gemini →</span>
                   </div>
                 </div>
               </div>
@@ -1486,44 +1486,25 @@ footer {
   <div class="w">
     <div class="rv">
       <div class="section-eyebrow">The problem</div>
-      <h2 class="section-heading">Four daily frictions.<br><span class="dim">Four direct solutions.</span></h2>
+      <h2 class="section-heading">Your best thinking is scattered. <em>Across every platform.</em></h2>
+      <p class="section-desc">You use ChatGPT for code, Claude for architecture, Gemini for research. Every insight lives and dies in a single chat window. You can not search across them. You can not ask what you decided last month. Every new conversation starts from zero.</p>
     </div>
-    <div class="problem-grid rv" style="grid-template-columns: repeat(2, 1fr);">
-      <div class="problem-card">
-        <div class="problem-icon">
-          <svg viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M5 8h6M8 5v6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-        </div>
-        <div class="problem-title">"Which platform had that conversation?"</div>
-        <div class="problem-arrow">↓</div>
-        <div class="problem-solution">Chat Archival</div>
-        <div class="problem-desc">One desktop app holds every conversation from ChatGPT, Claude, and Gemini. No more switching tabs to find something from last week.</div>
+    <div class="prob-grid rv">
+      <div class="prob-item">
+        <p class="prob-q">"Which platform had that conversation?"</p>
+        <p class="prob-a">Chat Archival — one desktop archive for every conversation across every platform, searchable in milliseconds.</p>
       </div>
-      <div class="problem-card">
-        <div class="problem-icon">
-          <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M8 2l6 6-6 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="problem-title">"I have to re-explain everything when I switch AI"</div>
-        <div class="problem-arrow">↓</div>
-        <div class="problem-solution">Conversation Forks</div>
-        <div class="problem-desc">Let Claude finish the thread you started with Gemini. Fork any conversation to a different platform with full context already loaded.</div>
+      <div class="prob-item">
+        <p class="prob-q">"I have to re-explain everything when I switch AI."</p>
+        <p class="prob-a">Conversation Forks — fork any thread to a different platform with full context already loaded. No re-explaining.</p>
       </div>
-      <div class="problem-card">
-        <div class="problem-icon">
-          <svg viewBox="0 0 16 16" fill="none"><path d="M3 3h4v4H3zM9 3h4v4H9zM3 9h4v4H3zM9 9h4v4H9z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="problem-title">"I paste my whole codebase into every new chat"</div>
-        <div class="problem-arrow">↓</div>
-        <div class="problem-solution">Context Templating</div>
-        <div class="problem-desc">Define the files and context that belong to a feature once. Kept watches for changes and injects current context automatically via the extension.</div>
+      <div class="prob-item">
+        <p class="prob-q">"I paste my whole codebase into every new chat."</p>
+        <p class="prob-a">Context Templating — define your project context once. Kept injects it automatically via the extension.</p>
       </div>
-      <div class="problem-card">
-        <div class="problem-icon">
-          <svg viewBox="0 0 16 16" fill="none"><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.2"/><circle cx="12" cy="4" r="2" stroke="currentColor" stroke-width="1.2"/><circle cx="8" cy="12" r="2" stroke="currentColor" stroke-width="1.2"/><path d="M6 4h4M5.5 5.5l1.5 5M10.5 5.5l-1.5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-        </div>
-        <div class="problem-title">"That decision was in a chat somewhere. Now it's gone."</div>
-        <div class="problem-arrow">↓</div>
-        <div class="problem-solution">Dynamic Links</div>
-        <div class="problem-desc">Connect related conversations across platforms and build a living knowledge graph. See how your projects and ideas evolve over time.</div>
+      <div class="prob-item">
+        <p class="prob-q">"That decision was in a chat somewhere. Now it is gone."</p>
+        <p class="prob-a">Smart Recall — ask questions about your full archive. Semantic search finds it even if you forget the exact words.</p>
       </div>
     </div>
   </div>
@@ -1598,11 +1579,6 @@ footer {
         <div style="font-family:var(--mono);font-size:0.62rem;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px;">03 Developer</div>
         <div class="feat-title">Claude Code Manager</div>
         <div class="feat-desc">Browse every Claude Code project you have ever worked on. View instructions, skills, and memory files across all projects in one place. Search for skills across projects and copy them where needed. Save and reuse skill bundles as templates. Nothing like this exists anywhere else.</div>
-      </div>
-      <div class="feat-card" style="border-left: 2px solid var(--accent); padding-left: 28px;">
-        <div style="font-family:var(--mono);font-size:0.62rem;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px;">04 / Dynamic Links</div>
-        <div class="feat-title">Connect information across separate chats.</div>
-        <div class="feat-desc">Link related conversations to build a knowledge graph that shows how your projects and ideas evolve over time. See how a decision made in ChatGPT connects to an architecture discussion in Claude weeks later.</div>
       </div>
     </div>
 
