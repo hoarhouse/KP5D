@@ -1161,7 +1161,42 @@ footer {
   .cta-actions { flex-direction: column; align-items: center; }
   section { padding: 72px 0; }
 }
+
+/* FAQ Section */
+.faq-section { padding: 80px 0; }
+.faq-grid { margin-top: 48px; max-width: 720px; }
+.faq-item { border-top: 1px solid rgba(255,255,255,0.08); }
+.faq-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.08); }
+.faq-question { width: 100%; background: none; border: none; text-align: left; padding: 20px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.faq-question-text { font-family: var(--sans, sans-serif); font-size: 0.95rem; font-weight: 500; color: #e4e4e7; line-height: 1.5; }
+.faq-icon { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease, background 0.2s ease; }
+.faq-icon svg { width: 10px; height: 10px; stroke: #a1a1aa; transition: stroke 0.2s ease; }
+.faq-item.open .faq-icon { transform: rotate(45deg); background: rgba(249,115,22,0.15); border-color: rgba(249,115,22,0.4); }
+.faq-item.open .faq-icon svg { stroke: #f97316; }
+.faq-answer { display: none; padding: 0 0 20px 0; }
+.faq-item.open .faq-answer { display: block; }
+.faq-answer p { font-size: 0.88rem; font-weight: 300; line-height: 1.7; color: #a1a1aa; max-width: 640px; }
+.faq-answer a { color: #f97316; text-decoration: none; }
+.faq-answer a:hover { text-decoration: underline; }
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What AI platforms does Kept work with?","acceptedAnswer":{"@type":"Answer","text":"Kept works with ChatGPT, Claude, Gemini, Grok, and Kimi. The Chrome extension captures conversations automatically from all five."}},
+    {"@type":"Question","name":"Is my data safe? Does anything leave my machine?","acceptedAnswer":{"@type":"Answer","text":"Nothing leaves your machine. All conversations are stored locally in a SQLite database and as markdown files on your own computer. No cloud sync, no third-party storage, no server."}},
+    {"@type":"Question","name":"Is Kept really free?","acceptedAnswer":{"@type":"Answer","text":"Yes. The core tier is free forever and MIT licensed. It includes Smart Capture, full-text search, the Claude Code Manager, and support for all five AI platforms."}},
+    {"@type":"Question","name":"What is the Claude Code Manager?","acceptedAnswer":{"@type":"Answer","text":"The Claude Code Manager lets you browse every Claude Code project you have worked on, view instructions, skills, and memory files across projects, and save reusable skill bundles as templates."}},
+    {"@type":"Question","name":"How is Kept different from Echoes?","acceptedAnswer":{"@type":"Answer","text":"Echoes focuses on search and organization. Kept adds a 3D knowledge graph, Smart Recall for querying your archive, the Claude Code Manager, and stores everything locally rather than in the cloud."}},
+    {"@type":"Question","name":"Does it work on Mac, Windows, and Linux?","acceptedAnswer":{"@type":"Answer","text":"Yes. The desktop app runs natively on Windows, Linux, and macOS."}},
+    {"@type":"Question","name":"What is Smart Recall?","acceptedAnswer":{"@type":"Answer","text":"Smart Recall is a built-in chat that lets you ask questions about your full conversation archive in plain English using semantic search. It is part of the Pro tier."}},
+    {"@type":"Question","name":"When is beta launching?","acceptedAnswer":{"@type":"Answer","text":"Beta is launching soon. Join the waitlist for early access."}},
+    {"@type":"Question","name":"Do I need an API key to use Kept?","acceptedAnswer":{"@type":"Answer","text":"Not for the free tier. Pro features support bring-your-own-key from OpenAI, Anthropic, OpenRouter, or local models via Ollama."}}
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -1781,6 +1816,93 @@ footer {
 </section>
 
 <!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section class="faq-section">
+  <div class="w">
+    <div class="rv">
+      <p class="section-label">FAQ</p>
+      <h2 class="section-heading">Common questions. <span class="dim">Straight answers.</span></h2>
+    </div>
+    <div class="faq-grid rv">
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-question-text">What AI platforms does Kept work with?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 1v10M1 6h10" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-answer"><p>Kept works with ChatGPT, Claude, Gemini, Grok, and Kimi. The Chrome extension captures conversations automatically from all five. More platforms will be added as Kept grows.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-question-text">Is my data safe? Does anything leave my machine?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 1v10M1 6h10" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-answer"><p>Nothing leaves your machine. All conversations are stored locally in a SQLite database and as Obsidian-compatible markdown files on your own computer. There is no cloud sync, no third-party storage, and no server. Your data is 100% yours.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-question-text">Is Kept really free?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 1v10M1 6h10" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-answer"><p>Yes. The core tier is free forever and MIT licensed. It includes Smart Capture, full-text search, the Claude Code Manager, the Chrome extension, and support for all five AI platforms. A Pro tier with Smart Recall, the 3D knowledge graph, Arcs, and weekly digests is coming soon. Beta testers will help shape the pricing.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-question-text">What is the Claude Code Manager?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 1v10M1 6h10" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-answer"><p>The Claude Code Manager lets you browse every Claude Code project you have ever worked on, all in one place. You can view instructions, skills, and memory files across projects, search for skills and copy them between projects, and save reusable skill bundles as templates. Nothing like this exists in any other tool.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-question-text">How is Kept different from Echoes?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 1v10M1 6h10" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-answer"><p>Echoes is a solid conversation manager focused on search, labels, and organization. Kept goes further. It extracts structured knowledge from your conversations, builds a 3D knowledge graph of entities, decisions, and relationships, includes Smart Recall for asking questions across your full archive, and ships the Claude Code Manager. Kept also stores everything locally while Echoes syncs to the cloud.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-question-text">Does it work on Mac, Windows, and Linux?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 1v10M1 6h10" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-answer"><p>Yes. The desktop app runs natively on Windows, Linux, and macOS. The Chrome extension works on any platform that runs Chrome.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-question-text">What is Smart Recall?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 1v10M1 6h10" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-answer"><p>Smart Recall is a built-in chat that lets you ask questions about your full conversation archive in plain English. It uses semantic search so it finds the right answer even if you do not remember the exact words. It learns over time, surfacing frequently accessed knowledge automatically and letting outdated facts fade. Smart Recall is part of the Pro tier.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-question-text">When is beta launching?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 1v10M1 6h10" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-answer"><p>Beta is launching soon. Join the waitlist to get early access to the desktop app and Chrome extension. Waitlist members will also get to help shape Pro tier pricing and features before public launch.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-question-text">Do I need an API key to use Kept?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 1v10M1 6h10" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-answer"><p>Not for the free tier. Capture, search, and the Claude Code Manager all work without any API key. Pro features like Smart Recall and knowledge graph extraction use AI under the hood. For those, Kept supports bring-your-own-key (BYOK) from OpenAI, Anthropic, OpenRouter, or you can run local models via Ollama at no cost.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
      CTA
      ============================================================ -->
 <section class="cta-section" id="cta">
@@ -1849,6 +1971,26 @@ const gapObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.3 });
 const gapSection = document.querySelector('.gap-visual');
 if (gapSection) gapObserver.observe(gapSection);
+
+// FAQ Accordion functionality
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    
+    // Close all open items
+    document.querySelectorAll('.faq-item.open').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    });
+    
+    // If this item wasn't open, open it
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
 </script>
 </body>
 </html>
