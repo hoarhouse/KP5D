@@ -960,18 +960,20 @@ section { padding: 100px 0; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1px;
-  background: var(--border);
+  background: transparent;
   border: 1px solid var(--border);
   border-radius: var(--r2);
   overflow: hidden;
   margin-top: 56px;
 }
 .pricing-card {
-  background: var(--bg2);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
   padding: 40px 36px;
 }
 .pricing-card.featured {
-  background: var(--bg3);
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
   position: relative;
 }
 .pricing-card.featured::before {
@@ -1144,10 +1146,10 @@ footer {
   .trust-grid { flex-wrap: wrap; gap: 24px; justify-content: center; }
 }
 
-.prob-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--r2); overflow: hidden; margin-top: 56px; }
-.prob-item { background: var(--bg1); padding: 32px 28px; }
-.prob-q { font-size: 0.9rem; font-weight: 500; color: var(--text); margin-bottom: 12px; font-style: italic; }
-.prob-a { font-size: 0.85rem; font-weight: 400; line-height: 1.6; color: var(--text2); }
+.prob-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: transparent; overflow: hidden; margin-top: 56px; }
+.prob-item { background: rgba(255,255,255,0.05); padding: 32px 28px; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; }
+.prob-q { font-size: 0.9rem; font-weight: 500; color: #e4e4e7; margin-bottom: 12px; font-style: italic; }
+.prob-a { font-size: 0.85rem; font-weight: 400; line-height: 1.6; color: #a1a1aa; }
 .silo-visual { margin-top: 40px; }
 @media (max-width: 768px) {
   .prob-grid { grid-template-columns: 1fr; }
@@ -1391,7 +1393,7 @@ footer {
       </div>
       <div class="trust-divider"></div>
       <div class="trust-item">
-        <span class="trust-num">3+</span>
+        <span class="trust-num">5</span>
         <span class="trust-label">AI platforms</span>
       </div>
       <div class="trust-divider"></div>
