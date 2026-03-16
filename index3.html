@@ -1184,7 +1184,7 @@ footer {
 .faq-question { width: 100%; background: none; border: none; text-align: left; padding: 20px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
 .faq-question-text { font-family: var(--sans, sans-serif); font-size: 0.95rem; font-weight: 500; color: #e4e4e7; line-height: 1.5; }
 .faq-icon { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease, background 0.2s ease; }
-.faq-icon svg { width: 10px; height: 10px; stroke: #a1a1aa; transition: stroke 0.2s ease; }
+.faq-icon svg { width: 10px; height: 10px; stroke: #5B727C; transition: stroke 0.2s ease; }
 .faq-item.open .faq-icon { transform: rotate(45deg); background: rgba(249,115,22,0.15); border-color: rgba(249,115,22,0.4); }
 .faq-item.open .faq-icon svg { stroke: #f97316; }
 .faq-answer { display: none; padding: 0 0 20px 0; }
@@ -1192,6 +1192,26 @@ footer {
 .faq-answer p { font-size: 0.88rem; font-weight: 300; line-height: 1.7; color: #a1a1aa; max-width: 640px; }
 .faq-answer a { color: #f97316; text-decoration: none; }
 .faq-answer a:hover { text-decoration: underline; }
+
+.tier-badge {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 2px 7px;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-left: 8px;
+  line-height: 1.6;
+}
+.tier-free {
+  background: #0D6B47;
+  color: #34D399;
+}
+.tier-pro {
+  background: #3C220C;
+  color: #F48322;
+}
 </style>
 
 <script type="application/ld+json">
@@ -1475,15 +1495,15 @@ footer {
         <svg viewBox="0 0 560 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:560px;display:block;">
           <defs>
             <style>
-              .silo-box { fill: #18181b; stroke: #3f3f46; stroke-width: 1.5; rx: 8; }
-              .silo-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; fill: #a1a1aa; text-anchor: middle; }
-              .silo-name { font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 12px; fill: #e4e4e7; text-anchor: middle; }
-              .silo-sub { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: #52525b; text-anchor: middle; }
-              .kept-bar { fill: #09090b; stroke: #a1a1aa; stroke-width: 1.5; }
-              .kept-label { font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 13px; fill: #fafafa; text-anchor: middle; }
-              .kept-sub { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: #71717a; text-anchor: middle; }
-              .wall { stroke: #3f3f46; stroke-width: 1.5; stroke-dasharray: 4 3; }
-              .bracket { stroke: #3f3f46; stroke-width: 1; fill: none; }
+              .silo-box { fill: #071318; stroke: #0F2730; stroke-width: 1.5; rx: 8; }
+              .silo-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; fill: #5B727C; text-anchor: middle; }
+              .silo-name { font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 12px; fill: #C3ECFF; text-anchor: middle; }
+              .silo-sub { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: #3A5560; text-anchor: middle; }
+              .kept-bar { fill: #020A0D; stroke: #5B727C; stroke-width: 1.5; }
+              .kept-label { font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 13px; fill: #C3ECFF; text-anchor: middle; }
+              .kept-sub { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: #5B727C; text-anchor: middle; }
+              .wall { stroke: #0F2730; stroke-width: 1.5; stroke-dasharray: 4 3; }
+              .bracket { stroke: #0F2730; stroke-width: 1; fill: none; }
             </style>
           </defs>
 
@@ -1649,28 +1669,32 @@ footer {
     <div class="rv">
       <div class="section-eyebrow">Core features</div>
       <h2 class="section-heading">Four features.<br><span class="dim">Built for how developers actually work.</span></h2>
-      <p class="section-desc" style="margin-top:12px;">All four are free, open source, and available at beta launch. No account required.</p>
+      <p class="section-desc" style="margin-top:12px;">Smart Capture and Claude Code Manager are free forever. Smart Recall and 3D Knowledge Graph are coming as Kept Pro.</p>
     </div>
 
     <!-- 4 Core Features - prominent 2x2 grid -->
     <div class="feat-grid rv" style="grid-template-columns: repeat(2, 1fr); margin-top: 40px;">
       <div class="feat-card" style="border-left: 2px solid var(--accent); padding-left: 28px;">
         <div style="font-family:var(--mono);font-size:0.62rem;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px;">01 Capture</div>
+        <span class="tier-badge tier-free">FREE</span>
         <div class="feat-title">Smart Capture</div>
         <div class="feat-desc">Type @kept in any chat to save it instantly, or let auto-sync handle it in the background. Capture a full conversation, the last few messages, or a specific branch. Works across ChatGPT, Claude, Gemini, Grok, and Kimi. No duplicates, no manual exports, no friction.</div>
       </div>
       <div class="feat-card" style="border-left: 2px solid var(--accent); padding-left: 28px;">
         <div style="font-family:var(--mono);font-size:0.62rem;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px;">02 Recall</div>
+        <span class="tier-badge tier-pro">PRO</span>
         <div class="feat-title">Smart Recall</div>
         <div class="feat-desc">Full-text search across every conversation you have ever had, plus a built-in chat that answers questions about your archive using semantic search. Ask "what did I decide about auth last month?" and get an answer with citations. Learns over time. Frequently accessed knowledge surfaces automatically, outdated facts fade.</div>
       </div>
       <div class="feat-card" style="border-left: 2px solid var(--accent); padding-left: 28px;">
         <div style="font-family:var(--mono);font-size:0.62rem;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px;">03 Developer</div>
+        <span class="tier-badge tier-free">FREE</span>
         <div class="feat-title">Claude Code Manager</div>
         <div class="feat-desc">Browse every Claude Code project you have ever worked on. View instructions, skills, and memory files across all projects in one place. Search for skills across projects and copy them where needed. Save and reuse skill bundles as templates. Nothing like this exists anywhere else.</div>
       </div>
       <div class="feat-card" style="border-left: 2px solid var(--accent); padding-left: 28px;">
         <div style="font-family:var(--mono);font-size:0.62rem;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px;">04 Knowledge</div>
+        <span class="tier-badge tier-pro">PRO</span>
         <div class="feat-title">Knowledge Graph</div>
         <div class="feat-desc">Kept automatically extracts people, projects, technologies, decisions, and facts from every conversation. Explore connections in a 3D graph view. Arcs group related conversations into themes so nothing gets lost and nothing stays disconnected.</div>
       </div>
