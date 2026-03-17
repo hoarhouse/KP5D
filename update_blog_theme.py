@@ -1,6 +1,5 @@
 import os, re, glob
 
-# ── New nav HTML (replaces everything from <nav> to </nav>) ──
 NEW_NAV = '''<nav>
   <div class="w">
     <a href="/KP5D/" class="nav-logo">
@@ -24,7 +23,6 @@ NEW_NAV = '''<nav>
   </div>
 </nav>'''
 
-# ── New footer HTML (replaces everything from <footer> to </footer>) ──
 NEW_FOOTER = '''<footer>
   <div class="w">
     <div class="foot-inner">
@@ -38,7 +36,6 @@ NEW_FOOTER = '''<footer>
   </div>
 </footer>'''
 
-# ── New font imports + CSS link (replaces old font links and inline style block) ──
 NEW_HEAD_STYLES = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&family=Instrument+Serif:ital@0;1&family=DM+Mono:ital,wght@0,300;0,400;0,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
@@ -50,8 +47,7 @@ def process_file(path):
 
     original = html
 
-    # 1. Replace font preconnects + link + inline <style> block with new imports
-    # Pattern: from first <link rel="preconnect" to end of </style>
+    # Replace font imports + inline <style> block with shared CSS link
     html = re.sub(
         r'<link rel="preconnect".*?</style>',
         NEW_HEAD_STYLES,
@@ -60,7 +56,7 @@ def process_file(path):
         flags=re.DOTALL
     )
 
-    # 2. Replace nav block
+    # Replace nav
     html = re.sub(
         r'<nav>.*?</nav>',
         NEW_NAV,
@@ -69,7 +65,7 @@ def process_file(path):
         flags=re.DOTALL
     )
 
-    # 3. Replace footer block
+    # Replace footer
     html = re.sub(
         r'<footer>.*?</footer>',
         NEW_FOOTER,
@@ -85,10 +81,8 @@ def process_file(path):
     else:
         print(f"No changes: {path}")
 
-# Process blog/index.html
 process_file('blog/index.html')
 
-# Process all article index.html files
 for path in glob.glob('blog/*/index.html'):
     process_file(path)
 
