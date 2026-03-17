@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kept Docs — Getting Started & Feature Guide</title>
+<meta name="description" content="Kept documentation for beta users. Setup guide, feature walkthroughs, FAQ, and troubleshooting.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23f97316'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='700' font-size='18' fill='white'>K</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root {
+  --bg:        #020A0D;
+  --bg1:       #040E12;
+  --bg2:       #071318;
+  --bg3:       #0A1A20;
+  --border:    #0F2730;
+  --border2:   #163340;
+  --text:      #C3ECFF;
+  --text2:     #7AACBF;
+  --text3:     #5B727C;
+  --accent:    #F48322;
+  --accent2:   #D4711A;
+  --accent-dim:#F4832215;
+  --sans:      'Outfit', system-ui, sans-serif;
+  --display:   'Bricolage Grotesque', system-ui, sans-serif;
+  --mono:      'DM Mono', 'SF Mono', monospace;
+  --max:       1100px;
+  --r:         8px;
+  --r2:        12px;
+}
+
+/* ============================================================
+   RESET + BASE
+   ============================================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+::selection { background: var(--accent); color: var(--bg); }
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle at 25% 35%, #F4832206 0%, transparent 50%),
+                    radial-gradient(circle at 75% 65%, #00FFCC04 0%, transparent 50%);
+  pointer-events: none;
+  opacity: 0.7;
+  z-index: 1;
+}
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+.w { max-width: var(--max); margin: 0 auto; padding: 0 48px; }
+.wa { max-width: 720px; margin: 0 auto; padding: 0 48px; }
+@media (max-width: 768px) { .w, .wa { padding: 0 20px; } }
+
+/* ============================================================
+   NAV
+   ============================================================ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  background: rgba(2, 10, 13, 0.88);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 1px solid var(--border);
+}
+nav .w {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.nav-logo-mark {
+  width: 28px; height: 28px;
+  border-radius: 7px;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.nav-logo-mark svg { width: 16px; height: 16px; }
+.nav-logo-text {
+  font-family: var(--display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.nav-links a {
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--text3);
+  text-decoration: none;
+  transition: color 0.15s;
+  letter-spacing: 0.01em;
+}
+.nav-links a:hover { color: var(--text2); }
+.nav-cta { display: flex; align-items: center; }
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: var(--r);
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--text3);
+  border: 1px solid var(--border2);
+}
+.btn-ghost:hover {
+  color: var(--text2);
+  background: var(--bg2);
+}
+.pill-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 20px;
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 100px;
+  color: var(--text2);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: all 0.15s;
+  letter-spacing: 0.01em;
+  margin: 0 6px 6px 0;
+}
+.pill-link:hover {
+  background: var(--bg3);
+  color: var(--text);
+  border-color: var(--accent2);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  padding: 140px 0 80px;
+  background: var(--bg);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.1s forwards;
+}
+.hero h1 {
+  font-family: var(--display);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  color: var(--text);
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.2s forwards;
+}
+.hero-sub {
+  font-size: 1.05rem;
+  color: var(--text2);
+  max-width: 640px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.3s forwards;
+}
+.hero-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.4s forwards;
+}
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+.section {
+  padding: 80px 0;
+  position: relative;
+  z-index: 2;
+}
+.section-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.section-heading {
+  font-family: var(--display);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+.section-desc {
+  font-size: 0.95rem;
+  color: var(--text2);
+  max-width: 640px;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   FEATURES
+   ============================================================ */
+#features {
+  background: var(--bg1);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.feature-list {
+  margin-top: 56px;
+}
+.feature-item {
+  border-top: 1px solid var(--border);
+  padding: 40px 0;
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 32px;
+}
+.feature-item:first-child { border-top: none; }
+.feature-num {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--text3);
+  padding-top: 4px;
+}
+.feature-content h3 {
+  font-family: var(--display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.feature-content p {
+  font-size: 0.95rem;
+  color: var(--text2);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+.feature-content p:last-child { margin-bottom: 0; }
+.tier-badge {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  vertical-align: middle;
+  line-height: 1.4;
+}
+.tier-free {
+  background: #0D6B47;
+  color: #34D399;
+}
+.tier-pro {
+  background: #3C220C;
+  color: #F48322;
+}
+
+/* ============================================================
+   FAQ / TROUBLESHOOTING
+   ============================================================ */
+#faq, #troubleshooting {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.faq-list {
+  margin-top: 48px;
+}
+.faq-item {
+  border-top: 1px solid var(--border);
+}
+.faq-item:last-child { border-bottom: 1px solid var(--border); }
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 24px 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.faq-question-text {
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.5;
+}
+.faq-icon {
+  flex-shrink: 0;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--border2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.faq-icon svg {
+  width: 10px; height: 10px;
+  stroke: var(--text3);
+  transition: stroke 0.2s ease;
+}
+.faq-item.open .faq-icon {
+  transform: rotate(45deg);
+  background: var(--accent-dim);
+  border-color: var(--accent2);
+}
+.faq-item.open .faq-icon svg { stroke: var(--accent); }
+.faq-answer {
+  display: none;
+  padding: 0 0 24px 0;
+}
+.faq-item.open .faq-answer { display: block; }
+.faq-answer p, .faq-answer ol, .faq-answer ul {
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--text2);
+  max-width: 640px;
+  margin-bottom: 16px;
+}
+.faq-answer p:last-child { margin-bottom: 0; }
+.faq-answer strong { font-weight: 500; color: var(--text); }
+.faq-answer ol, .faq-answer ul { padding-left: 24px; }
+.faq-answer li { margin-bottom: 8px; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  background: var(--bg1);
+  border-top: 1px solid var(--border);
+  padding: 32px 0;
+  position: relative;
+  z-index: 2;
+}
+.foot-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.foot-left {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--text2);
+  letter-spacing: 0.02em;
+}
+.foot-right { display: flex; gap: 24px; }
+.foot-right a {
+  font-size: 0.78rem;
+  color: var(--text2);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.foot-right a:hover { color: var(--text); }
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.rv {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.rv.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero { padding: 100px 0 60px; }
+  .section { padding: 60px 0; }
+  .feature-item {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .foot-inner {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav>
+  <div class="w">
+    <a href="../index.html" class="nav-logo">
+      <div class="nav-logo-mark">
+        <svg viewBox="0 0 14 14" fill="none">
+          <rect x="2" y="2" width="4" height="4" rx="1" fill="#070709"/>
+          <rect x="8" y="2" width="4" height="4" rx="1" fill="#070709"/>
+          <rect x="2" y="8" width="4" height="4" rx="1" fill="#070709"/>
+          <rect x="8" y="8" width="4" height="4" rx="1" fill="#070709" opacity="0.4"/>
+        </svg>
+      </div>
+      <span class="nav-logo-text">Kept</span>
+    </a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#faq">FAQ</a>
+      <a href="#troubleshooting">Troubleshooting</a>
+    </div>
+    <div class="nav-cta">
+      <a href="../index.html" class="btn btn-ghost">Back to kept.work</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="w">
+    <div class="hero-eyebrow">BETA DOCS</div>
+    <h1>Get started with Kept.</h1>
+    <p class="hero-sub">
+      Everything you need to set up the app, capture your first conversation, and get the most out of each feature. If something is broken, check Troubleshooting at the bottom.
+    </p>
+    <div class="hero-links">
+      <a href="#features" class="pill-link">Jump to Features</a>
+      <a href="#troubleshooting" class="pill-link">Jump to Troubleshooting</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FEATURES
+     ============================================================ -->
+<section id="features" class="section">
+  <div class="w">
+    <div class="rv">
+      <div class="section-eyebrow">CORE FEATURES</div>
+      <h2 class="section-heading">Four things Kept does.</h2>
+      <p class="section-desc">Smart Capture and Claude Code Manager are free. Smart Recall and Knowledge Graph are Kept Pro, coming soon.</p>
+    </div>
+    <div class="feature-list rv">
+      <div class="feature-item">
+        <div class="feature-num">01</div>
+        <div class="feature-content">
+          <h3>Smart Capture <span class="tier-badge tier-free">FREE</span></h3>
+          <p>Type @kept in any chat window on ChatGPT, Claude, Gemini, Grok, or Kimi to save that conversation instantly. You can also let auto-sync run in the background — it checks for new conversations periodically and saves them without any action from you.</p>
+          <p>When you capture, you choose what to save: the full conversation, just the last few messages, or a specific branch. The Chrome extension handles deduplication automatically so you will never end up with duplicate copies of the same conversation.</p>
+          <p>For older conversations, use bulk import. Go to your AI platform's settings, download your data export, then drag and drop the file into Kept. Supported formats: ChatGPT data export (.zip), Claude export (.json), Gemini Takeout (.json), and generic Markdown (.md).</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-num">02</div>
+        <div class="feature-content">
+          <h3>Smart Recall <span class="tier-badge tier-pro">PRO</span></h3>
+          <p>Smart Recall is a built-in chat inside the Kept desktop app. Type a question in plain English and it searches your full conversation archive to find the answer. Example: "What did I decide about authentication last month?" — Kept finds the relevant conversations and returns a cited answer.</p>
+          <p>Smart Recall uses semantic search, not just keyword matching. This means it finds relevant results even when you do not remember the exact words used. Results include the source conversation, platform, and date so you can go back to the original.</p>
+          <p>Smart Recall learns over time. Conversations you access frequently surface higher in results. Older facts that have been superseded by newer decisions gradually fade in relevance. This is a Pro feature. BYOK is supported: bring your own OpenAI, Anthropic, or OpenRouter key, or run local inference via Ollama.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-num">03</div>
+        <div class="feature-content">
+          <h3>Claude Code Manager <span class="tier-badge tier-free">FREE</span></h3>
+          <p>The Claude Code Manager is a dedicated view inside the Kept desktop app for managing your Claude Code projects. It reads the local files that Claude Code writes to your machine — instructions, skills, and memory files — and shows them all in one place across every project you have ever worked on.</p>
+          <p>From the Claude Code Manager you can: browse all projects and their current instructions, search for a specific skill across all projects, copy a skill from one project and paste it into another, and save a set of skills as a reusable template for new projects.</p>
+          <p>This does not require any API key or cloud connection. It reads local files only. Nothing is uploaded anywhere.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-num">04</div>
+        <div class="feature-content">
+          <h3>Knowledge Graph <span class="tier-badge tier-pro">PRO</span></h3>
+          <p>The Knowledge Graph is an interactive 3D visualization of everything Kept has extracted from your conversations. After capturing conversations, Kept's knowledge engine parses them for entities: people, projects, technologies, decisions, and facts. Each entity becomes a node. Relationships between entities become edges.</p>
+          <p>Arcs are automatic groupings of related conversations into themes. Kept detects which conversations are about similar topics and groups them without any manual tagging required. Click any node in the graph to see the conversations it came from.</p>
+          <p>This is a Pro feature. It requires the desktop app to be running and at least 20-30 captured conversations before the graph becomes meaningfully populated.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section id="faq" class="section">
+  <div class="wa">
+    <div class="rv">
+      <div class="section-eyebrow">FAQ</div>
+      <h2 class="section-heading">Common questions.</h2>
+    </div>
+    <div class="faq-list rv">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-question-text">Does anything leave my machine?</span>
+          <span class="faq-icon">
+            <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5">
+              <line x1="5" y1="0" x2="5" y2="10"/>
+              <line x1="0" y1="5" x2="10" y2="5"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer">
+          <p>No. All conversations are stored locally as SQLite and Obsidian-compatible markdown files on your own computer. The Chrome extension communicates only with the Kept desktop app running locally. No data goes to any external server. Pro AI features (Smart Recall, Knowledge Graph) use your own API key and call the AI provider directly from your machine.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-question-text">What AI platforms does the Chrome extension support?</span>
+          <span class="faq-icon">
+            <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5">
+              <line x1="5" y1="0" x2="5" y2="10"/>
+              <line x1="0" y1="5" x2="10" y2="5"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer">
+          <p>ChatGPT, Claude, Gemini, Grok, and Kimi. The extension detects the platform automatically. More platforms will be added in future updates.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-question-text">How does @kept capture work exactly?</span>
+          <span class="faq-icon">
+            <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5">
+              <line x1="5" y1="0" x2="5" y2="10"/>
+              <line x1="0" y1="5" x2="10" y2="5"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer">
+          <p>When you type @kept in any chat input on a supported platform, the Chrome extension intercepts the command before it is sent, captures the current conversation, saves it to the local Kept app, and shows a confirmation. The @kept text is removed from your input so it is never sent to the AI.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-question-text">How do I import my full ChatGPT history?</span>
+          <span class="faq-icon">
+            <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5">
+              <line x1="5" y1="0" x2="5" y2="10"/>
+              <line x1="0" y1="5" x2="10" y2="5"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer">
+          <p>Go to ChatGPT Settings > Data controls > Export data. You will receive a .zip file by email. In the Kept desktop app, open the Import panel, click "Import from platform export," and drag in the .zip file. Kept will parse all conversations and add them to your archive. Duplicates are filtered automatically.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-question-text">Do I need an API key for the free tier?</span>
+          <span class="faq-icon">
+            <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5">
+              <line x1="5" y1="0" x2="5" y2="10"/>
+              <line x1="0" y1="5" x2="10" y2="5"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer">
+          <p>No. Smart Capture, full-text search, the Claude Code Manager, and the Chrome extension all work with no API key. Pro features (Smart Recall and Knowledge Graph) use AI under the hood. For those, Kept supports bring-your-own-key from OpenAI, Anthropic, OpenRouter, or local models via Ollama.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-question-text">The Chrome extension is not capturing conversations. What do I do?</span>
+          <span class="faq-icon">
+            <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5">
+              <line x1="5" y1="0" x2="5" y2="10"/>
+              <line x1="0" y1="5" x2="10" y2="5"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer">
+          <p>See the Troubleshooting section below.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-question-text">How is Kept different from just using each platform's built-in search?</span>
+          <span class="faq-icon">
+            <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5">
+              <line x1="5" y1="0" x2="5" y2="10"/>
+              <line x1="0" y1="5" x2="10" y2="5"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer">
+          <p>Platform search only covers that platform. ChatGPT search will never find your Claude conversations. Kept searches all five platforms in a single query. Smart Recall goes further and answers questions across your full archive rather than returning a list of results to scroll through.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TROUBLESHOOTING
+     ============================================================ -->
+<section id="troubleshooting" class="section">
+  <div class="wa">
+    <div class="rv">
+      <div class="section-eyebrow">TROUBLESHOOTING</div>
+      <h2 class="section-heading">Something not working?</h2>
+      <p class="section-desc">Work through the relevant section below. If the issue persists, open a GitHub issue with your OS, browser version, and a description of what happened.</p>
+    </div>
+    <div class="faq-list rv">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-question-text"><strong>ISSUE:</strong> Chrome extension not capturing conversations</span>
+          <span class="faq-icon">
+            <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5">
+              <line x1="5" y1="0" x2="5" y2="10"/>
+              <line x1="0" y1="5" x2="10" y2="5"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer">
+          <p><strong>Steps:</strong></p>
+          <ol>
+            <li>Make sure the Kept desktop app is open and running. The extension requires the app to be running to save conversations.</li>
+            <li>Check that the extension is enabled. Go to chrome://extensions, find Kept, and confirm it is toggled on.</li>
+            <li>Check extension permissions. The extension needs access to chat.openai.com, claude.ai, gemini.google.com, grok.com, and kimi.ai. Click the extension icon, open Settings, and confirm all platforms are enabled.</li>
+            <li>Try a hard refresh on the AI platform tab (Cmd+Shift+R on Mac, Ctrl+Shift+R on Windows/Linux).</li>
+            <li>If still not working, open the Chrome DevTools console on the AI platform tab and look for errors starting with [Kept]. Report any errors as a GitHub issue.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-question-text"><strong>ISSUE:</strong> Desktop app not opening or crashing on launch</span>
+          <span class="faq-icon">
+            <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5">
+              <line x1="5" y1="0" x2="5" y2="10"/>
+              <line x1="0" y1="5" x2="10" y2="5"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer">
+          <p><strong>Steps:</strong></p>
+          <ol>
+            <li>On Windows: right-click the .exe and choose "Run as administrator" once to grant permissions, then launch normally.</li>
+            <li>On macOS: if you see "app is damaged" or "unidentified developer," open System Settings > Privacy & Security, scroll down, and click "Open Anyway" next to Kept.</li>
+            <li>On Linux (AppImage): make sure the file is executable. Run: chmod +x Kept.AppImage then ./Kept.AppImage</li>
+            <li>On Linux (.deb): install with sudo dpkg -i kept.deb then launch from your application menu or run kept from terminal.</li>
+            <li>Check that you have at least 200MB of free disk space. Kept writes a local database and markdown vault.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-question-text"><strong>ISSUE:</strong> @kept command not working in chat</span>
+          <span class="faq-icon">
+            <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5">
+              <line x1="5" y1="0" x2="5" y2="10"/>
+              <line x1="0" y1="5" x2="10" y2="5"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer">
+          <p><strong>Steps:</strong></p>
+          <ol>
+            <li>Confirm the Chrome extension is installed and enabled.</li>
+            <li>The @kept command must be typed at the start of a new message input, not in the middle of existing text.</li>
+            <li>Make sure you are on a supported platform: ChatGPT, Claude, Gemini, Grok, or Kimi.</li>
+            <li>If the @kept text is being sent to the AI instead of triggering capture, the extension may not have loaded correctly. Reload the tab and try again.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-question-text"><strong>ISSUE:</strong> Search returning no results</span>
+          <span class="faq-icon">
+            <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5">
+              <line x1="5" y1="0" x2="5" y2="10"/>
+              <line x1="0" y1="5" x2="10" y2="5"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer">
+          <p><strong>Steps:</strong></p>
+          <ol>
+            <li>Make sure you have captured at least one conversation. Open the Kept desktop app and check that the sidebar shows conversations.</li>
+            <li>If the sidebar is empty, the Chrome extension may not be connected to the app. Restart both the app and Chrome.</li>
+            <li>Full-text search requires the exact word to appear in the conversation. If you cannot remember the exact words, use Smart Recall (Pro) which uses semantic search instead.</li>
+            <li>Try a broader search term first, then narrow down.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-question-text"><strong>ISSUE:</strong> Claude Code Manager shows no projects</span>
+          <span class="faq-icon">
+            <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5">
+              <line x1="5" y1="0" x2="5" y2="10"/>
+              <line x1="0" y1="5" x2="10" y2="5"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer">
+          <p><strong>Steps:</strong></p>
+          <ol>
+            <li>Claude Code Manager reads from the directory where Claude Code stores project files on your machine. Make sure you have at least one Claude Code project created.</li>
+            <li>If you have projects but they are not showing, check that Kept has read access to your home directory. On macOS this may require granting Full Disk Access in System Settings > Privacy & Security.</li>
+            <li>On Windows, run Kept as administrator once to allow it to scan the Claude Code project directory.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="w">
+    <div class="foot-inner">
+      <span class="foot-left">Kept &middot; An E-Group Labs product &middot; 2026</span>
+      <div class="foot-right">
+        <a href="https://github.com/hoarhouse/KP5D" target="_blank">GitHub</a>
+        <a href="../index.html">Back to kept.work</a>
+        <a href="/KP5D/privacy.html">Privacy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// FAQ Accordion
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
+// Scroll reveal
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.rv').forEach(el => {
+  revealObserver.observe(el);
+});
+</script>
+
+</body>
+</html>
