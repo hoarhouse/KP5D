@@ -299,6 +299,69 @@ nav .w {
   opacity: 0;
   animation: fadeUp 0.7s 0.65s forwards;
 }
+/* Download row */
+.hero-downloads {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.58s forwards;
+}
+.hero-downloads-label {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text3);
+}
+.hero-downloads-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.dl-btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--text3);
+  text-decoration: none;
+  padding: 7px 14px;
+  border: 1px solid var(--border2);
+  border-radius: var(--r);
+  background: var(--bg2);
+  transition: all 0.15s;
+  letter-spacing: 0.02em;
+  min-width: 80px;
+}
+.dl-btn:hover {
+  color: var(--text2);
+  border-color: var(--accent2);
+  background: var(--bg3);
+}
+.dl-btn svg {
+  width: 14px;
+  height: 14px;
+  opacity: 0.5;
+  transition: opacity 0.15s;
+}
+.dl-btn:hover svg { opacity: 0.8; }
+.dl-btn-sub {
+  font-size: 0.52rem;
+  color: var(--text3);
+  letter-spacing: 0.04em;
+  margin-top: 1px;
+}
+@media (max-width: 768px) {
+  .hero-downloads-row { gap: 6px; }
+  .dl-btn { min-width: 70px; padding: 6px 10px; }
+}
 .hero-meta-item {
   display: flex;
   align-items: center;
@@ -1295,6 +1358,33 @@ footer {
         View on GitHub
       </a>
     </div>
+
+    <div class="hero-downloads">
+      <span class="hero-downloads-label">Download</span>
+      <div class="hero-downloads-row">
+        <a href="https://kept.work/download/windows" class="dl-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+          Windows
+          <span class="dl-btn-sub">.exe</span>
+        </a>
+        <a href="https://kept.work/download/macos" class="dl-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.54 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09z"/><path d="M15.53 3.83c.787-1.014 1.315-2.43 1.17-3.83-1.14.052-2.52.753-3.33 1.767-.727.93-1.375 2.414-1.2 3.83 1.274.103 2.58-.649 3.36-1.767z"/></svg>
+          macOS
+          <span class="dl-btn-sub">.dmg</span>
+        </a>
+        <a href="https://kept.work/download/linux-appimage" class="dl-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M20.581 19.049c-.55-.446-.336-1.431-.959-1.912a.755.755 0 0 0-.14-.105c1.324-2.937 1.037-5.395-.87-6.828-1.943-1.46-4.917-1.334-7.447.175-2.117 1.243-3.567 3.212-3.761 5.208-.02.199.005.378.024.559a.69.69 0 0 0-.145.076c-.651.479-.425 1.494-.99 1.936-.532.42-1.061-.047-1.544.338-.455.365-.35 1.195.05 1.66.599.697 1.282.985 2.134.657.461-.178.758-.158 1.208.078.548.284 1.17.496 1.854.632 2.426.481 4.8-.021 6.423-1.25.29.157.653.261 1.048.321.348.051.948.43 1.335.607.536.242 1.373.41 1.74-.201.382-.63-.272-1.3-.961-1.851zm-2.42.517c-.098.121-1.534-.252-2.536.209-2.157 1.008-4.911.688-6.709-.515-.105-.072-.302-.209-.202-.306.12-.115 1.274.327 1.338.24.063-.088-.922-1.031-.744-2.962.203-2.217 1.818-3.815 3.688-4.648 2.215-.985 4.854-.785 5.822.916.949 1.667.153 4.078-.252 4.116-.222.021-.857-1.277-1.131-1.093-.285.192.48 2.076.726 3.043z"/></svg>
+          Linux
+          <span class="dl-btn-sub">AppImage</span>
+        </a>
+        <a href="https://kept.work/download/linux-deb" class="dl-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M20.581 19.049c-.55-.446-.336-1.431-.959-1.912a.755.755 0 0 0-.14-.105c1.324-2.937 1.037-5.395-.87-6.828-1.943-1.46-4.917-1.334-7.447.175-2.117 1.243-3.567 3.212-3.761 5.208-.02.199.005.378.024.559a.69.69 0 0 0-.145.076c-.651.479-.425 1.494-.99 1.936-.532.42-1.061-.047-1.544.338-.455.365-.35 1.195.05 1.66.599.697 1.282.985 2.134.657.461-.178.758-.158 1.208.078.548.284 1.17.496 1.854.632 2.426.481 4.8-.021 6.423-1.25.29.157.653.261 1.048.321.348.051.948.43 1.335.607.536.242 1.373.41 1.74-.201.382-.63-.272-1.3-.961-1.851zm-2.42.517c-.098.121-1.534-.252-2.536.209-2.157 1.008-4.911.688-6.709-.515-.105-.072-.302-.209-.202-.306.12-.115 1.274.327 1.338.24.063-.088-.922-1.031-.744-2.962.203-2.217 1.818-3.815 3.688-4.648 2.215-.985 4.854-.785 5.822.916.949 1.667.153 4.078-.252 4.116-.222.021-.857-1.277-1.131-1.093-.285.192.48 2.076.726 3.043z"/></svg>
+          Debian
+          <span class="dl-btn-sub">.deb</span>
+        </a>
+      </div>
+    </div>
+
     <div class="hero-meta">
       <div class="hero-meta-item">
         <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 1.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11z"></path></svg>
