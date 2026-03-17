@@ -360,6 +360,36 @@ nav .w {
   margin-top: 1px;
 }
 .dl-btn:hover .dl-btn-sub { color: var(--accent); }
+.hero-docs-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: var(--text2);
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.65s forwards;
+}
+.hero-docs-cta svg {
+  color: var(--accent);
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+.hero-docs-cta a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid var(--accent2)60;
+  padding-bottom: 1px;
+  transition: border-color 0.15s, color 0.15s;
+}
+.hero-docs-cta a:hover {
+  color: var(--text);
+  border-color: var(--text);
+}
 @media (max-width: 768px) {
   .hero-downloads-row { gap: 6px; }
   .dl-btn { min-width: 70px; padding: 6px 10px; }
@@ -1322,6 +1352,7 @@ footer {
       <a href="#who">Who it's for</a>
       <a href="#pricing">Pricing</a>
       <a href="blog/">Blog</a>
+      <a href="docs/">Docs</a>
     </div>
     <div class="nav-cta">
       <a href="https://github.com/hoarhouse/KP5D" class="btn btn-ghost" target="_blank">
@@ -1375,6 +1406,17 @@ footer {
           <span class="dl-btn-sub">.deb</span>
         </a>
       </div>
+    </div>
+
+    <div class="hero-docs-cta">
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+        <path d="M3 2h7l3 3v9H3V2z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+        <path d="M10 2v3h3" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+        <path d="M6 7h4M6 9.5h4M6 12h2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+      New to Kept? Read the
+      <a href="docs/">setup guide and feature docs</a>
+      before you start.
     </div>
 
     <div class="hero-meta">
@@ -2058,6 +2100,7 @@ footer {
       <div class="foot-right">
         <a href="https://github.com/hoarhouse/KP5D" target="_blank">GitHub</a>
         <a href="blog/">Blog</a>
+        <a href="docs/">Docs</a>
         <a href="/KP5D/privacy.html">Privacy</a>
       </div>
     </div>
